@@ -1,0 +1,230 @@
+<project type="bio">
+  <property name="target.model" value="genomic"/>
+  <property name="source.location" location="../bio/sources/"/>
+  <property name="common.os.prefix" value="common"/>
+  <property name="intermine.properties.file" value="bovinemine.properties"/>
+  <property name="default.intermine.properties.file" location="../default.intermine.integrate.properties"/>
+  <sources>
+    
+    <source name="bovine-chromosome-fasta" type="fasta" dump="true">
+      <property name="fasta.className" value="org.intermine.model.bio.Chromosome"/>
+      <property name="fasta.dataSourceName" value="Bovine Genome"/>
+      <property name="fasta.dataSetTitle" value="Bos taurus UMD3.1 chromosome assembly"/>
+      <property name="fasta.taxonId" value="9913"/>
+      <property name="fasta.sequenceType" value="dna"/>
+      <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineFastaLoaderTask"/>
+      <property name="fasta.includes" value="*.fa"/>
+
+      <property name="src.data.dir" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/genome/"/>
+    </source>
+
+    <source name="bovine-coding-gff" type="proteincoding-gff" dump="true">
+      <property name="gff3.taxonId" value="9913"/>
+      <property name="gff3.seqDataSourceName" value="Bovine Genome RefSeq annotation"/>
+      <property name="gff3.dataSourceName" value="Bovine Genome RefSeq annotation from NCBI"/>
+      <property name="gff3.seqClsName" value="Chromosome"/>
+      <property name="gff3.dataSetTitle" value="Bos taurus UMD3.1 chromosome assembly annotation (NCBI)"/>
+      <property name="src.data.dir" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/GFF3/RefSeq/proteincoding/"/>
+    </source>	
+
+    <source name="bovine-noncoding-gff" type="noncoding-gff" dump="true">
+      <property name="gff3.taxonId" value="9913"/>
+      <property name="gff3.seqDataSourceName" value="Bovine Genome RefSeq annotation"/>
+      <property name="gff3.dataSourceName" value="Bovine Genome RefSeq annotation from NCBI"/>
+      <property name="gff3.seqClsName" value="Chromosome"/>
+      <property name="gff3.dataSetTitle" value="Bos taurus UMD3.1 chromosome assembly annotation (NCBI)"/>
+      <property name="src.data.dir" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/GFF3/RefSeq/noncoding/"/>
+    </source> 
+
+    <source name="bovine-ensembl-gff" type="ensembl-gff" dump="true">
+      <property name="gff3.taxonId" value="9913"/>
+      <property name="gff3.seqDataSourceName" value="Bovine Genome ENSEMBL annotation"/>
+      <property name="gff3.dataSourceName" value="Bovine Genome ENSEMBL annotations from ENSEMBL"/>
+      <property name="gff3.seqClsName" value="Chromosome"/>
+      <property name="gff3.dataSetTitle" value="Bos taurus UMD3.1 chromosome assembly annotation (ENSEMBL)"/>
+      <property name="src.data.dir" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/GFF3/ENSEMBL/"/>
+    </source>
+
+    <source name="bovine-ogs-gff" type="ogs-gff" dump="true">
+      <property name="gff3.taxonId" value="9913"/>
+      <property name="gff3.seqDataSourceName" value="Bovine Genome OGS Genes"/>
+      <property name="gff3.dataSourceName" value="Bovine Genome Official Gene Set v2"/>
+      <property name="gff3.seqClsName" value="Chromosome"/>
+      <property name="gff3.dataSetTitle" value="Bos taurus UMD3.1 chromosome assembly annotation (OGS)"/>
+      <property name="src.data.dir" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/GFF3/OGS/"/>
+    </source>
+
+<!--     <source name="bovine-ogs-fasta" type="fasta" dump="true">
+      <property name="fasta.taxonId" value="9913"/>
+      <property name="fasta.className" value="org.intermine.model.bio.Transcript"/>
+      <property name="fasta.classAttribute" value="primaryIdentifier"/>
+      <property name="fasta.dataSetTitle" value="Test sequence for BT26136"/>
+      <property name="fasta.dataSourceName" value="Test"/>
+      <property name="src.data.dir" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/transcript_fasta/"/>
+      <property name="fasta.includes" value="parsed_seq.fasta"/>
+      <property name="fasta.sequenceType" value="dna" />
+      <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.FeatureFastaLoaderTask"/>
+    </source> -->
+	<!-- uniprot must be processed immediately after chado, if any -->
+
+    <source name="bovine-uniprot" type="uniprot" dump="true">
+      <property name="uniprot.organisms" value="9913"/>
+      <property name="src.data.dir" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/UniProt/"/>
+      <property name="createinterpro" value="true"/>
+      <property name="creatego" value="true"/>
+    </source>
+
+    <source name="bovine-uniprot-fasta" type="fasta" dump="true">
+      <property name="fasta.taxonId" value="9913"/>
+      <property name="fasta.className" value="org.intermine.model.bio.Protein"/>
+      <property name="fasta.classAttribute" value="primaryAccession"/>
+      <property name="fasta.dataSetTitle" value="UniProt data set"/>
+      <property name="fasta.dataSourceName" value="UniProt"/>
+      <property name="src.data.dir" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/UniProt/"/>
+      <property name="fasta.includes" value="uniprot_sprot_varsplic.fasta"/>
+      <property name="fasta.sequenceType" value="protein" />
+      <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.UniProtFastaLoaderTask"/>
+    </source>
+
+    <source name="bovine-uniprot-keywords" type="uniprot-keywords" dump="true">
+      <property name="src.data.dir" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/UniProt/"/>
+      <property name="src.data.dir.includes" value="keywlist.xml"/>
+    </source>
+
+    <source name="bovine-interpro" type="interpro" dump="true">
+      <property name="src.data.dir" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/InterPro/"/>
+      <property name="src.data.includes" location="interpro.xml"/>
+    </source>
+
+<!--     <source name="bovine-miranda" type="miranda">
+      <property name="gff3.seqClsName" value="Chromosome"/>
+      <property name="gff3.taxonId" value="9913"/>
+      <property name="src.data.dir" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/MIRanda"/>
+      <property name="src.data.dir.includes" value="v5.gff.bos_taurus.gff"/>
+    </source> -->
+
+    <source name="psi-mi-ontology" type="psi-mi-ontology" dump="true">
+      <property name="src.data.file" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/PSI-MI-ontology/psi-mi.obo"/>
+    </source>
+
+    <source name="bovine-so" type="so" dump="true">
+      <property name="src.data.file" location="../../bio/sources/so/so.obo"/>
+    </source>
+<!-- 
+    <source name="bovine-uberon" type="uberon">
+      <property name="src.data.file" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/Uberon/uberon.obo"/>
+    </source> -->
+
+    <source name="bovine-go" type="go" dump="true">
+      <property name="src.data.file" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/GO/gene_ontology.obo"/>
+    </source>
+
+    <source name="bovine-goannotation" type="go-annotation">
+      <property name="ontologyfile" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/GO/gene_ontology.obo"/>
+      <property name="src.data.dir" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/GO-annotation/"/>
+    </source>
+
+    <source name="bovine-pubmed-gene" type="pubmed-gene" dump="true">
+      <property name="src.data.dir" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/PubMed/"/>
+      <property name="pubmed.organisms" value="9913"/>
+      <property name="src.data.dir.includes" value="gene2pubmed"/>
+      <property name="infoFile" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/PubMed/gene_info"/>
+    </source>
+
+    <source name="reactome" type="biopax" dump="true">
+      <property name="src.data.dir" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/Reactome/"/>
+      <property name="biopax.organisms" value="9913"/>
+      <property name="biopax.datasourcename" value="Reactome"/>
+      <property name="biopax.datasetname" value="Reactome data set"/>
+      <property name="biopax.curated" value="false"/>
+    </source>
+
+    <source name="ensembl-compara" type="ensembl-compara">
+      <property name="src.data.dir" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/ENSEMBL_COMPARA/"/>
+      <property name="ensemblcompara.organisms" value="9913"/>
+      <property name="ensemblcompara.homologues" value="9606 10090 13616 9031 9615 9796 9823"/>
+    </source>
+
+    <source name="psi-intact" type="psi" dump="true">
+      <property name="src.data.dir" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/IntAct/"/>
+      <property name="intact.organisms" value="9913"/>
+    </source>
+
+    <source name="treefam" type="treefam" dump="true">
+      <property name="src.data.dir" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/TreeFam/"/>
+      <property name="src.data.dir.includes" value="ortholog.txt.table"/>
+      <property name="geneFile" value="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/TreeFam/genes.txt.table"/>
+      <property name="treefam.organisms" value="9913 9606 9031 9796 9615 10090 9823 13616"/>
+     </source>
+
+    <source name="bovine-homologene" type="homologene" dump="true">
+          <property name="src.data.dir" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/homologene/"/>
+          <property name="homologene.organisms" value="9913 9606 9696 9031 9796 9615 10090 9823 13616"/>
+    </source>    
+
+                                                  
+
+   <source name="bovine-orthodb" type="orthodb" dump="true">
+      <property name="src.data.dir" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/OrthoDB/"/>
+      <property name="orthodb.organisms" value="9913"/>
+      <property name="orthodb.homologues" value="9606 9031 9796 9615 10090 9823 13616"/>
+    </source>
+
+    <source name="bovine-biogrid" type="biogrid">
+      <property name="src.data.dir" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/BIOGRID/"/>
+      <property name="src.data.dir.includes" value="*psi25.xml"/>
+      <property name="biogrid.organisms" value="9913"/>
+    </source>
+
+    <source name="bovine-pdb" type="pdb">
+      <property name="src.data.dir" location="/home.george/deepak.unni3/bovinemine_release_1.0/UMD3.1/PDB/"/>
+      <property name="pdb.organisms" value="9913"/>
+    </source>
+
+    <source name="entrez-organism" type="entrez-organism" dump="true">
+      <property name="src.data.file" location="build/organisms.xml"/>
+    </source>
+
+   <source name="update-publications" type="update-publications" dump="true">
+      <property name="src.data.file" location="build/publications.xml"/>
+      <property name="loadFullRecord" value="true"/>
+    </source>
+  </sources>
+
+ <source name="qtl" type="qtl-gff" dump="true">
+  <property name="gff3.taxonId" value="9913"/>
+  <property name="gff3.seqClsName" value="Chromosome"/>
+  <property name="gff3.dataSetTitle" value="QTL"/>
+ <property name="gff3.dataSourceName" value="QTL"/>
+ <property name="gff3.seqDataSourceName" value="QTL"/>
+   <property name="src.data.dir" location="/home.george/aditi/genomes/bovinemine_data/UMD3.1/QTL"/>
+</source>
+
+
+
+
+
+
+  <post-processing>
+<!-- 
+   <post-process name="populate-located-features"/>
+    <post-process name="create-references"/>
+    <post-process name="make-spanning-locations" dump="true"/>
+    <post-process name="create-chromosome-locations-and-lengths" dump="true"/> -->
+<!--     <post-process name="create-intergenic-region-features" dump="true"/> -->
+<!-- ends up creating an intergenic feature with start > end on the + strand -->
+<!--    <post-process name="transfer-sequences"/>
+    <post-process name="populate-child-features"/>
+    <post-process name="create-gene-flanking-features"/>
+    <post-process name="do-sources" dump="true"/> 
+-->
+  <!--  <post-process name="create-bioseg-location-index"/> -->
+  <!--  <post-process name="create-overlap-view"/> -->
+    <post-process name="summarise-objectstore"/>
+    <post-process name="create-autocomplete-index"/>
+    <post-process name="create-search-index"/>
+    <post-process name="create-attribute-indexes"/>
+  </post-processing>
+</project>
+
+  
