@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- This file details any extensions needed to the data model to store data from this source, everything else is automatically generated from the model description so this is all we need to do to add to the model. -->
+
+<classes>
+<!-- add any <class> elements here -->
+	<class name="Gene" extends="SequenceFeature" is-interface="true">
+	  <attribute name="duplicate_entity" type="java.lang.String"/>
+	  <reference name="organismName" referenced-type="Organism"/>
+	  <collection name="duplicateEntity" referenced-type="Duplicate" reverse-reference="primeGene"/>
+	</class>
+	<class name="MRNA" extends="Transcript" is-interface="true">
+		<attribute name="proteinIdentifier" type="java.lang.String"/>
+		<attribute name="description" type="java.lang.String"/>
+	</class>
+	<class name="Duplicate" is-interface="true">
+		<attribute name="geneIdentifier" type="java.lang.String"/>
+		<attribute name="chromosome" type="java.lang.String"/>
+		<attribute name="start" type="java.lang.Integer"/>
+		<attribute name="end" type="java.lang.Integer"/>
+		<attribute name="strand" type="java.lang.Integer"/>
+		<attribute name="geneProduct" type="java.lang.String"/>
+		<attribute name="transcriptIdentifier" type="java.lang.String"/>
+		<collection name="primeGene" referenced-type="Gene" reverse-reference="duplicateEntity"/>
+	</class>
+</classes>

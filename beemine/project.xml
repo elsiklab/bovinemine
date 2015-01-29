@@ -1,0 +1,640 @@
+<project type="bio">
+  <property name="target.model" value="genomic"/>
+  <property name="source.location" location="../bio/sources/"/>
+  <property name="common.os.prefix" value="common"/>
+  <property name="intermine.properties.file" value="beemine.properties"/>
+  <property name="default.intermine.properties.file" location="../default.intermine.integrate.properties"/>
+
+
+<source name="interpro" type="interpro">
+  <property name="src.data.dir" location="/home.george/aditi/genomes/interpro"/>
+</source>
+
+<!--FASTA-->
+<source name="fasta-cobs" type="fasta">
+  <property name="fasta.taxonId" value="286306"/>
+  <property name="fasta.dataSetTitle" value="Cardiocondyla obscurior fasta"/>
+  <property name="fasta.dataSourceName" value="Beemine"/>
+<property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
+<property name ="fasta.sequenceType" value="dna"/>
+ <property name="fasta.includes" value="Cobs*.fa"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+</source>
+
+<source name="fasta-waur" type="fasta">
+  <property name="fasta.taxonId" value="64793"/>
+  <property name="fasta.dataSetTitle" value="Wasmannia auropunctata fasta"/>
+  <property name="fasta.dataSourceName" value="Beemine"/>
+<property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
+<property name ="fasta.sequenceType" value="dna"/>
+ <property name="fasta.includes" value="W*.fa"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+</source>
+
+<source name="fasta-lalb" type="fasta">
+  <property name="fasta.taxonId" value="88501"/>
+  <property name="fasta.dataSetTitle" value="Lasioglossum albipes fasta"/>
+  <property name="fasta.dataSourceName" value="Beemine"/>
+<property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
+<property name ="fasta.sequenceType" value="dna"/>
+ <property name="fasta.includes" value="La*.fa"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+</source>
+
+
+<source name="fasta-acep" type="fasta">
+  <property name="fasta.taxonId" value="12957"/>
+  <property name="fasta.dataSetTitle" value="Atta cephalotes fasta"/>
+  <property name="fasta.dataSourceName" value="Beemine"/>
+<property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
+<property name ="fasta.sequenceType" value="dna"/>
+ <property name="fasta.includes" value="Acep*.fa"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+</source>
+
+
+ <source name="fasta-aech" type="fasta">
+  <property name="fasta.taxonId" value="103372"/>
+  <property name="fasta.dataSetTitle" value="Acromyrmex echinatior fasta"/>
+  <property name="fasta.dataSourceName" value="Beemine"/>
+<property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
+<property name ="fasta.sequenceType" value="dna"/>
+ <property name="fasta.includes" value="Aec*.fa"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+</source>
+
+ <source name="fasta-cflo" type="fasta">
+  <property name="fasta.taxonId" value="104421"/>
+  <property name="fasta.dataSetTitle" value="Camponotus floridanus fasta"/>
+  <property name="fasta.dataSourceName" value="Beemine"/>
+<property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
+<property name ="fasta.sequenceType" value="dna"/>
+ <property name="fasta.includes" value="Cf*.fa"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+</source>
+
+<source name="fasta-lhum" type="fasta">
+  <property name="fasta.taxonId" value="83485"/>
+  <property name="fasta.dataSetTitle" value="Linepithema humile fasta"/>
+  <property name="fasta.dataSourceName" value="Beemine"/>
+<property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
+<property name ="fasta.sequenceType" value="dna"/>
+ <property name="fasta.includes" value="Lh*.fa"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+</source>
+
+<source name="fasta-pbar" type="fasta">
+  <property name="fasta.taxonId" value="144034"/>
+  <property name="fasta.dataSetTitle" value="Pogonomyrmex barbatus fasta"/>
+  <property name="fasta.dataSourceName" value="Beemine"/>
+<property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
+<property name ="fasta.sequenceType" value="dna"/>
+ <property name="fasta.includes" value="Pb*.fa"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+</source>
+
+<source name="fasta-hsal" type="fasta">
+  <property name="fasta.taxonId" value="610380"/>
+  <property name="fasta.dataSetTitle" value="Harpegnathos saltator fasta"/>
+  <property name="fasta.dataSourceName" value="Beemine"/>
+<property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
+<property name ="fasta.sequenceType" value="dna"/>
+ <property name="fasta.includes" value="Hs*.fa"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+</source>
+
+<source name="fasta-amel" type="fasta">
+  <property name="fasta.taxonId" value="7460"/>
+  <property name="fasta.dataSetTitle" value="Apis mellifera fasta"/>
+  <property name="fasta.dataSourceName" value="Beemine"/>
+<property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/> 
+<property name ="fasta.sequenceType" value="dna"/>  
+ <property name="fasta.includes" value="Am*.fa"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+</source>
+
+
+<source name="fasta-ador" type="fasta">
+  <property name="fasta.taxonId" value="7462"/>
+  <property name="fasta.dataSetTitle" value="Apis dorsata fasta"/>
+  <property name="fasta.dataSourceName" value="Beemine"/>
+<property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
+<property name ="fasta.sequenceType" value="dna"/>
+ <property name="fasta.includes" value="Ador*.fa"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+</source>
+
+<source name="fasta-aflo" type="fasta">
+  <property name="fasta.taxonId" value="7463"/>
+  <property name="fasta.dataSetTitle" value="Apis florea fasta"/>
+  <property name="fasta.dataSourceName" value="Beemine"/>
+<property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
+<property name ="fasta.sequenceType" value="dna"/>
+ <property name="fasta.includes" value="Aflo*.fa"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+</source>
+
+<source name="fasta-bter" type="fasta">
+  <property name="fasta.taxonId" value="30195"/>
+  <property name="fasta.dataSetTitle" value="Bombus terrestris fasta"/>
+  <property name="fasta.dataSourceName" value="Beemine"/>
+<property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
+<property name ="fasta.sequenceType" value="dna"/>
+ <property name="fasta.includes" value="Bt*.fa"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+</source>
+
+
+<source name="fasta-bimp" type="fasta">
+  <property name="fasta.taxonId" value="132113"/>
+  <property name="fasta.dataSetTitle" value="Bombus impatiens fasta"/>
+  <property name="fasta.dataSourceName" value="Beemine"/>
+<property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
+<property name ="fasta.sequenceType" value="dna"/>
+ <property name="fasta.includes" value="Bi*.fa"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+</source>
+
+
+<source name="fasta-nvit" type="fasta">
+  <property name="fasta.taxonId" value="7425"/>
+  <property name="fasta.dataSetTitle" value="Nasonia vitripennis fasta"/>
+  <property name="fasta.dataSourceName" value="Beemine"/>
+<property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
+<property name ="fasta.sequenceType" value="dna"/>
+ <property name="fasta.includes" value="Nvit_2.1.fa"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+</source>
+
+
+<source name="fasta-sinv" type="fasta">
+  <property name="fasta.taxonId" value="13686"/>
+  <property name="fasta.dataSetTitle" value="Solenopsis invicta fasta"/>
+  <property name="fasta.dataSourceName" value="Beemine"/>
+<property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
+<property name ="fasta.sequenceType" value="dna"/>
+ <property name="fasta.includes" value="Si*.fa"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+</source>
+
+
+
+
+<!--Uniprot-->
+<source name="uniprot-pbar" type="uniprot" dump="true">
+  <property name="uniprot.organisms" value="144034"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="createinterpro" value="true"/>
+  <property name="creatego" value="true"/>
+  <property name="allowduplicates" value="false"/>
+  <property name="loadfragments" value="false"/>
+  <property name="loadtrembl" value="true"/>
+</source>
+
+<source name="uniprot-amel" type="uniprot" dump="true">
+  <property name="uniprot.organisms" value="7460"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="createinterpro" value="true"/>
+  <property name="creatego" value="true"/>
+  <property name="allowduplicates" value="false"/>
+  <property name="loadfragments" value="false"/>
+  <property name="loadtrembl" value="true"/>
+</source>
+
+<source name="uniprot-bter" type="uniprot" dump="true" >
+  <property name="uniprot.organisms" value="30195"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="createinterpro" value="true"/>
+  <property name="creatego" value="true"/>
+  <property name="allowduplicates" value="false"/>
+  <property name="loadfragments" value="false"/>
+  <property name="loadtrembl" value="true"/>
+</source>
+
+<source name="uniprot-bimp" type="uniprot" dump="true" >
+  <property name="uniprot.organisms" value="132113"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="createinterpro" value="true"/>
+  <property name="creatego" value="true"/>
+  <property name="allowduplicates" value="false"/>
+  <property name="loadfragments" value="false"/>
+  <property name="loadtrembl" value="true"/>
+</source>
+
+<source name="uniprot-aech" type="uniprot" dump="true" >
+  <property name="uniprot.organisms" value="103372"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="createinterpro" value="true"/>
+  <property name="creatego" value="true"/>
+  <property name="allowduplicates" value="false"/>
+  <property name="loadfragments" value="false"/>
+  <property name="loadtrembl" value="true"/>
+</source>
+
+<source name="uniprot-ador" type="uniprot" dump="true" >
+  <property name="uniprot.organisms" value="7462"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="createinterpro" value="true"/>
+  <property name="creatego" value="true"/>
+  <property name="allowduplicates" value="false"/>
+  <property name="loadfragments" value="false"/>
+  <property name="loadtrembl" value="true"/>
+</source>
+
+<source name="uniprot-lhum" type="uniprot" dump="true">
+  <property name="uniprot.organisms" value="83485"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="createinterpro" value="true"/>
+  <property name="creatego" value="true"/>
+  <property name="allowduplicates" value="false"/>
+  <property name="loadfragments" value="false"/>
+  <property name="loadtrembl" value="true"/>
+</source>
+
+<source name="uniprot-aflo" type="uniprot" dump="true">
+  <property name="uniprot.organisms" value="7463"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="createinterpro" value="true"/>
+  <property name="creatego" value="true"/>
+  <property name="allowduplicates" value="false"/>
+  <property name="loadfragments" value="false"/>
+  <property name="loadtrembl" value="true"/>
+</source>
+
+<source name="uniprot-nvit" type="uniprot" dump="true">
+  <property name="uniprot.organisms" value="7425"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="createinterpro" value="true"/>
+  <property name="creatego" value="true"/>
+  <property name="allowduplicates" value="false"/>
+  <property name="loadfragments" value="false"/>
+  <property name="loadtrembl" value="true"/>
+</source>
+
+<source name="uniprot-acep" type="uniprot" dump="true">
+  <property name="uniprot.organisms" value="12957"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="createinterpro" value="true"/>
+  <property name="creatego" value="true"/>
+  <property name="allowduplicates" value="false"/>
+  <property name="loadfragments" value="false"/>
+  <property name="loadtrembl" value="true"/>
+</source>
+
+<source name="uniprot-hsal" type="uniprot" dump="true">
+  <property name="uniprot.organisms" value="610380"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="createinterpro" value="true"/>
+  <property name="creatego" value="true"/>
+  <property name="allowduplicates" value="false"/>
+  <property name="loadfragments" value="false"/>
+  <property name="loadtrembl" value="true"/>
+</source>
+
+<source name="uniprot-sinv" type="uniprot" dump="true">
+  <property name="uniprot.organisms" value="13686"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="createinterpro" value="true"/>
+  <property name="creatego" value="true"/>
+  <property name="allowduplicates" value="false"/>
+  <property name="loadfragments" value="false"/>
+  <property name="loadtrembl" value="true"/>
+</source>
+
+<source name="uniprot-cflo" type="uniprot" dump="true">
+  <property name="uniprot.organisms" value="104421"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="createinterpro" value="true"/>
+  <property name="creatego" value="true"/>
+  <property name="allowduplicates" value="false"/>
+  <property name="loadfragments" value="false"/>
+  <property name="loadtrembl" value="true"/>
+</source>
+
+
+<source name="uniprot-fasta" type="fasta">
+  <property name="fasta.taxonId" value="104421 13686 7460 7462 7463 132113 30195 7425 88501 83485 144034 12957 610380 103372 286306 64793"/>
+  <property name="fasta.className" value="org.intermine.model.bio.Protein"/>
+  <property name="fasta.classAttribute" value="primaryAccession"/>
+  <property name="fasta.dataSetTitle" value="UniProt data set"/>
+  <property name="fasta.dataSourceName" value="UniProt"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/current"/>
+  <property name="fasta.includes" value="uniprot_sprot_varsplic.fasta"/>
+  <property name="fasta.sequenceType" value="protein" />
+  <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.UniProtFastaLoaderTask"/>
+</source>
+
+<!--Protien-coding Refseq gff-->
+<source name="ador-code-gff" type="proteincoding-gff" dump="true">
+  <property name="gff3.taxonId" value="7462"/>
+  <property name="gff3.seqClsName" value="Chromosome"/>
+  <property name="gff3.dataSetTitle" value="RefSeq for Apis dorsata Protein-coding Genome 1.3 (NCBI)"/>
+ <property name="gff3.dataSourceName" value="RefSeq for Apis dorsata Protein-coding Genome 1.3 (NCBI)"/>
+ <property name="gff3.seqDataSourceName" value="RefSeq for Apis dorsata Protein-coding Genome 1.3 (NCBI)"/>
+   <property name="src.data.dir" location="/home.george/aditi/genomes/gff/ador/proteincoding"/>
+</source>
+
+    <source name="ador-noncoding-gff" type="noncoding-gff" dump="true">
+      <property name="gff3.taxonId" value="7462"/>
+      <property name="gff3.seqDataSourceName" value="RefSeq for Apis dorsata Non-coding Genome 1.3 (NCBI)"/>
+      <property name="gff3.dataSourceName" value=" RefSeq for Apis dorsata Non-coding Genome 1.3 (NCBI)"/>
+      <property name="gff3.seqClsName" value="Chromosome"/>
+      <property name="gff3.dataSetTitle" value="RefSeq for Apis dorsata Non-coding Genome 1.3 (NCBI)"/>
+      <property name="src.data.dir" location="/home.george/aditi/genomes/gff/ador/nonproteincoding"/>
+    </source>
+
+<source name="amel-code-gff" type="amel-proteincoding" dump="true">
+  <property name="gff3.taxonId" value="7460"/>
+  <property name="gff3.seqClsName" value="Chromosome"/>
+  <property name="gff3.dataSetTitle" value="RefSeq for Apis mellifera Protein-coding Genome 4.5 (NCBI)"/>
+ <property name="gff3.dataSourceName" value="RefSeq for Apis mellifera Protein-coding Genome 4.5 (NCBI)"/>
+ <property name="gff3.seqDataSourceName" value="RefSeq for Apis mellifera Protein-coding Genome 4.5 (NCBI)"/>
+   <property name="src.data.dir" location="/home.george/aditi/genomes/gff/amel/proteincoding"/>
+</source>
+
+    <source name="amel-noncoding-gff" type="amel-noncoding" dump="true">
+      <property name="gff3.taxonId" value="7460"/>
+      <property name="gff3.seqDataSourceName" value="RefSeq for Apis mellifera Non-coding Genome 4.5 (NCBI)"/>
+      <property name="gff3.dataSourceName" value="RefSeq for Apis mellifera Non-coding Genome 4.5 (NCBI)"/>
+      <property name="gff3.seqClsName" value="Chromosome"/>
+      <property name="gff3.dataSetTitle" value="RefSeq for Apis mellifera Non-coding Genome 4.5 (NCBI)"/>
+      <property name="src.data.dir" location="/home.george/aditi/genomes/gff/amel/nonproteincoding"/>
+    </source>
+
+<source name="bter-code-gff" type="proteincoding-gff" dump="true">
+  <property name="gff3.taxonId" value="30195"/>
+  <property name="gff3.seqClsName" value="Chromosome"/>
+  <property name="gff3.dataSetTitle" value="RefSeq for Bombus terrestris Protein-coding Genome 1.0 (NCBI)"/>
+ <property name="gff3.dataSourceName" value="RefSeq for Bombus terrestris Protein-coding Genome 1.0 (NCBI)"/>
+ <property name="gff3.seqDataSourceName" value="RefSeq for Bombus terrestris Protein-coding Genome 1.0 (NCBI)"/>
+   <property name="src.data.dir" location="/home.george/aditi/genomes/gff/bter/proteincoding"/>
+</source>
+
+    <source name="bter-noncoding-gff" type="noncoding-gff" dump="true">
+      <property name="gff3.taxonId" value="30195"/>
+      <property name="gff3.seqDataSourceName" value="RefSeq for Bombus terrestris Non-coding Genome 1.0 (NCBI)"/>
+      <property name="gff3.dataSourceName" value="RefSeq for Bombus terrestris Non-coding Genome 1.0 (NCBI)"/>
+      <property name="gff3.seqClsName" value="Chromosome"/>
+      <property name="gff3.dataSetTitle" value="RefSeq for Bombus terrestris Non-coding Genome 1.0 (NCBI)"/>
+      <property name="src.data.dir" location="/home.george/aditi/genomes/gff/bter/nonproteincoding"/>
+    </source>
+
+
+<source name="bimp-code-gff" type="proteincoding-gff" dump="true">
+  <property name="gff3.taxonId" value="132113"/>
+  <property name="gff3.seqClsName" value="Chromosome"/>
+  <property name="gff3.dataSetTitle" value="RefSeq for Bombus impatiens Protein-coding Genome 2.0 (NCBI)"/>
+ <property name="gff3.dataSourceName" value="RefSeq for Bombus impatiens Protein-coding Genome 2.0 (NCBI)"/>
+ <property name="gff3.seqDataSourceName" value="RefSeq for Bombus impatiens Protein-coding Genome 2.0 (NCBI)"/>
+   <property name="src.data.dir" location="/home.george/aditi/genomes/gff/bimp/proteincoding"/>
+</source>
+
+    <source name="bimp-noncoding-gff" type="noncoding-gff" dump="true">
+      <property name="gff3.taxonId" value="132113"/>
+      <property name="gff3.seqDataSourceName" value="RefSeq for Bombus impatiens Non-coding Genome 2.0 (NCBI)"/>
+      <property name="gff3.dataSourceName" value=" RefSeq for Bombus impatiens Non-coding Genome 2.0 (NCBI)"/>
+      <property name="gff3.seqClsName" value="Chromosome"/>
+      <property name="gff3.dataSetTitle" value="RefSeq for Bombus impatiens Non-coding Genome 2.0 (NCBI)"/>
+      <property name="src.data.dir" location="/home.george/aditi/genomes/gff/bimp/nonproteincoding"/>
+    </source>
+
+<source name="aflo-code-gff" type="proteincoding-gff" dump="true">
+  <property name="gff3.taxonId" value="7463"/>
+  <property name="gff3.seqClsName" value="Chromosome"/>
+  <property name="gff3.dataSetTitle" value="RefSeq for Apis florea Protein-coding Genome 1.0 (NCBI)"/>
+ <property name="gff3.dataSourceName" value="RefSeq for Apis florea Protein-coding Genome 1.0 (NCBI)"/>
+ <property name="gff3.seqDataSourceName" value="RefSeq for Apis florea Protein-coding Genome 1.0 (NCBI)"/>
+   <property name="src.data.dir" location="/home.george/aditi/genomes/gff/aflo/proteincoding"/>
+</source>
+
+    <source name="aflo-noncoding-gff" type="noncoding-gff" dump="true">
+      <property name="gff3.taxonId" value="7463"/>
+      <property name="gff3.seqDataSourceName" value="RefSeq for Apis florea Non-coding Genome 1.0 (NCBI)"/>
+      <property name="gff3.dataSourceName" value=" RefSeq for Apis florea Non-coding Genome 1.0 (NCBI)"/>
+      <property name="gff3.seqClsName" value="Chromosome"/>
+      <property name="gff3.dataSetTitle" value="RefSeq for Apis florea Non-coding Genome 1.0 (NCBI)"/>
+      <property name="src.data.dir" location="/home.george/aditi/genomes/gff/aflo/nonproteincoding"/>
+    </source>
+
+
+<source name="nvit-code-gff" type="proteincoding-gff" dump="true">
+  <property name="gff3.taxonId" value="7425"/>
+  <property name="gff3.seqClsName" value="Chromosome"/>
+  <property name="gff3.dataSetTitle" value="RefSeq for Nasonia vitripennis Protein-coding Genome 2.1 (NCBI)"/>
+ <property name="gff3.dataSourceName" value="RefSeq for Nasonia vitripennis Protein-coding Genome 2.1 (NCBI)"/>
+ <property name="gff3.seqDataSourceName" value="RefSeq for Nasonia vitripennis Protein-coding Genome 2.1 (NCBI)"/>
+   <property name="src.data.dir" location="/home.george/aditi/genomes/gff/nvit/Nvit_2.1_refSeq_gff/proteincoding"/>
+</source>
+
+    <source name="nvit-noncoding-gff" type="noncoding-gff" dump="true">
+      <property name="gff3.taxonId" value="7425"/>
+      <property name="gff3.seqDataSourceName" value="RefSeq for Nasonia vitripennis Non-coding Genome 2.1 (NCBI)"/>
+      <property name="gff3.dataSourceName" value=" RefSeq for Nasonia vitripennis Non-coding Genome 2.1 (NCBI)"/>
+      <property name="gff3.seqClsName" value="Chromosome"/>
+      <property name="gff3.dataSetTitle" value="RefSeq for Nasonia vitripennis Non-coding Genome 2.1(NCBI)"/>
+      <property name="src.data.dir" location="/home.george/aditi/genomes/gff/nvit/Nvit_2.1_refSeq_gff/nonproteincoding"/>
+    </source>
+
+
+<!--OGS GFF-->
+
+
+
+
+<source name="bimp-ogs-gff" type="ogs-gff" dump="true">
+  <property name="gff3.taxonId" value="132113"/>
+  <property name="gff3.seqClsName" value="Chromosome"/>
+  <property name="gff3.dataSetTitle" value="Official Gene Set v2.0 for Bombus impatiens Genome"/>
+  <property name="gff3.dataSourceName" value="Official Gene Set v2.0 for Bombus impatiens Genome"/>
+  <property name="gff3.seqDataSourceName" value="Official Gene Set v2.0 for Bombus impatiens Genome"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/gff/bimp/ogs"/>
+</source>
+
+<source name="amel-ogs-gff" type="ogs-gff" dump="true">
+  <property name="gff3.taxonId" value="7460"/>
+  <property name="gff3.seqClsName" value="Chromosome"/>
+  <property name="gff3.dataSetTitle" value="Official Gene Set v3.2 for Apis mellifera Genome"/>
+  <property name="gff3.dataSourceName" value="Official Gene Set v3.2  for Apis mellifera Genome"/>
+  <property name="gff3.seqDataSourceName" value="Official Gene Set v3.2  for Apis mellifera Genome"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/gff/amel/ogs"/>
+</source>
+
+<source name="cobs-ogs-gff" type="ogs-gff" dump="true">
+  <property name="gff3.taxonId" value="286306"/>
+  <property name="gff3.seqClsName" value="Chromosome"/>
+  <property name="gff3.dataSetTitle" value="Official Gene Set 1.4  for Cardiocondyla obscurior Genome"/>
+  <property name="gff3.dataSourceName" value="Official Gene Set 1.4  for Cardiocondyla obscurior Genome"/>
+  <property name="gff3.seqDataSourceName" value="Official Gene Set 1.4  for Cardiocondyla obscurior Genome"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/gff/cobs"/>
+</source>
+
+<source name="lalb-ogs-gff" type="ogs-gff" dump="true">
+  <property name="gff3.taxonId" value="88501"/>
+  <property name="gff3.seqClsName" value="Chromosome"/>
+  <property name="gff3.dataSetTitle" value="Official Gene Set v5.42 for Lasioglossum albipes Genome"/>
+  <property name="gff3.dataSourceName" value="Official Gene Set v5.42 for Lasioglossum albipes Genome"/>
+  <property name="gff3.seqDataSourceName" value="Official Gene Set v5.42 for Lasioglossum albipes Genome"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/gff/lalb"/>
+</source>
+
+<source name="lhum-ogs-gff" type="ogs-gff" dump="true">
+  <property name="gff3.taxonId" value="83485"/>
+  <property name="gff3.seqClsName" value="Chromosome"/>
+  <property name="gff3.dataSetTitle" value="Official Gene Set v1.2 for Linepithema humile Genome"/>
+  <property name="gff3.dataSourceName" value="Official Gene Set v1.2 for Linepithema humile Genome"/>
+  <property name="gff3.seqDataSourceName" value="Official Gene Set v1.2 for Linepithema humile Genome"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/gff/lhum"/>
+</source>
+
+<source name="pbar-ogs-gff" type="ogs-gff" dump="true">
+  <property name="gff3.taxonId" value="144034"/>
+  <property name="gff3.seqClsName" value="Chromosome"/>
+  <property name="gff3.dataSetTitle" value="Official Gene Set v1.2 for Pogonomyrmex barbatus Genome"/>
+  <property name="gff3.dataSourceName" value="Official Gene Set v1.2 for Pogonomyrmex barbatus Genome"/>
+  <property name="gff3.seqDataSourceName" value="Official Gene Set v1.2 for Pogonomyrmex barbatus Genome"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/gff/pbar"/>
+</source>
+
+
+<source name="acep-ogs-gff" type="ogs-gff" dump="true">
+  <property name="gff3.taxonId" value="12957"/>
+  <property name="gff3.seqClsName" value="Chromosome"/>
+  <property name="gff3.dataSetTitle" value="Official Gene Set v1.2 for Atta cephalotes Genome"/>
+  <property name="gff3.dataSourceName" value="Official Gene Set v1.2 for Atta cephalotes Genome"/>
+  <property name="gff3.seqDataSourceName" value="Official Gene Set v1.2 for Atta cephalotes Genome"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/gff/acep/"/>
+</source>
+
+<source name="hsal-ogs-gff" type="ogs-gff" dump="true">
+  <property name="gff3.taxonId" value="610380"/>
+  <property name="gff3.seqClsName" value="Chromosome"/>
+  <property name="gff3.dataSetTitle" value="Official Gene Set v3.3 for Harpegnathos saltator Genome"/>
+  <property name="gff3.dataSourceName" value="Official Gene Set v3.3 for Harpegnathos saltator Genome"/>
+  <property name="gff3.seqDataSourceName" value="Official Gene Set v3.3 for Harpegnathos saltator Genome"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/gff/hsal"/>
+</source>
+
+<source name="aech-ogs-gff" type="ogs-gff" dump="true">
+  <property name="gff3.taxonId" value="103372"/>
+  <property name="gff3.seqClsName" value="Chromosome"/>
+  <property name="gff3.dataSetTitle" value="Official Gene Set v3.8 for Acromyrmex echinatior Genome"/>
+  <property name="gff3.dataSourceName" value="Official Gene Set v3.8 for Acromyrmex echinatior Genome"/>
+  <property name="gff3.seqDataSourceName" value="Official Gene Set v3.8 for Acromyrmex echinatior Genome"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/gff/aech"/>
+</source>
+
+
+<source name="sinv-ogs-gff" type="ogs-gff" dump="true">
+  <property name="gff3.taxonId" value="13686"/>
+  <property name="gff3.seqClsName" value="Chromosome"/>
+  <property name="gff3.dataSetTitle" value="Official Gene Set v2.2.3 for Solenopsis invicta Genome"/>
+  <property name="gff3.dataSourceName" value="Official Gene Set v2.2.3 for Solenopsis invicta Genome"/>
+  <property name="gff3.seqDataSourceName" value="Official Gene Set v2.2.3 for Solenopsis invicta Genome"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/gff/sinv"/>
+</source>
+
+<source name="cflo-ogs-gff" type="ogs-gff" dump="true">
+  <property name="gff3.taxonId" value="104421"/>
+  <property name="gff3.seqClsName" value="Chromosome"/>
+  <property name="gff3.dataSetTitle" value="Official Gene Set v3.3 for Camponotus floridanus Genome"/>
+  <property name="gff3.dataSourceName" value="Official Gene Set v3.3 for Camponotus floridanus Genome"/>
+  <property name="gff3.seqDataSourceName" value="Official Gene Set v3.3 for Camponotus floridanus Genome"/>
+  <property name="src.data.dir" location="/home.george/aditi/genomes/gff/cflo"/>
+</source>
+
+
+<!--Ensembl-comparA-->
+
+<source name="biomart-amel" type="ensembl-compara">
+  <property name="src.data.dir" location="/home.george/aditi/genomes/biomart/"/>
+  <property name="ensemblcompara.organisms" value="7460"/>
+  <property name="ensemblcompara.homologues" value="7425 13686 12957 7227"/>
+</source>
+
+<source name="biomart-nvit" type="ensembl-compara">
+  <property name="src.data.dir" location="/home.george/aditi/genomes/biomart/"/>
+  <property name="ensemblcompara.organisms" value="7425"/>
+  <property name="ensemblcompara.homologues" value="13686 7227"/>
+</source>
+
+<source name="biomart-acep" type="ensembl-compara">
+  <property name="src.data.dir" location="/home.george/aditi/genomes/biomart/"/>
+  <property name="ensemblcompara.organisms" value="12957"/>
+  <property name="ensemblcompara.homologues" value="7425 13686 7227"/>
+</source>
+
+
+ <source name="biomart-sinv" type="ensembl-compara">
+  <property name="src.data.dir" location="/home.george/aditi/genomes/biomart/"/>
+  <property name="ensemblcompara.organisms" value="13686"/>
+  <property name="ensemblcompara.homologues" value="7227"/>
+</source> 
+
+<source name="pubmed-gene" type="pubmed-gene">
+  <property name="src.data.dir" location="/home.george/aditi/genomes/pubmed/" />
+  <property name="pubmed.organisms" value="104421 13686 7460 7462 7463 132113 30195 7425 88501 83485 144034 12957 610380 103372 286306 64793"/>
+  <property name="src.data.dir.includes" value="gene2pubmed"/>
+  <property name="infoFile" location="/home.george/aditi/genomes/pubmed/gene_info"/>
+</source>
+
+
+<source name="orthodb" type="orthodb">
+  <property name="src.data.dir" location="/home.george/aditi/genomes/orthodb"/>
+  <property name="orthodb.organisms" value="104421 13686 7460 7462 7463 132113 30195 7425 88501 83485 144034 12957 610380 103372 286306 64793"/>
+</source>
+<!--<property name="orthodb.organisms" value="104421 13686 7460 7462 7463 132113 30195 7425 88501 83485 144034 12957 610380 103372 286306 64793"> -->
+ 
+ <source name="organ" type="entrez-organism">
+  <property name="src.data.file" location="build/organisms.xml"/>
+</source>
+
+<source name="go" type="go">
+  <property name="src.data.file" location="/home.george/aditi/genomes/go/go.obo"/>
+</source>
+
+<source name="pdb" type="pdb">
+  <property name="src.data.dir" location="/home.george/aditi/genomes/pdb"/>
+  <property name="pdb.organisms" value="7460"/>
+</source>
+
+
+
+<source name="publication" type="update-publications" dump="true">
+  <property name="src.data.file" location="build/publications.xml"/>
+  <property name="cacheDirName" value="build/"/> 
+  <property name="loadFullRecord" value="true"/> 
+</source>
+
+ <source name="so" type="so">
+  <property name="src.data.file" location="../../bio/sources/so/so.obo"/>
+</source>
+
+<source name="key" type="uniprot-keywords">
+  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/current"/>
+  <property name="src.data.dir.includes" value="keywlist.xml"/>
+</source>
+<!--
+<source name="uberon" type="uberon">
+  <property name="src.data.file" location="/home.george/aditi/genomes/uberon/uberon.obo"/>
+</source>   
+-->
+<post-processing>
+<!--
+<post-process name="create-chromosome-locations-and-lengths"/>
+  <post-process name="transfer-sequences"/>
+     <post-process name="create-references"/> 
+  
+     <post-process name="create-bioseg-location-index"/>
+      <post-process name="create-overlap-view"/>
+<post-process name="create-gene-flanking-features"/> 
+-->
+ <!-- this runs the postprocessing steps in all sources -->
+    <post-process name="do-sources"/>
+   <post-process name="create-search-index"/>
+   <post-process name="create-attribute-indexes"/>
+    <post-process name="summarise-objectstore"/>
+    <post-process name="create-autocomplete-index"/>
+  </post-processing>
+
+</project>
+
