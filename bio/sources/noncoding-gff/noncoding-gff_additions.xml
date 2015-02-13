@@ -4,7 +4,6 @@
 <classes>
 <!-- add any <class> elements here -->
 	<class name="BioEntity" is-interface="true">
-		<attribute name="status" type="java.lang.String"/>
 	</class>
 	<class name="Gene" extends="SequenceFeature" is-interface="true">
 	</class>
