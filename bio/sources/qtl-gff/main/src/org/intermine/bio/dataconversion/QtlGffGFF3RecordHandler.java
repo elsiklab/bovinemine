@@ -38,21 +38,13 @@ public class QtlGffGFF3RecordHandler extends GFF3RecordHandler
         Item feature = getFeature();
         String clsName = feature.getClassName();
         
-    if( clsName.equals("Qtl") ) {
+    if( clsName.equals("QTL") ) {
             if(record.getAttributes().get("QTL_ID") != null){
                 String id = record.getAttributes().get("QTL_ID").iterator().next();
                 feature.setAttribute("primaryIdentifier", id);
             }
-            if(record.getAttributes().get("Name") != null){
-                String name = record.getAttributes().get("Name").iterator().next();
-                feature.setAttribute("name", name);
-            }
       
-
-
-
-
-
+     
 
        
         }
