@@ -4,14 +4,13 @@
     <icon-image>model/images/genomics.gif</icon-image>
     <large-image>model/images/genomics.gif</large-image>
     <intro-text>
-      The gene structure and other genome annotation in BovineMine are provided by
-      a variety of curated source databases.  In most cases BovineMine includes
+      The gene structure and other genome annotation in HymenopteraMine are provided by
+      a variety of curated source databases.  In most cases HymenopteraMine includes
       all genome features that have chromosomal locations.
     </intro-text>
     <tile-name>model/genomics.jsp</tile-name>
     <aspect-source name="HGD" url="http://www.hymenopteragenome.org"/>
     <aspect-source name="NCBI" url="http://www.ncbi.nlm.nih.gov"/>
-    <aspect-source name="Ensembl" url="http://www.ensembl.org/index.html"/>
   </aspect>
   <aspect name="Proteins">
     <subtitle>Protein and proteomics data</subtitle>
@@ -25,7 +24,9 @@
   </aspect>
   <aspect name="Function">
     <subtitle>GO</subtitle>
-    <intro-text>
+     <icon-image>model/images/geneOntology.png</icon-image>
+    <large-image>model/images/geneOntology.png</large-image>
+     <intro-text>
         Gene Ontology
     </intro-text>
     <tile-name>model/genes.jsp</tile-name>
@@ -42,5 +43,16 @@
     <tile-name>model/homology.jsp</tile-name>
     <aspect-source name="OrthoDB" url="http://orthodb.org/"/>
     <aspect-source name="Ensembl" url="http://www.ensembl.org/info/genome/compara/index.html"/>
-  </aspect> 
+  </aspect>
+  <aspect name="Publication">
+    <subtitle>Publication</subtitle>
+    <icon-image>model/images/PubMed_logo_large.png</icon-image>
+    <large-image>model/images/PubMed_logo_large.png</large-image>
+    <intro-text>
+      Publication
+    </intro-text>
+    <tile-name>model/publications.jsp</tile-name>
+    <aspect-source name="Pubmed" url="http://www.ncbi.nlm.nih.gov/pubmed"/>
+  </aspect>
+ 
 </aspects>

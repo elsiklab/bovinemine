@@ -281,7 +281,7 @@ ul#submenulist li div { border-left-color:#DDDDDD; }
 /* homepage (begin.css) */
 #search-bochs div.inner h3 { background:#62564F; }
 #lists-bochs div.inner h3 { background:#9E9E9E; color:#FFF; }
-  #lists-bochs div.inner a { color:#000; }
+  #lists-bochs div.inner a { color:#FFF; }
 #low h4, #lists h4 { color:#62564F; }
 
 #boxes input.dark[type="submit"] { background:url("homepage/dark-brown.png") no-repeat scroll center bottom transparent;

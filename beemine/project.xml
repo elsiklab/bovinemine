@@ -6,11 +6,14 @@
   <property name="default.intermine.properties.file" location="../default.intermine.integrate.properties"/>
 
 
+
+
 <source name="interpro" type="interpro">
-  <property name="src.data.dir" location="/home.george/aditi/genomes/interpro"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/interpro"/>
 </source>
 
 <!--FASTA-->
+
 <source name="fasta-cobs" type="fasta">
   <property name="fasta.taxonId" value="286306"/>
   <property name="fasta.dataSetTitle" value="Cardiocondyla obscurior fasta"/>
@@ -18,7 +21,7 @@
 <property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
 <property name ="fasta.sequenceType" value="dna"/>
  <property name="fasta.includes" value="Cobs*.fa"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/fasta/"/>
 </source>
 
 <source name="fasta-waur" type="fasta">
@@ -28,7 +31,7 @@
 <property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
 <property name ="fasta.sequenceType" value="dna"/>
  <property name="fasta.includes" value="W*.fa"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/fasta/"/>
 </source>
 
 <source name="fasta-lalb" type="fasta">
@@ -38,7 +41,7 @@
 <property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
 <property name ="fasta.sequenceType" value="dna"/>
  <property name="fasta.includes" value="La*.fa"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/fasta/"/>
 </source>
 
 
@@ -49,7 +52,7 @@
 <property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
 <property name ="fasta.sequenceType" value="dna"/>
  <property name="fasta.includes" value="Acep*.fa"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/fasta/"/>
 </source>
 
 
@@ -60,7 +63,7 @@
 <property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
 <property name ="fasta.sequenceType" value="dna"/>
  <property name="fasta.includes" value="Aec*.fa"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/fasta/"/>
 </source>
 
  <source name="fasta-cflo" type="fasta">
@@ -70,7 +73,7 @@
 <property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
 <property name ="fasta.sequenceType" value="dna"/>
  <property name="fasta.includes" value="Cf*.fa"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/fasta/"/>
 </source>
 
 <source name="fasta-lhum" type="fasta">
@@ -80,7 +83,7 @@
 <property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
 <property name ="fasta.sequenceType" value="dna"/>
  <property name="fasta.includes" value="Lh*.fa"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/fasta/"/>
 </source>
 
 <source name="fasta-pbar" type="fasta">
@@ -90,7 +93,7 @@
 <property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
 <property name ="fasta.sequenceType" value="dna"/>
  <property name="fasta.includes" value="Pb*.fa"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/fasta/"/>
 </source>
 
 <source name="fasta-hsal" type="fasta">
@@ -100,38 +103,38 @@
 <property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
 <property name ="fasta.sequenceType" value="dna"/>
  <property name="fasta.includes" value="Hs*.fa"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/fasta/"/>
 </source>
 
 <source name="fasta-amel" type="fasta">
   <property name="fasta.taxonId" value="7460"/>
-  <property name="fasta.dataSetTitle" value="Apis mellifera fasta"/>
+  <property name="fasta.dataSetTitle" value="Apis Mellifera fasta"/>
   <property name="fasta.dataSourceName" value="Beemine"/>
 <property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/> 
 <property name ="fasta.sequenceType" value="dna"/>  
  <property name="fasta.includes" value="Am*.fa"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/fasta/"/>
 </source>
 
 
 <source name="fasta-ador" type="fasta">
   <property name="fasta.taxonId" value="7462"/>
-  <property name="fasta.dataSetTitle" value="Apis dorsata fasta"/>
+  <property name="fasta.dataSetTitle" value="Apis Dorsata fasta"/>
   <property name="fasta.dataSourceName" value="Beemine"/>
 <property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
 <property name ="fasta.sequenceType" value="dna"/>
  <property name="fasta.includes" value="Ador*.fa"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/fasta/"/>
 </source>
 
 <source name="fasta-aflo" type="fasta">
   <property name="fasta.taxonId" value="7463"/>
-  <property name="fasta.dataSetTitle" value="Apis florea fasta"/>
+  <property name="fasta.dataSetTitle" value="Apis Florea fasta"/>
   <property name="fasta.dataSourceName" value="Beemine"/>
 <property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
 <property name ="fasta.sequenceType" value="dna"/>
  <property name="fasta.includes" value="Aflo*.fa"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/fasta/"/>
 </source>
 
 <source name="fasta-bter" type="fasta">
@@ -141,7 +144,7 @@
 <property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
 <property name ="fasta.sequenceType" value="dna"/>
  <property name="fasta.includes" value="Bt*.fa"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/fasta/"/>
 </source>
 
 
@@ -152,18 +155,18 @@
 <property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
 <property name ="fasta.sequenceType" value="dna"/>
  <property name="fasta.includes" value="Bi*.fa"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/fasta/"/>
 </source>
 
 
 <source name="fasta-nvit" type="fasta">
   <property name="fasta.taxonId" value="7425"/>
-  <property name="fasta.dataSetTitle" value="Nasonia vitripennis fasta"/>
+  <property name="fasta.dataSetTitle" value="Nasonia Vitripennis fasta"/>
   <property name="fasta.dataSourceName" value="Beemine"/>
 <property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
 <property name ="fasta.sequenceType" value="dna"/>
  <property name="fasta.includes" value="Nvit_2.1.fa"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/fasta/"/>
 </source>
 
 
@@ -174,7 +177,7 @@
 <property name ="fasta.className" value="org.intermine.model.bio.Chromosome"/>
 <property name ="fasta.sequenceType" value="dna"/>
  <property name="fasta.includes" value="Si*.fa"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/fasta/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/fasta/"/>
 </source>
 
 
@@ -183,7 +186,7 @@
 <!--Uniprot-->
 <source name="uniprot-pbar" type="uniprot" dump="true">
   <property name="uniprot.organisms" value="144034"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/uniprot/"/>
   <property name="createinterpro" value="true"/>
   <property name="creatego" value="true"/>
   <property name="allowduplicates" value="false"/>
@@ -193,7 +196,7 @@
 
 <source name="uniprot-amel" type="uniprot" dump="true">
   <property name="uniprot.organisms" value="7460"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/uniprot/"/>
   <property name="createinterpro" value="true"/>
   <property name="creatego" value="true"/>
   <property name="allowduplicates" value="false"/>
@@ -203,7 +206,7 @@
 
 <source name="uniprot-bter" type="uniprot" dump="true" >
   <property name="uniprot.organisms" value="30195"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/uniprot/"/>
   <property name="createinterpro" value="true"/>
   <property name="creatego" value="true"/>
   <property name="allowduplicates" value="false"/>
@@ -213,7 +216,7 @@
 
 <source name="uniprot-bimp" type="uniprot" dump="true" >
   <property name="uniprot.organisms" value="132113"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/uniprot/"/>
   <property name="createinterpro" value="true"/>
   <property name="creatego" value="true"/>
   <property name="allowduplicates" value="false"/>
@@ -223,7 +226,7 @@
 
 <source name="uniprot-aech" type="uniprot" dump="true" >
   <property name="uniprot.organisms" value="103372"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/uniprot/"/>
   <property name="createinterpro" value="true"/>
   <property name="creatego" value="true"/>
   <property name="allowduplicates" value="false"/>
@@ -233,7 +236,7 @@
 
 <source name="uniprot-ador" type="uniprot" dump="true" >
   <property name="uniprot.organisms" value="7462"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/uniprot/"/>
   <property name="createinterpro" value="true"/>
   <property name="creatego" value="true"/>
   <property name="allowduplicates" value="false"/>
@@ -243,7 +246,7 @@
 
 <source name="uniprot-lhum" type="uniprot" dump="true">
   <property name="uniprot.organisms" value="83485"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/uniprot/"/>
   <property name="createinterpro" value="true"/>
   <property name="creatego" value="true"/>
   <property name="allowduplicates" value="false"/>
@@ -253,7 +256,7 @@
 
 <source name="uniprot-aflo" type="uniprot" dump="true">
   <property name="uniprot.organisms" value="7463"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/uniprot/"/>
   <property name="createinterpro" value="true"/>
   <property name="creatego" value="true"/>
   <property name="allowduplicates" value="false"/>
@@ -263,7 +266,7 @@
 
 <source name="uniprot-nvit" type="uniprot" dump="true">
   <property name="uniprot.organisms" value="7425"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/uniprot/"/>
   <property name="createinterpro" value="true"/>
   <property name="creatego" value="true"/>
   <property name="allowduplicates" value="false"/>
@@ -273,7 +276,7 @@
 
 <source name="uniprot-acep" type="uniprot" dump="true">
   <property name="uniprot.organisms" value="12957"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/uniprot/"/>
   <property name="createinterpro" value="true"/>
   <property name="creatego" value="true"/>
   <property name="allowduplicates" value="false"/>
@@ -283,7 +286,7 @@
 
 <source name="uniprot-hsal" type="uniprot" dump="true">
   <property name="uniprot.organisms" value="610380"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/uniprot/"/>
   <property name="createinterpro" value="true"/>
   <property name="creatego" value="true"/>
   <property name="allowduplicates" value="false"/>
@@ -293,7 +296,7 @@
 
 <source name="uniprot-sinv" type="uniprot" dump="true">
   <property name="uniprot.organisms" value="13686"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/uniprot/"/>
   <property name="createinterpro" value="true"/>
   <property name="creatego" value="true"/>
   <property name="allowduplicates" value="false"/>
@@ -303,7 +306,7 @@
 
 <source name="uniprot-cflo" type="uniprot" dump="true">
   <property name="uniprot.organisms" value="104421"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/uniprot/"/>
   <property name="createinterpro" value="true"/>
   <property name="creatego" value="true"/>
   <property name="allowduplicates" value="false"/>
@@ -318,7 +321,7 @@
   <property name="fasta.classAttribute" value="primaryAccession"/>
   <property name="fasta.dataSetTitle" value="UniProt data set"/>
   <property name="fasta.dataSourceName" value="UniProt"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/current"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/uniprot/current"/>
   <property name="fasta.includes" value="uniprot_sprot_varsplic.fasta"/>
   <property name="fasta.sequenceType" value="protein" />
   <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.UniProtFastaLoaderTask"/>
@@ -331,7 +334,7 @@
   <property name="gff3.dataSetTitle" value="RefSeq for Apis dorsata Protein-coding Genome 1.3 (NCBI)"/>
  <property name="gff3.dataSourceName" value="RefSeq for Apis dorsata Protein-coding Genome 1.3 (NCBI)"/>
  <property name="gff3.seqDataSourceName" value="RefSeq for Apis dorsata Protein-coding Genome 1.3 (NCBI)"/>
-   <property name="src.data.dir" location="/home.george/aditi/genomes/gff/ador/proteincoding"/>
+   <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/ador/proteincoding"/>
 </source>
 
     <source name="ador-noncoding-gff" type="noncoding-gff" dump="true">
@@ -340,7 +343,7 @@
       <property name="gff3.dataSourceName" value=" RefSeq for Apis dorsata Non-coding Genome 1.3 (NCBI)"/>
       <property name="gff3.seqClsName" value="Chromosome"/>
       <property name="gff3.dataSetTitle" value="RefSeq for Apis dorsata Non-coding Genome 1.3 (NCBI)"/>
-      <property name="src.data.dir" location="/home.george/aditi/genomes/gff/ador/nonproteincoding"/>
+      <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/ador/nonproteincoding"/>
     </source>
 
 <source name="amel-code-gff" type="amel-proteincoding" dump="true">
@@ -349,7 +352,7 @@
   <property name="gff3.dataSetTitle" value="RefSeq for Apis mellifera Protein-coding Genome 4.5 (NCBI)"/>
  <property name="gff3.dataSourceName" value="RefSeq for Apis mellifera Protein-coding Genome 4.5 (NCBI)"/>
  <property name="gff3.seqDataSourceName" value="RefSeq for Apis mellifera Protein-coding Genome 4.5 (NCBI)"/>
-   <property name="src.data.dir" location="/home.george/aditi/genomes/gff/amel/proteincoding"/>
+   <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/amel/proteincoding"/>
 </source>
 
     <source name="amel-noncoding-gff" type="amel-noncoding" dump="true">
@@ -358,7 +361,7 @@
       <property name="gff3.dataSourceName" value="RefSeq for Apis mellifera Non-coding Genome 4.5 (NCBI)"/>
       <property name="gff3.seqClsName" value="Chromosome"/>
       <property name="gff3.dataSetTitle" value="RefSeq for Apis mellifera Non-coding Genome 4.5 (NCBI)"/>
-      <property name="src.data.dir" location="/home.george/aditi/genomes/gff/amel/nonproteincoding"/>
+      <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/amel/nonproteincoding"/>
     </source>
 
 <source name="bter-code-gff" type="proteincoding-gff" dump="true">
@@ -367,7 +370,7 @@
   <property name="gff3.dataSetTitle" value="RefSeq for Bombus terrestris Protein-coding Genome 1.0 (NCBI)"/>
  <property name="gff3.dataSourceName" value="RefSeq for Bombus terrestris Protein-coding Genome 1.0 (NCBI)"/>
  <property name="gff3.seqDataSourceName" value="RefSeq for Bombus terrestris Protein-coding Genome 1.0 (NCBI)"/>
-   <property name="src.data.dir" location="/home.george/aditi/genomes/gff/bter/proteincoding"/>
+   <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/bter/proteincoding"/>
 </source>
 
     <source name="bter-noncoding-gff" type="noncoding-gff" dump="true">
@@ -376,7 +379,7 @@
       <property name="gff3.dataSourceName" value="RefSeq for Bombus terrestris Non-coding Genome 1.0 (NCBI)"/>
       <property name="gff3.seqClsName" value="Chromosome"/>
       <property name="gff3.dataSetTitle" value="RefSeq for Bombus terrestris Non-coding Genome 1.0 (NCBI)"/>
-      <property name="src.data.dir" location="/home.george/aditi/genomes/gff/bter/nonproteincoding"/>
+      <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/bter/nonproteincoding"/>
     </source>
 
 
@@ -386,7 +389,7 @@
   <property name="gff3.dataSetTitle" value="RefSeq for Bombus impatiens Protein-coding Genome 2.0 (NCBI)"/>
  <property name="gff3.dataSourceName" value="RefSeq for Bombus impatiens Protein-coding Genome 2.0 (NCBI)"/>
  <property name="gff3.seqDataSourceName" value="RefSeq for Bombus impatiens Protein-coding Genome 2.0 (NCBI)"/>
-   <property name="src.data.dir" location="/home.george/aditi/genomes/gff/bimp/proteincoding"/>
+   <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/bimp/proteincoding"/>
 </source>
 
     <source name="bimp-noncoding-gff" type="noncoding-gff" dump="true">
@@ -395,7 +398,7 @@
       <property name="gff3.dataSourceName" value=" RefSeq for Bombus impatiens Non-coding Genome 2.0 (NCBI)"/>
       <property name="gff3.seqClsName" value="Chromosome"/>
       <property name="gff3.dataSetTitle" value="RefSeq for Bombus impatiens Non-coding Genome 2.0 (NCBI)"/>
-      <property name="src.data.dir" location="/home.george/aditi/genomes/gff/bimp/nonproteincoding"/>
+      <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/bimp/nonproteincoding"/>
     </source>
 
 <source name="aflo-code-gff" type="proteincoding-gff" dump="true">
@@ -404,7 +407,7 @@
   <property name="gff3.dataSetTitle" value="RefSeq for Apis florea Protein-coding Genome 1.0 (NCBI)"/>
  <property name="gff3.dataSourceName" value="RefSeq for Apis florea Protein-coding Genome 1.0 (NCBI)"/>
  <property name="gff3.seqDataSourceName" value="RefSeq for Apis florea Protein-coding Genome 1.0 (NCBI)"/>
-   <property name="src.data.dir" location="/home.george/aditi/genomes/gff/aflo/proteincoding"/>
+   <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/aflo/proteincoding"/>
 </source>
 
     <source name="aflo-noncoding-gff" type="noncoding-gff" dump="true">
@@ -413,7 +416,7 @@
       <property name="gff3.dataSourceName" value=" RefSeq for Apis florea Non-coding Genome 1.0 (NCBI)"/>
       <property name="gff3.seqClsName" value="Chromosome"/>
       <property name="gff3.dataSetTitle" value="RefSeq for Apis florea Non-coding Genome 1.0 (NCBI)"/>
-      <property name="src.data.dir" location="/home.george/aditi/genomes/gff/aflo/nonproteincoding"/>
+      <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/aflo/nonproteincoding"/>
     </source>
 
 
@@ -423,7 +426,7 @@
   <property name="gff3.dataSetTitle" value="RefSeq for Nasonia vitripennis Protein-coding Genome 2.1 (NCBI)"/>
  <property name="gff3.dataSourceName" value="RefSeq for Nasonia vitripennis Protein-coding Genome 2.1 (NCBI)"/>
  <property name="gff3.seqDataSourceName" value="RefSeq for Nasonia vitripennis Protein-coding Genome 2.1 (NCBI)"/>
-   <property name="src.data.dir" location="/home.george/aditi/genomes/gff/nvit/Nvit_2.1_refSeq_gff/proteincoding"/>
+   <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/nvit/Nvit_2.1_refSeq_gff/proteincoding"/>
 </source>
 
     <source name="nvit-noncoding-gff" type="noncoding-gff" dump="true">
@@ -432,22 +435,90 @@
       <property name="gff3.dataSourceName" value=" RefSeq for Nasonia vitripennis Non-coding Genome 2.1 (NCBI)"/>
       <property name="gff3.seqClsName" value="Chromosome"/>
       <property name="gff3.dataSetTitle" value="RefSeq for Nasonia vitripennis Non-coding Genome 2.1(NCBI)"/>
-      <property name="src.data.dir" location="/home.george/aditi/genomes/gff/nvit/Nvit_2.1_refSeq_gff/nonproteincoding"/>
+      <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/nvit/Nvit_2.1_refSeq_gff/nonproteincoding"/>
     </source>
 
 
+<source name="aech-code-gff" type="proteincoding-gff" dump="true">
+  <property name="gff3.taxonId" value="103372"/>
+  <property name="gff3.seqClsName" value="Chromosome"/>
+  <property name="gff3.dataSetTitle" value="RefSeq for Acromyrmex echinatior Protein-coding Genome 3.9 (NCBI)"/>
+ <property name="gff3.dataSourceName" value="RefSeq for Acromyrmex echinatior Protein-coding Genome 3.9 (NCBI)"/>
+ <property name="gff3.seqDataSourceName" value="RefSeq for Acromyrmex echinatior Protein-coding Genome 3.9 (NCBI)"/>
+   <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/aech/proteincoding"/>
+</source>
+
+    <source name="aech-noncoding-gff" type="noncoding-gff" dump="true">
+      <property name="gff3.taxonId" value="103372"/>
+      <property name="gff3.seqDataSourceName" value="RefSeq for Acromyrmex echinatior Non-coding Genome 3.9 (NCBI)"/>
+      <property name="gff3.dataSourceName" value=" RefSeq for Acromyrmex echinatior Non-coding Genome 3.9 (NCBI)"/>
+      <property name="gff3.seqClsName" value="Chromosome"/>
+      <property name="gff3.dataSetTitle" value="RefSeq for Acromyrmex echinatior Non-coding Genome 3.9 (NCBI)"/>
+      <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/aech/noncoding"/>
+    </source>
+
+<source name="cflo-code-gff" type="proteincoding-gff" dump="true">
+  <property name="gff3.taxonId" value="104421"/>
+  <property name="gff3.seqClsName" value="Chromosome"/>
+  <property name="gff3.dataSetTitle" value="RefSeq for Camponotus floridanus Protein-coding Genome 1.0 (NCBI)"/>
+ <property name="gff3.dataSourceName" value="RefSeq for Camponotus floridanus Protein-coding Genome 1.0 (NCBI)"/>
+ <property name="gff3.seqDataSourceName" value="RefSeq for Camponotus floridanus Protein-coding Genome 1.0 (NCBI)"/>
+   <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/cflo/proteincoding"/>
+</source>
+
+    <source name="cflo-noncoding-gff" type="noncoding-gff" dump="true">
+      <property name="gff3.taxonId" value="104421"/>
+      <property name="gff3.seqDataSourceName" value="RefSeq for Camponotus floridanus Non-coding Genome 1.0 (NCBI)"/>
+      <property name="gff3.dataSourceName" value=" RefSeq for Camponotus floridanus Non-coding Genome 1.0 (NCBI)"/>
+      <property name="gff3.seqClsName" value="Chromosome"/>
+      <property name="gff3.dataSetTitle" value="RefSeq for Camponotus floridanus Non-coding Genome 1.0 (NCBI)"/>
+      <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/cflo/noncoding"/>
+    </source>
+
+<source name="hsal-code-gff" type="proteincoding-gff" dump="true">
+  <property name="gff3.taxonId" value="610380"/>
+  <property name="gff3.seqClsName" value="Chromosome"/>
+  <property name="gff3.dataSetTitle" value="RefSeq for Harpegnathos saltator Protein-coding Genome 1.0 (NCBI)"/>
+ <property name="gff3.dataSourceName" value="RefSeq for Harpegnathos saltator Protein-coding Genome 1.0 (NCBI)"/>
+ <property name="gff3.seqDataSourceName" value="RefSeq for Harpegnathos saltator Protein-coding Genome 1.0 (NCBI)"/>
+   <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/hsal/proteincoding"/>
+</source>
+
+    <source name="hsal-noncoding-gff" type="noncoding-gff" dump="true">
+      <property name="gff3.taxonId" value="610380"/>
+      <property name="gff3.seqDataSourceName" value="RefSeq for Harpegnathos saltator Non-coding Genome 1.0 (NCBI)"/>
+      <property name="gff3.dataSourceName" value=" RefSeq for Harpegnathos saltator Non-coding Genome 1.0 (NCBI)"/>
+      <property name="gff3.seqClsName" value="Chromosome"/>
+      <property name="gff3.dataSetTitle" value="RefSeq for Harpegnathos saltator Non-coding Genome 1.0 (NCBI)"/>
+      <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/hsal/noncoding"/>
+    </source>
+
+<source name="sinv-code-gff" type="proteincoding-gff" dump="true">
+  <property name="gff3.taxonId" value="13686"/>
+  <property name="gff3.seqClsName" value="Chromosome"/>
+  <property name="gff3.dataSetTitle" value="RefSeq for Solenopsis invicta Protein-coding Genome 1.0 (NCBI)"/>
+ <property name="gff3.dataSourceName" value="RefSeq for Solenopsis invicta Protein-coding Genome 1.0 (NCBI)"/>
+ <property name="gff3.seqDataSourceName" value="RefSeq for Solenopsis invicta Protein-coding Genome 1.0 (NCBI)"/>
+   <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/sinv/proteincoding"/>
+</source>
+
+    <source name="sinv-noncoding-gff" type="noncoding-gff" dump="true">
+      <property name="gff3.taxonId" value="13686"/>
+      <property name="gff3.seqDataSourceName" value="RefSeq for Solenopsis invicta Non-coding Genome 1.0 (NCBI)"/>
+      <property name="gff3.dataSourceName" value=" RefSeq for Solenopsis invicta Non-coding Genome 1.0 (NCBI)"/>
+      <property name="gff3.seqClsName" value="Chromosome"/>
+      <property name="gff3.dataSetTitle" value="RefSeq for Solenopsis invicta Non-coding Genome 1.0 (NCBI)"/>
+      <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/sinv/noncoding"/>
+    </source>
+
 <!--OGS GFF-->
-
-
-
-
 <source name="bimp-ogs-gff" type="ogs-gff" dump="true">
   <property name="gff3.taxonId" value="132113"/>
   <property name="gff3.seqClsName" value="Chromosome"/>
   <property name="gff3.dataSetTitle" value="Official Gene Set v2.0 for Bombus impatiens Genome"/>
   <property name="gff3.dataSourceName" value="Official Gene Set v2.0 for Bombus impatiens Genome"/>
   <property name="gff3.seqDataSourceName" value="Official Gene Set v2.0 for Bombus impatiens Genome"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/gff/bimp/ogs"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/bimp/ogs"/>
 </source>
 
 <source name="amel-ogs-gff" type="ogs-gff" dump="true">
@@ -456,7 +527,7 @@
   <property name="gff3.dataSetTitle" value="Official Gene Set v3.2 for Apis mellifera Genome"/>
   <property name="gff3.dataSourceName" value="Official Gene Set v3.2  for Apis mellifera Genome"/>
   <property name="gff3.seqDataSourceName" value="Official Gene Set v3.2  for Apis mellifera Genome"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/gff/amel/ogs"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/amel/ogs"/>
 </source>
 
 <source name="cobs-ogs-gff" type="ogs-gff" dump="true">
@@ -465,7 +536,7 @@
   <property name="gff3.dataSetTitle" value="Official Gene Set 1.4  for Cardiocondyla obscurior Genome"/>
   <property name="gff3.dataSourceName" value="Official Gene Set 1.4  for Cardiocondyla obscurior Genome"/>
   <property name="gff3.seqDataSourceName" value="Official Gene Set 1.4  for Cardiocondyla obscurior Genome"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/gff/cobs"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/cobs"/>
 </source>
 
 <source name="lalb-ogs-gff" type="ogs-gff" dump="true">
@@ -474,7 +545,7 @@
   <property name="gff3.dataSetTitle" value="Official Gene Set v5.42 for Lasioglossum albipes Genome"/>
   <property name="gff3.dataSourceName" value="Official Gene Set v5.42 for Lasioglossum albipes Genome"/>
   <property name="gff3.seqDataSourceName" value="Official Gene Set v5.42 for Lasioglossum albipes Genome"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/gff/lalb"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/lalb"/>
 </source>
 
 <source name="lhum-ogs-gff" type="ogs-gff" dump="true">
@@ -483,7 +554,7 @@
   <property name="gff3.dataSetTitle" value="Official Gene Set v1.2 for Linepithema humile Genome"/>
   <property name="gff3.dataSourceName" value="Official Gene Set v1.2 for Linepithema humile Genome"/>
   <property name="gff3.seqDataSourceName" value="Official Gene Set v1.2 for Linepithema humile Genome"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/gff/lhum"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/lhum"/>
 </source>
 
 <source name="pbar-ogs-gff" type="ogs-gff" dump="true">
@@ -492,7 +563,7 @@
   <property name="gff3.dataSetTitle" value="Official Gene Set v1.2 for Pogonomyrmex barbatus Genome"/>
   <property name="gff3.dataSourceName" value="Official Gene Set v1.2 for Pogonomyrmex barbatus Genome"/>
   <property name="gff3.seqDataSourceName" value="Official Gene Set v1.2 for Pogonomyrmex barbatus Genome"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/gff/pbar"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/pbar"/>
 </source>
 
 
@@ -502,7 +573,7 @@
   <property name="gff3.dataSetTitle" value="Official Gene Set v1.2 for Atta cephalotes Genome"/>
   <property name="gff3.dataSourceName" value="Official Gene Set v1.2 for Atta cephalotes Genome"/>
   <property name="gff3.seqDataSourceName" value="Official Gene Set v1.2 for Atta cephalotes Genome"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/gff/acep/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/acep/"/>
 </source>
 
 <source name="hsal-ogs-gff" type="ogs-gff" dump="true">
@@ -511,7 +582,7 @@
   <property name="gff3.dataSetTitle" value="Official Gene Set v3.3 for Harpegnathos saltator Genome"/>
   <property name="gff3.dataSourceName" value="Official Gene Set v3.3 for Harpegnathos saltator Genome"/>
   <property name="gff3.seqDataSourceName" value="Official Gene Set v3.3 for Harpegnathos saltator Genome"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/gff/hsal"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/hsal/ogs"/>
 </source>
 
 <source name="aech-ogs-gff" type="ogs-gff" dump="true">
@@ -520,7 +591,7 @@
   <property name="gff3.dataSetTitle" value="Official Gene Set v3.8 for Acromyrmex echinatior Genome"/>
   <property name="gff3.dataSourceName" value="Official Gene Set v3.8 for Acromyrmex echinatior Genome"/>
   <property name="gff3.seqDataSourceName" value="Official Gene Set v3.8 for Acromyrmex echinatior Genome"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/gff/aech"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/aech/ogs"/>
 </source>
 
 
@@ -530,7 +601,7 @@
   <property name="gff3.dataSetTitle" value="Official Gene Set v2.2.3 for Solenopsis invicta Genome"/>
   <property name="gff3.dataSourceName" value="Official Gene Set v2.2.3 for Solenopsis invicta Genome"/>
   <property name="gff3.seqDataSourceName" value="Official Gene Set v2.2.3 for Solenopsis invicta Genome"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/gff/sinv"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/sinv/ogs"/>
 </source>
 
 <source name="cflo-ogs-gff" type="ogs-gff" dump="true">
@@ -539,67 +610,65 @@
   <property name="gff3.dataSetTitle" value="Official Gene Set v3.3 for Camponotus floridanus Genome"/>
   <property name="gff3.dataSourceName" value="Official Gene Set v3.3 for Camponotus floridanus Genome"/>
   <property name="gff3.seqDataSourceName" value="Official Gene Set v3.3 for Camponotus floridanus Genome"/>
-  <property name="src.data.dir" location="/home.george/aditi/genomes/gff/cflo"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/gff/cflo/ogs"/>
 </source>
 
 
 <!--Ensembl-comparA-->
 
 <source name="biomart-amel" type="ensembl-compara">
-  <property name="src.data.dir" location="/home.george/aditi/genomes/biomart/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/biomart/"/>
   <property name="ensemblcompara.organisms" value="7460"/>
   <property name="ensemblcompara.homologues" value="7425 13686 12957 7227"/>
 </source>
 
 <source name="biomart-nvit" type="ensembl-compara">
-  <property name="src.data.dir" location="/home.george/aditi/genomes/biomart/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/biomart/"/>
   <property name="ensemblcompara.organisms" value="7425"/>
   <property name="ensemblcompara.homologues" value="13686 7227"/>
 </source>
 
 <source name="biomart-acep" type="ensembl-compara">
-  <property name="src.data.dir" location="/home.george/aditi/genomes/biomart/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/biomart/"/>
   <property name="ensemblcompara.organisms" value="12957"/>
   <property name="ensemblcompara.homologues" value="7425 13686 7227"/>
 </source>
 
 
  <source name="biomart-sinv" type="ensembl-compara">
-  <property name="src.data.dir" location="/home.george/aditi/genomes/biomart/"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/biomart/"/>
   <property name="ensemblcompara.organisms" value="13686"/>
   <property name="ensemblcompara.homologues" value="7227"/>
 </source> 
 
 <source name="pubmed-gene" type="pubmed-gene">
-  <property name="src.data.dir" location="/home.george/aditi/genomes/pubmed/" />
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/pubmed/" />
   <property name="pubmed.organisms" value="104421 13686 7460 7462 7463 132113 30195 7425 88501 83485 144034 12957 610380 103372 286306 64793"/>
   <property name="src.data.dir.includes" value="gene2pubmed"/>
-  <property name="infoFile" location="/home.george/aditi/genomes/pubmed/gene_info"/>
+  <property name="infoFile" location="/db/intermine/hymenopteramine_release_1.0/genomes/pubmed/gene_info"/>
 </source>
 
 
 <source name="orthodb" type="orthodb">
-  <property name="src.data.dir" location="/home.george/aditi/genomes/orthodb"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/orthodb"/>
   <property name="orthodb.organisms" value="104421 13686 7460 7462 7463 132113 30195 7425 88501 83485 144034 12957 610380 103372 286306 64793"/>
 </source>
 <!--<property name="orthodb.organisms" value="104421 13686 7460 7462 7463 132113 30195 7425 88501 83485 144034 12957 610380 103372 286306 64793"> -->
- 
- <source name="organ" type="entrez-organism">
-  <property name="src.data.file" location="build/organisms.xml"/>
-</source>
 
 <source name="go" type="go">
-  <property name="src.data.file" location="/home.george/aditi/genomes/go/go.obo"/>
+  <property name="src.data.file" location="/db/intermine/hymenopteramine_release_1.0/genomes/go/go.obo"/>
 </source>
 
 <source name="pdb" type="pdb">
-  <property name="src.data.dir" location="/home.george/aditi/genomes/pdb"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/pdb"/>
   <property name="pdb.organisms" value="7460"/>
 </source>
 
+<source name="entrez-organism" type="entrez-organism">
+  <property name="src.data.file" location="build/organisms.xml"/>
+</source>
 
-
-<source name="publication" type="update-publications" dump="true">
+<source name="update-publications" type="update-publications" dump="true">
   <property name="src.data.file" location="build/publications.xml"/>
   <property name="cacheDirName" value="build/"/> 
   <property name="loadFullRecord" value="true"/> 
@@ -610,30 +679,29 @@
 </source>
 
 <source name="key" type="uniprot-keywords">
-  <property name="src.data.dir" location="/home.george/aditi/genomes/uniprot/current"/>
+  <property name="src.data.dir" location="/db/intermine/hymenopteramine_release_1.0/genomes/uniprot/current"/>
   <property name="src.data.dir.includes" value="keywlist.xml"/>
 </source>
 <!--
 <source name="uberon" type="uberon">
-  <property name="src.data.file" location="/home.george/aditi/genomes/uberon/uberon.obo"/>
+  <property name="src.data.file" location="/db/intermine/hymenopteramine_release_1.0/genomes/uberon/uberon.obo"/>
 </source>   
 -->
 <post-processing>
 <!--
-<post-process name="create-chromosome-locations-and-lengths"/>
-  <post-process name="transfer-sequences"/>
-     <post-process name="create-references"/> 
-  
+<post-process name="create-chromosome-locations-and-lengths"/>-->
+ <!-- <post-process name="transfer-sequences"/> -->
+<!--     <post-process name="create-references"/> 
      <post-process name="create-bioseg-location-index"/>
       <post-process name="create-overlap-view"/>
 <post-process name="create-gene-flanking-features"/> 
--->
+-->  
  <!-- this runs the postprocessing steps in all sources -->
     <post-process name="do-sources"/>
    <post-process name="create-search-index"/>
    <post-process name="create-attribute-indexes"/>
-    <post-process name="summarise-objectstore"/>
-    <post-process name="create-autocomplete-index"/>
+<!--    <post-process name="summarise-objectstore"/> -->
+<!--    <post-process name="create-autocomplete-index"/> -->
   </post-processing>
 
 </project>

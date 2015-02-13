@@ -346,7 +346,7 @@
                      replacesFields="primaryIdentifier,secondaryIdentifier,ncbiGeneNumber"
                      showImmediately="true"
                      placement="top"
-                     types="Gene"/>
+                     ypes="Gene"/>
 
     <reportdisplayer javaClass="org.intermine.bio.web.displayer.SequenceFeatureDisplayer"
                      jspName="model/sequenceFeatureDisplayer.jsp"
