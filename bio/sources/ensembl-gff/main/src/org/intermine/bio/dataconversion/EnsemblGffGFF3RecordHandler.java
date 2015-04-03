@@ -35,7 +35,8 @@ public class EnsemblGffGFF3RecordHandler extends GFF3RecordHandler
     public EnsemblGffGFF3RecordHandler (Model model) {
         super(model);
         refsAndCollections.put("Transcript", "gene");
-        refsAndCollections.put("TRNA", "gene");
+        refsAndCollections.put("MRNA", "gene");
+    	refsAndCollections.put("TRNA", "gene");
         refsAndCollections.put("MiRNA", "gene");
         refsAndCollections.put("RRNA", "gene");
         refsAndCollections.put("SnRNA", "gene");
@@ -62,6 +63,12 @@ public class EnsemblGffGFF3RecordHandler extends GFF3RecordHandler
                 String id = record.getAttributes().get("ID").iterator().next();
                 feature.setAttribute("primaryIdentifier", id);
             }
+              if(record.getAttributes().get("source") != null){
+                String source = record.getAttributes().get("source").iterator().next();
+                feature.setAttribute("source", source);
+            }
+
+
             if(record.getAttributes().get("symbol_ensembl") != null){
                 String symbol = record.getAttributes().get("symbol_ensembl").iterator().next();
                 feature.setAttribute("symbol", symbol);
@@ -71,6 +78,10 @@ public class EnsemblGffGFF3RecordHandler extends GFF3RecordHandler
             if(record.getAttributes().get("ID") != null){
                 String id = record.getAttributes().get("ID").iterator().next();
                 feature.setAttribute("primaryIdentifier", id);
+            }
+            if(record.getAttributes().get("source") != null){
+                String source = record.getAttributes().get("source").iterator().next();
+                feature.setAttribute("source", source);
             }
             if(record.getAttributes().get("symbol_ensembl") != null){
                 String symbol = record.getAttributes().get("symbol_ensembl").iterator().next();

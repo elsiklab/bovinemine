@@ -1557,25 +1557,25 @@ public class GenomicRegionSearchService
         String id = s.getChr() + "-" + s.getStart() + "-" + s.getEnd();
 
         Set<String> ftSet = getFeatureTypeSetInAlphabeticalOrder(featureSet);
-
+   
         if (ftSet == null) {
             return "";
-        } else {
-            String ftHtml = "<div>Create List by"
-                + "<select id=\"" + id + "\" style=\"margin: 4px 3px\">";
+           } else {
+              String ftHtml = "<div>";
+       //         + "<select id=\"" + id + "\" style=\"margin: 4px 3px\">";
 
-            for (String ft : ftSet) {
-                ftHtml += "<option value=\"" + ft + "\">"
-                        + WebUtil.formatPath(ft, interMineAPI, webConfig)
-                        + "</option>";
-            }
+          for (String ft : ftSet) {
+       //         ftHtml += "<option value=\"" + ft + "\">"
+        //                + WebUtil.formatPath(ft, interMineAPI, webConfig)
+         //               + "</option>";
+              }
 
-            ftHtml += "</select>";
-            ftHtml += "<button onClick=\"javascript: createList('" + s.getFullRegionInfo()
-                      + "', '" + id + "');\">Go</button>";
-            ftHtml += "</div>";
-
-            return ftHtml;
+       //     ftHtml += "</select>";
+      //      ftHtml += "<button onClick=\"javascript: createList('" + s.getFullRegionInfo()
+      //                + "', '" + id + "');\">Go</button>";
+     //       ftHtml += "</div>";
+     
+             return ftHtml;
         }
     }
 

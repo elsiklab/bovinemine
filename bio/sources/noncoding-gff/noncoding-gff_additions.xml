@@ -6,16 +6,20 @@
 	<class name="BioEntity" is-interface="true">
 	</class>
 	<class name="Gene" extends="SequenceFeature" is-interface="true">
-	</class>
+	<attribute name="source" type="java.lang.String"/>
+        </class>
 	<class name="Transcript" extends="SequenceFeature" is-interface="true">
 		<attribute name="description" type="java.lang.String"/>
+                <attribute name="source" type="java.lang.String"/>
 	</class>
 	<class name="PrimaryTranscript" extends="Transcript" is-interface="true">
+                  <attribute name="source" type="java.lang.String"/>
 	</class>
 <!-- 	<class name="MiRNA" extends="NcRNA" is-interface="true">
 		<attribute name="mirbaseIdentifier" type="java.lang.String"/>
 	</class> -->
 	<class name="NcRNA" extends="Transcript" is-interface="true">
 		<attribute name="mirbaseIdentifier" type="java.lang.String"/>
+                <attribute name="source" type="java.lang.String"/>
 	</class>
 </classes>

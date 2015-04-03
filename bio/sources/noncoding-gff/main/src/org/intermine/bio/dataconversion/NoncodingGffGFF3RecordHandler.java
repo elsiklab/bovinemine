@@ -66,6 +66,10 @@ public class NoncodingGffGFF3RecordHandler extends GFF3RecordHandler
             else {
                 feature.removeAttribute("symbol"); // removing the 'symbol' set by intermine by default                                                                            
             }
+            if( record.getAttributes().get("source") != null ) {
+                String source = record.getAttributes().get("source").iterator().next();
+                feature.setAttribute("source", source); // setting 'status' attribute of class 'Gene'
+            }
             if( record.getAttributes().get("feature_type") != null ) {
                 String ft = record.getAttributes().get("feature_type").iterator().next();
                 feature.setAttribute("status", ft); // setting 'status' attribute of class 'Gene'
@@ -114,6 +118,10 @@ public class NoncodingGffGFF3RecordHandler extends GFF3RecordHandler
             if( record.getAttributes().get("ncbi_desc") != null) {
                 String description = record.getAttributes().get("ncbi_desc").iterator().next();
                 feature.setAttribute("description", description); // setting 'description' attribute of class 'Transcript'               
+            }
+            if( record.getAttributes().get("source") != null ) {
+                String source = record.getAttributes().get("source").iterator().next();
+                feature.setAttribute("source", source); // setting 'status' attribute of class 'Gene'
             }
             if( record.getAttributes().get("feature_type") != null ) {
                 String ft = record.getAttributes().get("feature_type").iterator().next();
@@ -167,6 +175,10 @@ public class NoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                 String description = record.getAttributes().get("ncbi_desc").iterator().next();
                 feature.setAttribute("description", description); // setting 'description' attribute of class 'PrimaryTranscript'               
             }
+            if( record.getAttributes().get("source") != null ) {
+                String source = record.getAttributes().get("source").iterator().next();
+                feature.setAttribute("source", source); // setting 'status' attribute of class 'Gene'
+            }
             if( record.getAttributes().get("feature_type") != null ) {
                 String ft = record.getAttributes().get("feature_type").iterator().next();
                 feature.setAttribute("status", ft); // setting 'status' attribute of class 'Gene'
@@ -218,7 +230,11 @@ public class NoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                 String description = record.getAttributes().get("ncbi_desc").iterator().next();
                 feature.setAttribute("description", description); // setting 'description' attribute of class 'MiRNA'               
             }
-            if( record.getAttributes().get("feature_type") != null ) {
+            if( record.getAttributes().get("source") != null ) {
+                String source = record.getAttributes().get("source").iterator().next();
+                feature.setAttribute("source", source); // setting 'status' attribute of class 'Gene'
+            }
+             if( record.getAttributes().get("feature_type") != null ) {
                 String ft = record.getAttributes().get("feature_type").iterator().next();
                 feature.setAttribute("status", ft); // setting 'status' attribute of class 'Gene'
             }
@@ -265,6 +281,10 @@ public class NoncodingGffGFF3RecordHandler extends GFF3RecordHandler
             if( record.getAttributes().get("ncbi_desc") != null) {
                 String description = record.getAttributes().get("ncbi_desc").iterator().next();
                 feature.setAttribute("description", description); // setting 'description' attribute of class 'TRNA'               
+            }
+            if( record.getAttributes().get("source") != null ) {
+                String source = record.getAttributes().get("source").iterator().next();
+                feature.setAttribute("source", source); // setting 'status' attribute of class 'Gene'
             }
             if( record.getAttributes().get("feature_type") != null ) {
                 String ft = record.getAttributes().get("feature_type").iterator().next();
@@ -315,6 +335,10 @@ public class NoncodingGffGFF3RecordHandler extends GFF3RecordHandler
             if( record.getAttributes().get("ncbi_desc") != null) {
                 String description = record.getAttributes().get("ncbi_desc").iterator().next();
                 feature.setAttribute("description", description); // setting 'description' attribute of class 'RRNA'               
+            }
+            if( record.getAttributes().get("source") != null ) {
+                String source = record.getAttributes().get("source").iterator().next();
+                feature.setAttribute("source", source); // setting 'status' attribute of class 'Gene'
             }
             if( record.getAttributes().get("feature_type") != null ) {
                 String ft = record.getAttributes().get("feature_type").iterator().next();

@@ -44,6 +44,8 @@ public class OgsGffGFF3RecordHandler extends GFF3RecordHandler
         //
         Item feature = getFeature();
         String clsName = feature.getClassName();
+        String assemblyName = record.getSource();
+        feature.setAttribute("assemblyName", assemblyName); 
 
         if( clsName.equals("Gene") ) {
             if(record.getAttributes().get("ID") != null){
@@ -54,10 +56,14 @@ public class OgsGffGFF3RecordHandler extends GFF3RecordHandler
                 String name = record.getAttributes().get("Name").iterator().next();
                 feature.setAttribute("name", name);
             }
-            if(record.getAttributes().get("isBroken") != null){
-                String status = record.getAttributes().get("isBroken").iterator().next();
-                feature.setAttribute("isBroken", status);
+            if(record.getAttributes().get("source") != null){
+                String source = record.getAttributes().get("source").iterator().next();
+                feature.setAttribute("source", source);
             }
+       //     if(record.getAttributes().get("isBroken") != null){
+      //          String status = record.getAttributes().get("isBroken").iterator().next();
+      //          feature.setAttribute("isBroken", status);
+      //      }
             feature.removeAttribute("symbol");
         }
         else if( clsName.equals("MRNA") || clsName.equals("Polypeptide") ) {
@@ -68,6 +74,10 @@ public class OgsGffGFF3RecordHandler extends GFF3RecordHandler
             if(record.getAttributes().get("Note") != null){
                 String description = record.getAttributes().get("Note").iterator().next();
                 feature.setAttribute("description", description);
+            }
+                if(record.getAttributes().get("source") != null){
+                String source = record.getAttributes().get("source").iterator().next();
+                feature.setAttribute("source", source);
             }
             if(record.getAttributes().get("Name") != null){
                 String name = record.getAttributes().get("Name").iterator().next();

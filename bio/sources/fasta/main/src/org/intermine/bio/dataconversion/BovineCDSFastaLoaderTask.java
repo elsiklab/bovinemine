@@ -10,6 +10,7 @@ package org.intermine.bio.dataconversion;
  *
  */
 
+import java.io.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -46,7 +47,16 @@ public class BovineCDSFastaLoaderTask extends BovineFeatureFastaLoaderTask
         Annotation annotation = bioJavaSequence.getAnnotation();
         String mrnaIdentifier = bioJavaSequence.getName();
         String header = (String) annotation.getProperty("description");
-
+        String regexp = "^.+\\s+(\\S+):([0-9]+-[0-9]+)\\s+(\\S+)\\s+hasEarlyStopCodon=(.+)$";
+        Pattern p = Pattern.compile(regexp);
+        Matcher m = p.matcher(header);
+        String hasESC = "";
+        if (m.matches()) {
+            hasESC = m.group(4);
+        }
+        if (hasESC != "") {
+            bioEntity.setFieldValue("hasEarlyStopCodon", hasESC.toLowerCase());
+        }
         ObjectStore os = getIntegrationWriter().getObjectStore();
         Model model = os.getModel();
         if (model.hasClassDescriptor(model.getPackageName() + ".CDS")) {
@@ -61,6 +71,7 @@ public class BovineCDSFastaLoaderTask extends BovineFeatureFastaLoaderTask
             if (mrna != null) {
                 bioEntity.setFieldValue("transcript", mrna);
             }
+
             Location loc = getLocationFromHeader(header, (SequenceFeature) bioEntity,
                     organism);
             getDirectDataLoader().store(loc);
@@ -80,7 +91,7 @@ public class BovineCDSFastaLoaderTask extends BovineFeatureFastaLoaderTask
         String header = (String) annotation.getProperty("description");
 
         // it doesn't matter too much what the CDS identifier is
-        return mrnaIdentifier + "_CDS";
+        return mrnaIdentifier + "-CDS";
 
     }
 }
