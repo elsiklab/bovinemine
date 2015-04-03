@@ -3,18 +3,27 @@
 
 <classes>
 <!-- add any <class> elements here -->
-  <class name="Gene" extends="SequenceFeature" is-interface="true">
+ <class name="BioEntity"  is-interface="true">
+        <attribute name="assemblyName" type="java.lang.String"/>
+  </class>
+<class name="Gene" extends="SequenceFeature" is-interface="true">
   	<attribute name="isBroken" type="java.lang.String"/>
+        <attribute name="source" type="java.lang.String"/>
   </class>
   <class name="Transcript" extends="SequenceFeature" is-interface="true">
+    <attribute name="source" type="java.lang.String"/>
   </class>
   <class name="MRNA" extends="Transcript" is-interface="true">
+      <attribute name="source" type="java.lang.String"/>
   </class>
     <class name="Polypeptide" extends="Transcript" is-interface="true">
+         <attribute name="source" type="java.lang.String"/>
   </class>
   <class name="Exon" extends="SequenceFeature" is-interface="true">
+        <attribute name="source" type="java.lang.String"/>
   </class>
   <class name="CDS" extends="SequenceFeature" is-interface="true">
+       <attribute name="source" type="java.lang.String"/>
   </class>
   <class name="StartCodon" extends="SequenceFeature" is-interface="true"></class>
   <class name="StopCodon" extends="SequenceFeature" is-interface="true"></class>

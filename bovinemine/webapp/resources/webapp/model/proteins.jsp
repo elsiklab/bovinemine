@@ -40,13 +40,13 @@
     <td> &nbsp;</td>
   </tr>
   <tr>
-    <td>
+<!--    <td>
       <p><i>B. taurus</i></p>
     </td>
           <td> Experimentally determined 3-D structures</td>
     <td> <a href="http://www.rcsb.org/pdb/home/home.do" target="_new" class="extlink">PDB [Protein Data Bank]</a> - Nov 2014</td>
     <td> &nbsp;</td>
-    <td> &nbsp;</td> 
+    <td> &nbsp;</td> --> 
   </tr>     
 
 

@@ -9,11 +9,13 @@
 	<class name="Gene" extends="SequenceFeature" is-interface="true">
 	  <attribute name="duplicate_entity" type="java.lang.String"/>
 	  <reference name="organismName" referenced-type="Organism"/>
+          <attribute name="source" type="java.lang.String"/>
 	  <collection name="duplicateEntity" referenced-type="Duplicate" reverse-reference="primeGene"/>
 	</class>
 	<class name="MRNA" extends="Transcript" is-interface="true">
 		<attribute name="proteinIdentifier" type="java.lang.String"/>
 		<attribute name="description" type="java.lang.String"/>
+                <attribute name="source" type="java.lang.String"/>
 	</class>
 	<class name="Duplicate" is-interface="true">
 		<attribute name="geneIdentifier" type="java.lang.String"/>
@@ -25,4 +27,7 @@
 		<attribute name="transcriptIdentifier" type="java.lang.String"/>
 		<collection name="primeGene" referenced-type="Gene" reverse-reference="duplicateEntity"/>
 	</class>
+       <class name="CDS" extends="SequenceFeature" is-interface="true">
+           <attribute name="hasEarlyStopCodon" type="java.lang.String"/>
+      </class>
 </classes>

@@ -13,7 +13,35 @@
     <aspect-source name="NCBI" url="http://www.ncbi.nlm.nih.gov"/>
     <aspect-source name="Ensembl" url="http://www.ensembl.org/index.html"/>
   </aspect>
-  <aspect name="Proteins">
+ 
+   <aspect name="SNP">
+    <subtitle>SNPs and INDELs</subtitle>
+    <icon-image>model/images/marray.gif</icon-image>
+    <large-image>model/images/marray.gif</large-image>
+    <intro-text>
+      The gene structure and other genome annotation in BovineMine are provided by
+      a variety of curated source databases.  In most cases BovineMine includes
+      all genome features that have chromosomal locations.
+    </intro-text>
+    <tile-name>model/snp.jsp</tile-name>
+    <aspect-source name="dbSNP" url="http://www.ncbi.nlm.nih.gov/SNP/"/>
+    <aspect-source name="HapMap" url="hapmap.ncbi.nlm.nih.gov/"/>
+  </aspect>
+  
+   <aspect name="QTL">
+    <subtitle>QTL</subtitle>
+    <icon-image>model/images/Qtl.png</icon-image>
+    <large-image>model/images/Qtl.png</large-image>
+    <intro-text>
+      The gene structure and other genome annotation in BovineMine are provided by
+      a variety of curated source databases.  In most cases BovineMine includes
+      all genome features that have chromosomal locations.
+    </intro-text>
+    <tile-name>model/qtl.jsp</tile-name>
+    <aspect-source name="animalQTLdb" url="http://www.animalgenome.org/cgi-bin/QTLdb/index"/>
+  </aspect>
+
+ <aspect name="Proteins">
     <subtitle>Protein and proteomics&lt;br/&gt;data</subtitle>
     <icon-image>model/images/proteins.png</icon-image>
     <large-image>model/images/proteins.png</large-image>

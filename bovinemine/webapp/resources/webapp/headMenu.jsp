@@ -66,7 +66,7 @@
         </a>
       </li>
       <li id="blast" <c:if test="${tab == 'blast'}">class="activelink"</c:if>>
-      	  <a href="http://localhost:4567">
+      	  <a href="http://bovinegenome.org/bovinemine_blast/">
 	     <fmt:message key="menu.blast"/>
 	  </a>
       </li>

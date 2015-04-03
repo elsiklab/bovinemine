@@ -68,6 +68,10 @@ public class ProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
                 String ft = record.getAttributes().get("feature_type").iterator().next();
                 feature.setAttribute("status", ft); // setting 'status' attribute of class 'Gene'
             }
+            if( record.getAttributes().get("source") != null ) {
+                String source = record.getAttributes().get("source").iterator().next();
+                feature.setAttribute("source", source); // setting 'status' attribute of class 'Gene'
+            }
             if( record.getAttributes().get("duplicate_entity") != null ) {
                 String duplicates = record.getAttributes().get("duplicate_entity").iterator().next();
                 feature.setAttribute("duplicate_entity", duplicates.replace("|", "\n"));
@@ -127,6 +131,10 @@ public class ProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
             if( record.getAttributes().get("ncbi_desc") != null) {
                 String description = record.getAttributes().get("ncbi_desc").iterator().next();
                 feature.setAttribute("description", description); // setting 'description' attribute of class 'MRNA'               
+            }
+            if( record.getAttributes().get("source") != null ) {
+                String source = record.getAttributes().get("source").iterator().next();
+                feature.setAttribute("source", source); // setting 'status' attribute of class 'Gene'
             }
             if( record.getAttributes().get("feature_type") != null ) {
                 String ft = record.getAttributes().get("feature_type").iterator().next();

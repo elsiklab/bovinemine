@@ -30,21 +30,17 @@
     <td> Gene Ontology Consortium - <a href="http://www.ncbi.nlm.nih.gov/pubmed/10802651" target="_new" class="extlink">PubMed:10802651</a></td>
     <td> &nbsp;</td>  
   </tr>
-<!--
+
   <tr>
     <td>
-           <p><i>A. mellifera</i></p>
-      <p><i>A. cephalotes</i></p>
-      <p><i>S. invicta</i></p>
-      <p><i>D. melanogaster</i></p>
-      <p><i>N. vitripennis</i></p>
+           <p><i>B. taurus</i></p>
     </td>
-     <td>Orthologues and paralogues  across <i>Hymenoptera</i> bees, Ants <i>Nasonia vitripennis </i>, and <i>Drosophila melanogaster </i></td>
-    <td><a href="http://useast.ensembl.org/biomart/martview/" target="_new" class="extlink">Ensembl BioMart</a></td>
-    <td> &nbsp;</td>
+     <td>SO Ontology</td>
+    <td><a href="" target="_new" class="extlink">Sequence Ontology</a></td>
+    <td> Eilbeck K et al - <a href="http://www.ncbi.nlm.nih.gov/pubmed/18629179" target="_new" class="extlink">PubMed:18629179</a></td>
    <td> &nbsp; </td>
   </tr>
--->    
+   
   <tr>
     <!--   <p><i></i></p> -->
     <!-- <td>Mi et al - <a href="http://www.ncbi.nlm.nih.gov/pubmed/23193289 " target="_new" class="extlink">PubMed: 23193289</a></td> -->
