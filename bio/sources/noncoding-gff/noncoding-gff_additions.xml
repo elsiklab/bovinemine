@@ -7,7 +7,13 @@
 	</class>
 	<class name="Gene" extends="SequenceFeature" is-interface="true">
 	<attribute name="source" type="java.lang.String"/>
+        <collection name="alias" referenced-type="AliasName" reverse-reference="gene"/>
         </class>
+        <class name="AliasName" extends="SequenceFeature" is-interface="true">
+           <attribute name="source" type="java.lang.String"/>
+          <collection name="gene" referenced-type="Gene" reverse-reference="alias"/>
+        </class>
+
 	<class name="Transcript" extends="SequenceFeature" is-interface="true">
 		<attribute name="description" type="java.lang.String"/>
                 <attribute name="source" type="java.lang.String"/>

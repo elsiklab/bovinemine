@@ -11,13 +11,7 @@
 <html:xhtml/>
 	<head>
 	
-<div class="mainu" id="pic">
-         
-          <div style="float:center;margin-left:25px;"><a href="http://en.wikipedia.org/wiki/Cattle"><img src="pictures_cow/Hereford.jpg" width="310" height="167" alt="Hereford" /></a>
-            <a href="http://en.wikipedia.org/wiki/Cattle" ><img src="pictures_cow/female_cow.jpg" width="320" height="167" alt="Female cow" /></a>
-            <a href="http://en.wikipedia.org/wiki/Cattle" > <img src="http://upload.wikimedia.org/wikipedia/commons/c/cc/Cattle_at_Velika_Planina%2C_Slovenia.jpg" width="310" height="167" alt="Farm" /></a>
-	</div> 
-</div>
+
  	</head>
 
 <div id="content-wrap">
