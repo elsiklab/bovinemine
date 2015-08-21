@@ -59,298 +59,6 @@
       <property name="gff3.dataSetTitle" value="Bovine QTL from Animal Genome QTLDB"/>
       <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/QTL/"/>
     </source> 
-
-     <source name="hapmap" type="hapmap" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine HapMap dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine HapMap dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine HapMap dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/HapMap"/>
-    </source>
-    
-    <!-- Start of DBSNP -->
-    <source name="DBSNP_chr1" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr1/"/>
-    </source>
-
-    <source name="DBSNP_chr2" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr2/"/>
-    </source>
-
-    <source name="DBSNP_chr3" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr3/"/>
-    </source>
-
-    <source name="DBSNP_chr4" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr4/"/>
-    </source>
-
-    <source name="DBSNP_chr5" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr5/"/>
-    </source>
-
-    <source name="DBSNP_chr6" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr6/"/>
-    </source>
-
-    <source name="DBSNP_chr7" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr7/"/>
-    </source>
-
-    <source name="DBSNP_chr8" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr8/"/>
-    </source>
-
-    <source name="DBSNP_chr9" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr9/"/>
-    </source>
-
-    <source name="DBSNP_chr10" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr10/"/>
-    </source>
-
-    <source name="DBSNP_chr11" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr11/"/>
-    </source>
-
-    <source name="DBSNP_chr12" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr12/"/>
-    </source>
-
-    <source name="DBSNP_chr13" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr13/"/>
-    </source>
-
-    <source name="DBSNP_chr14" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr14/"/>
-    </source>
-
-    <source name="DBSNP_chr15" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr15/"/>
-    </source>
-
-    <source name="DBSNP_chr16" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr16/"/>
-    </source>
-
-    <source name="DBSNP_chr17" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr17/"/>
-    </source>
-
-    <source name="DBSNP_chr18" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr18/"/>
-    </source>
-
-    <source name="DBSNP_chr19" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr19/"/>
-    </source>
-
-    <source name="DBSNP_chr20" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr20/"/>
-    </source>
-
-    <source name="DBSNP_chr21" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr21/"/>
-    </source>
-
-    <source name="DBSNP_chr22" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr22/"/>
-    </source>
-    
-    <source name="DBSNP_chr23" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr23/"/>
-    </source>
-
-    <source name="DBSNP_chr24" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr24/"/>
-    </source>
-
-    <source name="DBSNP_chr25" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr25/"/>
-    </source>
-
-    <source name="DBSNP_chr26" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr26/"/>
-    </source>
-
-    <source name="DBSNP_chr27" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr27/"/>
-    </source>
-
-    <source name="DBSNP_chr28" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr28/"/>
-    </source>
-
-    <source name="DBSNP_chr29" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chr29/"/>
-    </source>
-
-    <source name="DBSNP_chrX" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chrX/"/>
-    </source>
-
-    <source name="DBSNP_chrMT" type="dbsnp" dump="true">
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.seqDataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.dataSourceName" value="Bovine dbSNP dataset"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Bovine dbSNP dataset"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/dbSNP/chrMT/"/>
-    </source>
-    
-    <!-- End of DBSNP -->
-
 <!--     <source name="bovine-ogs-fasta" type="fasta" dump="true">
       <property name="fasta.taxonId" value="9913"/>
       <property name="fasta.className" value="org.intermine.model.bio.Transcript"/>
@@ -370,6 +78,12 @@
       <property name="createinterpro" value="true"/>
       <property name="creatego" value="true"/>
     </source>
+    <source name="bovine-uniprot-sec" type="uniprot" dump="true">
+      <property name="uniprot.organisms" value="9913"/>
+      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/UniProt/"/>
+      <property name="createinterpro" value="true"/>
+      <property name="creatego" value="true"/>
+    </source>
 
     <source name="bovine-uniprot-fasta" type="fasta" dump="true">
       <property name="fasta.taxonId" value="9913"/>
@@ -377,7 +91,7 @@
       <property name="fasta.classAttribute" value="primaryAccession"/>
       <property name="fasta.dataSetTitle" value="UniProt data set"/>
       <property name="fasta.dataSourceName" value="UniProt"/>
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/UniProt/"/>
+      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/UniProt/current/"/>
       <property name="fasta.includes" value="uniprot_sprot_varsplic.fasta"/>
       <property name="fasta.sequenceType" value="protein" />
       <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.UniProtFastaLoaderTask"/>
@@ -435,7 +149,7 @@
 
 
     <source name="bovine-uniprot-keywords" type="uniprot-keywords" dump="true">
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/UniProt/"/>
+      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/UniProt/current"/>
       <property name="src.data.dir.includes" value="keywlist.xml"/>
     </source>
 
@@ -459,10 +173,10 @@
       <property name="src.data.file" location="../../bio/sources/so/so.obo"/>
     </source>
  
-    <source name="bovine-uberon" type="uberon">
+<!--    <source name="bovine-uberon" type="uberon">
       <property name="src.data.file" location="/db/intermine/hymenopteramine_release_1.0/genomes/uberon/uberon.obo"/>
     </source> 
-
+-->
     <source name="bovine-go" type="go" dump="true">
       <property name="src.data.file" location="/db/intermine/bovinemine_release_1.0/UMD3.1/GO/gene_ontology.obo"/>
     </source>
@@ -472,12 +186,22 @@
       <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/GO-annotations/"/>
     </source>
 
-    <source name="bovine-pubmed-gene" type="pubmed-gene" dump="true">
+    <source name="pubmed-gene" type="pubmed-gene" dump="true">
       <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/PubMed/"/>
       <property name="pubmed.organisms" value="9913"/>
       <property name="src.data.dir.includes" value="gene2pubmed"/>
       <property name="infoFile" location="/db/intermine/bovinemine_release_1.0/UMD3.1/PubMed/gene_info"/>
     </source>
+    
+    <source name="pubmed-gene-ens" type="pubmed-gene" dump="true">
+      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/Pubmed_ens/"/>
+      <property name="pubmed.organisms" value="9913"/>
+      <property name="src.data.dir.includes" value="gene2pubmed"/>
+      <property name="infoFile" location="/db/intermine/bovinemine_release_1.0/UMD3.1/Pubmed_ens/gene_info"/>
+    </source>
+
+
+
     <source name="compara" type="ensembl-compara">
       <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/ENSEMBL_compara/"/>
       <property name="ensemblcompara.organisms" value="9913"/>
@@ -512,6 +236,33 @@
       <property name="src.data.dir.includes" value="*psi25.xml"/>
       <property name="biogrid.organisms" value="9913"/>
     </source>
+
+     <source name="bovine-biogrid-sec" type="biogrid">
+      <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/BIOGRID/"/>
+      <property name="src.data.dir.includes" value="*psi25.xml"/>
+      <property name="biogrid.organisms" value="9913"/>
+    </source>
+
+     
+    <source name="bovine-metadata" type="BovineExpressionMetadata" dump="true">
+        <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/geneexpressionmetadata/"/>
+        <property name="src.data.dir.includes" value="*.tab"/>
+    </source>
+     
+     <source name="bovine-rnaseq-expression" type="BovineExpression" dump="true">
+        <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/geneexpression/refseq_expression"/>
+        <property name="src.data.dir.includes" value="*.tab"/>
+    </source>
+
+     <source name="bovine-ensembl-expression" type="BovineExpression" dump="true">
+        <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/geneexpression/ensembl_expression"/>
+        <property name="src.data.dir.includes" value="*.tab"/>
+    </source>
+
+       <source name="brenda" type="brenda" dump="true">
+        <property name="src.data.file" location="/db/intermine/bovinemine_release_1.0/UMD3.1/brenda/BrendaTissueOntology.obo"/>
+    </source>
+
 <!--
     <source name="bovine-pdb" type="pdb">
       <property name="src.data.dir" location="/db/intermine/bovinemine_release_1.0/UMD3.1/PDB/"/>
@@ -552,7 +303,6 @@
    <post-process name="create-autocomplete-index"/>-->
    <post-process name="create-search-index"/>
    <post-process name="create-attribute-indexes"/>
-
  
   </post-processing>
 </project>

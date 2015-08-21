@@ -10,8 +10,13 @@
 	  <attribute name="duplicate_entity" type="java.lang.String"/>
 	  <reference name="organismName" referenced-type="Organism"/>
           <attribute name="source" type="java.lang.String"/>
-	  <collection name="duplicateEntity" referenced-type="Duplicate" reverse-reference="primeGene"/>
-	</class>
+       	  <collection name="duplicateEntity" referenced-type="Duplicate" reverse-reference="primeGene"/>
+               <collection name="alias" referenced-type="AliasName" reverse-reference="gene"/>
+        </class>
+           <class name="AliasName" extends="SequenceFeature" is-interface="true">
+           <attribute name="source" type="java.lang.String"/> 
+          <collection name="gene" referenced-type="Gene" reverse-reference="alias"/>
+    </class>
 	<class name="MRNA" extends="Transcript" is-interface="true">
 		<attribute name="proteinIdentifier" type="java.lang.String"/>
 		<attribute name="description" type="java.lang.String"/>
