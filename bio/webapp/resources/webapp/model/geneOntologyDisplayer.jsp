@@ -44,7 +44,7 @@
 			                </td>
                                         <td>
 			                  <c:set var="term" value="${entry.key}" />
-			                  <html:link href="http://bovinegenome.org/bovinemine/ontograph/dist/?term=GO:${term.identifier}" title="${term.description}">
+			                  <html:link href="http://bovinegenome.org/bovinemine/ontographDisplayer.do?term=${term.identifier}" title="${term.description}">
 			                  <img src="https://s3.amazonaws.com/go-public/image/go-logo-icon.small.png" width="16" height="16"></img>
 			                  </html:link>
 			                </td>
