@@ -1,17 +1,21 @@
 var d3=require('d3');
 var dagreD3=require('dagre-d3');
+var utils=require('./util.js');
+
 
 var depth_limit=20;
 var nodes=[];
+
 function process_parents(d3g, graph, term, depth) {
     var node = graph[term];
     if(!node) {
         return;
     }
     if(!nodes[node.label]) {
-        d3g.setNode(node.label, node);
+        d3g.setNode(node.label, {label: utils.explode(node.description, 20)});
         nodes[node.label]=true;
     }
+    else { console.log("already added: "+node.label); }
     if(node.parents) {
         for(var i=0; i<node.parents.length; i++) {
             if(depth<depth_limit) {
@@ -31,28 +35,22 @@ function process_parents_edges(d3g, graph, term, depth) {
     if(node.parents) {
         for(var i=0; i<node.parents.length; i++) {
             if(!edges[node.label+","+node.parents[i]]) {
-                d3g.setEdge(node.label, node.parents[i]);
+                d3g.setEdge(node.parents[i], node.label);
                 edges[node.label+","+node.parents[i]]=true;
 
                 if(depth<depth_limit) {
                     process_parents_edges(d3g, graph, node.parents[i],depth+1);
                 }
             }
+            else { console.log("already added: "+node.label+","+node.parents[i]); }
         }
     }
 }
 
 
-function getParameterByName(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}
-
 
 // check query params
-var param=getParameterByName('term');
+var param=utils.getParameterByName('term');
 if(param) {
     $('#term').val(param);
 }
@@ -118,7 +116,7 @@ function setup_graph(term) {
 
 
     inner.selectAll("g.node")
-      .attr("title", function(v) { return styleTooltip(v, g.node(v).description) })
+      .attr("title", function(v) { return styleTooltip(v, g.node(v).label) })
       .each(function(v) { $(this).tipsy({ gravity: "w", opacity: 1, html: true }); });
 
 
