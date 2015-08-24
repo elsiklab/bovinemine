@@ -21,13 +21,21 @@ import org.intermine.bio.io.gff3.GFF3Record;
 import org.intermine.metadata.Model;
 import org.intermine.metadata.StringUtil;
 import org.intermine.xml.full.Item;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.net.URLDecoder;
+import java.util.Map;
+import java.util.Map.Entry;
+
+
 /**
  * A converter/retriever for the EnsemblGff dataset via GFF files.
  */
 
 public class EnsemblGffGFF3RecordHandler extends GFF3RecordHandler
 {
-
+     Map<String,String> aliasToRefId = new HashMap<String,String>();
     /**
      * Create a new EnsemblGffGFF3RecordHandler for the given data model.
      * @param model the model for which items will be created
@@ -73,6 +81,33 @@ public class EnsemblGffGFF3RecordHandler extends GFF3RecordHandler
                 String symbol = record.getAttributes().get("symbol_ensembl").iterator().next();
                 feature.setAttribute("symbol", symbol);
             }
+
+            List<String> aliases = record.getAliases();  // getAliases() is a method predefined in Intermine
+            System.out.println("ALIASES: " + aliases);
+            if (aliases != null) {
+                Iterator<String> aliasesIterator = aliases.iterator();
+                while(aliasesIterator.hasNext()) {
+                    // iterating through the list of aliases
+                    String ref = aliasesIterator.next();
+                      String[] splitVal = ref.split(" ");
+                    String ssource = splitVal[1];
+                    String aliasPrimaryIdentifier = splitVal[0];
+                     if(aliasToRefId.containsKey(aliasPrimaryIdentifier)){
+                        feature.addToCollection("alias", aliasToRefId.get(aliasPrimaryIdentifier));
+                        } else {
+                        Item aliasItem = converter.createItem("AliasName");  // creating an AliasName object
+                        aliasItem.setAttribute("source", splitVal[1]);
+                       aliasItem.setAttribute("primaryIdentifier", splitVal[0]);  // setting primaryIdentifier of AliasName object
+                       String aliasRefId = aliasItem.getIdentifier();  // getting the reference ID of the AliasName object (needed for linking AliasName object to Gene object) 
+                       feature.addToCollection("alias", aliasRefId);  // addToCollection creates the link between feature (Gene) and the AliasName object
+                       aliasItem.addToCollection("gene", feature.getIdentifier());  // and vice-versa
+                       aliasToRefId.put(aliasPrimaryIdentifier, aliasRefId);
+                       addItem(aliasItem);  // adding AliasName object to be loaded into the database
+                    }
+
+               }
+            }
+
         }
         else if( clsName.equals("MRNA") || clsName.equals("Transcript") || clsName.equals("TRNA") || clsName.equals("MiRNA") || clsName.equals("RRNA") || clsName.equals("SnRNA") || clsName.equals("SnoRNA")) {
             if(record.getAttributes().get("ID") != null){
