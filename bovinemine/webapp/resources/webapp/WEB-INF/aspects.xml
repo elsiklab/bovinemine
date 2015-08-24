@@ -108,4 +108,14 @@
     <tile-name>model/publications.jsp</tile-name>
     <aspect-source name="Pubmed" url="http://www.ncbi.nlm.nih.gov/pubmed"/>
   </aspect>
+  <aspect name="Gene Expression">
+    <subtitle>Gene Expression</subtitle>
+    <icon-image>model/images/Heatmap.png</icon-image>
+    <large-image>model/images/Heatmap.png</large-image>
+    <intro-text>
+      Gene Expression
+    </intro-text>
+    <tile-name>model/Gene_expression.jsp</tile-name>
+    <aspect-source name="NCBI-SRA" url="http://www.ncbi.nlm.nih.gov/sra/"/>
+  </aspect>
 </aspects>

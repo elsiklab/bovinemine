@@ -19,7 +19,7 @@ import java.util.Map;
 public class PubMedReference
 {
 
-    private Map<Integer, List<Integer>> references;
+    private Map<Long, List<Integer>> references;
 
     private Integer organism;
 
@@ -28,7 +28,7 @@ public class PubMedReference
      * @param organism id of organism of which references this object carries
      * @param references references between id of gene and ids of publications in PubMed
      */
-    public PubMedReference(Integer organism, Map<Integer, List<Integer>> references) {
+    public PubMedReference(Integer organism, Map<Long, List<Integer>> references) {
         this.organism = organism;
         this.references = references;
     }
@@ -37,7 +37,7 @@ public class PubMedReference
      * @return references
      * {@link #PubMedReference(Integer, Map)}
      */
-    public Map<Integer, List<Integer>> getReferences() {
+    public Map<Long, List<Integer>> getReferences() {
         return references;
     }
 
@@ -45,7 +45,7 @@ public class PubMedReference
      * @param references references
      * {@link #PubMedReference(Integer, Map)}
      */
-    public void setReferences(Map<Integer, List<Integer>> references) {
+    public void setReferences(Map<Long, List<Integer>> references) {
         this.references = references;
     }
 

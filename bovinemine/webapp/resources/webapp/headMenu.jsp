@@ -70,6 +70,7 @@
 	     <fmt:message key="menu.blast"/>
 	  </a>
       </li>
+</li>
       <c:if test="${WEB_PROPERTIES['genomicRegionSearch.display'] == 'true'}">
           <li id="genomicRegionSearch" <c:if test="${tab == 'genomicRegionSearch'}">class="activelink"</c:if>>
             <a href="/${WEB_PROPERTIES['webapp.path']}/genomicRegionSearch.do">
@@ -82,6 +83,10 @@
           <fmt:message key="menu.dataCategories"/>
         </a>
       </li>
+      <li id="help"  <c:if test="${tab == 'Help'}">class="activelink"</c:if>>
+       <a href="http://bovinegenome.org/?q=node/56">
+    <fmt:message key="menu.help"/>
+  </a>
       <li id="api"  <c:if test="${tab == 'api'}">class="activelink"</c:if>>
         <a href="/${WEB_PROPERTIES['webapp.path']}/api.do">
           <fmt:message key="menu.api"/>
