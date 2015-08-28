@@ -35,6 +35,19 @@
       return false;
     }
 
+
+
+    function loadExample2() {
+      switchInputs('paste','file');
+      jQuery('#pasteInput').focus();
+
+      <%-- based on the selected type, load an example list identifiers --%>
+      var example = "ABCG2, ACLY, ACTB, ATP2B2, B4GALT1, BoLA-DRB3, BTN1A1, CCL2, CSN1S2, CSN2, DGAT1, EGF, ETS2, FEZF2, ID2, KCNK1, MFGE8, NME1, LGB, PRL, PTGS1, PTHLH, RORA, STAT5A, TLR4, XDH, LALBA, LEP, TP53, CSN3, CSN1S1, LTF";
+       jQuery('#pasteInput').val(example);
+
+      return false;
+    }
+
    var typeToEnable = new Array();
    <c:forEach items="${typesWithConnectingField}" var="type">
    typeToEnable['${type}'] = 1;
@@ -121,9 +134,15 @@
                  <c:set var="bagExampleComment" value="${WEB_PROPERTIES['bag.example.comment']}"/>
                  <c:if test="${!empty bagExampleIdentifiers && !empty bagExampleIdentifiers['default']}">
                        <html:link href="" onclick="javascript:loadExample();return false;">
-                         (click to see an example)<img src="images/disclosed.gif" title="Click to Show example"/>
+                         (click to see an example with different types of IDs)<img src="images/disclosed.gif" title="Example with different types of IDs"/>
                        </html:link>
                  </c:if>
+
+                   <html:link href="" onclick="javascript:loadExample2();return false;">
+                     (example to query a list of milk production genes)<img src="images/disclosed.gif" title="Example with milk production genes"/>
+                   </html:link>
+
+
                    <html:textarea styleId="pasteInput" property="text" rows="10"
                    onclick="if(this.value != ''){switchInputs('pasteInput','fileInput');}else{openInputs('fileInput', 'pasteInput');}"
                    onkeyup="if(this.value != ''){switchInputs('pasteInput','fileInput');}else{openInputs('fileInput', 'pasteInput');}" />
