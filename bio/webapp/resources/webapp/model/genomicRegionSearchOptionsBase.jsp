@@ -109,6 +109,12 @@
                              (click to see an example)<img src="images/disclosed.gif" title="Click to Show example"/>
                            </html:link>
                        </div>
+                        <%-- example span --%>
+                       <div style="text-align:left;">
+                           <html:link href="" onclick="javascript:loadExample2();return false;">
+                             (example for GWAS hits in feed efficiency)<img src="images/disclosed.gif" title="Click to Show example for GWAS"/>
+                           </html:link>
+                       </div>
                        <html:textarea styleId="pasteInput" property="pasteInput" rows="10" cols="60" onclick="if(this.value != ''){switchInputs('paste','file');}else{openInputs();}" onkeyup="if(this.value != ''){switchInputs('paste','file');}else{openInputs();}" />
                        <br>
 
