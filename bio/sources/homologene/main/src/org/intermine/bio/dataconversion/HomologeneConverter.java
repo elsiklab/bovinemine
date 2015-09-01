@@ -281,11 +281,7 @@ public class HomologeneConverter extends BioFileConverter
     }
 
     private String resolveGene(String taxonId, String ncbi, String identifier) {
-<<<<<<< HEAD
-        if ("9606".equals(taxonId)) {
-=======
         if ("0000".equals(taxonId)) {
->>>>>>> 5f2cde8af0d6b9c2171c7e0367a09582ae11a9fa
             // use entrez-gene identifier for human
             return ncbi;
         }
