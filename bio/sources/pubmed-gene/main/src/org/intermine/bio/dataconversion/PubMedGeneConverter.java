@@ -130,13 +130,8 @@ public class PubMedGeneConverter extends BioFileConverter
                 if (!taxonIds.isEmpty() && !taxonIds.contains(organismId.toString())) {
                     continue;
                 }
-<<<<<<< HEAD
-                Map<Integer, List<String>> geneToPub = convertAndStorePubs(ref.getReferences());
-                for (Entry<Integer, List<String>> e: geneToPub.entrySet()) {
-=======
                 Map<Long, List<String>> geneToPub = convertAndStorePubs(ref.getReferences());
                 for (Entry<Long, List<String>> e: geneToPub.entrySet()) {
->>>>>>> 5f2cde8af0d6b9c2171c7e0367a09582ae11a9fa
                     processGene(e.getKey(), e.getValue(), organismId, createOrganism(organismId));
                 }
                 storeGenes();
@@ -232,11 +227,6 @@ public class PubMedGeneConverter extends BioFileConverter
             }
         }
 
-<<<<<<< HEAD
-        if ("9606".equals(taxonId)) {
-            gene.setAttribute("symbol", pid);
-=======
-     
         if ("9913".equals(taxonId)) {
          int len = pid.length();
           if (len > 11) {
@@ -244,13 +234,10 @@ public class PubMedGeneConverter extends BioFileConverter
             total2=total2.substring(1);              
                String primaryIdentifier = "ENSBTAG" + total2; 
                gene.setAttribute("primaryIdentifier", primaryIdentifier);
-               System.out.println ("PPPPPPPPPPPPPPPPPPPPPddPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP");
           } else {
               String total2 = String.valueOf(pid);
                gene.setAttribute("primaryIdentifier", total2);
           }
-
->>>>>>> 5f2cde8af0d6b9c2171c7e0367a09582ae11a9fa
         } else {
             gene.setAttribute("primaryIdentifier", pid);
         }
@@ -284,12 +271,7 @@ public class PubMedGeneConverter extends BioFileConverter
         genes = new HashMap<String, Item>();
     }
 
-<<<<<<< HEAD
-    private void processGene(Integer ncbiGeneId, List<String> publications, Integer taxonId,
-=======
-    private void processGene(Long ncbiGeneId, List<String> publications, Integer taxonId,
->>>>>>> 5f2cde8af0d6b9c2171c7e0367a09582ae11a9fa
-            String organismRefId) {
+    private void processGene(Long ncbiGeneId, List<String> publications, Integer taxonId, String organismRefId) {
 
         taxonId = BioUtil.replaceStrain(taxonId);
 

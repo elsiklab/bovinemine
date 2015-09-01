@@ -1324,7 +1324,6 @@ public class GenomicRegionSearchService
                     .append("<span style='font-size: 11px;'>"
                             + firstPid + "</span>");
         }
-<<<<<<< HEAD
 
         sb.append("</a></td><td>" + firstSoTerm
                 + "<a onclick=\"document.getElementById('ctxHelpTxt').innerHTML='"
@@ -1348,31 +1347,6 @@ public class GenomicRegionSearchService
         String firstSoTerm = WebUtil.formatPath(firstFeatureType, interMineAPI,
                 webConfig);
 
-=======
-
-        sb.append("</a></td><td>" + firstSoTerm
-                + "<a onclick=\"document.getElementById('ctxHelpTxt').innerHTML='"
-                + firstSoTerm + ": " + firstSoTermDes.replaceAll("&apos;", "\\\\'")
-                + "';document.getElementById('ctxHelpDiv').style.display='';"
-                + "window.scrollTo(0, 0);return false\" title=\"" + firstSoTermDes
-                + "\"><img class=\"tinyQuestionMark\" "
-                + "src=\"images/icons/information-small-blue.png\" alt=\"?\"></a>"
-                + "</td><td>" + loc + "</td></tr>");
-    }
-
-    private int addFeaturesAboveCutoff(String galaxyDisplay,
-            String exportChromosomeSegment, StringBuffer sb, GenomicRegion s,
-            List<List<String>> features, String ftHtml, Set<String> ftSet,
-            Map<String, Integer> aboveCutOffFeatureTypeMap, String span) {
-        int length = features.size();
-
-        String firstFeatureType = aboveCutOffFeatureTypeMap.keySet().iterator().next();
-
-        // translatedClassName
-        String firstSoTerm = WebUtil.formatPath(firstFeatureType, interMineAPI,
-                webConfig);
-
->>>>>>> 5f2cde8af0d6b9c2171c7e0367a09582ae11a9fa
         String firstSoTermDes = firstFeatureType;
         if (featureTypeToSOTermMap.get(firstFeatureType) != null) {
             firstSoTermDes = featureTypeToSOTermMap.get(firstFeatureType).get(1);
