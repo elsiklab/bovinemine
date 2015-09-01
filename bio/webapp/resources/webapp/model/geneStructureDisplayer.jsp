@@ -96,6 +96,8 @@
 </c:if>
 
 
+
+
 <c:if test="${!empty gene.transcripts}">
 <div class="collection-table" style="display:none;">
   <table class="tiny-font">
@@ -311,3 +313,4 @@ if (geneStructureDisplayerSize > 1) {
 </div>
 
 <!-- /geneStructureDisplayer.jsp -->
+<%@include file="geneStructureModel.jsp" %>

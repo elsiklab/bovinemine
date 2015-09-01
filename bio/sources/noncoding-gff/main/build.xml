@@ -1,0 +1,4 @@
+<project name="noncoding-gff-tasks" default="default" basedir=".">
+  <description>build noncoding-gff tasks</description>
+  <import file="../../../../imbuild/library.xml"/> 
+</project>

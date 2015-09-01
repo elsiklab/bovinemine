@@ -1,0 +1,5 @@
+<project name="BovineExpressionMetadata" default="default" basedir=".">
+  <description>build, test, package BovineExpressionMetadata</description>
+  
+  <import file="../../../imbuild/source.xml"/>
+</project>
