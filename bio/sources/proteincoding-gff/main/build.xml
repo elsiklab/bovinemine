@@ -1,0 +1,4 @@
+<project name="proteincoding-gff-tasks" default="default" basedir=".">
+  <description>build proteincoding-gff tasks</description>
+  <import file="../../../../imbuild/library.xml"/> 
+</project>

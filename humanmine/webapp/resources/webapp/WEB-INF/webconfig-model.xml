@@ -346,7 +346,11 @@
                      replacesFields="primaryIdentifier,secondaryIdentifier,ncbiGeneNumber"
                      showImmediately="true"
                      placement="top"
+<<<<<<< HEAD
                      types="Gene"/>
+=======
+                     ypes="Gene"/>
+>>>>>>> 5f2cde8af0d6b9c2171c7e0367a09582ae11a9fa
 
     <reportdisplayer javaClass="org.intermine.bio.web.displayer.SequenceFeatureDisplayer"
                      jspName="model/sequenceFeatureDisplayer.jsp"
@@ -643,4 +647,8 @@
                                   interactions.details.experiment.name"/>
 
 </widgets>
+<<<<<<< HEAD
 </webconfig>
+=======
+</webconfig>
+>>>>>>> 5f2cde8af0d6b9c2171c7e0367a09582ae11a9fa
