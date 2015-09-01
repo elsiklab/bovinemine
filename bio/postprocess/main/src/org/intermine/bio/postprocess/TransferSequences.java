@@ -193,7 +193,6 @@ public class TransferSequences
                 }
 
                 if (PostProcessUtil.isInstance(model, feature, "SNP")) {
-<<<<<<< HEAD
                     continue;
                 }
 
@@ -210,8 +209,6 @@ public class TransferSequences
                  *      Tandem Repeat
                  */
                 if (PostProcessUtil.isInstance(model, feature, "SequenceAlteration")) {
-=======
->>>>>>> 5f2cde8af0d6b9c2171c7e0367a09582ae11a9fa
                     continue;
                 }
 

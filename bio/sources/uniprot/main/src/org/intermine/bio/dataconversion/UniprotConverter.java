@@ -1024,10 +1024,6 @@ public class UniprotConverter extends BioDirectoryConverter
                 LOG.error("error processing config for organism " + taxId);
             }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 5f2cde8af0d6b9c2171c7e0367a09582ae11a9fa
             return geneIdentifiers;
         }
 

@@ -42,15 +42,12 @@
 			                  <c:out value="${term.name}"/>
 			                  </html:link>&nbsp;<im:helplink text="${term.description}"/>
 			                </td>
-<<<<<<< HEAD
-=======
-                                        <td>
+							<td>
 			                  <c:set var="term" value="${entry.key}" />
 			                  <html:link href="http://bovinegenome.org/bovinemine/ontographPage.jsp?term=${term.identifier}" title="${term.description}">
 			                  <img src="https://s3.amazonaws.com/go-public/image/go-logo-icon.small.png" width="16" height="16"></img>
 			                  </html:link>
 			                </td>
->>>>>>> 5f2cde8af0d6b9c2171c7e0367a09582ae11a9fa
 			                <td>
 			                  <c:set var="evidence" value="${entry.value}" />
 				              <c:forEach items="${entry.value}" var="evidence">
