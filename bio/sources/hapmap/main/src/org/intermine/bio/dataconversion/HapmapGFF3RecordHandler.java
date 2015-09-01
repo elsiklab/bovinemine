@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
+import java.util.Iterator;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -42,7 +43,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 /**
- * A converter/retriever for the Hapmap dataset via GFF files.
+ * A converter/retriever for Hapmap GFF3
  */
 
 public class HapmapGFF3RecordHandler extends GFF3RecordHandler
@@ -61,40 +62,41 @@ public class HapmapGFF3RecordHandler extends GFF3RecordHandler
      */
     @Override
     public void process(GFF3Record record) {
-        // This method is called for every line of GFF3 file(s) being read.  Features and their
-        // locations are already created but not stored so you can make changes here.  Attributes
-        // are from the last column of the file are available in a map with the attribute name as
-        // the key.   For example:
-                 Item feature = getFeature();
-                 String clsName = feature.getClassName();
-
-       
-            if( clsName.equals("SNP") ) {
-              if(record.getAttributes().get("ID") != null){
-                String primaryIdentifier = record.getAttributes().get("ID").iterator().next();
-                feature.setAttribute("primaryIdentifier", primaryIdentifier);
+        Item feature = getFeature();
+        String clsName = feature.getClassName();
+        System.out.println("Class : " + clsName);
+        if (clsName.equals("SNP")) {
+            if (record.getAttributes().get("ID") != null) {
+                String secondaryIdentifier = record.getAttributes().get("ID").iterator().next();
+                feature.setAttribute("secondaryIdentifier", secondaryIdentifier);
             }
-             if( record.getAttributes().get("source") != null ) {
-                String source = record.getAttributes().get("source").iterator().next().replace("_"," ");
-                feature.setAttribute("source", source);
-            } 
+            if (record.getAttributes().get("Reference_seq") != null) {
+                String refAllele = record.getAttributes().get("Reference_seq").iterator().next();
+                feature.setAttribute("referenceAllele", refAllele);
+            }
+            if (record.getAttributes().get("Variant_seq") != null) {
+                String altAllele = record.getAttributes().get("Variant_seq").iterator().next();
+                feature.setAttribute("alternateAllele", altAllele);
+            }
 
-	}
-
-        //     Item feature = getFeature();
-        //     String symbol = record.getAttributes().get("symbol");
-        //     feature.setAttribute("symbol", symbol);
-        //
-        // Any new Items created can be stored by calling addItem().  For example:
-        // 
-        //     String geneIdentifier = record.getAttributes().get("gene");
-        //     gene = createItem("Gene");
-        //     gene.setAttribute("primaryIdentifier", geneIdentifier);
-        //     addItem(gene);
-        //
-        // You should make sure that new Items you create are unique, i.e. by storing in a map by
-        // some identifier. 
-
+            List<String> dbxrefs = record.getDbxrefs();
+            if (dbxrefs != null) {
+                Iterator<String> dbxrefsIter = dbxrefs.iterator();
+                while (dbxrefsIter.hasNext()) {
+                    String dbxref = dbxrefsIter.next();
+                    List<String> refList = new ArrayList<String>( Arrays.asList(StringUtil.split(dbxref, ",")));
+                    for (String ref : refList) {
+                        ref = ref.trim();
+                        int colonIndex = ref.indexOf(":");
+                        if (colonIndex == -1) {
+                            throw new RuntimeException("Error in Dbxref attribute " + ref);
+                        }
+                        if (ref.startsWith("dbSNP")) {
+                            feature.setAttribute("primaryIdentifier", ref.replace("dbSNP:", ""));
+                        }
+                    }
+                }
+            }
+        }
     }
-
 }
