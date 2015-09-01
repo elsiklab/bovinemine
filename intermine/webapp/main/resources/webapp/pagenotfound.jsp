@@ -15,9 +15,9 @@
   <ul>
     <li>going to the home page</li>
     <li>using the quicksearch</li>
-    <li>or Contact us at support [at] flymine.org</li>
+    <li>or Contact us at bovinegenome [at] gmail.com</li>
   </ul>
 </div>
-<img border="0" src="model/images/progress1.gif" title="Sorry..."/>
+<img border="0" src="http://bovinegenome.org/drupal/bovine/sites/genomes.arc.georgetown.edu.drupal.bovine/files/L1_Dominettereduced-1.png" title="Sorry..."/>
 
 <!-- /pagenotfound.jsp -->

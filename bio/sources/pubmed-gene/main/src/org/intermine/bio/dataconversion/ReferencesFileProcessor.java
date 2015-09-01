@@ -73,7 +73,7 @@ public class ReferencesFileProcessor
                 return null;
             }
             String line;
-            Map<Integer, List<Integer>> references = new HashMap<Integer, List<Integer>>();
+            Map<Long, List<Integer>> references = new HashMap<Long, List<Integer>>();
             while ((line = getLine()) != null) {
                 line = line.trim();
                 lineCounter++;
@@ -87,10 +87,11 @@ public class ReferencesFileProcessor
                             + " line. It doesn't have"
                             + " format tax_id\tGeneID\tPubMed_ID.");
                 }
-                Integer organismId, geneId, pubId;
+                Integer organismId, pubId;
+                long geneId;
                 try {
                     organismId = new Integer(parts[0].trim());
-                    geneId = new Integer(parts[1].trim());
+                    geneId = new Long(parts[1].trim());
                     pubId = new Integer(parts[2].trim());
                 } catch (NumberFormatException ex) {
                     throw new ReferencesProcessorException("Invalid identifier at line "
@@ -126,8 +127,8 @@ public class ReferencesFileProcessor
 
         }
 
-        private void processReference(Integer geneId, Integer pubId,
-                Map<Integer, List<Integer>> references) {
+        private void processReference(long geneId, Integer pubId,
+                Map<Long, List<Integer>> references) {
             List<Integer> publications = references.get(geneId);
             if (publications == null) {
                 publications = new ArrayList<Integer>();

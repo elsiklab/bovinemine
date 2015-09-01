@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!-- This file details any extensions needed to the data model to store data from this source, everything else is automatically generated from the model description so this is all we need to do to add to the model. -->
+
+<classes>
+<!-- add any <class> elements here -->
+	<class name="BioEntity" is-interface="true">
+	</class>
+	<class name="Gene" extends="SequenceFeature" is-interface="true">
+	<attribute name="source" type="java.lang.String"/>
+        <collection name="alias" referenced-type="AliasName" reverse-reference="gene"/>
+        </class>
+        <class name="AliasName" extends="SequenceFeature" is-interface="true">
+           <attribute name="source" type="java.lang.String"/>
+          <collection name="gene" referenced-type="Gene" reverse-reference="alias"/>
+        </class>
+
+	<class name="Transcript" extends="SequenceFeature" is-interface="true">
+		<attribute name="description" type="java.lang.String"/>
+                <attribute name="source" type="java.lang.String"/>
+	</class>
+	<class name="PrimaryTranscript" extends="Transcript" is-interface="true">
+                  <attribute name="source" type="java.lang.String"/>
+	</class>
+<!-- 	<class name="MiRNA" extends="NcRNA" is-interface="true">
+		<attribute name="mirbaseIdentifier" type="java.lang.String"/>
+	</class> -->
+	<class name="NcRNA" extends="Transcript" is-interface="true">
+		<attribute name="mirbaseIdentifier" type="java.lang.String"/>
+                <attribute name="source" type="java.lang.String"/>
+	</class>
+</classes>
