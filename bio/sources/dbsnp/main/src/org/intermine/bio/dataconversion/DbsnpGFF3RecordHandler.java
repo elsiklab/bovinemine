@@ -60,140 +60,70 @@ public class DbsnpGFF3RecordHandler extends GFF3RecordHandler
      */
     @Override
     public void process(GFF3Record record) {
-        // This method is called for every line of GFF3 file(s) being read.  Features and their
-        // locations are already created but not stored so you can make changes here.  Attributes
-        // are from the last column of the file are available in a map with the attribute name as
-        // the key.   For example:
-       
 
-             Item feature = getFeature();
-             String clsName = feature.getClassName();
+        Item feature = getFeature();
+        String clsName = feature.getClassName();
 
-
-            if( clsName.equals("SNP") ) {
-              if(record.getAttributes().get("geneinfo") != null){
-                String primaryIdentifier = record.getAttributes().get("geneinfo").iterator().next();
-                feature.setAttribute("geneinfo", primaryIdentifier);
-            }
-             if( record.getAttributes().get("source") != null ) {
-                String source = record.getAttributes().get("source").iterator().next();
-                feature.setAttribute("source", source);
-            }
-         //    if( record.getAttributes().get("ID") != null ) {
-          //      String gene_info = record.getAttributes().get("ID").iterator().next();
-      //          feature.setAttribute("ID",gene_info);
-        //    }
-            
-              if( record.getAttributes().get("vc") != null ) {
-                String vc = record.getAttributes().get("vc").iterator().next();
-                feature.setAttribute("vc", vc);
-            }
-             if( record.getAttributes().get("vp") != null ) {
-                String vp = record.getAttributes().get("vp").iterator().next();
-                feature.setAttribute("vp", vp);
-            }
-
-            if( record.getAttributes().get("Note") != null ) {
+        if( clsName.equals("SNP") ) {
+            if (record.getAttributes().get("Note") != null) {
                 String note = record.getAttributes().get("Note").iterator().next();
-                feature.setAttribute("Note", note);
+                String refAllele = note.split(">")[0];
+                String altAllele = note.split(">")[1];
+                feature.setAttribute("referenceAllele", refAllele);
+                feature.setAttribute("alternateAllele", altAllele);
             }
-             if( record.getAttributes().get("rs_id") != null ) {
-                String secondaryIdentifier = record.getAttributes().get("rs_id").iterator().next();
-                feature.setAttribute("rs_id", secondaryIdentifier);
+            if (record.getAttributes().get("rs_id") != null) {
+                String primaryIdentifier = record.getAttributes().get("rs_id").iterator().next();
+                feature.setAttribute("primaryIdentifier", primaryIdentifier);
             }
-             if( record.getAttributes().get("rspos") != null ) {
+            if (record.getAttributes().get("ID") != null) {
+                String secondaryIdentifier = record.getAttributes().get("ID").iterator().next();
+                feature.setAttribute("secondaryIdentifier", secondaryIdentifier);
+            }
+            if (record.getAttributes().get("rspos") != null) {
                 String ref = record.getAttributes().get("rspos").iterator().next();
-                feature.setAttribute("rspos", ref);
+                feature.setAttribute("rsPosition", ref);
             }
 
-             if( record.getAttributes().get("sao") != null ) {
-                String so = record.getAttributes().get("sao").iterator().next();
-                feature.setAttribute("sao", so);
+            if (record.getAttributes().get("sao") != null) {
+                String sao = record.getAttributes().get("sao").iterator().next();
+                feature.setAttribute("snpAlleleOrigin", sao);
             }
-             if( record.getAttributes().get("dbsnpbuildid") != null ) {
-                String dbS = record.getAttributes().get("dbsnpbuildid").iterator().next();
-                feature.setAttribute("dbsnpbuildid", dbS);
+            if (record.getAttributes().get("dbsnpbuildid") != null) {
+                String dbBuild = record.getAttributes().get("dbsnpbuildid").iterator().next();
+                feature.setAttribute("dbsnpBuild", dbBuild);
             }
-             if( record.getAttributes().get("symbol") != null ) {
-                String sym = record.getAttributes().get("symbol").iterator().next();
-                feature.setAttribute("symbol", sym);
-            }  
- 
-     } 
+        }
 
-    else if( clsName.equals("Indel")) {
-          //              if(record.getAttributes().get("ID") != null){
-          //      String primaryIdentifier = record.getAttributes().get("ID").iterator().next();
-          //      feature.setAttribute("primaryIdentifier", primaryIdentifier);
-         //   }
-             if( record.getAttributes().get("source") != null ) {
-                String source = record.getAttributes().get("source").iterator().next();
-                feature.setAttribute("source", source);
-            }
-             if( record.getAttributes().get("geneinfo") != null ) {
-                String primaryIdentifier = record.getAttributes().get("geneinfo").iterator().next();
-                feature.setAttribute("geneinfo",primaryIdentifier);
-            }
-
-              if( record.getAttributes().get("vc") != null ) {
-                String vc = record.getAttributes().get("vc").iterator().next();
-                feature.setAttribute("vc", vc);
-            }
-             if( record.getAttributes().get("vp") != null ) {
-                String vp = record.getAttributes().get("vp").iterator().next();
-                feature.setAttribute("vp", vp);
-            }
-
-            if( record.getAttributes().get("Note") != null ) {
+        else if( clsName.equals("Indel")) {
+            if (record.getAttributes().get("Note") != null) {
                 String note = record.getAttributes().get("Note").iterator().next();
-                feature.setAttribute("Note", note);
+                String refAllele = note.split(">")[0];
+                String altAllele = note.split(">")[1];
+                feature.setAttribute("referenceAllele", refAllele);
+                feature.setAttribute("alternateAllele", altAllele);
             }
-             if( record.getAttributes().get("rs_id") != null ) {
-                String secondaryIdentifier = record.getAttributes().get("rs_id").iterator().next();
-                feature.setAttribute("rs_id", secondaryIdentifier);
+            if (record.getAttributes().get("rs_id") != null) {
+                String primaryIdentifier = record.getAttributes().get("rs_id").iterator().next();
+                feature.setAttribute("primaryIdentifier", primaryIdentifier);
             }
-             if( record.getAttributes().get("rspos") != null ) {
+            if (record.getAttributes().get("ID") != null) {
+                String secondaryIdentifier = record.getAttributes().get("ID").iterator().next();
+                feature.setAttribute("secondaryIdentifier", secondaryIdentifier);
+            }
+            if (record.getAttributes().get("rspos") != null) {
                 String ref = record.getAttributes().get("rspos").iterator().next();
-                feature.setAttribute("rspos", ref);
+                feature.setAttribute("rsPosition", ref);
             }
 
-             if( record.getAttributes().get("sao") != null ) {
-                String so = record.getAttributes().get("sao").iterator().next();
-                feature.setAttribute("sao", so);
+            if (record.getAttributes().get("sao") != null) {
+                String sao = record.getAttributes().get("sao").iterator().next();
+                feature.setAttribute("snpAlleleOrigin", sao);
             }
-             if( record.getAttributes().get("dbsnpbuildid") != null ) {
-                String dbS = record.getAttributes().get("dbsnpbuildid").iterator().next();
-                feature.setAttribute("dbsnpbuildid", dbS);
+            if (record.getAttributes().get("dbsnpbuildid") != null) {
+                String dbBuild = record.getAttributes().get("dbsnpbuildid").iterator().next();
+                feature.setAttribute("dbsnpBuild", dbBuild);
             }
-	       if( record.getAttributes().get("symbol") != null ) {
-                String sym = record.getAttributes().get("symbol").iterator().next();
-                feature.setAttribute("symbol", sym);
-            }
-
-
-}
-
-
-
-
-	   
-
-
-
-        //     Item feature = getFeature();
-        //     String symbol = record.getAttributes().get("symbol");
-        //     feature.setAttribute("symbol", symbol);
-        //
-        // Any new Items created can be stored by calling addItem().  For example:
-        // 
-        //     String geneIdentifier = record.getAttributes().get("gene");
-        //     gene = createItem("Gene");
-        //     gene.setAttribute("primaryIdentifier", geneIdentifier);
-        //     addItem(gene);
-        //
-        // You should make sure that new Items you create are unique, i.e. by storing in a map by
-        // some identifier. 
-
+        }
     }
-
 }
