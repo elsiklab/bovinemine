@@ -1142,7 +1142,6 @@ public class GenomicRegionSearchService
         }
 
         sb.append("</tbody>");
-<<<<<<< HEAD
 
         return sb.toString();
     }
@@ -1201,66 +1200,6 @@ public class GenomicRegionSearchService
             sb.append("<i>Original input: " + os + "</i><br>");
         }
 
-=======
-
-        return sb.toString();
-    }
-
-    private void addFirstFeatures(String baseURL, String path,
-            String galaxyDisplay, String exportChromosomeSegment,
-            StringBuffer sb, GenomicRegion s, List<List<String>> features,
-            String ftHtml, Set<String> ftSet, String span, int length) {
-        List<String> firstFeature = features.get(0);
-
-        String firstId = firstFeature.get(0);
-        String firstPid = firstFeature.get(1);
-        String firstSymbol = firstFeature.get(2);
-        String firstFeatureType = firstFeature.get(3); // Class name
-        String firstChr = firstFeature.get(4);
-        String firstStart = firstFeature.get(5);
-        String firstEnd = firstFeature.get(6);
-
-        String loc = firstChr + ":" + firstStart + ".." + firstEnd;
-
-        // translatedClassName
-        String firstSoTerm = WebUtil.formatPath(firstFeatureType, interMineAPI,
-                webConfig);
-
-        String firstSoTermDes = firstFeatureType;
-        if (featureTypeToSOTermMap.get(firstFeatureType) != null) {
-            firstSoTermDes = featureTypeToSOTermMap.get(firstFeatureType).get(1);
-        }
-
-//                    firstSoTermDes = firstSoTermDes.replaceAll("'", "\\\\'");
-
-        sb.append("<tr><td valign='top' rowspan='" + length + "'>");
-
-        if (isJBrowseEnabled()) {
-            sb.append("<b><a title='view region in genome browser' "
-                    + "target='genome-browser' href='"
-                    + generateJBrowseURL(s)
-                    + "'>" + span + "</a></b>");
-        } else {
-            sb.append("<b>" + span + "</b>");
-        }
-
-        if (!"false".equals(exportChromosomeSegment)) {
-            sb.append("<span style=\"padding: 10px;\">"
-                    + "<a href='javascript: exportFeatures(\""
-                    + s.getFullRegionInfo()
-                    + "\", \"\", \"chrSeg\");'><img title=\"export chromosome "
-                    + "region as FASTA\" class=\"fasta\" "
-                    + "src=\"model/images/fasta.gif\"></a></span>");
-        }
-
-        sb.append("<br>");
-
-        if (s.getExtendedRegionSize() != 0) {
-            String os = s.getOriginalRegion();
-            sb.append("<i>Original input: " + os + "</i><br>");
-        }
-
->>>>>>> 5f2cde8af0d6b9c2171c7e0367a09582ae11a9fa
         String facet = "SequenceFeature";
         if (ftSet != null) {
             if (ftSet.size() == 1) {
@@ -1618,10 +1557,9 @@ public class GenomicRegionSearchService
         String id = s.getChr() + "-" + s.getStart() + "-" + s.getEnd();
 
         Set<String> ftSet = getFeatureTypeSetInAlphabeticalOrder(featureSet);
-   
+
         if (ftSet == null) {
             return "";
-<<<<<<< HEAD
         } else {
             String ftHtml = "<div>Create List by"
                 + "<select id=\"" + id + "\" style=\"margin: 4px 3px\">";
@@ -1638,24 +1576,6 @@ public class GenomicRegionSearchService
             ftHtml += "</div>";
 
             return ftHtml;
-=======
-           } else {
-              String ftHtml = "<div>";
-       //         + "<select id=\"" + id + "\" style=\"margin: 4px 3px\">";
-
-          for (String ft : ftSet) {
-       //         ftHtml += "<option value=\"" + ft + "\">"
-        //                + WebUtil.formatPath(ft, interMineAPI, webConfig)
-         //               + "</option>";
-              }
-
-       //     ftHtml += "</select>";
-      //      ftHtml += "<button onClick=\"javascript: createList('" + s.getFullRegionInfo()
-      //                + "', '" + id + "');\">Go</button>";
-     //       ftHtml += "</div>";
-     
-             return ftHtml;
->>>>>>> 5f2cde8af0d6b9c2171c7e0367a09582ae11a9fa
         }
     }
 
