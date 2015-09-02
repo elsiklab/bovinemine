@@ -56,10 +56,6 @@ public class NoncodingGffGFF3RecordHandler extends GFF3RecordHandler
      */
     @Override
     public void process(GFF3Record record) {
-        // This method is called for every line of GFF3 file(s) being read.  Features and their
-        // locations are already created but not stored so you can make changes here.  Attributes
-        // are from the last column of the file are available in a map with the attribute name as
-        // the key.   For example:
 
         Item feature = getFeature();
         String clsName = feature.getClassName();
@@ -80,7 +76,57 @@ public class NoncodingGffGFF3RecordHandler extends GFF3RecordHandler
             if( record.getAttributes().get("feature_type") != null ) {
                 String ft = record.getAttributes().get("feature_type").iterator().next();
                 feature.setAttribute("status", ft); // setting 'status' attribute of class 'Gene'
-            }           
+            }
+
+            if( record.getAttributes().get("duplicate_entity") != null ) {
+                String duplicates = record.getAttributes().get("duplicate_entity").iterator().next();
+                List<String> entities = new ArrayList<String>( Arrays.asList(StringUtil.split(duplicates, "|")));
+                for (String entity : entities) {
+                    Item duplicateEntityItem = converter.createItem("DuplicateEntity");
+                    String duplicateEntityItemRefId = duplicateEntityItem.getIdentifier();
+                    List<String> entityAttributes = new ArrayList<String>( Arrays.asList(StringUtil.split(entity, ",")));
+                    List<String> locationInformation = new ArrayList<String>( Arrays.asList(StringUtil.split(entityAttributes.get(0), ":")));
+                    System.out.println("locInfo: " + locationInformation.toString());
+                    String chromosome = locationInformation.get(0);
+                    System.out.println("CHR: " + chromosome);
+                    List<String> positionInfo = new ArrayList<String>( Arrays.asList(StringUtil.split(locationInformation.get(1), "..")));
+                    System.out.println ("POSINFO: " + positionInfo.toString());
+                    String start = positionInfo.get(0);
+                    String end = positionInfo.get(1);
+                    int strand = locationInformation.get(2).equals("+") ? 1 : -1;
+                    duplicateEntityItem.setAttribute("chromosome", chromosome);
+                    duplicateEntityItem.setAttribute("start", start);
+                    duplicateEntityItem.setAttribute("end", end);
+                    duplicateEntityItem.setAttribute("strand", Integer.toString(strand));
+
+                    if (entityAttributes.size() > 1) {
+                        String geneIdentifier = entityAttributes.get(1).replace("NCBI_Gene:", "");
+                        System.out.println("geneIdentifier: " + geneIdentifier);
+                        duplicateEntityItem.setAttribute("geneIdentifier", geneIdentifier);
+                    }
+                    if (entityAttributes.size() > 2) {
+                        ArrayList<String> product = new ArrayList<String>(Arrays.asList(StringUtil.split(entityAttributes.get(2), ":")));
+
+                        if (product.size() > 1) {
+                            String transcriptId = product.get(1);
+                            System.out.println("transcriptId: " + transcriptId);
+                            duplicateEntityItem.setAttribute("transcriptIdentifier", transcriptId);
+                        }
+                        if (product.size() > 2) {
+                            String proteinIdentifier = product.get(2);
+                            System.out.println("protId: " + proteinIdentifier);
+                            duplicateEntityItem.setAttribute("proteinIdentifier", proteinIdentifier);
+                        }
+                    }
+                    try {
+                        converter.store(duplicateEntityItem);
+                    }
+                    catch (Exception e) {
+                        System.out.println("Exception while storing duplicateEntityItem:" + duplicateEntityItem + "\n" + e);
+                    }
+                    feature.addToCollection("duplicateEntities", duplicateEntityItemRefId);
+                }
+            }
 
             // Accessing Dbxrefs
             List<String> dbxrefs = record.getDbxrefs();
@@ -98,14 +144,14 @@ public class NoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                         }
                         if( ref.startsWith("NCBI_Gene") ) {
                             feature.setAttribute( "primaryIdentifier", ref.replace("NCBI_Gene:", "") ); // setting 'primaryIdentifier' attribute of class 'Gene'
-                        }                        
-                        
-                        if( ref.startsWith("BGD:") || ref.startsWith("BEEBASE:") || ref.startsWith("NASONIABASE:") ) {
-			    String[] splitVal = ref.split(":");
-			    String secondaryId = splitVal[1];
+                        }
+
+                        if( ref.startsWith("BGD:") ) {
+                            String[] splitVal = ref.split(":");
+                            String secondaryId = splitVal[1];
                             feature.setAttribute("secondaryIdentifier", secondaryId); // setting 'secondaryIdentifier' attribute of class 'Gene'
                         }
-                   
+
 
 
 
@@ -119,7 +165,7 @@ public class NoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                 while(aliasesIterator.hasNext()) {
                     // iterating through the list of aliases
                     String ref = aliasesIterator.next();
-                      String[] splitVal = ref.split(" ");
+                    String[] splitVal = ref.split(" ");
                     String ssource = splitVal[1];
                     String aliasPrimaryIdentifier = splitVal[0];
                      if(aliasToRefId.containsKey(aliasPrimaryIdentifier)){
@@ -127,12 +173,12 @@ public class NoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                         } else {
                         Item aliasItem = converter.createItem("AliasName");  // creating an AliasName object
                         aliasItem.setAttribute("source", splitVal[1]);
-                       aliasItem.setAttribute("primaryIdentifier", splitVal[0]);  // setting primaryIdentifier of AliasName object
-                       String aliasRefId = aliasItem.getIdentifier();  // getting the reference ID of the AliasName object (needed for linking AliasName object to Gene object) 
-                       feature.addToCollection("alias", aliasRefId);  // addToCollection creates the link between feature (Gene) and the AliasName object
-                       aliasItem.addToCollection("gene", feature.getIdentifier());  // and vice-versa
-                       aliasToRefId.put(aliasPrimaryIdentifier, aliasRefId);
-                       addItem(aliasItem);  // adding AliasName object to be loaded into the database
+                        aliasItem.setAttribute("primaryIdentifier", splitVal[0]);  // setting primaryIdentifier of AliasName object
+                        String aliasRefId = aliasItem.getIdentifier();  // getting the reference ID of the AliasName object (needed for linking AliasName object to Gene object)
+                        feature.addToCollection("alias", aliasRefId);  // addToCollection creates the link between feature (Gene) and the AliasName object
+                        aliasItem.addToCollection("gene", feature.getIdentifier());  // and vice-versa
+                        aliasToRefId.put(aliasPrimaryIdentifier, aliasRefId);
+                        addItem(aliasItem);  // adding AliasName object to be loaded into the database
                     }
 
                }
@@ -174,19 +220,13 @@ public class NoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                         if( colonIndex == -1 ) {
                             throw new RuntimeException("Error in Dbxref attribute " + ref ); 
                         }
-                        // if( ref.startsWith("NCBI_Gene:") ) {
-                        //     feature.setAttribute( "primaryIdentifier", ref.replace("NCBI_Gene:", "") ); // setting 'primaryIdentifier' attribute of class 'Transcript'
-                        // }    
 
-
-                    
-                        if( ref.startsWith("BGD:") || ref.startsWith("BEEBASE:") || ref.startsWith("NASONIABASE:")) {
-			    String[] splitVal = ref.split(":");
-			    String secondaryId = splitVal[1];
+                        if( ref.startsWith("BGD:")) {
+			                String[] splitVal = ref.split(":");
+			                String secondaryId = splitVal[1];
                             feature.setAttribute("secondaryIdentifier", secondaryId); // setting 'secondaryIdentifier' attribute of class 'Transcript'
-                        } 
+                        }
 
-                    
                         if( ref.startsWith("RefSeq_NA:") ) {
                             feature.setAttribute("primaryIdentifier", ref.replace("RefSeq_NA:", "")); // setting 'primaryIdentifier' attribute of class 'Transcript'
                         }
@@ -230,15 +270,11 @@ public class NoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                         if( colonIndex == -1 ) {
                             throw new RuntimeException("Error in Dbxref attribute " + ref ); 
                         }
-                        // if( ref.startsWith("NCBI_Gene:") ) {
-                        //     feature.setAttribute( "primaryIdentifier", ref.replace("NCBI_Gene:", "") ); // setting 'primaryIdentifier' attribute of class 'PrimaryTranscript'
-                        // }                        
-                        if( ref.startsWith("BGD:") || ref.startsWith("BEEBASE:") || ref.startsWith("NASONIABASE:") ) {
+                        if( ref.startsWith("BGD:") ) {
                             String[] splitVal = ref.split(":");
-			    String secondaryId = splitVal[1];
-			    feature.setAttribute("secondaryIdentifier", secondaryId); // setting 'secondaryIdentifier' attribute of class 'PrimaryTranscript'
+			                String secondaryId = splitVal[1];
+			                feature.setAttribute("secondaryIdentifier", secondaryId); // setting 'secondaryIdentifier' attribute of class 'PrimaryTranscript'
                         }
-
                         if( ref.startsWith("miRBase:") ) {
                             feature.setAttribute("secondaryIdentifier", ref.replace("miRBase:", "")); // setting 'secondaryIdentifier' attribute of class 'PrimaryTranscript'; replacing BGD with miRBase ID for miRNAs
                         }
@@ -288,10 +324,10 @@ public class NoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                         // if( ref.startsWith("NCBI_Gene:") ) {
                         //     feature.setAttribute( "primaryIdentifier", ref.replace("NCBI_Gene:", "") ); // setting 'primaryIdentifier' attribute of class 'MiRNA'
                         // }                        
-                        if( ref.startsWith("BGD:") || ref.startsWith("BEEBASE:") || ref.startsWith("NASONIABASE:") ) {
+                        if( ref.startsWith("BGD:") ) {
                             String[] splitVal = ref.split(":");
-			    String secondaryId = splitVal[1];
-			    feature.setAttribute("secondaryIdentifier", secondaryId); // setting 'secondaryIdentifier' attribute of class 'MiRNA'
+			                String secondaryId = splitVal[1];
+			                feature.setAttribute("secondaryIdentifier", secondaryId); // setting 'secondaryIdentifier' attribute of class 'MiRNA'
                         }
                         if( ref.startsWith("miRBase") ) {
                             feature.setAttribute("primaryIdentifier", ref.replace("miRBase:", "")); // setting 'secondaryIdentifier' attribute of class 'MiRNA'
@@ -340,13 +376,11 @@ public class NoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                         // if( ref.startsWith("NCBI_Gene:") ) {
                         //     feature.setAttribute( "primaryIdentifier", ref.replace("NCBI_Gene:", "") ); // setting 'primaryIdentifier' attribute of class 'TRNA'
                         // }                        
-                        if( ref.startsWith("BGD:") || ref.startsWith("BEEBASE:") || ref.startsWith("NASONIABASE:") ) {
-			    String[] splitVal = ref.split(":");
-			    String secondaryId = splitVal[1];
+                        if( ref.startsWith("BGD:") ) {
+			                String[] splitVal = ref.split(":");
+			                String secondaryId = splitVal[1];
                             feature.setAttribute("secondaryIdentifier", secondaryId); // setting 'secondaryIdentifier' attribute of class 'TRNA'
                         }                        
-
-
 
                         if( ref.startsWith("RefSeq_NA") ) {
                             feature.setAttribute("primaryIdentifier", ref.replace("RefSeq_NA:", "")); // setting 'primaryIdentifier' attribute of class 'TRNA'
@@ -393,12 +427,11 @@ public class NoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                         }
                         // if( ref.startsWith("NCBI_Gene:") ) {
                         //     feature.setAttribute( "primaryIdentifier", ref.replace("NCBI_Gene:", "") ); // setting 'primaryIdentifier' attribute of class 'RRNA'                        // }                        
-                        if( ref.startsWith("BGD:") || ref.startsWith("BEEBASE:") || ref.startsWith("NASONIABASE:") ) {
+                        if( ref.startsWith("BGD:") ) {
                             String[] splitVal = ref.split(":");
-			    String secondaryId = splitVal[1];
-			    feature.setAttribute("secondaryIdentifier", secondaryId); // setting 'secondaryIdentifier' attribute of class 'RRNA'
+			                String secondaryId = splitVal[1];
+			                feature.setAttribute("secondaryIdentifier", secondaryId); // setting 'secondaryIdentifier' attribute of class 'RRNA'
                         }
-
 
                         if( ref.startsWith("RefSeq_NA") ) {
                             feature.setAttribute("primaryIdentifier", ref.replace("RefSeq_NA:", "")); // setting 'primaryIdentifier' attribute of class 'RRNA'
@@ -414,17 +447,5 @@ public class NoncodingGffGFF3RecordHandler extends GFF3RecordHandler
             System.out.println("Unexpected feature type encountered: " + clsName);
             System.exit(0);
         }
-
-        // Any new Items created can be stored by calling addItem().  For example:
-        // 
-        //     String geneIdentifier = record.getAttributes().get("gene");
-        //     gene = createItem("Gene");
-        //     gene.setAttribute("primaryIdentifier", geneIdentifier);
-        //     addItem(gene);
-        //
-        // You should make sure that new Items you create are unique, i.e. by storing in a map by
-        // some identifier. 
-
     }
-
 }
