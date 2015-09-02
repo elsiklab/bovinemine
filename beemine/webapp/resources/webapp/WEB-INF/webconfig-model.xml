@@ -5,6 +5,18 @@
     </fields>
   </class>
 
+    <class className="org.intermine.model.bio.AliasName">
+        <headerconfig>
+            <titles>
+                <title mainTitles="title" />
+            </titles>
+        </headerconfig>
+        <fields>
+            <fieldconfig fieldExpr="primaryIdentifier" label="Alias ID"/>
+            <fieldconfig fieldExpr="source" label="Alias source"/>
+        </fields>
+    </class>
+
   <class className="org.intermine.model.bio.BioEntity">
     <headerconfig>
       <titles>
