@@ -18,7 +18,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.net.URLDecoder;
 
- import java.util.HashMap;
+import java.util.HashMap;
 import java.util.HashSet;
 import org.intermine.bio.io.gff3.GFF3Record;
 import org.intermine.metadata.Model;
@@ -26,7 +26,6 @@ import org.intermine.metadata.StringUtil;
 import org.intermine.xml.full.Item;
 import java.util.Map;
 import java.util.Map.Entry;
-
 
 
 /**
@@ -54,10 +53,6 @@ public class ProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
      */
     @Override
     public void process(GFF3Record record) {
-        // This method is called for every line of GFF3 file(s) being read.  Features and their
-        // locations are already created but not stored so you can make changes here.  Attributes
-        // are from the last column of the file are available in a map with the attribute name as
-        // the key.
 
         Item feature = getFeature();
         String clsName = feature.getClassName();
@@ -77,28 +72,57 @@ public class ProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
             }
             if( record.getAttributes().get("source") != null ) {
                 String source = record.getAttributes().get("source").iterator().next();
-                feature.setAttribute("source", source); // setting 'status' attribute of class 'Gene'
+                //feature.setAttribute("source", source); // setting 'status' attribute of class 'Gene'
             }
+
             if( record.getAttributes().get("duplicate_entity") != null ) {
                 String duplicates = record.getAttributes().get("duplicate_entity").iterator().next();
-                feature.setAttribute("duplicate_entity", duplicates.replace("|", "\n"));
+                List<String> entities = new ArrayList<String>( Arrays.asList(StringUtil.split(duplicates, "|")));
+                for (String entity : entities) {
+                    Item duplicateEntityItem = converter.createItem("DuplicateEntity");
+                    String duplicateEntityItemRefId = duplicateEntityItem.getIdentifier();
+                    List<String> entityAttributes = new ArrayList<String>( Arrays.asList(StringUtil.split(entity, ",")));
+                    List<String> locationInformation = new ArrayList<String>( Arrays.asList(StringUtil.split(entityAttributes.get(0), ":")));
+                    System.out.println("locInfo: " + locationInformation.toString());
+                    String chromosome = locationInformation.get(0);
+                    System.out.println("CHR: " + chromosome);
+                    List<String> positionInfo = new ArrayList<String>( Arrays.asList(StringUtil.split(locationInformation.get(1), "..")));
+                    System.out.println ("POSINFO: " + positionInfo.toString());
+                    String start = positionInfo.get(0);
+                    String end = positionInfo.get(1);
+                    int strand = locationInformation.get(2).equals("+") ? 1 : -1;
+                    duplicateEntityItem.setAttribute("chromosome", chromosome);
+                    duplicateEntityItem.setAttribute("start", start);
+                    duplicateEntityItem.setAttribute("end", end);
+                    duplicateEntityItem.setAttribute("strand", Integer.toString(strand));
 
-                // ----- Experimental ------//
-                // List<String> entities = new ArrayList<String>( Arrays.asList(StringUtil.split(duplicates, "|")) );
-                // System.out.println(entities.toString());
-                
-                // for( String eachDuplicate in entities) {
-                //     List<String> subEntities = new ArrayList<String>( Arrays.asList(StringUtil.split(eachDuplicate, ",")) )
-                //     List<String> locationInformation = new ArrayList<String>( Arrays.asList(StringUtil.split(subEntities[0], ":")) )
-                //     String geneIdentifier = subEntities[1]
-                    // List<String> product = new ArrayList<String>( Arrays.asList(StringUtil.split(subEntities[2], ",")) )
-                    // subEntities[0] => Chr:Start..End:Strand
-                    // subEntities[1] => NCBI_Gene
-                    // subEntities[2] => gene_product
-                    // subEntities[n-1] => NCBI_Gene
-                    // subEntities[n] => gene_product
-                // ----- Experimental ------//
+                    if (entityAttributes.size() > 1) {
+                        String geneIdentifier = entityAttributes.get(1).replace("NCBI_Gene:", "");
+                        System.out.println("geneIdentifier: " + geneIdentifier);
+                        duplicateEntityItem.setAttribute("geneIdentifier", geneIdentifier);
+                    }
+                    if (entityAttributes.size() > 2) {
+                        ArrayList<String> product = new ArrayList<String>(Arrays.asList(StringUtil.split(entityAttributes.get(2), ":")));
 
+                        if (product.size() > 1) {
+                            String transcriptId = product.get(1);
+                            System.out.println("transcriptId: " + transcriptId);
+                            duplicateEntityItem.setAttribute("transcriptIdentifier", transcriptId);
+                        }
+                        if (product.size() > 2) {
+                            String proteinIdentifier = product.get(2);
+                            System.out.println("protId: " + proteinIdentifier);
+                            duplicateEntityItem.setAttribute("proteinIdentifier", proteinIdentifier);
+                        }
+                    }
+                    try {
+                        converter.store(duplicateEntityItem);
+                    }
+                    catch (Exception e) {
+                        System.out.println("Exception while storing duplicateEntityItem:" + duplicateEntityItem + "\n" + e);
+                    }
+                    feature.addToCollection("duplicateEntities", duplicateEntityItemRefId);
+                }
             }
             // Accessing Dbxrefs
             List<String> dbxrefs = record.getDbxrefs();
@@ -117,17 +141,16 @@ public class ProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
                         if( ref.startsWith("NCBI_Gene") ) {
                             feature.setAttribute( "primaryIdentifier", ref.replace("NCBI_Gene:", "") ); // setting 'primaryIdentifier' attribute of class 'Gene'
                         }                        
-                        if( ref.startsWith("BGD:") || ref.startsWith("BEEBASE:") || ref.startsWith("NASONIABASE:") ) {
+                        if( ref.startsWith("BGD:") ) {
                             String[] splitVal = ref.split(":");
-			    String secondaryId = splitVal[1];  
-			    feature.setAttribute("secondaryIdentifier", secondaryId); // setting 'secondaryIdentifier' attribute of class 'Gene'	    
+			                String secondaryId = splitVal[1];
+			                feature.setAttribute("secondaryIdentifier", secondaryId); // setting 'secondaryIdentifier' attribute of class 'Gene'
                         }
                     }
                 }
             }
           
             List<String> aliases = record.getAliases();  // getAliases() is a method predefined in Intermine
-            System.out.println("ALIASES: " + aliases);
             if (aliases != null) {
                 Iterator<String> aliasesIterator = aliases.iterator();
                 while(aliasesIterator.hasNext()) {
@@ -141,12 +164,12 @@ public class ProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
                         } else {
                         Item aliasItem = converter.createItem("AliasName");  // creating an AliasName object
                         aliasItem.setAttribute("source", splitVal[1]);
-                       aliasItem.setAttribute("primaryIdentifier", splitVal[0]);  // setting primaryIdentifier of AliasName object
-                       String aliasRefId = aliasItem.getIdentifier();  // getting the reference ID of the AliasName object (needed for linking AliasName object to Gene object)
-                       feature.addToCollection("alias", aliasRefId);  // addToCollection creates the link between feature (Gene) and the AliasName object
-                       aliasItem.addToCollection("gene", feature.getIdentifier());  // and vice-versa
-                       aliasToRefId.put(aliasPrimaryIdentifier, aliasRefId);
-                       addItem(aliasItem);  // adding AliasName object to be loaded into the database
+                        aliasItem.setAttribute("primaryIdentifier", splitVal[0]);  // setting primaryIdentifier of AliasName object
+                        String aliasRefId = aliasItem.getIdentifier();  // getting the reference ID of the AliasName object (needed for linking AliasName object to Gene object)
+                        feature.addToCollection("alias", aliasRefId);  // addToCollection creates the link between feature (Gene) and the AliasName object
+                        aliasItem.addToCollection("gene", feature.getIdentifier());  // and vice-versa
+                        aliasToRefId.put(aliasPrimaryIdentifier, aliasRefId);
+                        addItem(aliasItem);  // adding AliasName object to be loaded into the database
                     }
 
                }
@@ -168,7 +191,7 @@ public class ProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
             }
             if( record.getAttributes().get("source") != null ) {
                 String source = record.getAttributes().get("source").iterator().next();
-                feature.setAttribute("source", source); // setting 'status' attribute of class 'Gene'
+                //feature.setAttribute("source", source); // setting 'status' attribute of class 'Gene'
             }
             if( record.getAttributes().get("feature_type") != null ) {
                 String ft = record.getAttributes().get("feature_type").iterator().next();
@@ -193,7 +216,7 @@ public class ProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
                             feature.setAttribute( "primaryIdentifier", ref.replace("RefSeq_NA:", "") ); // setting 'primaryIdentifier' attribute of class 'MRNA'
                         }                        
                        
-                        if( ref.startsWith("BGD:") || ref.startsWith("BEEBASE:") || ref.startsWith("NASONIABASE:") ) {
+                        if( ref.startsWith("BGD:") ) {
                             String[] splitVal = ref.split(":");
 			    String secondaryId = splitVal[1];
 			    feature.setAttribute("secondaryIdentifier", secondaryId); // setting 'secondaryIdentifier' attribute of class 'MRNA'
@@ -206,23 +229,5 @@ public class ProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
                 }
             }
         }
-
-
-
-        //     Item feature = getFeature();
-        //     String symbol = record.getAttributes().get("symbol");
-        //     feature.setAttribute("symbol", symbol);
-        //
-        // Any new Items created can be stored by calling addItem().  For example:
-        // 
-        //     String geneIdentifier = record.getAttributes().get("gene");
-        //     gene = createItem("Gene");
-        //     gene.setAttribute("primaryIdentifier", geneIdentifier);
-        //     addItem(gene);
-        //
-        // You should make sure that new Items you create are unique, i.e. by storing in a map by
-        // some identifier. 
-
     }
-
 }
