@@ -97,7 +97,10 @@ public class BovineExpressionConverter extends BioFileConverter
                 System.exit(1);
             }
             String transcriptId = line[0];
-            for (int i = 1; i < line.length; i++) {
+            String transcriptType = line[1];
+            String classType = getClassForTranscriptType(transcriptType);
+
+            for (int i = 2; i < line.length; i++) {
                 String value = line[i];
                 String sampleName = sampleNames.get(i - 1);
                 sampleName = sampleName.replaceAll("\\s", "");
@@ -105,7 +108,7 @@ public class BovineExpressionConverter extends BioFileConverter
                 if (items.containsKey(key)) {
                     Item item = items.get(key);
                     if (valueType.equals("FPKM")) {
-                        item.setAttribute("fpkm", value);
+                        item.setAttribute("FPKM", value);
                     }
                     else if (valueType.equals("RPKM")) {
                         item.setAttribute("rpkm", value);
@@ -122,7 +125,7 @@ public class BovineExpressionConverter extends BioFileConverter
                     item.setAttribute("sampleName", sampleName);
                     item.setReference("organism", orgRefId);
                     if (valueType.equals("FPKM")) {
-                        item.setAttribute("fpkm", value);
+                        item.setAttribute("FPKM", value);
                     }
                     else if (valueType.equals("RPKM")) {
                         item.setAttribute("rpkm", value);
@@ -144,7 +147,7 @@ public class BovineExpressionConverter extends BioFileConverter
                     transcriptItems.put(transcriptId, tmpTranscriptItem);
                 }
                 else {
-                    Item transcriptItem = createItem("MRNA");
+                    Item transcriptItem = createItem(classType);
                     Item item = items.get(key);
                     transcriptItem.setAttribute("primaryIdentifier", transcriptId);
                     transcriptItem.setReference("organism", orgRefId);
@@ -175,6 +178,39 @@ public class BovineExpressionConverter extends BioFileConverter
                 }
             }
         }
+    }
+
+    private String getClassForTranscriptType(String transcriptType) {
+        String className = "";
+        if (transcriptType.equals("mRNA")) {
+            className = "MRNA";
+        }
+        else if (transcriptType.equals("transcript")) {
+            className = "Transcript";
+        }
+        else if (transcriptType.equals("primary_transcript")) {
+            className = "PrimaryTranscript";
+        }
+        else if (transcriptType.equals("tRNA")) {
+            className = "TRNA";
+        }
+        else if (transcriptType.equals("tRNA")) {
+            className = "RRNA";
+        }
+        else if (transcriptType.equals("miRNA")) {
+            className = "MiRNA";
+        }
+        else if (transcriptType.equals("snRNA")) {
+            className = "SnRNA";
+        }
+        else if (transcriptType.equals("snoRNA")) {
+            className = "SnoRNA";
+        }
+        else {
+            System.out.println("Unexpected transcript type: " + transcriptType);
+            System.exit(1);
+        }
+        return className;
     }
 
     /**
