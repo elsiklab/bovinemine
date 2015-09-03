@@ -45,7 +45,8 @@ public class OgsGffGFF3RecordHandler extends GFF3RecordHandler
         Item feature = getFeature();
         String clsName = feature.getClassName();
         String assemblyName = record.getSource();
-        feature.setAttribute("assemblyName", assemblyName); 
+        feature.setAttribute("assemblyName", assemblyName);
+        feature.setAttribute("source", record.getSource());
 
         if( clsName.equals("Gene") ) {
             if(record.getAttributes().get("ID") != null){
@@ -58,7 +59,7 @@ public class OgsGffGFF3RecordHandler extends GFF3RecordHandler
             }
             if(record.getAttributes().get("source") != null){
                 String source = record.getAttributes().get("source").iterator().next();
-                feature.setAttribute("source", source);
+                //feature.setAttribute("source", source);
             }
        //     if(record.getAttributes().get("isBroken") != null){
       //          String status = record.getAttributes().get("isBroken").iterator().next();
@@ -77,7 +78,7 @@ public class OgsGffGFF3RecordHandler extends GFF3RecordHandler
             }
                 if(record.getAttributes().get("source") != null){
                 String source = record.getAttributes().get("source").iterator().next();
-                feature.setAttribute("source", source);
+                //feature.setAttribute("source", source);
             }
             if(record.getAttributes().get("Name") != null){
                 String name = record.getAttributes().get("Name").iterator().next();
