@@ -420,7 +420,7 @@ public class EntrezPublicationsRetriever
                 }
                 publication.addToCollection("authors", author);
                 if (!publication.hasAttribute("firstAuthor")) {
-                    publication.setAttribute("firstAuthor", authorString);
+                    publication.setAttribute("firstAuthor", authorString + " et al.");
                 }
             }
         }
