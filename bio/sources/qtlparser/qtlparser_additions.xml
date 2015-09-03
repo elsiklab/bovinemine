@@ -30,6 +30,9 @@
 		<attribute name="geneIdentifierSource" type="java.lang.String"/>
 		<attribute name="peakCentimorgan" type="java.lang.String"/>
 		<attribute name="traitIdentifier" type="java.lang.String"/>
-		<reference name="gene" referenced-type="Protein"/>
+		<collection name="gene" referenced-type="Gene" reverse-reference="Qtls"/>
+	</class>
+	<class name="Gene" extends="SequenceFeature" is-interface="true">
+		<collection name="Qtls" referenced-type="QTL" reverse-reference="gene"/>
 	</class>
 </classes>
