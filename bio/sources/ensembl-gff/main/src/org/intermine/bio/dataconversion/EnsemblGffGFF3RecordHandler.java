@@ -64,6 +64,7 @@ public class EnsemblGffGFF3RecordHandler extends GFF3RecordHandler
         String clsName = feature.getClassName();
         feature.removeAttribute("secondaryIdentifier");
         feature.removeAttribute("symbol");
+        feature.setAttribute("source", record.getSource());
 
         if( clsName.equals("Gene") ) {
             if(record.getAttributes().get("ID") != null){
@@ -72,7 +73,7 @@ public class EnsemblGffGFF3RecordHandler extends GFF3RecordHandler
             }
             if(record.getAttributes().get("source") != null){
                 String source = record.getAttributes().get("source").iterator().next();
-                feature.setAttribute("source", source);
+                //feature.setAttribute("source", source);
             }
 
             if(record.getAttributes().get("symbol_ensembl") != null){
@@ -112,7 +113,7 @@ public class EnsemblGffGFF3RecordHandler extends GFF3RecordHandler
             }
             if(record.getAttributes().get("source") != null){
                 String source = record.getAttributes().get("source").iterator().next();
-                feature.setAttribute("source", source);
+                //feature.setAttribute("source", source);
             }
             if(record.getAttributes().get("symbol_ensembl") != null){
                 String symbol = record.getAttributes().get("symbol_ensembl").iterator().next();
