@@ -108,21 +108,27 @@ public class BovineExpressionMetadataConverter extends BioFileConverter
             String selection = line[34];
             String layout = line[35];
             
-            
             Item item = createItem("ExpressionMetadata");
-            if (!label.isEmpty()) {
-                item.setAttribute("label", label);
+//            if (!label.isEmpty()) {
+//                item.setAttribute("label", label);
+//            }
+//            else {
+//                System.out.println("label cannot be empty as it serves as a primaryIdentifier");
+//                System.exit(1);
+//            }
+
+            if (!sampleName.isEmpty()) {
+                item.setAttribute("sampleName", sampleName);
             }
             else {
-                System.out.println("label cannot be empty as it serves as a primaryIdentifier");
+                System.out.println("Sample Name cannot be empty as it serves as a primaryIdentifier");
                 System.exit(1);
             }
-            
             /*
             set attributes
              */
             item.setAttribute("sampleType", sampleType);
-            item.setAttribute("libraryName", libraryName);
+            //item.setAttribute("libraryName", libraryName);
             item.setAttribute("btoName", btoName);
             item.setAttribute("sraExperimentAccession", sraExperimentAccession);
             item.setAttribute("experimentName", experimentName);
@@ -133,7 +139,6 @@ public class BovineExpressionMetadataConverter extends BioFileConverter
             item.setAttribute("studyType", studyType);
             item.setAttribute("studyAbstract", studyAbstract);
             item.setAttribute("bioSampleId", bioSampleId);
-            item.setAttribute("sampleName", sampleName);
             item.setAttribute("sraSampleAccession", sraSampleAccession);
             item.setAttribute("sampleDescription", sampleDescription);
             item.setAttribute("organismName", organismName);
