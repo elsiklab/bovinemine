@@ -3,16 +3,16 @@
 
 <classes>
 <!-- add any <class> elements here -->
-    <class name="MRNA" extends="Transcript" is-interface="true">
+    <class name="Transcript" extends="SequenceFeature" is-interface="true">
         <collection name="expressionValues" referenced-type="Expression" reverse-reference="isoform"/>
     </class>
     <class name="Expression" is-interface="true">
-        <reference name="isoform" referenced-type="MRNA" reverse-reference="expressionValues"/>
+        <reference name="isoform" referenced-type="Transcript" reverse-reference="expressionValues"/>
         <attribute name="sampleName" type="java.lang.String"/>
         <attribute name="rawCounts" type="java.lang.Integer"/>
         <attribute name="normalizedCounts" type="java.lang.Float"/>
-        <attribute name="fpkm" type="java.lang.Float"/>
-        <!--<attribute name="rpkm" type="java.lang.Float"/>-->
+        <attribute name="FPKM" type="java.lang.Float"/>
+        <attribute name="RPKM" type="java.lang.Float"/>
         <reference name="organism" referenced-type="Organism"/>
         <reference name="sampleMetadata" referenced-type="ExpressionMetadata" reverse-reference="isoforms"/>
     </class>
