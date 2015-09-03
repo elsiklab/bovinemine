@@ -56,6 +56,7 @@ public class ProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
 
         Item feature = getFeature();
         String clsName = feature.getClassName();
+        feature.setAttribute("source", record.getSource());
 
         if( clsName.equals("Gene") ) {
 
