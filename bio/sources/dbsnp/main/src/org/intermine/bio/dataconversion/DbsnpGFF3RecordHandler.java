@@ -63,6 +63,7 @@ public class DbsnpGFF3RecordHandler extends GFF3RecordHandler
 
         Item feature = getFeature();
         String clsName = feature.getClassName();
+        feature.removeAttribute("symbol");
 
         if( clsName.equals("SNP") ) {
             if (record.getAttributes().get("Note") != null) {
