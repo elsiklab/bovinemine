@@ -19,6 +19,7 @@ import org.intermine.xml.full.Item;
 import java.io.File;
 import java.io.FileReader;
 import java.io.Reader;
+import java.lang.System;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -53,7 +54,6 @@ public class QtlparserGFF3RecordHandler extends GFF3RecordHandler
      * @param model the model for which items will be created
      */
     private HashMap<String,Item> geneItems = new HashMap<String, Item>();
-
     public QtlparserGFF3RecordHandler (Model model) {
         super(model);
     }
@@ -166,20 +166,20 @@ public class QtlparserGFF3RecordHandler extends GFF3RecordHandler
             if( record.getAttributes().get("gene_ID") != null ) {
                 String gene_identifier = record.getAttributes().get("gene_ID").iterator().next();
                 feature.setAttribute("geneIdentifier", gene_identifier);
-                if (items.containsKey(gene_identifier)) {
-                    Item item = items.get(gene_identifier);
-                    item.addToCollection("Qtls", feature.getIdentifier());
-                    feature.addToCollection("gene", item.getIdentifier());
-                    items.put(gene_identifier, item);
-                }
-                else {
-                    Item geneItem = converter.createItem("Gene");
-                    geneItem.setAttribute("primaryIdentifier", gene_identifier);
-                    geneItem.addToCollection("Qtls", feature.getIdentifier());
-                    geneItem.setReference("organism", getOrganism());
-                    feature.addToCollection("gene", geneItem.getIdentifier());
-                    items.put(gene_identifier, geneItem);
-                }
+//                if (items.containsKey(gene_identifier)) {
+//                    Item item = items.get(gene_identifier);
+//                    item.addToCollection("qtls", feature.getIdentifier());
+//                    feature.addToCollection("gene", item.getIdentifier());
+//                    items.put(gene_identifier, item);
+//                }
+//                else {
+//                    Item geneItem = converter.createItem("Gene");
+//                    geneItem.setAttribute("primaryIdentifier", gene_identifier);
+//                    geneItem.setReference("organism", organism.getIdentifier());
+//                    geneItem.addToCollection("qtls", feature.getIdentifier());
+//                    feature.addToCollection("gene", geneItem.getIdentifier());
+//                    items.put(gene_identifier, geneItem);
+//                }
             }
             if( record.getAttributes().get("gene_IDsrc") != null ) {
                 String gene_identifier_src = record.getAttributes().get("gene_IDsrc").iterator().next();
