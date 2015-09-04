@@ -36,6 +36,7 @@ public class NoncodingGffGFF3RecordHandler extends GFF3RecordHandler
 {
  
    Map<String,String> aliasToRefId = new HashMap<String,String>();
+    Map<String,String> geneToRefId = new HashMap<String,String>();
     /**
      * Create a new NoncodingGffGFF3RecordHandler for the given data model.
      * @param model the model for which items will be created
@@ -159,8 +160,8 @@ public class NoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                     }
                 }
             }
-             List<String> aliases = record.getAliases();  // getAliases() is a method predefined in Intermine
-            System.out.println("ALIASES: " + aliases); 
+
+            List<String> aliases = record.getAliases();  // getAliases() is a method predefined in Intermine
             if (aliases != null) {
                 Iterator<String> aliasesIterator = aliases.iterator();
                 while(aliasesIterator.hasNext()) {
@@ -169,9 +170,15 @@ public class NoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                     String[] splitVal = ref.split(" ");
                     String ssource = splitVal[1];
                     String aliasPrimaryIdentifier = splitVal[0];
-                     if(aliasToRefId.containsKey(aliasPrimaryIdentifier)){
+                    if (aliasToRefId.containsKey(aliasPrimaryIdentifier)) {
                         feature.addToCollection("alias", aliasToRefId.get(aliasPrimaryIdentifier));
-                        } else {
+                        if (! geneToRefId.containsKey(aliasPrimaryIdentifier)) {
+                            Item geneItem = converter.createItem("Gene");
+                            geneItem.setAttribute("primaryIdentifier", aliasPrimaryIdentifier);
+                            geneToRefId.put(aliasPrimaryIdentifier, geneItem.getIdentifier());
+                            addItem(geneItem);
+                        }
+                    } else {
                         Item aliasItem = converter.createItem("AliasName");  // creating an AliasName object
                         aliasItem.setAttribute("source", splitVal[1]);
                         aliasItem.setAttribute("primaryIdentifier", splitVal[0]);  // setting primaryIdentifier of AliasName object
@@ -179,10 +186,16 @@ public class NoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                         feature.addToCollection("alias", aliasRefId);  // addToCollection creates the link between feature (Gene) and the AliasName object
                         aliasItem.addToCollection("gene", feature.getIdentifier());  // and vice-versa
                         aliasToRefId.put(aliasPrimaryIdentifier, aliasRefId);
+                        if (! geneToRefId.containsKey(aliasPrimaryIdentifier)) {
+                            Item geneItem = converter.createItem("Gene");
+                            geneItem.setAttribute("primaryIdentifier", aliasPrimaryIdentifier);
+                            geneToRefId.put(aliasPrimaryIdentifier, geneItem.getIdentifier());
+                            aliasItem.addToCollection("gene", geneItem.getIdentifier());
+                            addItem(geneItem);
+                        }
                         addItem(aliasItem);  // adding AliasName object to be loaded into the database
                     }
-
-               }
+                }
             }
        }            
         else if( clsName.equals("Transcript") ) {
