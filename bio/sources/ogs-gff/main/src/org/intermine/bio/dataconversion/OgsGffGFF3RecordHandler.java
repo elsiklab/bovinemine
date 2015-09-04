@@ -44,8 +44,6 @@ public class OgsGffGFF3RecordHandler extends GFF3RecordHandler
         //
         Item feature = getFeature();
         String clsName = feature.getClassName();
-        String assemblyName = record.getSource();
-        feature.setAttribute("assemblyName", assemblyName);
         feature.setAttribute("source", record.getSource());
 
         if( clsName.equals("Gene") ) {
