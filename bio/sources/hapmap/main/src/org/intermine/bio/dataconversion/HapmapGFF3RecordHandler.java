@@ -64,7 +64,8 @@ public class HapmapGFF3RecordHandler extends GFF3RecordHandler
     public void process(GFF3Record record) {
         Item feature = getFeature();
         String clsName = feature.getClassName();
-        System.out.println("Class : " + clsName);
+        feature.removeAttribute("symbol");
+
         if (clsName.equals("SNP")) {
             if (record.getAttributes().get("ID") != null) {
                 String secondaryIdentifier = record.getAttributes().get("ID").iterator().next();
