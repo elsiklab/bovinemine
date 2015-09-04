@@ -64,7 +64,7 @@ public class BovineExpressionMetadataConverter extends BioFileConverter
 
         while (lineIter.hasNext()) {
             String[] line = lineIter.next();
-            if (Pattern.matches("Sample name", line[0])) {
+            if (line[0].equals("Sample name")) {
                 // skipping header
                 continue;
             }
@@ -86,7 +86,7 @@ public class BovineExpressionMetadataConverter extends BioFileConverter
             String studyType = line[12];
             String studyAbstract = line[13];
             String bioSampleId = line[14];
-            String sampleName = line[15];
+            String sampleName = line[15].replaceAll("\\s","");
             String sraSampleAccession = line[16];
             String sampleDescription = line[17];
             String organismName = line[18];
@@ -109,26 +109,19 @@ public class BovineExpressionMetadataConverter extends BioFileConverter
             String layout = line[35];
             
             Item item = createItem("ExpressionMetadata");
-//            if (!label.isEmpty()) {
-//                item.setAttribute("label", label);
-//            }
-//            else {
-//                System.out.println("label cannot be empty as it serves as a primaryIdentifier");
-//                System.exit(1);
-//            }
-
-            if (!sampleName.isEmpty()) {
-                item.setAttribute("sampleName", sampleName);
+            if (!label.isEmpty()) {
+                item.setAttribute("label", label);
             }
             else {
-                System.out.println("Sample Name cannot be empty as it serves as a primaryIdentifier");
+                System.out.println("label cannot be empty as it serves as a primaryIdentifier");
                 System.exit(1);
             }
+
             /*
             set attributes
              */
             item.setAttribute("sampleType", sampleType);
-            //item.setAttribute("libraryName", libraryName);
+            item.setAttribute("libraryName", libraryName);
             item.setAttribute("btoName", btoName);
             item.setAttribute("sraExperimentAccession", sraExperimentAccession);
             item.setAttribute("experimentName", experimentName);
@@ -145,6 +138,7 @@ public class BovineExpressionMetadataConverter extends BioFileConverter
             item.setAttribute("breed", breed);
             item.setAttribute("sex", sex);
             item.setAttribute("age", age);
+            item.setAttribute("sampleName", sampleName);
             item.setAttribute("tissue", tissue);
             item.setAttribute("bioMaterialProvider", biomaterialProvider);
             item.setAttribute("sraRunAccession", sraRunAccession);
