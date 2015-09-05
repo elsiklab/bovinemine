@@ -194,7 +194,7 @@ public class BovineExpressionConverter extends BioFileConverter
         else if (transcriptType.equals("tRNA")) {
             className = "TRNA";
         }
-        else if (transcriptType.equals("tRNA")) {
+        else if (transcriptType.equals("rRNA")) {
             className = "RRNA";
         }
         else if (transcriptType.equals("miRNA")) {
