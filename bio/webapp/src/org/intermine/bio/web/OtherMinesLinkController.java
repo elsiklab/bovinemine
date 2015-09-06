@@ -52,6 +52,11 @@ public class OtherMinesLinkController extends TilesAction
         final ServletContext servletContext = session.getServletContext();
         final Properties props = SessionMethods.getWebProperties(servletContext);
         InterMineObject o = (InterMineObject) request.getAttribute("object");
+        String objectString = o.toString();
+        if (!objectString.contains("primaryIdentifier")) {
+            System.out.println("Object has primaryIdentifier");
+            return null;
+        }
         Model model = im.getModel();
         Set<ClassDescriptor> classDescriptors = model.getClassDescriptorsForClass(o.getClass());
         ClassDescriptor gene = model.getClassDescriptorByName("Gene");
