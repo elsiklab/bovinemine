@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
@@ -6,11 +5,9 @@
 
 
 <!-- dataCategories -->
-<!--
 <c:set var="note1" value="Only genes that have been mapped to the genome have been loaded"/>
 <c:set var="note2" value="Also orthologues from these organisms to <i>C. familiaris</i>, <i>D. discoideum</i>, <i>D. rerio</i>, <i>G. gallus</i>, <i>H. sapiens</i>, <i>M. musculus</i>, <i>P. troglodytes</i>, <i>R. norvegicus</i>, <i>S. pombe</i>." />
 <c:set var="note3" value="These data have been re-mapped to genome sequence release 5.0 as of FlyMine release 7.0."/>
--->
 
 <html:xhtml/>
 
@@ -253,4 +250,3 @@
     </c:choose>
   </im:boxarea>
 </div>
->>>>>>> 05aff8bb937d156111f264d4822505889befa9c8
