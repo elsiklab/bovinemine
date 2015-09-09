@@ -14,7 +14,6 @@
 
  	</head>
 
-<div id="content-wrap">
         <div id="boxes">
                 <div id="search-bochs">
                         <img class="title" src="themes/purple/homepage/search-ico-right.png" title="search"/>
@@ -72,7 +71,7 @@
                                                     <textarea id="listInput" name="text"><c:out value="${WEB_PROPERTIES['bag.example.identifiers']}" /></textarea>
                                                 </c:when>
                                                 <c:otherwise>
-                                                    <textarea id="listInput" name="text">e.g. <c:out value="${WEB_PROPERTIES['bag.example.identifiers']}" /></textarea>
+                                                    <textarea id="listInput" name="text"><c:out value="${WEB_PROPERTIES['bag.example.identifiers']}" /></textarea>
                                                 </c:otherwise>
                                             </c:choose>
                                         </div>
