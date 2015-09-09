@@ -31,7 +31,7 @@
             resetInputs();
 
             jQuery("#organisms option:selected").each(function () {
-                appendGenomeBuild(jQuery(this).text());
+//                appendGenomeBuild(jQuery(this).text());
                 appendFeatureTypes(jQuery(this).text());
             });
         })
