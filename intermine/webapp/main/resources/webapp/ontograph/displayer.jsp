@@ -10,7 +10,7 @@
 <body>
 <p id="loading">Loading ...</p>
 <svg id="svg-canvas" width=1000 height=600></svg>
-<script id="js" charset="UTF-8" type="text/javascript" src="ontograph/dist/js/displayer.js"></script>
+<script id="js" charset="UTF-8" type="text/javascript" src="ontograph/dist/displayer.js"></script>
 
 
 </body>
