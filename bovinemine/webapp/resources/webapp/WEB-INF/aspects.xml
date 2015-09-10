@@ -115,7 +115,7 @@
     <intro-text>
       Gene Expression
     </intro-text>
-    <tile-name>model/Gene_expression.jsp</tile-name>
+    <tile-name>model/geneExpression.jsp</tile-name>
     <aspect-source name="NCBI-SRA" url="http://www.ncbi.nlm.nih.gov/sra/"/>
   </aspect>
 </aspects>
