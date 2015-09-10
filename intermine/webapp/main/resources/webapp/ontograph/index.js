@@ -1,6 +1,6 @@
 var d3=require('d3');
 var dagreD3=require('dagre-d3');
-var utils=require('./util.js');
+var utils=require('./js/util.js');
 
 
 var depth_limit=20;
@@ -15,7 +15,6 @@ function process_parents(d3g, graph, term, depth) {
         d3g.setNode(node.label, {label: utils.explode(node.description, 20)});
         nodes[node.label]=true;
     }
-    else { console.log("already added: "+node.label); }
     if(node.parents) {
         for(var i=0; i<node.parents.length; i++) {
             if(depth<depth_limit) {
@@ -42,7 +41,6 @@ function process_parents_edges(d3g, graph, term, depth) {
                     process_parents_edges(d3g, graph, node.parents[i],depth+1);
                 }
             }
-            else { console.log("already added: "+node.label+","+node.parents[i]); }
         }
     }
 }
