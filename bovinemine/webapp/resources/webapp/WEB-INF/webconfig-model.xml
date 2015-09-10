@@ -16,9 +16,17 @@
     </fields>
   </class>
 
+    <class className="org.intermine.model.bio.CDS">
+        <fields>
+            <fieldconfig fieldExpr="primaryIdentifier" name="CDS ID"/>
+            <fieldconfig fieldExpr="length"/>
+        </fields>
+    </class>
+
   <class className="org.intermine.model.bio.Chromosome">
     <fields>
-      <fieldconfig fieldExpr="primaryIdentifier"/>
+      <fieldconfig fieldExpr="primaryIdentifier" label="Chromosome ID"/>
+        <fieldconfig fieldExpr="secondaryIdentifier" label="Chromosome Name"/>
       <fieldconfig fieldExpr="organism.name"/>
       <fieldconfig fieldExpr="length" displayer="/model/sequenceShortDisplayerWithField.jsp" />
     </fields>
@@ -51,8 +59,8 @@
       <table path="dataSets.name" />
     </inlinelist>
     <fields>
-      <fieldconfig fieldExpr="primaryIdentifier"/>
-      <fieldconfig fieldExpr="secondaryIdentifier"/>
+      <fieldconfig fieldExpr="primaryIdentifier" label="Gene ID"/>
+      <fieldconfig fieldExpr="secondaryIdentifier" label="BGD Identifier"/>
       <fieldconfig fieldExpr="symbol"/>
       <fieldconfig fieldExpr="name"/>
       <fieldconfig fieldExpr="source"/>
@@ -69,8 +77,28 @@
     <inlinelist>
       <table path="dataSets.name" />
     </inlinelist>
+      <fields>
+          <fieldconfig fieldExpr="primaryIdentifier" label="Exon Identifier"/>
+          <fieldconfig fieldExpr="length"/>
+      </fields>
   </class>
 
+    <class className="org.intermine.model.bio.ExpressionMetadata">
+        <fields>
+            <fieldconfig fieldExpr="sraExperimentAccession" label="SRA Experiment Accession"/>
+            <fieldconfig fieldExpr="sraStudyAccession" label="SRA Study Accession" showInSummary="false"/>
+            <fieldconfig fieldExpr="sraSubmissionAccession" label="SRA Submission Accession" showInSummary="false"/>
+            <fieldconfig fieldExpr="sraSampleAccession" label="SRA Sample Accession" showInSummary="false"/>
+            <fieldconfig fieldExpr="bioSampleId" label="Bio Sample ID"/>
+            <fieldconfig fieldExpr="sraRunAccession" label="SRA Run Accession"/>
+            <fieldconfig fieldExpr="label"/>
+            <fieldconfig fieldExpr="tissue"/>
+            <fieldconfig fieldExpr="btoName" label="Brenda Tissue Ontology name"/>
+            <fieldconfig fieldExpr="breed"/>
+            <fieldconfig fieldExpr="sex"/>
+            <fieldconfig fieldExpr="age"/>
+        </fields>
+    </class>
  <class className="org.intermine.model.bio.Location">
     <fields>
       <fieldconfig fieldExpr="feature.primaryIdentifier"/>
@@ -92,6 +120,22 @@
       <fieldconfig fieldExpr="organism.name"/>
     </fields>
   </class>
+
+    <class className="org.intermine.model.bio.SNP">
+        <fields>
+            <fieldconfig fieldExpr="primaryIdentifier" label="SNP rsID"/>
+            <fieldconfig fieldExpr="referenceAllele"/>
+            <fieldconfig fieldExpr="alternateAllele"/>
+        </fields>
+    </class>
+
+    <class className="org.intermine.model.bio.Indel">
+        <fields>
+            <fieldconfig fieldExpr="primaryIdentifier" label="SNP rsID"/>
+            <fieldconfig fieldExpr="referenceAllele"/>
+            <fieldconfig fieldExpr="alternateAllele"/>
+        </fields>
+    </class>
 
   <class className="org.intermine.model.bio.Homologue">
     <fields>
@@ -194,7 +238,7 @@
  </titles>
     </headerconfig>
     <inlinelist>
-      <table path="authors.name" showLinksToObjects="true" />
+      <table path="authors.name" showLinksToObjects="false" />
     </inlinelist>
     <fields>
       <fieldconfig fieldExpr="firstAuthor"/>
@@ -228,8 +272,9 @@
       <table path="dataSets.name" />
     </inlinelist>
     <fields>
-      <fieldconfig fieldExpr="primaryIdentifier"/>
-       <fieldconfig fieldExpr="source"/>
+      <fieldconfig fieldExpr="primaryIdentifier" label="Transcript Identifier"/>
+      <fieldconfig fieldExpr="proteinIdentifier" label="Protein Identifier"/>
+      <fieldconfig fieldExpr="source"/>
       <fieldconfig fieldExpr="length" displayer="/model/sequenceShortDisplayerWithField.jsp" />
       <fieldconfig fieldExpr="chromosomeLocation" displayer="/model/chromosomeLocDisplayer.jsp" showInResults="false"/>
       <fieldconfig fieldExpr="chromosome.primaryIdentifier" showInInlineCollection="false" showInSummary="false" />
