@@ -29,22 +29,22 @@
     <td> <i>Bos taurus</i> </td>
     <td>NCBI Annotations</td>
     <td>NCBI Annotation Release 104</td>
-    <td><a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=24259432>24259432</a> <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25355515>24259432</a></td>
-    <td> </td>
+    <td><p>Pruitt et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=24259432>24259432</a></p><p>Brown et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25355515>25355515</a></p></td>
+    <td> NCBI FTP</td>
   </tr>
   <tr>
     <td> <i>Bos taurus</i> </td>
     <td> Official Gene Set v2.0  </td>
     <td> Bovine Genome Database</td>
-    <td><a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=19390049>19390049</a> <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=21092105>21092105</a></td>
-    <td></td>
+    <td><p>Bovine Genome Sequencing and Analysis Consortium - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=19390049>19390049</a></p><p>Reese et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=21092105>21092105</a></p></td>
+    <td>BGD Download</td>
   </tr>
   <tr>
     <td> <i> Bos taurus</i></td>
     <td> Ensembl annotations </td>
     <td>Ensembl Release 79</td>
-    <td><a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25352552>25352552</a></td>
-    <td></td>
+    <td>Cunnigham et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25352552>25352552</a></td>
+    <td>Ensembl Download</td>
   </tr>
 
 
@@ -61,8 +61,8 @@
     </td>
      <td>Orthologue and paralogue relationships</td>
     <td>OrthoDB - Version 7</td>
-    <td><a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428351>25428351</a></td>
-    <td></td>
+    <td>Kriventseva et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428351>25428351</a></td>
+    <td>OrthoDB Download</td>
   </tr>
 
   <tr>
@@ -76,8 +76,8 @@
     </td>
     <td>Orthologue and paralogue relationships</td>
     <td>Treefam - release 8.0</td>
-    <td><a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=24194607>24194607</a></td>
-    <td> &nbsp; </td>
+    <td>Schreiber et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=24194607>24194607</a></td>
+    <td>EBI FTP</td>
   </tr>
   <tr>
     <td>
@@ -90,8 +90,8 @@
     </td>
     <td>Orthologue and paralogue relationships</td>
     <td>Ensembl Compara</td>
-    <td> <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=19029536>19029536</a> </td>
-    <td> &nbsp; </td>
+    <td>Vilella et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=19029536>19029536</a> </td>
+    <td>Ensembl BioMart</td>
   </tr>
   <tr>
     <td>
@@ -103,8 +103,8 @@
     </td>
     <td>Orthologue and paralogue relationships</td>
     <td>HomoloGene build 68</td>
-    <td><a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25398906>25398906</a></td>
-    <td> &nbsp; </td>
+    <td>NCBI Resource Coordinators - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25398906>25398906</a></td>
+    <td>NCBI FTP</td>
   </tr>
 
   <tr>
@@ -116,8 +116,8 @@
     </td>
     <td> Protein annotation</td>
     <td> UniProt - Release 2015_08</td>
-    <td> <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25348405>25348405</a></td>
-    <td> &nbsp;</td>
+    <td> UniProt Consortium - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25348405>25348405</a></td>
+    <td> UniProt FTP</td>
   </tr>
 
   <tr>
@@ -125,9 +125,9 @@
         <p><i>B. taurus</i></p>
     </td>
     <td> Protein family and domain assignments to proteins</td>
-    <td> InterProVersion 53.0  </td>
-    <td> <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428371>25428371</a></td>
-    <td> &nbsp;</td>
+    <td> InterPro Version 53.0  </td>
+    <td> Mitchell et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428371>25428371</a></td>
+    <td> InterPro FTP</td>
   </tr>
   <tr>
     <td class="leftcol"><p><h2>Interactions</h2></p></td>
@@ -137,18 +137,18 @@
         <p><i>M. musculus</i></p>
     </td>
     <td> Interactions from BioGRID </td>
-    <td> <a href="http://www.thebiogrid.org" target="_new" class="extlink">BioGRID</a> - Version 3.4.128 </td>
-    <td> <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428363>25428363</a></td>
-    <td> &nbsp;</td>
+    <td> BioGRID - Version 3.4.128 </td>
+    <td> Chatr-Aryamontri et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428363>25428363</a></td>
+    <td> BioGRID Download</td>
   </tr>
 
   <tr>
     <td class="leftcol"><p> <h2>Gene Ontology</h2></p></td>
     <td> <i>B. taurus</i> </td>
     <td> GO annotations </td>
-    <td> <a href="http://www.geneontology.org" target="_new" class="extlink">Gene Ontology Site</a> - Sep 2014</td>
-    <td> <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25378336>25378336</a> <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428369>25428369</a></td>
-    <td> &nbsp;</td>
+    <td> GOA at UniProt (add the information from the file)</td>
+    <td> <p>Huntley et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25378336>25378336</a></p><p>Gene Ontology Consortium - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428369>25428369</a></p></td>
+    <td> GO Consortium Annotation Download</td>
   </tr>
 
   <tr>
@@ -160,16 +160,16 @@
     </td>
     <td> Pathway information and the genes involved in them, inferred through orthologues from curated human pathways</td>
     <td> Reactome - version 50, Oct 2014</td>
-    <td> <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=24243840>24243840</a></td>
-    <td> &nbsp;</td>
+    <td> Croft et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=24243840>24243840</a></td>
+    <td> Reactome Download</td>
   </tr>
   <tr>
     <td class="leftcol"><p><h2>Publications</h2></p></td>
     <td> <i>B. taurus</i> </td>
     <td> A mapping from genes to publications using NCBI resources</td>
     <td> NCBI PubMed</td>
-    <td><a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25398906>25398906</a></td>
-    <td> &nbsp;</td>
+    <td>NCBI Resource Coordinators - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25398906>25398906</a></td>
+    <td>NCBI FTP</td>
   </tr>
 
   <tr>
@@ -179,25 +179,36 @@
     </td>
     <td>QTL data for Bos taurus</td>
     <td> AnimalQTLdb release 25 (Feb 2015)</td>
-    <td> <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=17135205>17135205</a></td>
-    <td></td>
+    <td>Hu et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=17135205>17135205</a></td>
+    <td><a href=http://www.animalgenome.org/cgi-bin/QTLdb/BT/index>CattleQTLdb Download</a></td>
   </tr>
   <tr>
     <td><i>B. taurus</i></td>
     <td>dbSNP data for Bos taurus</td>
     <td> dbSNP v143</td>
-    <td> <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=11125122>11125122</a></td>
-    <td></td>
+    <td> Sherry et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=11125122>11125122</a></td>
+    <td>NCBI FTP</td>
   </tr>
 
   <tr>
     <td class="leftcol"><p><h2>Gene expression</h2></p></td>
     <td><p>B. taurus</p></td>
     <td>RNA-seq gene expression data from 92 tissues</td>
-    <td> NCBI SRA  <a href=http://www.ncbi.nlm.nih.gov/sra?term=SRP049415>link</a></td>
-    <td> <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=22009675>22009675</a></td>
-    <td> </td>
+    <td> NCBI SRA </td>
+    <td> Kodama et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=22009675>22009675</a></td>
+    <td> <a href=http://www.ncbi.nlm.nih.gov/sra?term=SRP049415>NCBI SRA Project Page</a></td>
   </tr>
+
+  <tr>
+    <td class="leftcol"><p><h2>Assembly</h2></p></td>
+    <td><p>B. taurus</p></td>
+    <td>Chromosome Assembly</td>
+    <td>UMD3.1.1</td>
+    <td>Zimin et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=19393038>19393038</a></td>
+    <td>NCBI FTP</td>
+  </tr>
+
+
 
 </table>
 
