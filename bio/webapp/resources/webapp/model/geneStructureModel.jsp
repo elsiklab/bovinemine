@@ -76,7 +76,7 @@ require({
    'JBrowse/Store/Sequence/StaticChunked'
 ],
 function (cookie,dom,domConstruct,domStyle,domClass,Browser,HTMLFeatures,NCList,SimpleFeature,Layout,StaticChunkedSequence) {
-   var bovinemine = new intermine.Service({root: "http://bovinegenome.org:8080/bovinemine"});
+   var bovinemine = new intermine.Service({root: "http://bovinegenome.org/bovinemine"});
    var query = {
        from: 'Gene',
        select: [
@@ -113,7 +113,7 @@ function (cookie,dom,domConstruct,domStyle,domClass,Browser,HTMLFeatures,NCList,
           "showLabels":false,
           "onClick"  : {
               "label": "Feature name {name}\nFeature start {start}\nFeature end {end}",
-              "url": "http://bovinegenome.org:8080/UMD3.1/jbrowse/?loc={name}",
+              "url": "http://bovinegenome.org/Apollo2/jbrowse/index.html?organism=22875?loc={name}",
               "action": "newWindow"
           },
           "menuTemplate":null
