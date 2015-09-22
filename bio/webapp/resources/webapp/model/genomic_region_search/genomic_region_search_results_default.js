@@ -111,11 +111,12 @@
           if (feature_count >= 100000) {
             alert("It is not allowed to create a list with 100,000+ genomic features...");
           } else {
+              window.open("about:blank", "listResultsPage"); // preload blank page
               jQuery.post("genomicRegionSearchAjax.do", { spanUUIDString: span_uuid_string, createList: "true", criteria: criteria, facet: facet }, function(bagName){
                   // window.location.href = "/" + webapp_path + "/bagDetails.do?bagName=" + bagName;
                   window.open(
                       "/" + webapp_path + "/bagDetails.do?bagName=" + bagName,
-                      '_blank' // <- This is what makes it open in a new window.
+                      "listResultsPage" // redirect blank page to avoid pop-up blocker
                       );
               }, "text");
           }
