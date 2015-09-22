@@ -259,12 +259,7 @@
 "GK000025.2:10486776-10486777\n"+
 "GK000025.2:25631487-25631488\n"+
 "GK000029.2:36095196-36095197\n"+
-"GK000029.2:45556241-45556242"
-      switchInputs('paste','file');
-      jQuery('#pasteInput').focus();
-      jQuery('#pasteInput').val(exampleSpans);
-
-      return false;
+"GK000029.2:45556241-45556242");
     }
 
 
