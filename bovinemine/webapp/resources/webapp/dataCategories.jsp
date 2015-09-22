@@ -146,7 +146,7 @@
     <td class="leftcol"><p> <h2>Gene Ontology</h2></p></td>
     <td> <i>B. taurus</i> </td>
     <td> GO annotations </td>
-    <td> GOA at UniProt (add the information from the file)</td>
+    <td> GOA at UniProt (GOC Validation Date: 07/22/2015)</td>
     <td> <p>Huntley et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25378336>25378336</a></p><p>Gene Ontology Consortium - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428369>25428369</a></p></td>
     <td> <a href="http://geneontology.org/page/download-annotation">GO Consortium Annotation Download</a></td>
   </tr>
