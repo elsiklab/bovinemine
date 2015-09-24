@@ -29,7 +29,7 @@
     <td> <i>Bos taurus</i> </td>
     <td>NCBI Annotations</td>
     <td>NCBI Annotation Release 104</td>
-    <td><p>Pruitt et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=24259432>24259432</a></p><p>Brown et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25355515>25355515</a></p></td>
+    <td><p>Pruitt et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=24259432>24259432</a></p></td>
     <td> <a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/Bos_taurus/">NCBI FTP</a></td>
   </tr>
   <tr>
@@ -193,7 +193,7 @@
   <tr>
     <td class="leftcol"><p><h2>Gene expression</h2></p></td>
     <td><p>B. taurus</p></td>
-    <td>RNA-seq gene expression data from 92 tissues</td>
+    <td>RNA-seq gene expression data from L1 Dominette 01449 and her relatives</td>
     <td> NCBI SRA </td>
     <td> Kodama et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=22009675>22009675</a></td>
     <td> <a href=http://www.ncbi.nlm.nih.gov/sra?term=SRP049415>NCBI SRA Project Page</a></td>
