@@ -5,6 +5,13 @@
     </fields>
   </class>
 
+  <class className="org.intermine.model.bio.AliasName">
+    <fields>
+      <fieldconfig fieldExpr="name"/>
+	<fieldconfig fieldExpr="source"/>
+    </fields>
+  </class>
+
  <class className="org.intermine.model.bio.BioEntity">
     <headerconfig>
       <titles>
@@ -302,14 +309,14 @@
     <reportdisplayer javaClass="org.intermine.bio.web.displayer.GeneStructureModel"
                      jspName="model/geneStructureModel.jsp"
                      replacesFields=""
-                     placement="Genes"
+                     placement="Transcripts"
                      types="Gene,Transcript,PrimaryTranscript,MiRNA,Exon,Intron,UTR,CDS"/>
 
 
     <reportdisplayer javaClass="org.intermine.bio.web.displayer.GeneStructureDisplayer"
                      jspName="model/geneStructureDisplayer.jsp"
                      replacesFields="transcripts,exons,CDSs,introns,UTRs,fivePrimeUTR,threePrimeUTR"
-                     placement="Genes"
+                     placement="Transcripts"
                      types="Gene,Transcript,PrimaryTranscript,MiRNA,Exon,Intron,UTR,CDS"/>
 
     <reportdisplayer javaClass="org.intermine.bio.web.displayer.SequenceFeatureDisplayer"
@@ -336,15 +343,13 @@
 		   replacesFields="interactions"
 		   placement="Interactions"
 		   types="Gene"/>
-<!--    
 
-   <reportdisplayer javaClass="org.intermine.bio.web.displayer.OverlappingFeaturesDisplayer"
+  <reportdisplayer javaClass="org.intermine.bio.web.displayer.OverlappingFeaturesDisplayer"
     jspName="model/overlappingFeaturesDisplayer.jsp"
     replacesFields="overlappingFeatures"
-    placement="Genomics"
+    placement="Other"
     types="SequenceFeature"/>
 
--->
 
 </reportdisplayers>
 

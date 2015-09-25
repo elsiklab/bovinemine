@@ -13,6 +13,18 @@
     <aspect-source name="NCBI" url="http://www.ncbi.nlm.nih.gov"/>
     <aspect-source name="Ensembl" url="http://www.ensembl.org/index.html"/>
   </aspect>
+
+  <aspect name="Transcripts">
+    <subtitle>Transcripts</subtitle>
+    <icon-image>model/images/genomics.gif</icon-image>
+    <large-image>model/images/genomics.gif</large-image>
+    <intro-text>
+    </intro-text>
+    <tile-name>model/transcript.jsp</tile-name>
+    <aspect-source name="BGD" url="http://www.bovinegenome.org"/>
+    <aspect-source name="NCBI" url="http://www.ncbi.nlm.nih.gov"/>
+    <aspect-source name="Ensembl" url="http://www.ensembl.org/index.html"/>
+  </aspect>
  
    <aspect name="SNP">
     <subtitle>SNPs and INDELs</subtitle>
@@ -108,7 +120,7 @@
     <tile-name>model/publications.jsp</tile-name>
     <aspect-source name="Pubmed" url="http://www.ncbi.nlm.nih.gov/pubmed"/>
   </aspect>
-  <aspect name="Gene Expression">
+  <aspect name="Expression">
     <subtitle>Gene Expression</subtitle>
     <icon-image>model/images/Heatmap.png</icon-image>
     <large-image>model/images/Heatmap.png</large-image>
