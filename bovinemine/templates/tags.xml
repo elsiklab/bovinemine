@@ -1,0 +1,598 @@
+
+<tags>
+
+  <tag name="im:aspect:Function" objectIdentifier="TQ_GOTerm_to_Genes" type="template">
+  </tag>
+
+  <tag name="im:aspect:Function" objectIdentifier="TQ_gene_to_GOterms" type="template">
+  </tag>
+
+  <tag name="im:aspect:Function" objectIdentifier="TQ_organism_to_organism_orthologues" type="template">
+  </tag>
+
+  <tag name="im:aspect:Function" objectIdentifier="TQ_parentGO_to_genes" type="template">
+  </tag>
+
+  <tag name="im:aspect:Function" objectIdentifier="Protein Domain_Proteins_Genes coding for these proteins" type="template">
+  </tag>
+
+  <tag name="im:aspect:Function" objectIdentifier="Gene_Pathway" type="template">
+  </tag>
+
+  <tag name="im:aspect:Function" objectIdentifier="Gene_GO terms." type="template">
+  </tag>
+
+  <tag name="im:aspect:Function" objectIdentifier="GO_Ontology_Annotation" type="template">
+  </tag>
+
+  <tag name="im:aspect:Function" objectIdentifier="Gene_Orthologues_GO Terms" type="template">
+  </tag>
+
+  <tag name="im:aspect:Genes" objectIdentifier="TQ_gene_to_overlappingGenes" type="template">
+  </tag>
+
+  <tag name="im:aspect:Genes" objectIdentifier="TQ_gene_to_proteinDomains" type="template">
+  </tag>
+
+  <tag name="im:aspect:Genes" objectIdentifier="TQ_gene_to_publications" type="template">
+  </tag>
+
+  <tag name="im:aspect:Genes" objectIdentifier="TQ_gene_to_subFeatures" type="template">
+  </tag>
+
+  <tag name="im:aspect:Genes" objectIdentifier="TQ_protein_to_gene" type="template">
+  </tag>
+
+  <tag name="im:aspect:Genes" objectIdentifier="TQ_organism_to_organism_orthologues" type="template">
+  </tag>
+
+  <tag name="im:aspect:Genes" objectIdentifier="All interacting genes in organism1_Orthologues in organism2" type="template">
+  </tag>
+
+  <tag name="im:aspect:Genes" objectIdentifier="Chromosome_All genes." type="template">
+  </tag>
+
+  <tag name="im:aspect:Genes" objectIdentifier="Gene_Chromosomal location." type="template">
+  </tag>
+
+  <tag name="im:aspect:Genes" objectIdentifier="Gene_GO terms." type="template">
+  </tag>
+
+  <tag name="im:aspect:Genes" objectIdentifier="deh_chromosome_coordinates_for_all_genes" type="template">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="org.intermine.model.bio.Chromosome" type="class">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="org.intermine.model.bio.Transcript" type="class">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="Gene.UTRs" type="collection">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="Transcript.gene" type="reference">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="Gene_GO" type="template">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="org.intermine.model.bio.NcRNA" type="class">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="org.intermine.model.bio.SnoRNA" type="class">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="LocatedSequenceFeature.sequence" type="reference">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="LocatedSequenceFeature.overlappingFeatures" type="collection">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="Transcript.introns" type="collection">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="org.intermine.model.bio.TFBindingSite" type="class">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="Gene_allGOTerms" type="template">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="LocatedSequenceFeature.chromosomeLocation" type="reference">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="org.intermine.model.bio.ChromosomeBand" type="class">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="Protein.genes" type="collection">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="Gene_particularGoannotation" type="template">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="org.intermine.model.bio.Gene" type="class">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="LocatedSequenceFeature.chromosome" type="reference">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="org.intermine.model.bio.GOTerm" type="class">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="MRNA.UTRs" type="collection">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="Gene.transcripts" type="collection">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="Chromosome.transcripts" type="collection">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="Chromosome.features" type="collection">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="GO_name_Gene" type="template">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="CDS.MRNA" type="reference">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="Organism_GoTerm_Gene" type="template">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="Chromosome.genes" type="collection">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="org.intermine.model.bio.UTR" type="class">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="org.intermine.model.bio.MRNA" type="class">
+  </tag>
+
+  <tag name="im:aspect:Genomics" objectIdentifier="Gene_Protein" type="template">
+  </tag>
+
+  <tag name="im:aspect:Homology" objectIdentifier="REPORT_gene_to_orthologues" type="template">
+  </tag>
+
+  <tag name="im:aspect:Homology" objectIdentifier="TQ_gene_to_orthologues" type="template">
+  </tag>
+
+  <tag name="im:aspect:Homology" objectIdentifier="All interacting genes in organism1_Orthologues in organism2" type="template">
+  </tag>
+
+  <tag name="im:aspect:Homology" objectIdentifier="TQ_organism_to_organism_orthologues" type="template">
+  </tag>
+
+  <tag name="im:aspect:Homology" objectIdentifier="Gene_Transcript_Transcripts from orthologues" type="template">
+  </tag>
+
+  <tag name="im:aspect:Homology" objectIdentifier="Gene_Orthologues" type="template">
+  </tag>
+
+  <tag name="im:aspect:Homology" objectIdentifier="Gene_Orthologues_GO Terms" type="template">
+  </tag>
+
+  <tag name="im:aspect:Interactions" objectIdentifier="TQ_gene_to_allInteractors" type="template">
+  </tag>
+
+  <tag name="im:aspect:Interactions" objectIdentifier="TQ_gene_to_gene_interaction" type="template">
+  </tag>
+
+  <tag name="im:aspect:Interactions" objectIdentifier="GO term_Interacting gene_Genes." type="template">
+  </tag>
+
+  <tag name="im:aspect:Interactions" objectIdentifier="Publication_Interactions" type="template">
+  </tag>
+
+  <tag name="im:aspect:Interactions" objectIdentifier="All interacting genes in organism1_Orthologues in organism2" type="template">
+  </tag>
+
+  <tag name="im:aspect:Interactions" objectIdentifier="Organism_All Interactions" type="template">
+  </tag>
+
+  <tag name="im:aspect:Proteins" objectIdentifier="CDS.protein" type="reference">
+  </tag>
+
+  <tag name="im:aspect:Proteins" objectIdentifier="org.intermine.model.bio.Protein" type="class">
+  </tag>
+
+  <tag name="im:aspect:Proteins" objectIdentifier="org.intermine.model.bio.ProteinDomain" type="class">
+  </tag>
+
+  <tag name="im:aspect:Proteins" objectIdentifier="Protein.keywords" type="collection">
+  </tag>
+
+  <tag name="im:aspect:Proteins" objectIdentifier="Protein.features" type="collection">
+  </tag>
+
+  <tag name="im:aspect:Proteins" objectIdentifier="Gene.proteins" type="collection">
+  </tag>
+
+  <tag name="im:aspect:Proteins" objectIdentifier="Protein_GOtermsSpecificOntology" type="template">
+  </tag>
+
+  <tag name="im:aspect:Proteins" objectIdentifier="CDS.polypeptides" type="collection">
+  </tag>
+
+  <tag name="im:aspect:Proteins" objectIdentifier="Protein.sequence" type="reference">
+  </tag>
+
+  <tag name="im:aspect:Proteins" objectIdentifier="Protein.proteinDomains" type="collection">
+  </tag>
+
+  <tag name="im:aspect:Proteins" objectIdentifier="ProteinInteraction.protein" type="reference">
+  </tag>
+
+  <tag name="im:aspect:Proteins" objectIdentifier="Gene_Protein" type="template">
+  </tag>
+
+  <tag name="im:aspect:Proteins" objectIdentifier="TQ_lookup_InterproDomains" type="template">
+  </tag>
+
+  <tag name="im:aspect:Proteins" objectIdentifier="TQ_proteinDomains_to_proteins" type="template">
+  </tag>
+
+  <tag name="im:aspect:Proteins" objectIdentifier="TQ_protein_to_GOterms" type="template">
+  </tag>
+
+  <tag name="im:aspect:Proteins" objectIdentifier="TQ_protein_to_publications" type="template">
+  </tag>
+
+  <tag name="im:aspect:QTL" objectIdentifier="qtl_test_template_Query" type="template">
+  </tag>
+
+  <tag name="im:aspect:SNP" objectIdentifier="Gene_SNPs" type="template">
+  </tag>
+
+  <tag name="im:aspect:SNP" objectIdentifier="Gene_indel" type="template">
+  </tag>
+
+  <tag name="im:converter" objectIdentifier="Gene_To_Protein_Type_Converter" type="template">
+  </tag>
+
+  <tag name="im:converter" objectIdentifier="Protein_To_Gene_Type_Converter" type="template">
+  </tag>
+
+  <tag name="im:favourite" objectIdentifier="All interacting genes in organism1_Orthologues in organism2" type="template">
+  </tag>
+
+  <tag name="im:favourite" objectIdentifier="REPORT_gene_to_orthologues" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="Organism_GoTerm_GeneWithannotation" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="Gene_GO" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="Protein_GOterms" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="Gene_allGOTerms" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="All_Proteins_In_Organism_To_Publications" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="Gene_Protein" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="TQ_GOTerm_to_Genes" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="TQ_gene_to_GOterms" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="TQ_gene_to_allInteractors" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="TQ_gene_to_gene_interaction" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="TQ_gene_to_overlappingGenes" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="TQ_gene_to_proteinDomains" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="TQ_gene_to_publications" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="TQ_gene_to_subFeatures" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="TQ_lookup_InterproDomains" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="TQ_organism_to_organism_orthologues" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="TQ_parentGO_to_genes" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="TQ_proteinDomains_to_proteins" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="TQ_protein_to_GOterms" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="TQ_protein_to_gene" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="TQ_protein_to_publications" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="TQ_gene_to_orthologues" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="Protein Domain_Proteins_Genes coding for these proteins" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="GO term_Interacting gene_Genes." type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="Publication_Interactions" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="All interacting genes in organism1_Orthologues in organism2" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="Chromosome_All genes." type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="Gene_Chromosomal location." type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="Gene_Transcript_Transcripts from orthologues" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="Organism_All Interactions" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="Gene_Pathway" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="Gene_GO terms." type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="Gene_indel" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="SNP_Gene" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="Indel_Gene" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="Gene_SNPs" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="qtl_test_template_Query" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="Gene_Orthologues" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="deh_chromosome_coordinates_for_all_genes" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="Gene_Orthologues_GO Terms" type="template">
+  </tag>
+
+  <tag name="im:hidden" objectIdentifier="BioEntity.relations" type="collection">
+  </tag>
+
+  <tag name="im:hidden" objectIdentifier="BioEntity.subjects" type="collection">
+  </tag>
+
+  <tag name="im:hidden" objectIdentifier="Evidence.relations" type="collection">
+  </tag>
+
+  <tag name="im:hidden" objectIdentifier="BioEntity.objects" type="collection">
+  </tag>
+
+  <tag name="im:hidden" objectIdentifier="BioEntity.organism" type="reference">
+  </tag>
+
+  <tag name="im:hidden" objectIdentifier="OntologyTerm.ontologyAnnotations" type="collection">
+  </tag>
+
+  <tag name="im:hidden" objectIdentifier="OntologyTerm.ontology" type="reference">
+  </tag>
+
+  <tag name="im:preferredBagType" objectIdentifier="org.intermine.model.bio.Gene" type="class">
+  </tag>
+
+  <tag name="im:preferredBagType" objectIdentifier="org.intermine.model.bio.Protein" type="class">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Organism_GoTerm_GeneWithannotation" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Gene_GO" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Gene_particularGoannotation" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Organism_GoTerm_Gene" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Gene_allGOTerms" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Protein_GOterms" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Gene_Identifiers" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="GOtermidentifier_name" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Protein_GOtermsSpecificOntology" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Gene_Protein" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="All_Proteins_In_Organism_To_Publications" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="TQ_GOTerm_to_Genes" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="TQ_gene_to_GOterms" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="TQ_gene_to_allInteractors" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="TQ_gene_to_gene_interaction" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="TQ_gene_to_overlappingGenes" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="TQ_gene_to_proteinDomains" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="TQ_gene_to_publications" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="TQ_gene_to_subFeatures" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="TQ_lookup_InterproDomains" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="TQ_organism_to_organism_orthologues" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="TQ_parentGO_to_genes" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="TQ_proteinDomains_to_proteins" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="TQ_protein_to_GOterms" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="TQ_protein_to_gene" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="TQ_protein_to_publications" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="TQ_gene_to_orthologues" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Protein Domain_Proteins_Genes coding for these proteins" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="GO term_Interacting gene_Genes." type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Publication_Interactions" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="All interacting genes in organism1_Orthologues in organism2" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Chromosome_All genes." type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Gene_Chromosomal location." type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Gene_Transcript_Transcripts from orthologues" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Organism_All Interactions" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Gene_Pathway" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Gene_GO terms." type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier=" QTLs_Genes" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Gene_indel" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="SNP_Gene" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Indel_Gene" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Gene_SNPs" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="qtl_test_template_Query" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="REPORT_gene_to_orthologues" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Gene_Orthologues" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="deh_chromosome_coordinates_for_all_genes" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="GO_Ontology_Annotation" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Gene_Orthologues_GO Terms" type="template">
+  </tag>
+
+  <tag name="im:report" objectIdentifier="REPORT_gene_to_orthologues" type="template">
+  </tag>
+
+  <tag name="im:report" objectIdentifier=" QTLs_Genes" type="template">
+  </tag>
+
+  <tag name="im:report" objectIdentifier="Gene_indel" type="template">
+  </tag>
+
+  <tag name="im:report" objectIdentifier="Gene_SNPs" type="template">
+  </tag>
+
+  <tag name="im:report" objectIdentifier="qtl_test_template_Query" type="template">
+  </tag>
+
+  <tag name="im:report" objectIdentifier="GO_Ontology_Annotation" type="template">
+  </tag>
+
+  <tag name="im:summary" objectIdentifier="Gene.publications" type="collection">
+  </tag>
+
+  <tag name="im:summary" objectIdentifier="BioEntity.organism" type="reference">
+  </tag>
+
+  <tag name="im:summary" objectIdentifier="Protein.publications" type="collection">
+  </tag>
+
+  <tag name="im:summary" objectIdentifier="RegulatoryRegion.gene" type="reference">
+  </tag>
+
+  <tag name="im:summary" objectIdentifier="BindingSite.factor" type="reference">
+  </tag>
+
+  <tag name="im:summary" objectIdentifier="MicroarrayOligo.transcript" type="reference">
+  </tag>
+
+  <tag name="im:summary" objectIdentifier="Protein.comments" type="collection">
+  </tag>
+
+  <tag name="im:summary" objectIdentifier="Protein.genes" type="collection">
+  </tag>
+
+  <tag name="im:summary" objectIdentifier="BioEntity.synonyms" type="collection">
+  </tag>
+</tags>
+
