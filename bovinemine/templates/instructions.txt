@@ -1,0 +1,1 @@
+Go to MyMine as admin -> Templates -> Select all templates -> Export
