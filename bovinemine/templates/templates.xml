@@ -1,6 +1,6 @@
 <template-queries>
-<template name="All interacting genes in organism1_Orthologues in organism2" title="All gene interactions in organism1--&gt;Orthologues in organism2" comment="">
-  <query name="All interacting genes in organism1_Orthologues in organism2" model="genomic" view="Interaction.details.type Interaction.details.experiment.interactionDetectionMethods.name Interaction.gene1.primaryIdentifier Interaction.gene1.symbol Interaction.gene1.homologues.homologue.primaryIdentifier Interaction.gene1.homologues.homologue.symbol Interaction.gene1.homologues.homologue.organism.name Interaction.gene2.primaryIdentifier Interaction.gene2.homologues.homologue.primaryIdentifier Interaction.gene2.homologues.homologue.symbol Interaction.gene2.organism.name" longDescription="Show all interactions from a specified organism and the orthologues of these genes in another organism. Optionally constrain the type of interaction to physical (protein-protein) or genetic interactions." sortOrder="Interaction.details.type asc" constraintLogic="A and B and C and D">
+<template name="All interacting genes in organism1_Orthologues in organism2" title="All interacting genes in organism1--&gt;Orthologues in organism2" comment="">
+  <query name="All interacting genes in organism1_Orthologues in organism2" model="genomic" view="Interaction.details.type Interaction.details.experiment.interactionDetectionMethods.name Interaction.gene1.primaryIdentifier Interaction.gene1.symbol Interaction.gene1.homologues.homologue.primaryIdentifier Interaction.gene1.homologues.homologue.organism.name Interaction.gene2.primaryIdentifier Interaction.gene2.homologues.homologue.primaryIdentifier Interaction.gene2.organism.name" longDescription="Show all interactions for a specified organism and the orthologues of the interacting genes in another organism. Optionally constrain the type of interaction to physical (protein-protein) or genetic." sortOrder="Interaction.details.type asc" constraintLogic="A and B and C and D">
     <constraint path="Interaction.gene2.homologues.homologue.organism" code="C" editable="false" op="=" loopPath="Interaction.gene1.homologues.homologue.organism"/>
     <constraint path="Interaction.gene1.homologues.homologue.organism.name" code="A" editable="true" op="=" value="Homo sapiens"/>
     <constraint path="Interaction.gene1.organism.name" code="B" editable="true" op="=" value="Bos taurus"/>
@@ -9,21 +9,11 @@
 </template>
 <template name="All_Proteins_In_Organism_To_Publications" title="All proteins in organism --&gt; Publications." comment="">
   <query name="All_Proteins_In_Organism_To_Publications" model="genomic" view="Protein.primaryIdentifier Protein.primaryAccession Protein.organism.name Protein.publications.firstAuthor Protein.publications.title Protein.publications.year Protein.publications.journal Protein.publications.volume Protein.publications.pages Protein.publications.pubMedId" longDescription="" sortOrder="Protein.primaryIdentifier asc">
-    <constraint path="Protein.organism.name" editable="true" op="=" value="Bos taurus"/>
-  </query>
-</template>
-<template name="All_Proteins_In_Organism_To_Publications_1" title="All proteins in organism --&gt; Publications." comment="">
-  <query name="All_Proteins_In_Organism_To_Publications_1" model="genomic" view="Protein.primaryIdentifier Protein.primaryAccession Protein.organism.name Protein.publications.firstAuthor Protein.publications.title Protein.publications.year Protein.publications.journal Protein.publications.volume Protein.publications.pages Protein.publications.pubMedId" longDescription="" sortOrder="Protein.primaryIdentifier asc">
-    <constraint path="Protein.organism.name" editable="true" description="Organism.name" op="=" value="Plasmodium falciparum 3D7"/>
-  </query>
-</template>
-<template name="All_Proteins_In_Organism_To_Publications_1_1" title="All proteins in organism --&gt; Publications." comment="">
-  <query name="All_Proteins_In_Organism_To_Publications_1_1" model="genomic" view="Protein.primaryIdentifier Protein.primaryAccession Protein.organism.name Protein.publications.firstAuthor Protein.publications.title Protein.publications.year Protein.publications.journal Protein.publications.volume Protein.publications.pages Protein.publications.pubMedId" longDescription="" sortOrder="Protein.primaryIdentifier asc">
     <constraint path="Protein.organism.name" editable="true" description="Organism.name" op="=" value="Plasmodium falciparum 3D7"/>
   </query>
 </template>
 <template name="Chromosomal location _All genes  Transcripts  Exons" title="Chromosomal location --&gt; All genes + Transcripts + Exons. " comment="">
-  <query name="Chromosomal location _All genes  Transcripts  Exons" model="genomic" view="Chromosome.primaryIdentifier Chromosome.locatedFeatures.feature.primaryIdentifier Chromosome.locatedFeatures.start Chromosome.locatedFeatures.end Chromosome.locatedFeatures.feature.transcripts.gene.primaryIdentifier" longDescription="For a specified organism and chromosomal location show all genes, transcripts and exons.  " sortOrder="Chromosome.primaryIdentifier asc" constraintLogic="A and B and C and D">
+  <query name="Chromosomal location _All genes  Transcripts  Exons" model="genomic" view="Chromosome.primaryIdentifier Chromosome.locatedFeatures.start Chromosome.locatedFeatures.end Chromosome.locatedFeatures.feature.transcripts.gene.primaryIdentifier Chromosome.locatedFeatures.feature.primaryIdentifier" longDescription="For a specified organism and chromosomal location show all genes, transcripts and exons.  " sortOrder="Chromosome.primaryIdentifier asc" constraintLogic="A and B and C and D">
     <constraint path="Chromosome.locatedFeatures.feature" editable="false" type="Exon"/>
     <constraint path="Chromosome.locatedFeatures.end" code="A" editable="true" op="&lt;" value="10000"/>
     <constraint path="Chromosome.locatedFeatures.start" code="B" editable="true" op="&gt;=" value="1"/>
@@ -31,42 +21,10 @@
     <constraint path="Chromosome.primaryIdentifier" code="D" editable="true" op="=" value="*"/>
   </query>
 </template>
-<template name="Chromosome location_genes" title="Chromosome location --&gt; genes" comment="">
-  <query name="Chromosome location_genes" model="genomic" view="Chromosome.primaryIdentifier Chromosome.locatedFeatures.feature.primaryIdentifier Chromosome.locatedFeatures.feature.symbol Chromosome.locatedFeatures.feature.chromosomeLocation.start Chromosome.locatedFeatures.feature.chromosomeLocation.end Chromosome.locatedFeatures.feature.chromosomeLocation.strand Chromosome.locatedFeatures.start" longDescription="Show the genes located between two points on a chromosome. " sortOrder="Chromosome.primaryIdentifier asc" constraintLogic="A and B and C and D">
-    <constraint path="Chromosome.locatedFeatures.feature" editable="false" type="Gene"/>
-    <constraint path="Chromosome.primaryIdentifier" code="A" editable="true" op="=" value="GK000001.2"/>
-    <constraint path="Chromosome.locatedFeatures.feature.chromosomeLocation.end" code="B" editable="true" op="&lt;" value="50000"/>
-    <constraint path="Chromosome.locatedFeatures.feature.chromosomeLocation.start" code="C" editable="true" op="&gt;" value="1"/>
-    <constraint path="Chromosome.organism.name" code="D" editable="true" op="=" value="Bos taurus"/>
-  </query>
-</template>
 <template name="Chromosome_All genes." title="Chromosome --&gt;   All genes." comment="">
-  <query name="Chromosome_All genes." model="genomic" view="Gene.secondaryIdentifier Gene.primaryIdentifier Gene.chromosome.primaryIdentifier Gene.chromosomeLocation.start Gene.chromosomeLocation.end Gene.chromosomeLocation.strand" longDescription="Show genes located on a particular chromosome." sortOrder="Gene.secondaryIdentifier asc" constraintLogic="A and B">
+  <query name="Chromosome_All genes." model="genomic" view="Gene.primaryIdentifier Gene.secondaryIdentifier Gene.chromosome.primaryIdentifier Gene.chromosomeLocation.start Gene.chromosomeLocation.end Gene.chromosomeLocation.strand" longDescription="Show genes located on a particular chromosome." sortOrder="Gene.secondaryIdentifier asc" constraintLogic="A and B">
     <constraint path="Gene.organism.name" code="A" editable="true" op="=" value="Bos taurus"/>
     <constraint path="Gene.chromosome.primaryIdentifier" code="B" editable="true" op="=" value="GK000004.2"/>
-  </query>
-</template>
-<template name="GO Ontology Annotation" title="GO Ontology Annotation (for report page)" comment="">
-  <query name="GO Ontology Annotation" model="genomic" view="GOTerm.name GOTerm.ontologyAnnotations.qualifier GOTerm.ontologyAnnotations.subject.name GOTerm.ontologyAnnotations.subject.primaryIdentifier GOTerm.identifier" longDescription="Expand the ontology annotation on the report page" sortOrder="GOTerm.name asc">
-    <constraint path="GOTerm" editable="true" op="LOOKUP" value="GO:0003677"/>
-  </query>
-</template>
-<template name="GO term identifier  _  GO term name." title="GO term identifier  --&gt;  GO term name." comment="">
-  <query name="GO term identifier  _  GO term name." model="genomic" view="GOTerm.description GOTerm.identifier GOTerm.name" longDescription="Give the GO term name for a particular GO term identifier. " sortOrder="GOTerm.description asc">
-    <constraint path="GOTerm.identifier" editable="true" op="=" value="GO:0005869"/>
-  </query>
-</template>
-<template name="GO term name  _  GO term identifier." title="GO term name  --&gt;  GO term identifier." comment="">
-  <query name="GO term name  _  GO term identifier." model="genomic" view="GOTerm.description GOTerm.identifier GOTerm.name" longDescription="Find the GO identifier for a specific term." sortOrder="GOTerm.description asc">
-    <constraint path="GOTerm.name" editable="true" op="=" value="*process*"/>
-  </query>
-</template>
-<template name="GO term_Genes." title="GO term --&gt; Genes" comment="">
-  <query name="GO term_Genes." model="genomic" view="Gene.primaryIdentifier Gene.symbol Gene.goAnnotation.evidence.code.code Gene.goAnnotation.ontologyTerm.identifier Gene.goAnnotation.ontologyTerm.name Gene.organism.name" longDescription="Show genes annotated with a specified GO term. Optionally constrain the organism and the evidence code. (Includes 'with' annotation: the 'with' field holds an additional identifier for annotations using certain evidence codes) " sortOrder="Gene.primaryIdentifier asc" constraintLogic="A and C and B">
-    <constraint path="Gene.goAnnotation.ontologyTerm" editable="false" type="GOTerm"/>
-    <constraint path="Gene.goAnnotation.evidence.code.code" code="A" editable="true" op="=" value="IEA"/>
-    <constraint path="Gene.organism.name" code="C" editable="true" op="=" value="Bos taurus"/>
-    <constraint path="Gene.goAnnotation.ontologyTerm" code="B" editable="true" op="LOOKUP" value="GO:0003677"/>
   </query>
 </template>
 <template name="GO term_Interacting gene_Genes." title="GO term + Interacting gene --&gt;Genes." comment="">
@@ -76,25 +34,6 @@
     <constraint path="Gene.interactions.gene2" code="B" editable="true" op="LOOKUP" value="GAPDH"/>
   </query>
 </template>
-<template name="GO_Ontology_Annotation" title="Genes annotated with this GO term" comment="">
-  <query name="GO_Ontology_Annotation" model="genomic" view="GOTerm.name GOTerm.ontologyAnnotations.qualifier GOTerm.ontologyAnnotations.subject.name GOTerm.ontologyAnnotations.subject.primaryIdentifier GOTerm.identifier" longDescription="List genes annotated with this GO term in place of ontology  annotations table." sortOrder="GOTerm.name asc">
-    <constraint path="GOTerm" editable="true" op="LOOKUP" value="GO:0003677"/>
-  </query>
-</template>
-<template name="Gene _ GO term name _  Gene with the GO term name." title="Gene + GO term name--&gt;    Gene with the GO term name." comment="">
-  <query name="Gene _ GO term name _  Gene with the GO term name." model="genomic" view="Gene.secondaryIdentifier Gene.symbol Gene.goAnnotation.ontologyTerm.name Gene.goAnnotation.ontologyTerm.identifier" longDescription="Show if the following gene has the following GO term." sortOrder="Gene.secondaryIdentifier asc" constraintLogic="A and B">
-    <constraint path="Gene.goAnnotation.ontologyTerm" editable="false" type="GOTerm"/>
-    <constraint path="Gene" code="A" editable="true" op="LOOKUP" value="RCAN1"/>
-    <constraint path="Gene.goAnnotation.ontologyTerm.name" code="B" editable="true" op="=" value="response *"/>
-  </query>
-</template>
-<template name="Gene template to summary" title="Gene (NCBI Gene ID/Symbol/BGD ID) --&gt; Summary" comment="">
-  <query name="Gene template to summary" model="genomic" view="Gene.primaryIdentifier Gene.secondaryIdentifier Gene.symbol Gene.name Gene.source Gene.organism.shortName" longDescription="Enter different types of gene IDs and get a summary" sortOrder="Gene.primaryIdentifier asc" constraintLogic="A or B or C">
-    <constraint path="Gene.primaryIdentifier" code="A" editable="true" op="=" value="100140135"/>
-    <constraint path="Gene.symbol" code="B" editable="true" op="=" value="RNASE10"/>
-    <constraint path="Gene.secondaryIdentifier" code="C" editable="true" op="=" value="BT18811"/>
-  </query>
-</template>
 <template name="Gene_Chromosomal location." title="Gene --&gt;Chromosomal location." comment="">
   <query name="Gene_Chromosomal location." model="genomic" view="Gene.name Gene.symbol Gene.primaryIdentifier Gene.chromosome.primaryIdentifier Gene.locations.start Gene.locations.end Gene.locations.strand" longDescription="how the chromosome and the chromosome location of a particular gene.  " sortOrder="Gene.name asc" constraintLogic="A and B">
     <constraint path="Gene.locations.locatedOn" editable="false" type="Chromosome"/>
@@ -102,36 +41,9 @@
     <constraint path="Gene.organism.name" code="B" editable="true" op="=" value="Bos taurus"/>
   </query>
 </template>
-<template name="Gene_Exons" title="Gene --&gt;   Exons." comment="">
-  <query name="Gene_Exons" model="genomic" view="Gene.secondaryIdentifier Gene.symbol Gene.transcripts.exons.length Gene.transcripts.exons.primaryIdentifier Gene.transcripts.chromosome.primaryIdentifier Gene.transcripts.chromosomeLocation.feature.primaryIdentifier Gene.transcripts.chromosomeLocation.start Gene.transcripts.chromosomeLocation.end Gene.transcripts.chromosomeLocation.strand Gene.transcripts.organism.name" longDescription="For a specific gene, show its exons with their chromosomal locations and lengths. To show exons for all genes, turn off the constraint on the gene name. " sortOrder="Gene.secondaryIdentifier asc">
-    <constraint path="Gene" editable="true" op="LOOKUP" value="RCAN1"/>
-  </query>
-</template>
-<template name="Gene_GO terms and parents of those terms." title="Gene --&gt;GO terms and parents of those terms." comment="">
-  <query name="Gene_GO terms and parents of those terms." model="genomic" view="Gene.primaryIdentifier Gene.secondaryIdentifier Gene.symbol Gene.goAnnotation.ontologyTerm.identifier Gene.goAnnotation.ontologyTerm.name Gene.goAnnotation.ontologyTerm.parents.identifier Gene.goAnnotation.ontologyTerm.parents.name" longDescription="Given a gene show the associated GO terms, and all parents to the top of the directed graph. The query returns a column containing the assigned GO term and a column containing all parents of that primary assignment " sortOrder="Gene.primaryIdentifier asc">
-    <constraint path="Gene" editable="true" op="LOOKUP" value="RCAN1"/>
-  </query>
-</template>
 <template name="Gene_GO terms." title="Gene --&gt; GO terms" comment="">
-  <query name="Gene_GO terms." model="genomic" view="Gene.secondaryIdentifier Gene.symbol Gene.goAnnotation.qualifier Gene.goAnnotation.evidence.code.code Gene.goAnnotation.ontologyTerm.identifier Gene.goAnnotation.ontologyTerm.name Gene.goAnnotation.ontologyTerm.namespace" longDescription="Search for GO annotations for a particular gene" sortOrder="Gene.secondaryIdentifier asc">
+  <query name="Gene_GO terms." model="genomic" view="Gene.primaryIdentifier Gene.secondaryIdentifier Gene.symbol Gene.goAnnotation.ontologyTerm.identifier Gene.goAnnotation.ontologyTerm.name Gene.goAnnotation.evidence.code.code Gene.goAnnotation.ontologyTerm.namespace" longDescription="Search for GO annotations for a particular gene" sortOrder="Gene.secondaryIdentifier asc">
     <constraint path="Gene" editable="true" op="LOOKUP" value="100124507 "/>
-  </query>
-</template>
-<template name="Gene_Interacting Genes  Orthologues" title="Gene  --&gt;  Interacting Genes + Orthologues" comment="">
-  <query name="Gene_Interacting Genes  Orthologues" model="genomic" view="Gene.symbol Gene.interactions.details.experiment.interactionDetectionMethods.name Gene.interactions.details.experiment.publication.pubMedId Gene.interactions.details.relationshipType.name Gene.interactions.gene2.symbol Gene.interactions.gene2.homologues.homologue.symbol" longDescription="For a particular gene show it's interacting genes and their orthologues (Note = orthologues of the interacting genes)." sortOrder="Gene.symbol asc" constraintLogic="B and A">
-    <constraint path="Gene" code="B" editable="true" op="LOOKUP" value="BT19588"/>
-    <constraint path="Gene.interactions.details.type" code="A" editable="true" op="=" value="physical"/>
-  </query>
-</template>
-<template name="Gene_Orthologs_GO Terms" title="Gene --&gt; Orthologs + GO Terms" comment="">
-  <query name="Gene_Orthologs_GO Terms" model="genomic" view="Gene.primaryIdentifier Gene.secondaryIdentifier Gene.homologues.type Gene.organism.name Gene.homologues.gene.primaryIdentifier Gene.homologues.homologue.primaryIdentifier Gene.homologues.homologue.organism.shortName Gene.goAnnotation.ontologyTerm.ontologyAnnotations.ontologyTerm.identifier Gene.goAnnotation.evidence.code.code" longDescription="Show GO terms applied to orthologues of a specific gene. " sortOrder="Gene.primaryIdentifier asc">
-    <constraint path="Gene" editable="true" op="LOOKUP" value="NGFRAP1"/>
-  </query>
-</template>
-<template name="Gene_Orthologues" title="Gene --&gt;   Orthologues + Sequence" comment="">
-  <query name="Gene_Orthologues" model="genomic" view="Gene.primaryIdentifier Gene.symbol Gene.homologues.homologue.primaryIdentifier Gene.homologues.homologue.symbol Gene.homologues.dataSets.name Gene.homologues.evidence.evidenceCode.name" longDescription="For a given Gene (or List of Genes)  get all the orthologues specific to an organism." sortOrder="Gene.primaryIdentifier asc" constraintLogic="B and A">
-    <constraint path="Gene.homologues.homologue.organism.name" code="B" editable="true" description="" switchable="on" op="=" value="Sus scrofa"/>
-    <constraint path="Gene" code="A" editable="true" op="LOOKUP" value="PRNP" extraValue="B. taurus"/>
   </query>
 </template>
 <template name="Gene_Orthologues_GO Terms" title="Gene --&gt; Orthologues + GO Terms" comment="">
@@ -147,19 +59,13 @@
   </query>
 </template>
 <template name="Gene_Overlapping QTLs" title="Gene --&gt;Overlapping QTLs" comment="">
-  <query name="Gene_Overlapping QTLs" model="genomic" view="Gene.overlappingFeatures.primaryIdentifier Gene.overlappingFeatures.symbol Gene.overlappingFeatures.type Gene.overlappingFeatures.trait Gene.overlappingFeatures.geneIdentifier Gene.overlappingFeatures.pValue" longDescription="Looks for the QTL region for a gene" sortOrder="Gene.overlappingFeatures.primaryIdentifier asc">
+  <query name="Gene_Overlapping QTLs" model="genomic" view="Gene.overlappingFeatures.primaryIdentifier Gene.overlappingFeatures.symbol Gene.overlappingFeatures.type Gene.overlappingFeatures.trait Gene.overlappingFeatures.pValue Gene.overlappingFeatures.name Gene.overlappingFeatures.abbreviation" longDescription="Looks for the QTL region for a gene" sortOrder="Gene.overlappingFeatures.primaryIdentifier asc">
     <constraint path="Gene.overlappingFeatures" editable="false" type="QTL"/>
-    <constraint path="Gene" editable="true" op="LOOKUP" value="RCAN1"/>
-  </query>
-</template>
-<template name="Gene_Overlapping QTLs TEST" title="Gene -&gt;Overlapping QTL(TEST)" comment="">
-  <query name="Gene_Overlapping QTLs TEST" model="genomic" view="Gene.overlappingFeatures.name Gene.overlappingFeatures.primaryIdentifier Gene.overlappingFeatures.type" longDescription="aaa" sortOrder="Gene.overlappingFeatures.name asc">
-    <constraint path="Gene.overlappingFeatures" editable="false" type="QTL"/>
-    <constraint path="Gene" editable="true" op="LOOKUP" value="508459"/>
+    <constraint path="Gene" editable="true" op="LOOKUP" value="CASP6" extraValue="B. taurus"/>
   </query>
 </template>
 <template name="Gene_Pathway" title="Gene --&gt;Pathway." comment="">
-  <query name="Gene_Pathway" model="genomic" view="Pathway.identifier Pathway.name Pathway.dataSets.name Pathway.proteins.genes.symbol Pathway.proteins.genes.secondaryIdentifier" longDescription="Show the Pathway identifier(s) and name for the selected gene." sortOrder="Pathway.identifier asc">
+  <query name="Gene_Pathway" model="genomic" view="Pathway.proteins.genes.primaryIdentifier Pathway.proteins.genes.secondaryIdentifier Pathway.proteins.genes.symbol Pathway.identifier Pathway.name Pathway.dataSets.name" longDescription="Show the Pathway identifier(s) and name for the selected gene." sortOrder="Pathway.identifier asc">
     <constraint path="Pathway.proteins.genes" editable="true" op="LOOKUP" value="282125"/>
   </query>
 </template>
@@ -169,65 +75,9 @@
     <constraint path="Gene" editable="true" op="LOOKUP" value="ABRA"/>
   </query>
 </template>
-<template name="Gene_Protein_1" title="Gene --&gt; Proteins." comment="06.06.07 updated to work from gene class - Philip">
-  <query name="Gene_Protein_1" model="genomic" view="Gene.primaryIdentifier Gene.symbol Gene.proteins.primaryIdentifier Gene.proteins.primaryAccession" longDescription="Show the proteins for a particular gene." sortOrder="Gene.primaryIdentifier asc">
-    <pathDescription pathString="Gene.proteins" description="Protein"/>
-    <constraint path="Gene" editable="true" op="LOOKUP" value="ABRA"/>
-  </query>
-</template>
-<template name="Gene_Protein_1_1" title="Gene --&gt; Proteins." comment="06.06.07 updated to work from gene class - Philip">
-  <query name="Gene_Protein_1_1" model="genomic" view="Gene.primaryIdentifier Gene.symbol Gene.proteins.primaryIdentifier Gene.proteins.primaryAccession" longDescription="Show the proteins for a particular gene." sortOrder="Gene.primaryIdentifier asc">
-    <pathDescription pathString="Gene.proteins" description="Protein"/>
-    <constraint path="Gene" editable="true" op="LOOKUP" value="ABRA"/>
-  </query>
-</template>
-<template name="Gene_SNPs" title="Gene --&gt; SNPs" comment="">
-  <query name="Gene_SNPs" model="genomic" view="Gene.primaryIdentifier Gene.secondaryIdentifier Gene.symbol Gene.name Gene.organism.shortName Gene.overlappingFeatures.rs_id Gene.overlappingFeatures.rspos Gene.overlappingFeatures.source Gene.overlappingFeatures.symbol" longDescription="Look of snps for a Gene" sortOrder="Gene.primaryIdentifier asc">
-    <constraint path="Gene.overlappingFeatures" editable="false" type="SNP"/>
-    <constraint path="Gene" editable="true" op="LOOKUP" value="531695"/>
-  </query>
-</template>
-<template name="Gene_TaxonId" title="Gene --&gt;TaxonID" comment="">
-  <query name="Gene_TaxonId" model="genomic" view="Gene.organism.shortName" longDescription="For all genes, list the taxonIds available. " sortOrder="Gene.organism.shortName asc">
-    <constraint path="Gene.primaryIdentifier" editable="true" op="=" value="*"/>
-  </query>
-</template>
 <template name="Gene_Transcript_Transcripts from orthologues" title="Gene --&gt;    Transcript + Transcripts from orthologues." comment="">
-  <query name="Gene_Transcript_Transcripts from orthologues" model="genomic" view="Gene.primaryIdentifier Gene.symbol Gene.homologues.type Gene.homologues.dataSets.name Gene.homologues.homologue.symbol Gene.homologues.homologue.organism.name Gene.homologues.homologue.transcripts.primaryIdentifier Gene.transcripts.primaryIdentifier" longDescription="Show the transcript identifiers for a particular gene and the transcript identifiers of its predicted orthologues." sortOrder="Gene.primaryIdentifier asc">
+  <query name="Gene_Transcript_Transcripts from orthologues" model="genomic" view="Gene.primaryIdentifier Gene.symbol Gene.transcripts.primaryIdentifier Gene.homologues.homologue.transcripts.primaryIdentifier Gene.homologues.type Gene.homologues.dataSets.name Gene.homologues.homologue.symbol Gene.homologues.homologue.organism.name" longDescription="Show the transcript identifiers for a particular gene and the transcript identifiers of its predicted orthologues." sortOrder="Gene.primaryIdentifier asc">
     <constraint path="Gene" editable="true" op="LOOKUP" value="rpl24" extraValue="B. taurus"/>
-  </query>
-</template>
-<template name="Gene_indel" title="Gene --&gt;Indel" comment="">
-  <query name="Gene_indel" model="genomic" view="Gene.primaryIdentifier Gene.secondaryIdentifier Gene.overlappingFeatures.source Gene.overlappingFeatures.symbol Gene.overlappingFeatures.Note Gene.overlappingFeatures.length Gene.overlappingFeatures.rs_id" longDescription="For a given Gene returns associated Indel" sortOrder="Gene.primaryIdentifier asc">
-    <constraint path="Gene.overlappingFeatures" editable="false" type="Indel"/>
-    <constraint path="Gene" editable="true" op="LOOKUP" value="531695 "/>
-  </query>
-</template>
-<template name="Indel_Gene" title="Indel --&gt;  Gene" comment="">
-  <query name="Indel_Gene" model="genomic" view="Indel.length Indel.Note Indel.rspos Indel.source Indel.symbol Indel.vc Indel.locations.end Indel.locations.start Indel.chromosome.primaryIdentifier Indel.overlappingFeatures.primaryIdentifier Indel.overlappingFeatures.secondaryIdentifier" longDescription="To find if the indel overlaps with a Gene" sortOrder="Indel.length asc">
-    <constraint path="Indel.locations.locatedOn" editable="false" type="Chromosome"/>
-    <constraint path="Indel.overlappingFeatures" editable="false" type="Gene"/>
-    <constraint path="Indel.rs_id" editable="true" op="=" value="rs134682904"/>
-  </query>
-</template>
-<template name="Organism GO term with particular evidence code  Genes" title="Organism + GO term [with particular evidence code]  --&gt;  Genes." comment="">
-  <query name="Organism GO term with particular evidence code  Genes" model="genomic" view="Gene.secondaryIdentifier Gene.symbol Gene.goAnnotation.ontologyTerm.name Gene.goAnnotation.ontologyTerm.identifier" longDescription="Show genes from a particular organism annotated with a particular GO term with a particular evidence code." sortOrder="Gene.secondaryIdentifier asc" constraintLogic="A and B and C">
-    <constraint path="Gene.goAnnotation.ontologyTerm" editable="false" type="GOTerm"/>
-    <constraint path="Gene.goAnnotation.evidence.code.code" code="A" editable="true" op="=" value="IEA"/>
-    <constraint path="Gene.goAnnotation.ontologyTerm.name" code="B" editable="true" op="=" value="* binding"/>
-    <constraint path="Gene.organism.name" code="C" editable="true" op="=" value="Bos taurus"/>
-  </query>
-</template>
-<template name="Organism _All genes with a specific protein domain." title="Organism --&gt; All genes with a specific protein domain." comment="">
-  <query name="Organism _All genes with a specific protein domain." model="genomic" view="ProteinDomain.primaryIdentifier ProteinDomain.shortName ProteinDomain.type ProteinDomain.proteins.primaryIdentifier ProteinDomain.proteins.genes.secondaryIdentifier ProteinDomain.proteins.genes.symbol" longDescription="Show all genes from a particular organism that code for proteins with a certain protein domain. " sortOrder="ProteinDomain.primaryIdentifier asc" constraintLogic="A and B">
-    <constraint path="ProteinDomain.proteins.genes.organism.name" code="A" editable="true" op="=" value="Bos taurus"/>
-    <constraint path="ProteinDomain.shortName" code="B" editable="true" op="=" value="Kringle"/>
-  </query>
-</template>
-<template name="Organism_3UTR" title="Organism --&gt; All 3' UTRs" comment="">
-  <query name="Organism_3UTR" model="genomic" view="UTR.primaryIdentifier UTR.chromosomeLocation.end UTR.chromosomeLocation.start UTR.length" longDescription="Show all 3' UTRs for a particular organism" sortOrder="UTR.primaryIdentifier asc" constraintLogic="A and B">
-    <constraint path="UTR.transcripts.UTRs" code="B" editable="false" op="=" loopPath="UTR"/>
-    <constraint path="UTR.organism.name" code="A" editable="true" op="=" value="Bos taurus"/>
   </query>
 </template>
 <template name="Organism_All Interactions" title="Organism --&gt; All Interactions" comment="">
@@ -241,61 +91,10 @@
     <constraint path="Protein.organism.name" editable="true" description="Show all the proteins from the organism:" op="=" value="Plasmodium falciparum 3D7"/>
   </query>
 </template>
-<template name="Organism_Protein_1" title="Organism --&gt; All proteins." comment="">
-  <query name="Organism_Protein_1" model="genomic" view="Protein.primaryIdentifier Protein.primaryAccession" longDescription="Show all the proteins from a particular organism." sortOrder="Protein.primaryIdentifier asc">
-    <constraint path="Protein.organism.name" editable="true" description="Show all the proteins from the organism:" op="=" value="Plasmodium falciparum 3D7"/>
-  </query>
-</template>
-<template name="Organism_Protein_1_1" title="Organism --&gt; All proteins." comment="">
-  <query name="Organism_Protein_1_1" model="genomic" view="Protein.primaryIdentifier Protein.primaryAccession" longDescription="Show all the proteins from a particular organism." sortOrder="Protein.primaryIdentifier asc">
-    <constraint path="Protein.organism.name" editable="true" description="Show all the proteins from the organism:" op="=" value="Plasmodium falciparum 3D7"/>
-  </query>
-</template>
-<template name="Organism_UTR" title="Organism --&gt; All  UTRs" comment="">
-  <query name="Organism_UTR" model="genomic" view="UTR.primaryIdentifier UTR.chromosomeLocation.end UTR.chromosomeLocation.start UTR.length" longDescription="Show all UTRs for a particular organism" sortOrder="UTR.primaryIdentifier asc" constraintLogic="A and B">
-    <constraint path="UTR.transcripts.UTRs" code="B" editable="false" op="=" loopPath="UTR"/>
-    <constraint path="UTR.organism.name" code="A" editable="true" op="=" value="Bos taurus"/>
-  </query>
-</template>
-<template name="Pathway_Genes" title="Pathways--&gt; Genes" comment="">
-  <query name="Pathway_Genes" model="genomic" view="Pathway.identifier Pathway.name Pathway.dataSets.name Pathway.proteins.genes.primaryIdentifier Pathway.proteins.genes.secondaryIdentifier Pathway.proteins.genes.symbol Pathway.proteins.genes.name" longDescription="For a specified pathway, list all the genes that are involved for a particular organism" sortOrder="Pathway.identifier asc" constraintLogic="A and B">
-    <constraint path="Pathway.name" code="A" editable="true" op="=" value="Protein folding"/>
-    <constraint path="Pathway.proteins.genes.organism.name" code="B" editable="true" op="=" value="Bos taurus"/>
-  </query>
-</template>
-<template name="Pathways_Gene_Homologues" title="Pathway --&gt; Genes + Orthologues in one specific organism." comment="">
-  <query name="Pathways_Gene_Homologues" model="genomic" view="Pathway.identifier Pathway.name Pathway.dataSets.name Pathway.proteins.genes.primaryIdentifier Pathway.proteins.genes.secondaryIdentifier Pathway.proteins.genes.symbol Pathway.proteins.genes.name Pathway.proteins.genes.homologues.homologue.primaryIdentifier Pathway.proteins.genes.homologues.homologue.symbol" longDescription="Show all the genes known to be involved in a specific REACTOME pathway and their orthologous genes in one specific organism." sortOrder="Pathway.identifier asc" constraintLogic="A and B and C">
-    <constraint path="Pathway.name" code="A" editable="true" op="=" value="Protein folding"/>
-    <constraint path="Pathway.proteins.genes.organism.name" code="B" editable="true" op="=" value="Bos taurus"/>
-    <constraint path="Pathway.proteins.genes.homologues.homologue.organism.name" code="C" editable="true" op="=" value="Homo sapiens"/>
-  </query>
-</template>
 <template name="Protein Domain_Proteins_Genes coding for these proteins" title="Protein Domain --&gt; Proteins + Genes coding for these proteins" comment="">
   <query name="Protein Domain_Proteins_Genes coding for these proteins" model="genomic" view="Protein.primaryIdentifier Protein.primaryAccession Protein.genes.secondaryIdentifier Protein.genes.organism.shortName Protein.proteinDomains.name Protein.proteinDomains.primaryIdentifier Protein.proteinDomains.type" longDescription="Show all genes from a particular organism that code for a certain InterPro protein." sortOrder="Protein.primaryIdentifier asc" constraintLogic="A and B">
     <constraint path="Protein.genes.organism.shortName" code="A" editable="true" op="=" value="B. taurus"/>
     <constraint path="Protein.proteinDomains.type" code="B" editable="true" op="=" value="Domain"/>
-  </query>
-</template>
-<template name="Protein _Domains _   Proteins." title="Protein + Domains --&gt;Proteins." comment="">
-  <query name="Protein _Domains _   Proteins." model="genomic" view="Protein.primaryAccession Protein.primaryIdentifier Protein.proteinDomains.name Protein.proteinDomains.primaryIdentifier Protein.proteinDomains.type" longDescription="For a specified protein show whether it contains a particular domain." sortOrder="Protein.primaryAccession asc" constraintLogic="A and B">
-    <constraint path="Protein.proteinDomains.primaryIdentifier" code="A" editable="true" op="=" value="IPR000197"/>
-    <constraint path="Protein" code="B" editable="true" op="LOOKUP" value="A0A2V3"/>
-  </query>
-</template>
-<template name="Protein domain _ Proteins from a specific organism." title="Protein domain --&gt; Proteins from a specific organism." comment="">
-  <query name="Protein domain _ Proteins from a specific organism." model="genomic" view="Protein.primaryAccession Protein.primaryIdentifier Protein.genes.primaryIdentifier Protein.genes.symbol Protein.proteinDomains.primaryIdentifier Protein.proteinDomains.type" longDescription="or a particular domain (or list of domains) give the proteins (from a specific organism) which have these domains. " sortOrder="Protein.primaryAccession asc" constraintLogic="A and B">
-    <constraint path="Protein.genes.organism.name" code="A" editable="true" op="=" value="Bos taurus"/>
-    <constraint path="Protein.proteinDomains.name" code="B" editable="true" op="CONTAINS" value="Domain"/>
-  </query>
-</template>
-<template name="Protein_GO term" title="Protein --&gt; GO Terms " comment="">
-  <query name="Protein_GO term" model="genomic" view="Protein.primaryAccession Protein.genes.primaryIdentifier Protein.genes.secondaryIdentifier Protein.genes.symbol Protein.genes.goAnnotation.ontologyTerm.identifier Protein.genes.goAnnotation.ontologyTerm.name Protein.genes.goAnnotation.ontologyTerm.namespace" longDescription="Show all GO terms that have been associated with the gene that codes for the following protein." sortOrder="Protein.primaryAccession asc">
-    <constraint path="Protein" editable="true" op="LOOKUP" value="AT5G2_BOVIN"/>
-  </query>
-</template>
-<template name="Publication_Genes" title="Publication --&gt; Genes" comment="">
-  <query name="Publication_Genes" model="genomic" view="Gene.secondaryIdentifier Gene.primaryIdentifier Gene.symbol Gene.publications.firstAuthor Gene.publications.pubMedId Gene.publications.title Gene.publications.year" longDescription="Show all genes that were mentioned in a specific publication." sortOrder="Gene.secondaryIdentifier asc">
-    <constraint path="Gene.publications.pubMedId" editable="true" op="=" value="22642648"/>
   </query>
 </template>
 <template name="Publication_Interactions" title="Publication  --&gt;  Interactions" comment="">
@@ -309,23 +108,16 @@
     <constraint path="Gene" editable="true" op="LOOKUP" value="RCAN1" extraValue="B. taurus"/>
   </query>
 </template>
-<template name="SNP_Gene" title="SNP  --&gt;  Gene" comment="">
-  <query name="SNP_Gene" model="genomic" view="SNP.source SNP.symbol SNP.vc SNP.rspos SNP.length SNP.Note SNP.locations.end SNP.locations.start SNP.locations.locatedOn.primaryIdentifier SNP.overlappingFeatures.primaryIdentifier SNP.overlappingFeatures.secondaryIdentifier" longDescription="" sortOrder="SNP.source asc">
-    <constraint path="SNP.locations.locatedOn" editable="false" type="Chromosome"/>
-    <constraint path="SNP.overlappingFeatures" editable="false" type="Gene"/>
-    <constraint path="SNP.rs_id" editable="true" op="=" value="rs433839918"/>
-  </query>
-</template>
 <template name="TQ_GOTerm_to_Genes" title="GO term --&gt; Genes" comment="">
-  <query name="TQ_GOTerm_to_Genes" model="genomic" view="Gene.primaryIdentifier Gene.secondaryIdentifier Gene.symbol Gene.goAnnotation.evidence.code.code Gene.goAnnotation.ontologyTerm.identifier Gene.goAnnotation.ontologyTerm.name Gene.organism.name" longDescription="Show all genes annotated with a given GO term (and its children terms)" sortOrder="Gene.primaryIdentifier asc" constraintLogic="C and A and B">
+  <query name="TQ_GOTerm_to_Genes" model="genomic" view="Gene.primaryIdentifier Gene.secondaryIdentifier Gene.symbol Gene.goAnnotation.evidence.code.code Gene.goAnnotation.ontologyTerm.identifier Gene.goAnnotation.ontologyTerm.name Gene.organism.name" longDescription="Show all genes annotated with a given GO term (and its children terms)" sortOrder="Gene.primaryIdentifier asc" constraintLogic="B and C and A">
     <constraint path="Gene.goAnnotation.ontologyTerm" editable="false" type="GOTerm"/>
+    <constraint path="Gene.goAnnotation.ontologyTerm.name" code="B" editable="true" op="=" value="DNA binding"/>
     <constraint path="Gene.organism.name" code="C" editable="true" op="=" value="Bos taurus"/>
-    <constraint path="Gene.goAnnotation.ontologyTerm" code="B" editable="true" op="LOOKUP" value="GO:0003677"/>
-    <constraint path="Gene.goAnnotation.evidence.code.code" code="A" editable="true" description="" switchable="off" op="=" value="IEA"/>
+    <constraint path="Gene.goAnnotation.evidence.code.code" code="A" editable="true" description="" switchable="on" op="=" value="IEA"/>
   </query>
 </template>
 <template name="TQ_gene_to_GOterms" title="GO terms of Gene using Gene symbol" comment="">
-  <query name="TQ_gene_to_GOterms" model="genomic" view="Gene.symbol Gene.secondaryIdentifier Gene.goAnnotation.ontologyTerm.identifier Gene.goAnnotation.ontologyTerm.name Gene.goAnnotation.evidence.code.code Gene.goAnnotation.ontologyTerm.namespace Gene.goAnnotation.qualifier Gene.primaryIdentifier" longDescription="Search for GO annotations for a particular gene." sortOrder="Gene.secondaryIdentifier asc">
+  <query name="TQ_gene_to_GOterms" model="genomic" view="Gene.symbol Gene.primaryIdentifier Gene.secondaryIdentifier Gene.goAnnotation.ontologyTerm.identifier Gene.goAnnotation.ontologyTerm.name Gene.goAnnotation.evidence.code.code Gene.goAnnotation.ontologyTerm.namespace" longDescription="Search for GO annotations for a particular gene." sortOrder="Gene.secondaryIdentifier asc">
     <pathDescription pathString="Gene.goAnnotation" description="GO annotation"/>
     <pathDescription pathString="Gene.goAnnotation.evidence.code" description="GO annotation &gt; evidence"/>
     <constraint path="Gene" editable="true" op="LOOKUP" value="RCAN1"/>
@@ -345,28 +137,10 @@
     <constraint path="Interaction.gene2" code="C" editable="true" op="LOOKUP" value="RPGR" extraValue="B. taurus"/>
   </query>
 </template>
-<template name="TQ_gene_to_interactions" title="Gene --&gt; Interactions" comment="">
-  <query name="TQ_gene_to_interactions" model="genomic" view="Gene.symbol Gene.interactions.details.name Gene.interactions.details.role1 Gene.interactions.details.role2 Gene.interactions.details.type Gene.interactions.details.dataSets.name Gene.interactions.details.experiment.interactionDetectionMethods.name Gene.interactions.details.experiment.publication.pubMedId Gene.interactions.details.relationshipType.name Gene.interactions.gene2.symbol" longDescription="Show all the interactions for a given Gene" constraintLogic="A and B">
-    <constraint path="Gene" code="A" editable="true" op="LOOKUP" value="KIF3A" extraValue="B. taurus"/>
-    <constraint path="Gene.interactions.details.type" code="B" editable="true" op="=" value="physical"/>
-  </query>
-</template>
 <template name="TQ_gene_to_orthologues" title="Gene --&gt; Orthologues" comment="">
-  <query name="TQ_gene_to_orthologues" model="genomic" view="Gene.primaryIdentifier Gene.secondaryIdentifier Gene.status Gene.homologues.type Gene.homologues.dataSets.name Gene.homologues.homologue.primaryIdentifier Gene.homologues.homologue.secondaryIdentifier Gene.homologues.homologue.symbol Gene.homologues.homologue.organism.name" longDescription="Find all Othologues/Homologues/Paralogues for a given Gene " sortOrder="Gene.primaryIdentifier asc" constraintLogic="A and B">
+  <query name="TQ_gene_to_orthologues" model="genomic" view="Gene.primaryIdentifier Gene.secondaryIdentifier Gene.status Gene.homologues.type Gene.homologues.dataSets.name Gene.homologues.homologue.primaryIdentifier Gene.homologues.homologue.organism.name" longDescription="Find all Othologues/Homologues/Paralogues for a given Gene " sortOrder="Gene.primaryIdentifier asc" constraintLogic="A and B">
     <constraint path="Gene" code="A" editable="true" op="LOOKUP" value="RCAN1" extraValue="B. taurus"/>
     <constraint path="Gene.homologues.type" code="B" editable="true" description="" switchable="on" op="=" value="orthologue"/>
-  </query>
-</template>
-<template name="TQ_gene_to_overlappingGenes" title="Gene --&gt; Overlapping Genes" comment="">
-  <query name="TQ_gene_to_overlappingGenes" model="genomic" view="Gene.primaryIdentifier Gene.secondaryIdentifier Gene.symbol Gene.chromosome.primaryIdentifier Gene.chromosomeLocation.end Gene.chromosomeLocation.start Gene.chromosomeLocation.strand Gene.overlappingFeatures.primaryIdentifier Gene.overlappingFeatures.secondaryIdentifier Gene.overlappingFeatures.symbol Gene.overlappingFeatures.chromosomeLocation.end Gene.overlappingFeatures.chromosomeLocation.start Gene.overlappingFeatures.chromosomeLocation.strand" longDescription="Show all genes that overlaps with a given Gene" sortOrder="Gene.primaryIdentifier asc">
-    <join path="Gene.overlappingFeatures" style="OUTER"/>
-    <constraint path="Gene.overlappingFeatures" editable="false" type="Gene"/>
-    <constraint path="Gene" editable="true" op="LOOKUP" value="MED12L" extraValue="B. taurus"/>
-  </query>
-</template>
-<template name="TQ_gene_to_pathwayNames" title="Gene --&gt; Pathways" comment="">
-  <query name="TQ_gene_to_pathwayNames" model="genomic" view="Gene.secondaryIdentifier Gene.primaryIdentifier Gene.symbol Gene.pathways.name Gene.pathways.identifier Gene.pathways.dataSets.name" longDescription="Get the Pathway name and identifiers for a given Gene" sortOrder="Gene.secondaryIdentifier asc">
-    <constraint path="Gene" editable="true" op="LOOKUP" value="SFN" extraValue="B. taurus"/>
   </query>
 </template>
 <template name="TQ_gene_to_proteinDomains" title="Gene --&gt; Proteins and Protein Domains" comment="">
@@ -381,7 +155,7 @@
   </query>
 </template>
 <template name="TQ_gene_to_subFeatures" title="Gene --&gt; Transcripts + Exons" comment="">
-  <query name="TQ_gene_to_subFeatures" model="genomic" view="Gene.primaryIdentifier Gene.secondaryIdentifier Gene.symbol Gene.transcripts.primaryIdentifier Gene.transcripts.chromosome.primaryIdentifier Gene.transcripts.chromosomeLocation.end Gene.transcripts.chromosomeLocation.start Gene.transcripts.chromosomeLocation.strand Gene.transcripts.exons.primaryIdentifier Gene.transcripts.exons.length Gene.transcripts.exons.chromosome.primaryIdentifier Gene.transcripts.exons.chromosomeLocation.end Gene.transcripts.exons.chromosomeLocation.start" longDescription="Show all the Transcripts and Exons for a given Gene" sortOrder="Gene.primaryIdentifier asc">
+  <query name="TQ_gene_to_subFeatures" model="genomic" view="Gene.primaryIdentifier Gene.symbol Gene.transcripts.primaryIdentifier Gene.transcripts.chromosome.primaryIdentifier Gene.transcripts.chromosomeLocation.end Gene.transcripts.chromosomeLocation.start Gene.transcripts.chromosomeLocation.strand Gene.transcripts.exons.primaryIdentifier Gene.transcripts.exons.length Gene.transcripts.exons.chromosome.primaryIdentifier Gene.transcripts.exons.chromosomeLocation.end Gene.transcripts.exons.chromosomeLocation.start" longDescription="Show all the Transcripts and Exons for a given Gene" sortOrder="Gene.primaryIdentifier asc">
     <join path="Gene.transcripts.exons" style="OUTER"/>
     <constraint path="Gene" editable="true" op="LOOKUP" value="SYNE2"/>
   </query>
@@ -389,16 +163,6 @@
 <template name="TQ_lookup_InterproDomains" title="InterPro Name --&gt; Protein domains and families" comment="">
   <query name="TQ_lookup_InterproDomains" model="genomic" view="ProteinDomain.name ProteinDomain.primaryIdentifier ProteinDomain.type" longDescription="Search for protein domains and families by name" sortOrder="ProteinDomain.name asc">
     <constraint path="ProteinDomain.name" editable="true" op="=" value="*leucine*"/>
-  </query>
-</template>
-<template name="TQ_organism_to_genes" title="Organism --&gt; Genes" comment="">
-  <query name="TQ_organism_to_genes" model="genomic" view="Gene.primaryIdentifier Gene.secondaryIdentifier Gene.symbol Gene.chromosome.primaryIdentifier Gene.chromosomeLocation.end Gene.chromosomeLocation.start Gene.chromosomeLocation.strand Gene.organism.name" longDescription="Show all genes for a given Organism" sortOrder="Gene.primaryIdentifier asc">
-    <constraint path="Gene.organism.name" editable="true" op="=" value="Bos taurus"/>
-  </query>
-</template>
-<template name="TQ_organism_to_miRNA" title="Organism --&gt; All miRNA" comment="">
-  <query name="TQ_organism_to_miRNA" model="genomic" view="MiRNA.primaryIdentifier MiRNA.chromosome.primaryIdentifier MiRNA.chromosomeLocation.start MiRNA.chromosomeLocation.end MiRNA.chromosomeLocation.strand MiRNA.organism.name MiRNA.symbol" longDescription="Show all the miRNAs for a given Organism" sortOrder="MiRNA.primaryIdentifier asc">
-    <constraint path="MiRNA.organism.name" editable="true" op="=" value="Bos taurus"/>
   </query>
 </template>
 <template name="TQ_organism_to_organism_orthologues" title="Organism --&gt; GO terms + Orthologues in one specific organism" comment="">
@@ -409,17 +173,12 @@
     <constraint path="Gene.homologues.type" code="C" editable="true" op="=" value="orthologue"/>
   </query>
 </template>
-<template name="TQ_organism_to_proteins" title="Organism --&gt; Proteins" comment="">
-  <query name="TQ_organism_to_proteins" model="genomic" view="Protein.primaryAccession Protein.uniprotAccession Protein.primaryIdentifier Protein.organism.name" longDescription="Show all proteins for a given Organism" sortOrder="Protein.primaryAccession asc">
-    <constraint path="Protein.organism.name" editable="true" op="=" value="Bos taurus"/>
-  </query>
-</template>
-<template name="TQ_parentGO_to_genes" title="GO term (and children of the GO term) --&gt; Genes" comment="">
-  <query name="TQ_parentGO_to_genes" model="genomic" view="Gene.primaryIdentifier Gene.secondaryIdentifier Gene.symbol Gene.goAnnotation.ontologyTerm.identifier Gene.goAnnotation.ontologyTerm.name Gene.goAnnotation.ontologyTerm.parents.identifier Gene.goAnnotation.ontologyTerm.parents.name Gene.organism.name" longDescription="Find all genes having the given GO term or having the children of the GO term. Can enter a GO identifier or name like &quot;DNA binding&quot;." sortOrder="Gene.primaryIdentifier asc" constraintLogic="B and A">
+<template name="TQ_parentGO_to_genes" title="Go term (and children of the GO term) --&gt; Genes" comment="">
+  <query name="TQ_parentGO_to_genes" model="genomic" view="Gene.primaryIdentifier Gene.secondaryIdentifier Gene.symbol Gene.goAnnotation.ontologyTerm.identifier Gene.goAnnotation.ontologyTerm.name Gene.goAnnotation.ontologyTerm.parents.identifier Gene.goAnnotation.ontologyTerm.parents.name Gene.organism.name" longDescription="Find all genes having the given GO term or having the children of the GO term" sortOrder="Gene.primaryIdentifier asc" constraintLogic="A and B">
     <constraint path="Gene.goAnnotation.ontologyTerm" editable="false" type="GOTerm"/>
     <constraint path="Gene.goAnnotation.ontologyTerm.parents" editable="false" type="GOTerm"/>
+    <constraint path="Gene.goAnnotation.ontologyTerm.parents.name" code="A" editable="true" op="=" value="DNA binding"/>
     <constraint path="Gene.organism.name" code="B" editable="true" op="=" value="Bos taurus"/>
-    <constraint path="Gene.goAnnotation.ontologyTerm" code="A" editable="true" op="LOOKUP" value="GO:0003677"/>
   </query>
 </template>
 <template name="TQ_proteinDomains_to_proteins" title="Protein Domain Names --&gt; Proteins + Genes encoding the Proteins" comment="">
@@ -447,41 +206,99 @@
     <constraint path="Protein.organism.name" code="B" editable="true" op="=" value="Bos taurus"/>
   </query>
 </template>
-<template name="connectivity_check_by_admin" title="connectivity_check_by_admin" comment="">
-  <query name="connectivity_check_by_admin" model="genomic" view="Expression.fpkm Expression.normalizedCounts Expression.rawCounts Expression.sampleName Expression.isoform.primaryIdentifier Expression.isoform.gene.primaryIdentifier Expression.sampleMetadata.tissue" longDescription="Returns the expression values of transcripts filtered by Transcript ID" sortOrder="Expression.fpkm asc" constraintLogic="A and B and C and D">
-    <constraint path="Expression.fpkm" code="A" editable="true" op="&gt;" value="0"/>
-    <constraint path="Expression.normalizedCounts" code="B" editable="true" op="&gt;" value="0"/>
-    <constraint path="Expression.sampleMetadata.sex" code="C" editable="true" op="=" value="Female"/>
-    <constraint path="Expression.sampleMetadata.tissue" code="D" editable="true" op="=" value="cervical lining"/>
+<template name="cge_gene_to_orthologs_to_pathway" title="Gene --&gt; Orthologues and its Pathway" comment="">
+  <query name="cge_gene_to_orthologs_to_pathway" model="genomic" view="Gene.primaryIdentifier Gene.symbol Gene.source Gene.homologues.gene.primaryIdentifier Gene.homologues.homologue.primaryIdentifier Gene.homologues.type Gene.homologues.homologue.pathways.shortName Gene.homologues.homologue.pathways.identifier Gene.homologues.homologue.pathways.curated Gene.homologues.homologue.pathways.name Gene.name" longDescription="For all genes in Bos. taurus, get all the orthologues in another organism along with its Pathway information." sortOrder="Gene.primaryIdentifier asc" constraintLogic="B and C and A">
+    <constraint path="Gene.homologues.type" code="B" editable="false" description="" op="=" value="orthologue"/>
+    <constraint path="Gene.organism.name" code="A" editable="false" description="" op="=" value="Bos taurus"/>
+    <constraint path="Gene.homologues.homologue.organism.name" code="C" editable="true" op="=" value="Homo sapiens"/>
   </query>
 </template>
-<template name="deh_all_transcripts_to_chromosomal_coordinates" title="All Transcripts --&gt; Chromosomal Coordinates" comment="">
-  <query name="deh_all_transcripts_to_chromosomal_coordinates" model="genomic" view="Transcript.primaryIdentifier Transcript.chromosome.primaryIdentifier Transcript.chromosomeLocation.start Transcript.chromosomeLocation.end" longDescription="Provides Chromosomal Coordinates for All Transcripts" sortOrder="Transcript.primaryIdentifier asc">
-    <constraint path="Transcript.organism.name" editable="true" op="=" value="Bos taurus"/>
+<template name="cge_transcript_id_to_gene_and_gene_ontology" title="Transcript ID --&gt; Gene ID --&gt; Gene Ontology" comment="">
+  <query name="cge_transcript_id_to_gene_and_gene_ontology" model="genomic" view="Transcript.primaryIdentifier Transcript.gene.primaryIdentifier Transcript.gene.goAnnotation.ontologyTerm.identifier Transcript.gene.goAnnotation.ontologyTerm.name" longDescription="For a given Transcript ID, returns all Gene and its assigned Gene Ontology." sortOrder="Transcript.primaryIdentifier asc">
+    <constraint path="Transcript.primaryIdentifier" editable="true" op="=" value="NM_001034679.1"/>
   </query>
 </template>
-<template name="deh_chromosome_coordinates_for_all_genes" title="All Genes --&gt; Chromosomal Coordinates" comment="">
-  <query name="deh_chromosome_coordinates_for_all_genes" model="genomic" view="Gene.primaryIdentifier Gene.chromosome.primaryIdentifier Gene.chromosomeLocation.end Gene.chromosomeLocation.start" longDescription="Provides the Chromosomal Coordinates for All Genes." sortOrder="Gene.primaryIdentifier asc">
-    <constraint path="Gene.organism.name" editable="true" op="=" value="Bos taurus"/>
+<template name="cge_transcript_id_to_gene_and_pathway" title="Transcript ID --&gt; Gene ID --&gt; Pathway" comment="">
+  <query name="cge_transcript_id_to_gene_and_pathway" model="genomic" view="Transcript.primaryIdentifier Transcript.gene.primaryIdentifier Transcript.gene.proteins.uniprotAccession Transcript.gene.proteins.uniprotName Transcript.gene.pathways.name Transcript.gene.pathways.identifier Transcript.gene.pathways.dataSets.name" longDescription="For a given Transcript ID, returns its Gene ID and Pathway information." sortOrder="Transcript.primaryIdentifier asc">
+    <constraint path="Transcript.primaryIdentifier" editable="true" op="=" value="NM_001077860.1"/>
   </query>
 </template>
-<template name="qtl_test_template_Query" title="Gene --&gt; QTLs" comment="">
-  <query name="qtl_test_template_Query" model="genomic" view="Gene.overlappingFeatures.primaryIdentifier Gene.overlappingFeatures.trait Gene.overlappingFeatures.breed Gene.overlappingFeatures.model Gene.overlappingFeatures.chromosomeLocation.end Gene.overlappingFeatures.chromosomeLocation.start" longDescription="" sortOrder="Gene.overlappingFeatures.primaryIdentifier asc">
-    <constraint path="Gene.overlappingFeatures" editable="false" type="QTL"/>
-    <constraint path="Gene" editable="true" op="LOOKUP" value="RCAN1"/>
+<template name="deh_chromosome_coordinates_for_all_genes_and_overlapping_SNPs" title="Chromosome Coordinates --&gt; All genes and its overlapping SNPs" comment="">
+  <query name="deh_chromosome_coordinates_for_all_genes_and_overlapping_SNPs" model="genomic" view="Gene.primaryIdentifier Gene.overlappingFeatures.primaryIdentifier Gene.chromosome.primaryIdentifier Gene.overlappingFeatures.chromosomeLocation.start" longDescription="Returns all genes and overlapping SNPs provided genomic coordinates." sortOrder="Gene.primaryIdentifier asc" constraintLogic="A and B and C">
+    <constraint path="Gene.overlappingFeatures" editable="false" type="SNP"/>
+    <constraint path="Gene.chromosome" code="A" editable="true" op="LOOKUP" value="chr6"/>
+    <constraint path="Gene.chromosomeLocation.start" code="B" editable="true" op="&gt;=" value="7000000"/>
+    <constraint path="Gene.chromosomeLocation.end" code="C" editable="true" op="&lt;=" value="8000000"/>
   </query>
 </template>
-<template name="test_on_proxy_instance" title="test_on_proxy_instance" comment="">
-  <query name="test_on_proxy_instance" model="genomic" view="Expression.fpkm Expression.normalizedCounts Expression.rawCounts Expression.sampleName Expression.isoform.primaryIdentifier Expression.isoform.gene.primaryIdentifier Expression.sampleMetadata.tissue" longDescription="Returns the expression values of transcripts filtered by Transcript ID" sortOrder="Expression.fpkm asc" constraintLogic="A and B and C and D">
-    <constraint path="Expression.fpkm" code="A" editable="true" op="&gt;" value="0"/>
-    <constraint path="Expression.normalizedCounts" code="B" editable="true" op="&gt;" value="0"/>
-    <constraint path="Expression.sampleMetadata.sex" code="C" editable="true" op="=" value="Female"/>
-    <constraint path="Expression.sampleMetadata.tissue" code="D" editable="true" op="=" value="cervical lining"/>
+<template name="deh_expression_by_tissue" title="Tissue --&gt; Transcript Expression" comment="">
+  <query name="deh_expression_by_tissue" model="genomic" view="Expression.isoform.primaryIdentifier Expression.sampleMetadata.sraRunAccession Expression.sampleName Expression.sampleMetadata.tissue Expression.FPKM Expression.normalizedCounts Expression.rawCounts" longDescription="Returns IDs and Expression Values for Transcripts Expressed in the Provided Tissue.  User can also filter by expression values." sortOrder="Expression.FPKM desc" constraintLogic="A and B and C and D">
+    <constraint path="Expression.sampleMetadata.tissue" code="A" editable="true" op="=" value="follicle 1"/>
+    <constraint path="Expression.FPKM" code="B" editable="true" op="&gt;=" value="0"/>
+    <constraint path="Expression.normalizedCounts" code="C" editable="true" op="&gt;=" value="0"/>
+    <constraint path="Expression.rawCounts" code="D" editable="true" op="&gt;=" value="0"/>
   </query>
 </template>
-<template name="test_template" title="Chromosome -&gt; All Genes" comment="">
-  <query name="test_template" model="genomic" view="Gene.chromosome.primaryIdentifier Gene.primaryIdentifier Gene.secondaryIdentifier Gene.symbol" longDescription="Get all the Genes located on a given Chromosome">
-    <constraint path="Gene.chromosome.primaryIdentifier" editable="true" op="=" value="GK000001.2"/>
+<template name="deh_gene_id_to_transcript_expression" title="GeneID --&gt; Transcript Expression" comment="">
+  <query name="deh_gene_id_to_transcript_expression" model="genomic" view="Expression.isoform.gene.primaryIdentifier Expression.isoform.primaryIdentifier Expression.sampleMetadata.sraSampleAccession Expression.sampleName Expression.sampleMetadata.tissue Expression.sampleMetadata.btoName Expression.FPKM Expression.normalizedCounts Expression.rawCounts" longDescription="Provide a Gene ID and View Expression Data.  User can filter by tissues and expression values." sortOrder="Expression.normalizedCounts asc" constraintLogic="A and B and C and D">
+    <constraint path="Expression.isoform.gene.primaryIdentifier" code="A" editable="true" op="=" value="100138004"/>
+    <constraint path="Expression.sampleMetadata.tissue" code="D" editable="true" op="=" value="255d lactating mammary gland"/>
+    <constraint path="Expression.FPKM" code="B" editable="true" op="&gt;=" value="0"/>
+    <constraint path="Expression.normalizedCounts" code="C" editable="true" op="&gt;=" value="0"/>
+  </query>
+</template>
+<template name="deh_qtl_id_to_transcript_id_and_expression" title="QTL ID --&gt; Transcript and its Expression" comment="">
+  <query name="deh_qtl_id_to_transcript_id_and_expression" model="genomic" view="Transcript.overlappingFeatures.primaryIdentifier Transcript.overlappingFeatures.trait Transcript.primaryIdentifier Transcript.source Transcript.expressionValues.FPKM Transcript.expressionValues.normalizedCounts Transcript.expressionValues.rawCounts Transcript.expressionValues.sampleName Transcript.expressionValues.sampleMetadata.sraRunAccession Transcript.expressionValues.sampleMetadata.tissue" longDescription="Returns the Expression Values of Transcripts That Overlap Desired QTL Regions, given a QTL ID.  You can further filter by expression values." sortOrder="Transcript.expressionValues.FPKM desc" constraintLogic="B and C and D and A">
+    <constraint path="Transcript.overlappingFeatures" editable="false" type="QTL"/>
+    <constraint path="Transcript.expressionValues.FPKM" code="B" editable="true" op="&gt;=" value="0"/>
+    <constraint path="Transcript.expressionValues.normalizedCounts" code="C" editable="true" op="&gt;=" value="0"/>
+    <constraint path="Transcript.expressionValues.rawCounts" code="D" editable="true" op="&gt;=" value="0"/>
+    <constraint path="Transcript.overlappingFeatures.primaryIdentifier" code="A" editable="true" op="=" value="20593"/>
+  </query>
+</template>
+<template name="deh_qtl_trait_to_transcript_id_and_expression" title="QTL Trait --&gt; Transcript and its Expression" comment="">
+  <query name="deh_qtl_trait_to_transcript_id_and_expression" model="genomic" view="Transcript.overlappingFeatures.primaryIdentifier Transcript.overlappingFeatures.trait Transcript.primaryIdentifier Transcript.expressionValues.normalizedCounts Transcript.expressionValues.FPKM Transcript.expressionValues.rawCounts Transcript.expressionValues.sampleName Transcript.expressionValues.sampleMetadata.sraRunAccession Transcript.expressionValues.sampleMetadata.tissue" longDescription="Returns the Expression Values of Transcripts That Overlap Desired QTL Regions.  You can further filter by expression values." sortOrder="Transcript.primaryIdentifier asc" constraintLogic="B and C and D and E">
+    <constraint path="Transcript.overlappingFeatures" editable="false" type="QTL"/>
+    <constraint path="Transcript.expressionValues.FPKM" code="B" editable="true" op="&gt;=" value="0"/>
+    <constraint path="Transcript.expressionValues.normalizedCounts" code="C" editable="true" op="&gt;=" value="0"/>
+    <constraint path="Transcript.expressionValues.rawCounts" code="D" editable="true" op="&gt;=" value="0"/>
+    <constraint path="Transcript.overlappingFeatures.trait" code="E" editable="true" op="CONTAINS" value="body weight"/>
+  </query>
+</template>
+<template name="deh_transcript_id_to_expression" title="Transcript ID --&gt; Expression" comment="">
+  <query name="deh_transcript_id_to_expression" model="genomic" view="Expression.isoform.primaryIdentifier Expression.sampleMetadata.sraSampleAccession Expression.sampleName Expression.sampleMetadata.tissue Expression.sampleMetadata.btoName Expression.FPKM Expression.normalizedCounts Expression.rawCounts" longDescription="Provide a Transcript ID and View Expression Data.  User can filter by tissues and expression values." sortOrder="Expression.normalizedCounts asc" constraintLogic="B and C and D and E">
+    <constraint path="Expression.isoform.primaryIdentifier" code="E" editable="true" op="=" value="XM_003586177.3"/>
+    <constraint path="Expression.sampleMetadata.tissue" code="D" editable="true" op="=" value="255d lactating mammary gland"/>
+    <constraint path="Expression.FPKM" code="B" editable="true" op="&gt;=" value="0"/>
+    <constraint path="Expression.normalizedCounts" code="C" editable="true" op="&gt;=" value="0"/>
+  </query>
+</template>
+<template name="gene_to_overlapping_snps" title="Gene --&gt; Overlapping SNPs" comment="">
+  <query name="gene_to_overlapping_snps" model="genomic" view="Gene.primaryIdentifier Gene.symbol Gene.source Gene.overlappingFeatures.primaryIdentifier Gene.overlappingFeatures.referenceAllele Gene.overlappingFeatures.alternateAllele Gene.overlappingFeatures.chromosome.primaryIdentifier Gene.overlappingFeatures.chromosomeLocation.start Gene.overlappingFeatures.chromosomeLocation.end" longDescription="Returns all overlapping SNPs for a given gene. Users can search via Gene ID or Symbol." sortOrder="Gene.primaryIdentifier asc">
+    <constraint path="Gene.overlappingFeatures" editable="false" type="SNP"/>
+    <constraint path="Gene" editable="true" op="LOOKUP" value="FAM13A"/>
+  </query>
+</template>
+<template name="qtl_to_overlapping_transcripts" title="QTL ID --&gt; Overlapping Transcripts" comment="">
+  <query name="qtl_to_overlapping_transcripts" model="genomic" view="QTL.primaryIdentifier QTL.trait QTL.type QTL.overlappingFeatures.primaryIdentifier QTL.overlappingFeatures.source QTL.overlappingFeatures.status" longDescription="Returns all overlapping Transcripts for a given QTL ID." sortOrder="QTL.primaryIdentifier asc">
+    <constraint path="QTL.overlappingFeatures" editable="false" type="Transcript"/>
+    <constraint path="QTL.primaryIdentifier" editable="true" op="=" value="20593"/>
+  </query>
+</template>
+<template name="report_gene_id_to_overlapping_features" title="report_gene_id_to_overlapping_features" comment="For Report Page Only">
+  <query name="report_gene_id_to_overlapping_features" model="genomic" view="Gene.overlappingFeatures.primaryIdentifier Gene.overlappingFeatures.dataSets.name Gene.overlappingFeatures.sequenceOntologyTerm.name" longDescription="" sortOrder="Gene.overlappingFeatures.primaryIdentifier asc">
+    <constraint path="Gene.primaryIdentifier" editable="true" op="=" value="539640"/>
+  </query>
+</template>
+<template name="snp_rsid_to_chromosome_location" title="SNP ID --&gt; Chromosome Location" comment="The output of this query can be used as input for Genomic Region Search">
+  <query name="snp_rsid_to_chromosome_location" model="genomic" view="SNP.primaryIdentifier SNP.chromosome.primaryIdentifier SNP.chromosomeLocation.start SNP.chromosomeLocation.end" longDescription="Get chromosome location for a given SNP rsID." sortOrder="SNP.chromosome.primaryIdentifier asc">
+    <join path="SNP.chromosomeLocation" style="OUTER"/>
+    <constraint path="SNP.primaryIdentifier" editable="true" op="=" value="rs108939869"/>
+  </query>
+</template>
+<template name="transcript_id_to_expression_and_metadata" title="Transcript ID --&gt; Expression, Metadata and BRENDA Term" comment="">
+  <query name="transcript_id_to_expression_and_metadata" model="genomic" view="Transcript.expressionValues.sampleMetadata.sampleName Transcript.expressionValues.sampleMetadata.experimentName Transcript.expressionValues.sampleMetadata.brendaTissueOntology.name Transcript.expressionValues.FPKM Transcript.expressionValues.normalizedCounts Transcript.expressionValues.rawCounts" longDescription="Meant for Transcript report page" sortOrder="Transcript.expressionValues.FPKM desc">
+    <constraint path="Transcript.primaryIdentifier" editable="true" op="=" value="NM_001103314.1"/>
   </query>
 </template>
 </template-queries>
