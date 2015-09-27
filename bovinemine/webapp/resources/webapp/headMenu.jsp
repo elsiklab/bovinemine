@@ -84,7 +84,7 @@
         </a>
       </li>
       <li id="help"  <c:if test="${tab == 'Help'}">class="activelink"</c:if>>
-       <a href="http://bovinegenome.org/?q=node/56">
+       <a href="http://bovinemine.readthedocs.org/en/latest/">
     <fmt:message key="menu.help"/>
   </a>
       <li id="api"  <c:if test="${tab == 'api'}">class="activelink"</c:if>>
