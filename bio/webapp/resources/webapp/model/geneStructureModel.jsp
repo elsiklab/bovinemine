@@ -113,7 +113,7 @@ function (cookie,dom,domConstruct,domStyle,domClass,Browser,HTMLFeatures,NCList,
           "showLabels":false,
           "onClick"  : {
               "label": "Feature name {name}\nFeature start {start}\nFeature end {end}",
-              "url": "http://bovinegenome.org/Apollo2/jbrowse/index.html?organism=22875?loc={name}",
+              "url": "http://bovinegenome.org/Apollo2/jbrowse/index.html?organism=22875&loc={name}",
               "action": "newWindow"
           },
           "menuTemplate":null
