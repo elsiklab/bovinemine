@@ -13,7 +13,7 @@
 	
 
  	</head>
-
+<div id="content-wrap">
         <div id="boxes">
                 <div id="search-bochs">
                         <img class="title" src="themes/purple/homepage/search-ico-right.png" title="search"/>
