@@ -1,4 +1,3 @@
-
 <tags>
 
   <tag name="im:aspect:Expression" objectIdentifier="transcript_id_to_expression_and_metadata" type="template">
@@ -31,9 +30,6 @@
   <tag name="im:aspect:Function" objectIdentifier="Gene_Pathway" type="template">
   </tag>
 
-  <tag name="im:aspect:Function" objectIdentifier="Gene_GO terms." type="template">
-  </tag>
-
   <tag name="im:aspect:Function" objectIdentifier="Gene_Orthologues_GO Terms" type="template">
   </tag>
 
@@ -44,6 +40,9 @@
   </tag>
 
   <tag name="im:aspect:Function" objectIdentifier="cge_gene_to_orthologs_to_pathway" type="template">
+  </tag>
+
+  <tag name="im:aspect:Function" objectIdentifier="Gene_GO terms" type="template">
   </tag>
 
   <tag name="im:aspect:Genes" objectIdentifier="TQ_gene_to_overlappingGenes" type="template">
@@ -64,15 +63,6 @@
   <tag name="im:aspect:Genes" objectIdentifier="TQ_organism_to_organism_orthologues" type="template">
   </tag>
 
-  <tag name="im:aspect:Genes" objectIdentifier="Chromosome_All genes." type="template">
-  </tag>
-
-  <tag name="im:aspect:Genes" objectIdentifier="Gene_Chromosomal location." type="template">
-  </tag>
-
-  <tag name="im:aspect:Genes" objectIdentifier="Gene_GO terms." type="template">
-  </tag>
-
   <tag name="im:aspect:Genes" objectIdentifier="Chromosomal location _All genes  Transcripts  Exons" type="template">
   </tag>
 
@@ -83,6 +73,15 @@
   </tag>
 
   <tag name="im:aspect:Genes" objectIdentifier="All_genes_in_organism1_Orthologues_in_organism2" type="template">
+  </tag>
+
+  <tag name="im:aspect:Genes" objectIdentifier="Gene_Chromosomal location" type="template">
+  </tag>
+
+  <tag name="im:aspect:Genes" objectIdentifier="Gene_GO terms" type="template">
+  </tag>
+
+  <tag name="im:aspect:Genes" objectIdentifier="Chromosome_All genes" type="template">
   </tag>
 
   <tag name="im:aspect:Genomics" objectIdentifier="LocatedSequenceFeature.overlappingFeatures" type="collection">
@@ -199,9 +198,6 @@
   <tag name="im:aspect:Interactions" objectIdentifier="TQ_gene_to_gene_interaction" type="template">
   </tag>
 
-  <tag name="im:aspect:Interactions" objectIdentifier="GO term_Interacting gene_Genes." type="template">
-  </tag>
-
   <tag name="im:aspect:Interactions" objectIdentifier="Publication_Interactions" type="template">
   </tag>
 
@@ -209,6 +205,9 @@
   </tag>
 
   <tag name="im:aspect:Interactions" objectIdentifier="All_genes_in_organism1_Orthologues_in_organism2" type="template">
+  </tag>
+
+  <tag name="im:aspect:Interactions" objectIdentifier="GO term_Interacting gene_Genes" type="template">
   </tag>
 
   <tag name="im:aspect:Proteins" objectIdentifier="Protein.sequence" type="reference">
@@ -364,16 +363,7 @@
   <tag name="im:frontpage" objectIdentifier="Protein Domain_Proteins_Genes coding for these proteins" type="template">
   </tag>
 
-  <tag name="im:frontpage" objectIdentifier="GO term_Interacting gene_Genes." type="template">
-  </tag>
-
   <tag name="im:frontpage" objectIdentifier="Publication_Interactions" type="template">
-  </tag>
-
-  <tag name="im:frontpage" objectIdentifier="Chromosome_All genes." type="template">
-  </tag>
-
-  <tag name="im:frontpage" objectIdentifier="Gene_Chromosomal location." type="template">
   </tag>
 
   <tag name="im:frontpage" objectIdentifier="Gene_Orthologues_Sequence" type="template">
@@ -383,9 +373,6 @@
   </tag>
 
   <tag name="im:frontpage" objectIdentifier="Gene_Pathway" type="template">
-  </tag>
-
-  <tag name="im:frontpage" objectIdentifier="Gene_GO terms." type="template">
   </tag>
 
   <tag name="im:frontpage" objectIdentifier="Gene_indel" type="template">
@@ -440,6 +427,18 @@
   </tag>
 
   <tag name="im:frontpage" objectIdentifier="All_genes_in_organism1_Orthologues_in_organism2" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="GO term_Interacting gene_Genes" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="Gene_Chromosomal location" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="Gene_GO terms" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="Chromosome_All genes" type="template">
   </tag>
 
   <tag name="im:hidden" objectIdentifier="BioEntity.subjects" type="collection">
@@ -556,16 +555,7 @@
   <tag name="im:public" objectIdentifier="Protein Domain_Proteins_Genes coding for these proteins" type="template">
   </tag>
 
-  <tag name="im:public" objectIdentifier="GO term_Interacting gene_Genes." type="template">
-  </tag>
-
   <tag name="im:public" objectIdentifier="Publication_Interactions" type="template">
-  </tag>
-
-  <tag name="im:public" objectIdentifier="Chromosome_All genes." type="template">
-  </tag>
-
-  <tag name="im:public" objectIdentifier="Gene_Chromosomal location." type="template">
   </tag>
 
   <tag name="im:public" objectIdentifier="Gene_Orthologues_Sequence" type="template">
@@ -575,9 +565,6 @@
   </tag>
 
   <tag name="im:public" objectIdentifier="Gene_Pathway" type="template">
-  </tag>
-
-  <tag name="im:public" objectIdentifier="Gene_GO terms." type="template">
   </tag>
 
   <tag name="im:public" objectIdentifier=" QTLs_Genes" type="template">
@@ -652,6 +639,18 @@
   <tag name="im:public" objectIdentifier="All_genes_in_organism1_Orthologues_in_organism2" type="template">
   </tag>
 
+  <tag name="im:public" objectIdentifier="GO term_Interacting gene_Genes" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Gene_Chromosomal location" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Gene_GO terms" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="Chromosome_All genes" type="template">
+  </tag>
+
   <tag name="im:report" objectIdentifier="REPORT_gene_to_orthologues" type="template">
   </tag>
 
@@ -703,4 +702,3 @@
   <tag name="im:summary" objectIdentifier="Gene.alias" type="collection">
   </tag>
 </tags>
-
