@@ -29,6 +29,11 @@ Contents:
    introduction
    tutorial
 
+
+
+Click `here <http://www.screencast.com/users/intermine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b>`_ for a video tutorial, created by FlyMine, which highlights the features of InterMine.
+
+
 Indices and tables
 ==================
 
