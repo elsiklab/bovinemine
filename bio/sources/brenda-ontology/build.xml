@@ -1,0 +1,5 @@
+<project name="brenda-ontology" default="default" basedir=".">
+  <description>build, test, package brenda-ontology</description>
+  
+  <import file="../../../imbuild/source.xml"/>
+</project>
