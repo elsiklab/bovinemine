@@ -285,6 +285,12 @@
   <tag name="im:aspect:Variation" objectIdentifier="snp_rsid_to_chromosome_location" type="template">
   </tag>
 
+  <tag name="im:aspect:Variation" objectIdentifier="gene_exon_overlapping_snps" type="template">
+  </tag>
+
+  <tag name="im:aspect:Variation" objectIdentifier="qtl_to_transcripts_filter" type="template">
+  </tag>
+
   <tag name="im:converter" objectIdentifier="Gene_To_Protein_Type_Converter" type="template">
   </tag>
 
@@ -439,6 +445,12 @@
   </tag>
 
   <tag name="im:frontpage" objectIdentifier="Chromosome_All genes" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="gene_exon_overlapping_snps" type="template">
+  </tag>
+
+  <tag name="im:frontpage" objectIdentifier="qtl_to_transcripts_filter" type="template">
   </tag>
 
   <tag name="im:hidden" objectIdentifier="BioEntity.subjects" type="collection">
@@ -633,9 +645,6 @@
   <tag name="im:public" objectIdentifier="cge_gene_to_orthologs_to_pathway" type="template">
   </tag>
 
-  <tag name="im:public" objectIdentifier="report_gene_id_to_overlapping_features" type="template">
-  </tag>
-
   <tag name="im:public" objectIdentifier="All_genes_in_organism1_Orthologues_in_organism2" type="template">
   </tag>
 
@@ -649,6 +658,12 @@
   </tag>
 
   <tag name="im:public" objectIdentifier="Chromosome_All genes" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="gene_exon_overlapping_snps" type="template">
+  </tag>
+
+  <tag name="im:public" objectIdentifier="qtl_to_transcripts_filter" type="template">
   </tag>
 
   <tag name="im:report" objectIdentifier="REPORT_gene_to_orthologues" type="template">
