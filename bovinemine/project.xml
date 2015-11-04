@@ -81,6 +81,17 @@
       <property name="fasta.sequenceType" value="dna"/>
       <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineCDSFastaLoaderTask"/>
     </source>
+    <source name="ensembl-cds-fasta-raw" type="fasta" dump="true">
+      <property name="fasta.taxonId" value="9913"/>
+      <property name="fasta.className" value="org.intermine.model.bio.CDS"/>
+      <property name="fasta.classAttribute" value="primaryIdentifier"/>
+      <property name="fasta.dataSetTitle" value="CDS sequence for transcripts from Ensembl Annotations (Release 82)"/>
+      <property name="fasta.dataSourceName" value="CDS sequence for transcripts from Ensembl82"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/cds_fasta"/>
+      <property name="fasta.includes" value="ENSEMBL_CDS_downloaded.fa"/>
+      <property name="fasta.sequenceType" value="dna"/>
+      <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineCDSFastaLoaderTask"/>
+    </source>
     <source name="bovine-ogs-cds-fasta" type="fasta" dump="true"> 
       <property name="fasta.taxonId" value="9913"/>
       <property name="fasta.className" value="org.intermine.model.bio.CDS"/>
