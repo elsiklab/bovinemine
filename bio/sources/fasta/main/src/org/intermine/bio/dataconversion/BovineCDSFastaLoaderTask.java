@@ -47,12 +47,12 @@ public class BovineCDSFastaLoaderTask extends BovineFeatureFastaLoaderTask
         Annotation annotation = bioJavaSequence.getAnnotation();
         String mrnaIdentifier = bioJavaSequence.getName();
         String header = (String) annotation.getProperty("description");
-        String regexp = "^.+\\s+(\\S+):([0-9]+-[0-9]+)\\s+(\\S+)\\s+hasEarlyStopCodon=(.+)$";
+        String regexp = "^.+\\s+(\\S+):([0-9]+-[0-9]+)\\s+(\\S+)\\s+(\\S+)\\s+hasEarlyStopCodon=(.+)$";
         Pattern p = Pattern.compile(regexp);
         Matcher m = p.matcher(header);
         String hasESC = "";
         if (m.matches()) {
-            hasESC = m.group(4);
+            hasESC = m.group(5);
         }
         if (hasESC != "") {
             bioEntity.setFieldValue("hasEarlyStopCodon", hasESC.toLowerCase());
@@ -89,7 +89,11 @@ public class BovineCDSFastaLoaderTask extends BovineFeatureFastaLoaderTask
         Annotation annotation = bioJavaSequence.getAnnotation();
         String mrnaIdentifier = bioJavaSequence.getName();
         String header = (String) annotation.getProperty("description");
-        return mrnaIdentifier + "-CDS";
+       String last = header.substring(header.lastIndexOf(' ') + 1);
+
+       System.out.println(header + "\n\n\n\n\n\n\n\n\n\\n\n\n\n\n\n\n\n\n\nheader\n\n\n\n\n\n\\n\n"+last);
         // it doesn't matter too much what the CDS identifier is
+        return mrnaIdentifier + "-CDS-"+ last;
+
     }
 }
