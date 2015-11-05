@@ -1,4 +1,0 @@
-<project name="BovineExpressionMetadata-tasks" default="default" basedir=".">
-  <description>build BovineExpressionMetadata tasks</description>
-  <import file="../../../../imbuild/library.xml"/> 
-</project>

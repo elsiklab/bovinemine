@@ -1,5 +1,0 @@
-<project name="qtlparser" default="default" basedir=".">
-  <description>build, test, package qtlparser</description>
-  
-  <import file="../../../imbuild/source.xml"/>
-</project>

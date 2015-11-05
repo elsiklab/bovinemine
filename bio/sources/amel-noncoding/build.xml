@@ -1,5 +1,0 @@
-<project name="amel-noncoding" default="default" basedir=".">
-  <description>build, test, package amel-noncoding</description>
-  
-  <import file="../../../imbuild/source.xml"/>
-</project>
