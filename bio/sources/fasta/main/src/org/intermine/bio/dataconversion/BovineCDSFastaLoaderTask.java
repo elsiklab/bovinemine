@@ -91,7 +91,6 @@ public class BovineCDSFastaLoaderTask extends BovineFeatureFastaLoaderTask
         String header = (String) annotation.getProperty("description");
        String last = header.substring(header.lastIndexOf(' ') + 1);
 
-       System.out.println(header + "\n\n\n\n\n\n\n\n\n\\n\n\n\n\n\n\n\n\n\nheader\n\n\n\n\n\n\\n\n"+last);
         // it doesn't matter too much what the CDS identifier is
         return mrnaIdentifier + "-CDS-"+ last;
 
