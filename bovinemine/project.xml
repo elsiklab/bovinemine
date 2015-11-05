@@ -5,7 +5,7 @@
   <property name="intermine.properties.file" value="bovinemine.properties"/>
   <property name="default.intermine.properties.file" location="../default.intermine.integrate.properties"/>
   <sources>
-    <source name="brenda-tissue-ontology" type="brenda"> 
+    <source name="brenda-tissue-ontology" type="brenda-ontology"> 
       <property name="src.data.file" location="/Users/Deepak/Intermine/BRENDA/BrendaTissueOntology.obo"/>
     </source>
     <source name="psi-mi-ontology" type="psi-mi-ontology" dump="true"> 
@@ -21,38 +21,100 @@
       <property name="fasta.taxonId" value="9913"/>
       <property name="fasta.sequenceType" value="dna"/>
       <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineFastaLoaderTask"/>
-      <property name="fasta.includes" value="*.fa"/>
+      <property name="fasta.includes" value="Bos_taurus_UMD3.1_reference_sequence.fa"/>
       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/genome"/>
     </source>
-    <source name="bovine-coding-gff" type="proteincoding-gff" dump="true"> 
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.dataSourceName" value="NCBI RefSeq Annotation"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Protein coding gene annotations from NCBI RefSeq"/>
-      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/GFF3/RefSeq/proteincoding"/>
-    </source>   
-    <source name="bovine-noncoding-gff" type="noncoding-gff" dump="true"> 
-      <property name="gff3.taxonId" value="9913"/>
-      <property name="gff3.dataSourceName" value="NCBI RefSeq Annotation"/>
-      <property name="gff3.seqClsName" value="Chromosome"/>
-      <property name="gff3.dataSetTitle" value="Non coding gene annotations from NCBI RefSeq"/>
-      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/GFF3/RefSeq/noncoding"/>
+    <source name="chir-scaffold-fasta" type="fasta" dump="true">
+      <property name="fasta.className" value="org.intermine.model.bio.Chromosome"/>
+      <property name="fasta.dataSourceName" value="Capra hircus Genome"/>
+      <property name="fasta.dataSetTitle" value="Capra hircus 1.0 scaffold assembly"/>
+      <property name="fasta.taxonId" value="9925"/>
+      <property name="fasta.sequenceType" value="dna"/>
+      <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineFastaLoaderTask"/>
+      <property name="fasta.includes" value="Chir_1.0_scaffold.fa"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/genome"/>
     </source>
-    <source name="bovine-ensembl-gff" type="ensembl-gff" dump="true"> 
+    <source name="oari-scaffold-fasta" type="fasta" dump="true">
+      <property name="fasta.className" value="org.intermine.model.bio.Chromosome"/>
+      <property name="fasta.dataSourceName" value="Ovis aries Genome"/>
+      <property name="fasta.dataSetTitle" value="Ovis aries 3.1 scaffold assembly"/>
+      <property name="fasta.taxonId" value="9940"/>
+      <property name="fasta.sequenceType" value="dna"/>
+      <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineFastaLoaderTask"/>
+      <property name="fasta.includes" value="Oari_3.1_Scaffold.fa"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/genome"/>
+    </source>
+    <source name="bovine-coding-gff" type="refseq-proteincoding-gff" dump="true"> 
+      <property name="gff3.taxonId" value="9913"/>
+      <property name="gff3.dataSourceName" value="NCBI RefSeq Annotation Bos taurus"/>
+      <property name="gff3.seqClsName" value="Chromosome"/>
+      <property name="gff3.dataSetTitle" value="Protein coding gene annotations from NCBI RefSeq for Bos taurus"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/GFF3/RefSeq/bovine/proteincoding"/>
+    </source>   
+    <source name="bovine-noncoding-gff" type="refseq-noncoding-gff" dump="true"> 
+      <property name="gff3.taxonId" value="9913"/>
+      <property name="gff3.dataSourceName" value="NCBI RefSeq Annotation Bos taurus"/>
+      <property name="gff3.seqClsName" value="Chromosome"/>
+      <property name="gff3.dataSetTitle" value="Non coding gene annotations from NCBI RefSeq Bos taurus"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/GFF3/RefSeq/bovine/noncoding"/>
+    </source>
+    <source name="chir-coding-gff" type="refseq-proteincoding-gff" dump="true">
+      <property name="gff3.taxonId" value="9925"/>
+      <property name="gff3.dataSourceName" value="NCBI RefSeq Annotation Capra hircus"/>
+      <property name="gff3.seqClsName" value="Chromosome"/>
+      <property name="gff3.dataSetTitle" value="Protein coding gene annotations from NCBI RefSeq Capra hircus"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/GFF3/RefSeq/chir_1.0/proteincoding"/>
+    </source>
+    <source name="chir-noncoding-gff" type="refseq-noncoding-gff" dump="true">
+      <property name="gff3.taxonId" value="9925"/>
+      <property name="gff3.dataSourceName" value="NCBI RefSeq Annotation Capra hircus"/>
+      <property name="gff3.seqClsName" value="Chromosome"/>
+      <property name="gff3.dataSetTitle" value="Non coding gene annotations from NCBI RefSeq Capra hircus"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/GFF3/RefSeq/chir_1.0/noncoding"/>
+    </source>
+    <source name="oari-coding-gff" type="refseq-proteincoding-gff" dump="true">
+      <property name="gff3.taxonId" value="9940"/>
+      <property name="gff3.dataSourceName" value="NCBI RefSeq Annotation Ovis aries"/>
+      <property name="gff3.seqClsName" value="Chromosome"/>
+      <property name="gff3.dataSetTitle" value="Protein coding gene annotations from NCBI RefSeq Ovis aries"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/GFF3/RefSeq/oari_3.1/proteincoding"/>
+    </source>
+    <source name="oari-noncoding-gff" type="refseq-noncoding-gff" dump="true">
+      <property name="gff3.taxonId" value="9940"/>
+      <property name="gff3.dataSourceName" value="NCBI RefSeq Annotation Ovis aries"/>
+      <property name="gff3.seqClsName" value="Chromosome"/>
+      <property name="gff3.dataSetTitle" value="Non coding gene annotations from NCBI RefSeq Ovis aries"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/GFF3/RefSeq/oari_3.1/noncoding"/>
+    </source>
+   <source name="bovine-ensembl-gff" type="ensembl-gff" dump="true"> 
       <property name="gff3.taxonId" value="9913"/>
       <property name="gff3.dataSourceName" value="Gene annotations from Ensembl (Release 79)"/>
       <property name="gff3.seqClsName" value="Chromosome"/>
       <property name="gff3.dataSetTitle" value="Gene annotations from Ensembl79"/>
-      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/GFF3/Ensembl"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/GFF3/Ensembl/bovine"/>
     </source>
-    <source name="bovine-ogs-gff" type="ogs-gff" dump="true"> 
+
+
+
+    <source name="oari-ensembl-gff" type="ensembl-gff" dump="true"> 
+      <property name="gff3.taxonId" value="9940"/>
+      <property name="gff3.dataSourceName" value="Gene annotations from Ensembl (Release 82) Ovis aries"/>
+      <property name="gff3.seqClsName" value="Chromosome"/>
+      <property name="gff3.dataSetTitle" value="Gene annotations from Ensembl82 Ovis aries"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/GFF3/Ensembl/oari"/>
+    </source>
+
+
+
+
+     <source name="bovine-ogs-gff" type="ogs-gff" dump="true"> 
       <property name="gff3.taxonId" value="9913"/>
       <property name="gff3.dataSourceName" value="Bos taurus Official Gene Set OGS v2.0 (on UMD3.1)"/>
       <property name="gff3.seqClsName" value="Chromosome"/>
       <property name="gff3.dataSetTitle" value="btau_OGSv2"/>
       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/GFF3/OGS"/>
     </source> 
-    <source name="bovine-qtl-gff" type="qtlparser" dump="true"> 
+    <source name="bovine-qtl-gff" type="qtl-gff" dump="true"> 
       <property name="gff3.taxonId" value="9913"/>
       <property name="gff3.dataSourceName" value="Animal QTL Database"/>
       <property name="gff3.seqClsName" value="Chromosome"/>
@@ -103,59 +165,60 @@
       <property name="fasta.sequenceType" value="dna"/>
       <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineCDSFastaLoaderTask"/>
     </source>
-    <source name="bovine-expression-metadata" type="BovineExpressionMetadata" dump="true">
+    <source name="bovine-expression-metadata" type="bovine-expression-metadata" dump="true">
       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/geneexpressionmetadata"/>
       <property name="src.data.dir.includes" value="*.tab"/>
     </source>
-    <source name="bovine-rnaseq-expression-for-refseq" type="BovineExpression" dump="true">
+    <source name="bovine-rnaseq-expression-for-refseq" type="bovine-expression" dump="true">
       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/geneexpression/refseq_expression"/>
       <property name="src.data.dir.includes" value="*.tab"/>
     </source>
-     <source name="bovine-rnaseq-expression-for-ensembl" type="BovineExpression" dump="true">
+     <source name="bovine-rnaseq-expression-for-ensembl" type="bovine-expression" dump="true">
       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/geneexpression/ensembl_expression"/>
       <property name="src.data.dir.includes" value="*.tab"/>
     </source>
-    <source name="bovine-hapmap" type="hapmap" dump="true">
+    <source name="bovine-hapmap" type="hapmap-gff" dump="true">
       <property name="gff3.taxonId" value="9913"/>
       <property name="gff3.dataSourceName" value="SNPs from The Bovine HapMap Consortium"/>
       <property name="gff3.seqClsName" value="Chromosome"/>
       <property name="gff3.dataSetTitle" value="SNPs from The Bovine HapMap Consortium"/>
       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/HapMap"/>
     </source>
-    <source name="bovine-dbsnp" type="dbsnp" dump="true">
+    <source name="bovine-dbsnp" type="dbsnp-gff" dump="true">
       <property name="gff3.taxonId" value="9913"/>
       <property name="gff3.dataSourceName" value="Bovine SNPs from NCBI dbSNP"/>
       <property name="gff3.seqClsName" value="Chromosome"/>
       <property name="gff3.dataSetTitle" value="Bovine SNPs from NCBI dbSNP"/>
       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/dbSNP/chr1"/>
     </source>
-    <source name="bovine-affy-probe" type="microarray-probe" dump="true"> 
+    <source name="bovine-affy-probe" type="microarray-probe-gff" dump="true"> 
       <property name="gff3.taxonId" value="9913"/>
       <property name="gff3.dataSourceName" value="Bovine Affymetrix Probes"/>
       <property name="gff3.seqClsName" value="Chromosome"/>
       <property name="gff3.dataSetTitle" value="Bovine Affymetrix Probes aligned on UMD3.1 assembly"/>
       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/bovine-affy-gff"/>
     </source> 
-    <source name="bovine-oligo-microarray-probe" type="microarray-probe" dump="true"> 
+    <source name="bovine-oligo-microarray-probe" type="microarray-probe-gff" dump="true"> 
       <property name="gff3.taxonId" value="9913"/>
       <property name="gff3.dataSourceName" value="Bovine Oligo Microarray Consortium"/>
       <property name="gff3.seqClsName" value="Chromosome"/>
       <property name="gff3.dataSetTitle" value="Bovine Microarray Probes on UMD3.1 assembly"/>
       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/bomc-gff"/>
     </source> 
-    <source name="bovine-repeat-region" type="repeat-region" dump="true"> 
+    <source name="bovine-repeat-region" type="repeat-region-gff" dump="true"> 
       <property name="gff3.taxonId" value="9913"/>
       <property name="gff3.dataSourceName" value="Repeat regions on UMD3.1 assembly"/>
       <property name="gff3.seqClsName" value="Chromosome"/>
       <property name="gff3.dataSetTitle" value="Repeat regions on UMD3.1 predicted by RepeatMasker"/>
       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/repeat-region-gff"/>
     </source>
+
     <source name="bovine-go-annotation" type="go-annotation"> 
       <property name="ontologyfile" location="@DATA_DIR@/UMD3.1/GO/go.obo"/>
       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/GO-annotations/"/>
     </source>
     <source name="bovine-uniprot" type="uniprot" > 
-      <property name="uniprot.organisms" value="9913 9606 10090 10116"/>
+      <property name="uniprot.organisms" value="9925 9940 9913 9606 10090 10116"/>
       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/UniProt"/>
       <property name="createinterpro" value="true"/>
       <property name="creatego" value="true"/>
@@ -189,13 +252,13 @@
     </source>
     <source name="ncbi-pubmed-gene" type="pubmed-gene" dump="true">
       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/PubMed/"/>
-      <property name="pubmed.organisms" value="9913"/>
+      <property name="pubmed.organisms" value="9913 9940 9925"/>
       <property name="src.data.dir.includes" value="gene2pubmed"/>
       <property name="infoFile" location="@DATA_DIR@/UMD3.1/PubMed/gene_info"/>
     </source>
     <source name="ensembl-pubmed-gene" type="pubmed-gene" dump="true">
       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/Pubmed_ensembl/"/>
-      <property name="pubmed.organisms" value="9913"/>
+      <property name="pubmed.organisms" value="9913 9940 9925"/>
       <property name="src.data.dir.includes" value="gene2pubmed"/>
       <property name="infoFile" location="@DATA_DIR@/UMD3.1/Pubmed_ensembl/gene_info"/>
     </source>
