@@ -1,7 +1,7 @@
 package org.intermine.bio.dataconversion;
 
 /*
- * Copyright (C) 2002-2011 FlyMine
+ * Copyright (C) 2002-2015 FlyMine
  *
  * This code may be freely distributed and modified under the
  * terms of the GNU Lesser General Public Licence.  This should
@@ -37,14 +37,10 @@ public class OgsGffGFF3RecordHandler extends GFF3RecordHandler
      */
     @Override
     public void process(GFF3Record record) {
-        // This method is called for every line of GFF3 file(s) being read.  Features and their
-        // locations are already created but not stored so you can make changes here.  Attributes
-        // are from the last column of the file are available in a map with the attribute name as
-        // the key.   For example:
-        //
         Item feature = getFeature();
         String clsName = feature.getClassName();
         feature.setAttribute("source", record.getSource());
+        feature.removeAttribute("symbol");
 
         if( clsName.equals("Gene") ) {
             if(record.getAttributes().get("ID") != null){
@@ -55,15 +51,6 @@ public class OgsGffGFF3RecordHandler extends GFF3RecordHandler
                 String name = record.getAttributes().get("Name").iterator().next();
                 feature.setAttribute("name", name);
             }
-            if(record.getAttributes().get("source") != null){
-                String source = record.getAttributes().get("source").iterator().next();
-                //feature.setAttribute("source", source);
-            }
-       //     if(record.getAttributes().get("isBroken") != null){
-      //          String status = record.getAttributes().get("isBroken").iterator().next();
-      //          feature.setAttribute("isBroken", status);
-      //      }
-            feature.removeAttribute("symbol");
         }
         else if( clsName.equals("MRNA") || clsName.equals("Polypeptide") ) {
             if(record.getAttributes().get("ID") != null){
@@ -74,19 +61,16 @@ public class OgsGffGFF3RecordHandler extends GFF3RecordHandler
                 String description = record.getAttributes().get("Note").iterator().next();
                 feature.setAttribute("description", description);
             }
-                if(record.getAttributes().get("source") != null){
+            if(record.getAttributes().get("source") != null){
                 String source = record.getAttributes().get("source").iterator().next();
-                //feature.setAttribute("source", source);
             }
             if(record.getAttributes().get("Name") != null){
                 String name = record.getAttributes().get("Name").iterator().next();
                 feature.setAttribute("name", name);
             }
-            feature.removeAttribute("symbol");
         }
         else if( clsName.equals("StartCodon") || clsName.equals("StopCodon") ) {
             // Do nothing
         }
     }
-
 }
