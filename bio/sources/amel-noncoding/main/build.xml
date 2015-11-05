@@ -1,4 +1,0 @@
-<project name="amel-noncoding-tasks" default="default" basedir=".">
-  <description>build amel-noncoding tasks</description>
-  <import file="../../../../imbuild/library.xml"/> 
-</project>

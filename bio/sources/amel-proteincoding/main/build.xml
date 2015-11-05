@@ -1,4 +1,0 @@
-<project name="amel-proteincoding-tasks" default="default" basedir=".">
-  <description>build amel-proteincoding tasks</description>
-  <import file="../../../../imbuild/library.xml"/> 
-</project>
