@@ -1,4 +1,0 @@
-<project name="qtlparser-tasks" default="default" basedir=".">
-  <description>build qtlparser tasks</description>
-  <import file="../../../../imbuild/library.xml"/> 
-</project>

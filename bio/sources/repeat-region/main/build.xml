@@ -1,4 +1,0 @@
-<project name="repeat-region-tasks" default="default" basedir=".">
-  <description>build repeat-region tasks</description>
-  <import file="../../../../imbuild/library.xml"/> 
-</project>
