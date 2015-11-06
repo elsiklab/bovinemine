@@ -145,21 +145,21 @@ public class RefseqProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
                 }
             }
 
-//            if (record.getAliases() != null) {
-//                List<String> aliases = record.getAliases();
-//                Iterator<String> aliasesIterator = aliases.iterator();
-//                while (aliasesIterator.hasNext()) {
-//                    setAliasName(aliasesIterator.next());
-//                }
-//            }
-//
-//            if (record.getAttributes().get("xRef") != null) {
-//                List<String> xRefList = record.getAttributes().get("xRef");
-//                Iterator<String> xRefIterator = xRefList.iterator();
-//                while (xRefIterator.hasNext()) {
-//                    setCrossReference(xRefIterator.next());
-//                }
-//            }
+            if (record.getAliases() != null) {
+                List<String> aliases = record.getAliases();
+                Iterator<String> aliasesIterator = aliases.iterator();
+                while (aliasesIterator.hasNext()) {
+                    setAliasName(aliasesIterator.next());
+                }
+            }
+
+            if (record.getAttributes().get("xRef") != null) {
+                List<String> xRefList = record.getAttributes().get("xRef");
+                Iterator<String> xRefIterator = xRefList.iterator();
+                while (xRefIterator.hasNext()) {
+                    setCrossReference(xRefIterator.next());
+                }
+            }
         }
         else if( clsName.equals("MRNA") || clsName.equals("Transcript") ) {
 
