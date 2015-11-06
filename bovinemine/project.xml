@@ -31,8 +31,8 @@
       <property name="fasta.taxonId" value="9925"/>
       <property name="fasta.sequenceType" value="dna"/>
       <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineFastaLoaderTask"/>
-      <property name="fasta.includes" value="Chir_1.0_scaffold.fa"/>
-      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/genome"/>
+      <property name="fasta.includes" value="Chir.fa"/>
+      <property name="src.data.dir" location="/db/intermine/aditi_bovinemine/bovinemine_source/fasta"/>
     </source>
     <source name="oari-scaffold-fasta" type="fasta" dump="true">
       <property name="fasta.className" value="org.intermine.model.bio.Chromosome"/>
@@ -41,8 +41,8 @@
       <property name="fasta.taxonId" value="9940"/>
       <property name="fasta.sequenceType" value="dna"/>
       <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineFastaLoaderTask"/>
-      <property name="fasta.includes" value="Oari_3.1_Scaffold.fa"/>
-      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/genome"/>
+      <property name="fasta.includes" value="Oar.fa"/>
+      <property name="src.data.dir" location="/db/intermine/aditi_bovinemine/bovinemine_source/fasta"/>
     </source>
     <source name="bovine-coding-gff" type="refseq-proteincoding-gff" dump="true"> 
       <property name="gff3.taxonId" value="9913"/>
@@ -63,7 +63,7 @@
       <property name="gff3.dataSourceName" value="NCBI RefSeq Annotation Capra hircus"/>
       <property name="gff3.seqClsName" value="Chromosome"/>
       <property name="gff3.dataSetTitle" value="Protein coding gene annotations from NCBI RefSeq Capra hircus"/>
-      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/GFF3/RefSeq/chir_1.0/proteincoding"/>
+      <property name="src.data.dir" location="/db/intermine/aditi_bovinemine/bovinemine_source/goat/"/>
     </source>
     <source name="chir-noncoding-gff" type="refseq-noncoding-gff" dump="true">
       <property name="gff3.taxonId" value="9925"/>
@@ -77,7 +77,7 @@
       <property name="gff3.dataSourceName" value="NCBI RefSeq Annotation Ovis aries"/>
       <property name="gff3.seqClsName" value="Chromosome"/>
       <property name="gff3.dataSetTitle" value="Protein coding gene annotations from NCBI RefSeq Ovis aries"/>
-      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/GFF3/RefSeq/oari_3.1/proteincoding"/>
+      <property name="src.data.dir" location="/db/intermine/aditi_bovinemine/bovinemine_source/prot"/>
     </source>
     <source name="oari-noncoding-gff" type="refseq-noncoding-gff" dump="true">
       <property name="gff3.taxonId" value="9940"/>
@@ -127,7 +127,7 @@
       <property name="fasta.classAttribute" value="primaryIdentifier"/>
       <property name="fasta.dataSetTitle" value="CDS sequence for transcripts from NCBI RefSeq Annotation"/>
       <property name="fasta.dataSourceName" value="CDS sequence for transcripts from NCBI RefSeq"/>
-      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/cds_fasta"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/cds_fasta/bovine"/>
       <property name="fasta.includes" value="NCBI_CDS.fa"/>
       <property name="fasta.sequenceType" value="dna"/>
       <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineCDSFastaLoaderTask"/>
@@ -136,21 +136,21 @@
       <property name="fasta.taxonId" value="9913"/>
       <property name="fasta.className" value="org.intermine.model.bio.CDS"/>
       <property name="fasta.classAttribute" value="primaryIdentifier"/>
-      <property name="fasta.dataSetTitle" value="CDS sequence for transcripts from Ensembl Annotations (Release 79)"/>
+      <property name="fasta.dataSetTitle" value="CDS sequence for transcripts from Ensembl Annotations Bos taurus (Release 79)"/>
       <property name="fasta.dataSourceName" value="CDS sequence for transcripts from Ensembl79"/>
-      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/cds_fasta"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/cds_fasta/bovine"/>
       <property name="fasta.includes" value="ENSEMBL_CDS.fa"/>
       <property name="fasta.sequenceType" value="dna"/>
       <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineCDSFastaLoaderTask"/>
     </source>
-    <source name="ensembl-cds-fasta-raw" type="fasta" dump="true">
+    <source name="bovine-ensembl-cds-fasta-raw" type="fasta" dump="true">
       <property name="fasta.taxonId" value="9913"/>
       <property name="fasta.className" value="org.intermine.model.bio.CDS"/>
       <property name="fasta.classAttribute" value="primaryIdentifier"/>
       <property name="fasta.dataSetTitle" value="CDS sequence for transcripts from Ensembl Annotations (Release 82)"/>
       <property name="fasta.dataSourceName" value="CDS sequence for transcripts from Ensembl82"/>
-      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/cds_fasta"/>
-      <property name="fasta.includes" value="ENSEMBL_CDS_downloaded.fa"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/cds_fasta/bovine"/>
+      <property name="fasta.includes" value="ENSEMBL82_bovine_CDS_downloaded.fa"/>
       <property name="fasta.sequenceType" value="dna"/>
       <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineCDSFastaLoaderTask"/>
     </source>
@@ -160,11 +160,58 @@
       <property name="fasta.classAttribute" value="primaryIdentifier"/>
       <property name="fasta.dataSetTitle" value="CDS sequence for transcripts from btau_OGSv2 (on UMD3.1)"/>
       <property name="fasta.dataSourceName" value="CDS sequence for transcripts from Bovine OGS v2.0"/>
-      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/cds_fasta"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/cds_fasta/bovine"/>
       <property name="fasta.includes" value="OGS_CDS.fa"/>
       <property name="fasta.sequenceType" value="dna"/>
       <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineCDSFastaLoaderTask"/>
     </source>
+   <source name="oari-ensembl-cds-fasta-raw" type="fasta" dump="true">
+      <property name="fasta.taxonId" value="9940"/>
+      <property name="fasta.className" value="org.intermine.model.bio.CDS"/>
+      <property name="fasta.classAttribute" value="primaryIdentifier"/>
+      <property name="fasta.dataSetTitle" value="CDS sequence for transcripts from Ensembl Annotations Ovis aries(Release 82)"/>
+      <property name="fasta.dataSourceName" value="CDS sequence for transcripts from Ensembl82"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/cds_fasta/oari"/>
+      <property name="fasta.includes" value="ENSEMBL82_oari_CDS_downloaded.fa"/>
+      <property name="fasta.sequenceType" value="dna"/>
+      <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineCDSFastaLoaderTask"/>
+    </source>
+    <source name="oari-refseq-cds-fasta" type="fasta" dump="true">
+      <property name="fasta.taxonId" value="9940"/>
+      <property name="fasta.className" value="org.intermine.model.bio.CDS"/>
+      <property name="fasta.classAttribute" value="primaryIdentifier"/>
+      <property name="fasta.dataSetTitle" value="CDS sequence for transcripts from NCBI RefSeq Annotation for Ovis aries"/>
+      <property name="fasta.dataSourceName" value="CDS sequence for transcripts from NCBI RefSeq Ovis aries"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/cds_fasta/oari"/>
+      <property name="fasta.includes" value="NCBI_Oari_CDS_computed.fa"/>
+      <property name="fasta.sequenceType" value="dna"/>
+      <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineCDSFastaLoaderTask"/>
+    </source>
+    <source name="chir-refseq-cds-fasta" type="fasta" dump="true">
+      <property name="fasta.taxonId" value="9925"/>
+      <property name="fasta.className" value="org.intermine.model.bio.CDS"/>
+      <property name="fasta.classAttribute" value="primaryIdentifier"/>
+      <property name="fasta.dataSetTitle" value="CDS sequence for transcripts from NCBI RefSeq Annotation for Capra hircus"/>
+      <property name="fasta.dataSourceName" value="CDS sequence for transcripts from NCBI RefSeq Capra hircus"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/cds_fasta/oari"/>
+      <property name="fasta.includes" value="NCBI_chir_CDS_computed.fa"/>
+      <property name="fasta.sequenceType" value="dna"/>
+      <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineCDSFastaLoaderTask"/>
+    </source>
+    <source name="oari-ensembl-cds-fasta" type="fasta" dump="true">
+      <property name="fasta.taxonId" value="9940"/>
+      <property name="fasta.className" value="org.intermine.model.bio.CDS"/>
+      <property name="fasta.classAttribute" value="primaryIdentifier"/>
+      <property name="fasta.dataSetTitle" value="CDS sequence for transcripts from Ensembl Annotation for Ovis aries"/>
+      <property name="fasta.dataSourceName" value="CDS sequence for transcripts from Ensembl Ovis aries"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/cds_fasta/oari"/>
+      <property name="fasta.includes" value="ENSEMBL_oari_CDS_compiler_computed.fa "/>
+      <property name="fasta.sequenceType" value="dna"/>
+      <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineCDSFastaLoaderTask"/>
+    </source>
+   
+
+
     <source name="bovine-expression-metadata" type="bovine-expression-metadata" dump="true">
       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/geneexpressionmetadata"/>
       <property name="src.data.dir.includes" value="*.tab"/>
@@ -219,7 +266,7 @@
     </source>
     <source name="bovine-uniprot" type="uniprot" > 
       <property name="uniprot.organisms" value="9925 9940 9913 9606 10090 10116"/>
-      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/UniProt"/>
+      <property name="src.data.dir" location="/db/intermine/aditi_bovinemine/bovinemine_source/uniprot"/>
       <property name="createinterpro" value="true"/>
       <property name="creatego" value="true"/>
       <property name="allowduplicates" value="false"/>
@@ -251,16 +298,16 @@
       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/InterPro"/>
     </source>
     <source name="ncbi-pubmed-gene" type="pubmed-gene" dump="true">
-      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/PubMed/"/>
+      <property name="src.data.dir" location="/db/intermine/bovinemine_release_09042015/UMD3.1/PubMed/"/>
       <property name="pubmed.organisms" value="9913 9940 9925"/>
       <property name="src.data.dir.includes" value="gene2pubmed"/>
-      <property name="infoFile" location="@DATA_DIR@/UMD3.1/PubMed/gene_info"/>
+      <property name="infoFile" location="/db/intermine/bovinemine_release_09042015/UMD3.1/PubMed/gene_info"/>
     </source>
     <source name="ensembl-pubmed-gene" type="pubmed-gene" dump="true">
       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/Pubmed_ensembl/"/>
       <property name="pubmed.organisms" value="9913 9940 9925"/>
       <property name="src.data.dir.includes" value="gene2pubmed"/>
-      <property name="infoFile" location="@DATA_DIR@/UMD3.1/Pubmed_ensembl/gene_info"/>
+      <property name="infoFile" location="/db/intermine/bovinemine_release_09042015/UMD3.1/Pubmed_ensembl/gene_info"/>
     </source>
     <source name="ensembl-compara" type="ensembl-compara"> 
       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/ENSEMBL_compara"/>
@@ -279,9 +326,9 @@
       <property name="homologene.organisms" value="9913 9606 9796 9615 10090 10116 9823 9940"/>
     </source>    
     <source name="bovine-orthodb" type="orthodb" dump="true"> 
-      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/OrthoDB"/>
+      <property name="src.data.dir" location="/db/intermine/aditi_bovinemine/bovinemine_source/orthodb"/>
       <property name="orthodb.organisms" value="9913"/>
-      <property name="orthodb.homologues" value="9606 9796 9615 10090 10116 9823 9940"/>
+      <property name="orthodb.homologues" value="9606 9796 9615 10090 10116 9823 9940 9925 9940"/>
     </source>
     <source name="bovine-biogrid" type="biogrid"> 
       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/BIOGRID"/>
