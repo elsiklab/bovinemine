@@ -144,11 +144,11 @@
   </query>
 </template>
 <template name="TQ_GOTerm_to_Genes" title="GO term --&gt; Genes" comment="">
-  <query name="TQ_GOTerm_to_Genes" model="genomic" view="Gene.primaryIdentifier Gene.secondaryIdentifier Gene.symbol Gene.goAnnotation.evidence.code.code Gene.goAnnotation.ontologyTerm.identifier Gene.goAnnotation.ontologyTerm.name Gene.organism.name" longDescription="Show all genes annotated with a given GO term (and its children terms)" sortOrder="Gene.primaryIdentifier asc" constraintLogic="B and C and A">
+  <query name="TQ_GOTerm_to_Genes" model="genomic" view="Gene.primaryIdentifier Gene.secondaryIdentifier Gene.symbol Gene.goAnnotation.evidence.code.code Gene.goAnnotation.ontologyTerm.identifier Gene.goAnnotation.ontologyTerm.name Gene.organism.name" longDescription="Show all genes annotated with a given GO term. Enter a GO term, GO term identifier (e.g. GO:0003677), or use a wildcard (e.g. *muscle*) to match multiple GO terms." sortOrder="Gene.primaryIdentifier asc" constraintLogic="C and A and B">
     <constraint path="Gene.goAnnotation.ontologyTerm" editable="false" type="GOTerm"/>
-    <constraint path="Gene.goAnnotation.ontologyTerm.name" code="B" editable="true" op="=" value="DNA binding"/>
     <constraint path="Gene.organism.name" code="C" editable="true" op="=" value="Bos taurus"/>
     <constraint path="Gene.goAnnotation.evidence.code.code" code="A" editable="true" description="" switchable="on" op="=" value="IEA"/>
+    <constraint path="Gene.goAnnotation.ontologyTerm" code="B" editable="true" op="LOOKUP" value="DNA binding"/>
   </query>
 </template>
 <template name="TQ_gene_to_GOterms" title="Gene symbol --&gt; GO Terms" comment="">
@@ -210,8 +210,8 @@
 </template>
 <template name="TQ_parentGO_to_genes" title="GO term (and children of the GO term) --&gt; Genes" comment="">
   <query name="TQ_parentGO_to_genes" model="genomic" view="Gene.primaryIdentifier Gene.secondaryIdentifier Gene.symbol Gene.goAnnotation.ontologyTerm.identifier Gene.goAnnotation.ontologyTerm.name Gene.goAnnotation.ontologyTerm.parents.identifier Gene.goAnnotation.ontologyTerm.parents.name Gene.organism.name" longDescription="Find all genes having the given GO term or having the children of the GO term" sortOrder="Gene.primaryIdentifier asc" constraintLogic="A and B">
-    <constraint path="Gene.goAnnotation.ontologyTerm.parents" editable="false" type="GOTerm"/>
     <constraint path="Gene.goAnnotation.ontologyTerm" editable="false" type="GOTerm"/>
+    <constraint path="Gene.goAnnotation.ontologyTerm.parents" editable="false" type="GOTerm"/>
     <constraint path="Gene.goAnnotation.ontologyTerm.parents.name" code="A" editable="true" op="=" value="DNA binding"/>
     <constraint path="Gene.organism.name" code="B" editable="true" op="=" value="Bos taurus"/>
   </query>
@@ -243,8 +243,8 @@
 </template>
 <template name="cge_gene_to_orthologs_to_pathway" title="Gene --&gt; Orthologues and its Pathway" comment="">
   <query name="cge_gene_to_orthologs_to_pathway" model="genomic" view="Gene.primaryIdentifier Gene.symbol Gene.source Gene.homologues.gene.primaryIdentifier Gene.homologues.homologue.primaryIdentifier Gene.homologues.type Gene.homologues.homologue.pathways.shortName Gene.homologues.homologue.pathways.identifier Gene.homologues.homologue.pathways.curated Gene.homologues.homologue.pathways.name Gene.name" longDescription="For all genes in Bos. taurus, get all the orthologues in another organism along with its Pathway information." sortOrder="Gene.primaryIdentifier asc" constraintLogic="B and C and A">
-    <constraint path="Gene.organism.name" code="A" editable="false" description="" op="=" value="Bos taurus"/>
     <constraint path="Gene.homologues.type" code="B" editable="false" description="" op="=" value="orthologue"/>
+    <constraint path="Gene.organism.name" code="A" editable="false" description="" op="=" value="Bos taurus"/>
     <constraint path="Gene.homologues.homologue.organism.name" code="C" editable="true" op="=" value="Homo sapiens"/>
   </query>
 </template>
