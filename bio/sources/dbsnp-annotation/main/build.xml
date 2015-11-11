@@ -1,0 +1,4 @@
+<project name="dbsnp-annotation-tasks" default="default" basedir=".">
+  <description>build dbsnp-annotation tasks</description>
+  <import file="../../../../imbuild/library.xml"/> 
+</project>

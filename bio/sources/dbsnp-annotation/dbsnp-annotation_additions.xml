@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!-- This file details any extensions needed to the data model to store data from this source, everything else is automatically generated from the model description so this is all we need to do to add to the model. -->
+<classes>
+    <!-- add any <class> elements here -->
+    <class name="SequenceAlteration" extends="SequenceFeature" is-interface="true">
+        <collection name="variantAnnotations" referenced-type="VariantAnnotation" reverse-reference="variant"/>
+        <collection name="transcripts" referenced-type="Transcript" reverse-reference="variations"/>
+    </class>
+    <class name="Transcript" extends="SequenceFeature" is-interface="true">
+        <collection name="variations" referenced-type="SequenceAlteration" reverse-reference="transcripts"/>
+    </class>
+    <class name="SNP" extends="SequenceAlteration" is-interface="true">
+        <attribute name="referenceAllele" type="java.lang.String"/>
+        <attribute name="alternateAllele" type="java.lang.String"/>
+        <attribute name="heterozygosity" type="java.lang.Float"/>
+        <attribute name="variationType" type="java.lang.String"/>
+        <attribute name="validationStatus" type="java.lang.String"/>
+        <attribute name="orientation" type="java.lang.String"/>
+    </class>
+    <class name="Indel" extends="SequenceAlteration" is-interface="true">
+        <attribute name="referenceAllele" type="java.lang.String"/>
+        <attribute name="alternateAllele" type="java.lang.String"/>
+        <attribute name="heterozygosity" type="java.lang.Float"/>
+        <attribute name="variationType" type="java.lang.String"/>
+        <attribute name="validationStatus" type="java.lang.String"/>
+        <attribute name="orientation" type="java.lang.String"/>
+    </class>
+    <class name="VariantAnnotation" is-interface="true">
+        <attribute name="rsId" type="java.lang.String"/>
+        <attribute name="transcriptIdentifier" type="java.lang.String"/>
+        <attribute name="proteinIdentifier" type="java.lang.String"/>
+        <attribute name="functionClass" type="java.lang.String"/>
+        <attribute name="referenceAlleleInContext" type="java.lang.String"/>
+        <attribute name="alternateAlleleInContext" type="java.lang.String"/>
+        <attribute name="referenceResidue" type="java.lang.String"/>
+        <attribute name="alternateResidue" type="java.lang.String"/>
+        <attribute name="aminoAcidPosition" type="java.lang.String"/>
+        <reference name="transcript" referenced-type="Transcript"/>
+        <reference name="organism" referenced-type="Organism"/>
+        <reference name="variant" referenced-type="SequenceAlteration" reverse-reference="variantAnnotations"/>
+    </class>
+</classes>
