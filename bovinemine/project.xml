@@ -127,11 +127,12 @@
       <property name="fasta.classAttribute" value="primaryIdentifier"/>
       <property name="fasta.dataSetTitle" value="CDS sequence for transcripts from NCBI RefSeq Annotation"/>
       <property name="fasta.dataSourceName" value="CDS sequence for transcripts from NCBI RefSeq"/>
-      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/cds_fasta/bovine"/>
-      <property name="fasta.includes" value="NCBI_CDS.fa"/>
+      <property name="src.data.dir" location="/db/intermine/bovinemine_release_09042015/UMD3.1/cds_fasta/bovine"/>
+      <property name="fasta.includes" value="NCBI_CDS_computed.fa"/>
       <property name="fasta.sequenceType" value="dna"/>
       <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineCDSFastaLoaderTask"/>
     </source>
+<!--
     <source name="bovine-ensembl-cds-fasta" type="fasta" dump="true"> 
       <property name="fasta.taxonId" value="9913"/>
       <property name="fasta.className" value="org.intermine.model.bio.CDS"/>
@@ -143,6 +144,7 @@
       <property name="fasta.sequenceType" value="dna"/>
       <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineCDSFastaLoaderTask"/>
     </source>
+-->
     <source name="bovine-ensembl-cds-fasta-raw" type="fasta" dump="true">
       <property name="fasta.taxonId" value="9913"/>
       <property name="fasta.className" value="org.intermine.model.bio.CDS"/>
@@ -198,6 +200,7 @@
       <property name="fasta.sequenceType" value="dna"/>
       <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineCDSFastaLoaderTask"/>
     </source>
+<!--
     <source name="oari-ensembl-cds-fasta" type="fasta" dump="true">
       <property name="fasta.taxonId" value="9940"/>
       <property name="fasta.className" value="org.intermine.model.bio.CDS"/>
@@ -210,7 +213,7 @@
       <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineCDSFastaLoaderTask"/>
     </source>
    
-
+-->
 
     <source name="bovine-expression-metadata" type="bovine-expression-metadata" dump="true">
       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/geneexpressionmetadata"/>
@@ -342,6 +345,67 @@
       <property name="biogrid.organisms" value="9913"/>
     </source>
  -->  
+
+     <source name="bovine-protein-refseq" type="fasta" dump="true">
+      <property name="fasta.taxonId" value="9913"/>
+      <property name="fasta.className" value="org.intermine.model.bio.Protein"/>
+      <property name="fasta.classAttribute" value="primaryIdentifier"/>
+      <property name="fasta.dataSetTitle" value="Protein sequence from NCBI RefSeq Annotation"/>
+      <property name="fasta.dataSourceName" value="Protein sequence from NCBI RefSeq"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/Protein"/>
+      <property name="fasta.includes" value="test.fa"/>
+      <property name="fasta.sequenceType" value="protein"/>
+      <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineProteinFastaLoaderTask"/>
+    </source>
+
+    <source name="bovine-protein-ensembl" type="fasta" dump="true">
+      <property name="fasta.taxonId" value="9913"/>
+      <property name="fasta.className" value="org.intermine.model.bio.Protein"/>
+      <property name="fasta.classAttribute" value="primaryIdentifier"/>
+      <property name="fasta.dataSetTitle" value="Protein sequence from Ensembl82  Annotation"/>
+      <property name="fasta.dataSourceName" value="Protein sequence from Ensembl82"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/Protein"/>
+      <property name="fasta.includes" value="test.fa"/>
+      <property name="fasta.sequenceType" value="protein"/>
+      <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineProteinFastaLoaderTask"/>
+    </source>
+
+    <source name="chir-protein-ncbi" type="fasta" dump="true">
+      <property name="fasta.taxonId" value="9925"/>
+      <property name="fasta.className" value="org.intermine.model.bio.Protein"/>
+      <property name="fasta.classAttribute" value="primaryIdentifier"/>
+      <property name="fasta.dataSetTitle" value="Protein sequence from NCBI RefSeq Annotation"/>
+      <property name="fasta.dataSourceName" value="Protein sequence from NCBI RefSeq"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/Protein"/>
+      <property name="fasta.includes" value="test.fa"/>
+      <property name="fasta.sequenceType" value="protein"/>
+      <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineProteinFastaLoaderTask"/>
+    </source>
+
+    <source name="oari-protein-ncbi" type="fasta" dump="true">
+      <property name="fasta.taxonId" value="9940"/>
+      <property name="fasta.className" value="org.intermine.model.bio.Protein"/>
+      <property name="fasta.classAttribute" value="primaryIdentifier"/>
+      <property name="fasta.dataSetTitle" value="Protein sequence from NCBI RefSeq Annotation"/>
+      <property name="fasta.dataSourceName" value="Protein sequence from NCBI RefSeq"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/Protein"/>
+      <property name="fasta.includes" value="test.fa"/>
+      <property name="fasta.sequenceType" value="protein"/>
+      <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineProteinFastaLoaderTask"/>
+    </source>
+
+     <source name="oari-protein-ensembl" type="fasta" dump="true">
+      <property name="fasta.taxonId" value="9940"/>
+      <property name="fasta.className" value="org.intermine.model.bio.Protein"/>
+      <property name="fasta.classAttribute" value="primaryIdentifier"/>
+      <property name="fasta.dataSetTitle" value="Protein sequence from NCBI RefSeq Annotation"/>
+      <property name="fasta.dataSourceName" value="Protein sequence from NCBI RefSeq"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/Protein"/>
+      <property name="fasta.includes" value="test.fa"/>
+      <property name="fasta.sequenceType" value="protein"/>
+      <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineProteinFastaLoaderTask"/>
+    </source>
+
     <source name="reactome" type="reactome">
       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/Reactome"/>
       <property name="reactome.organisms" value="9913 9606 10090 10116"/>
