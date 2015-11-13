@@ -9,6 +9,8 @@
     <reference name="feature" referenced-type="OntologyTerm"/>
   </class>
   <class name="Protein" is-interface="true">
+  <!--added below to get raw fasta-->  
+    <attribute name="hasEarlyStopCodon" type="java.lang.String"/>
     <attribute name="isFragment" type="java.lang.Boolean"/>
     <attribute name="isUniprotCanonical" type="java.lang.Boolean"/>
     <attribute name="uniprotAccession" type="java.lang.String"/>
@@ -20,6 +22,8 @@
     <collection name="keywords" referenced-type="OntologyTerm" />
     <collection name="features" referenced-type="UniProtFeature" reverse-reference="protein" />
     <collection name="proteinDomains" referenced-type="ProteinDomain" reverse-reference="proteins" />
+  <!--added below to get raw fasta. remove if model issues. Later check on loading of raw fasta protein -->
+     <collection name="genes" referenced-type="Gene" reverse-reference="proteins" />
   </class>
   <class name="ECNumber" is-interface="true">
     <attribute name="identifier" type="java.lang.String" />
@@ -45,7 +49,13 @@
   <reference name="code" referenced-type="GOEvidenceCode"/>
   <collection name="publications" referenced-type="Publication"/>
 </class>
+
+
+
 <class name="Gene" is-interface="true">
+  <attribute name="proteinIdentifier" type="java.lang.String"/>
+  <!--added below to get raw fasta. remove if model issues. Later check on loading of raw fasta protein --> 
+   <collection name="proteins" referenced-type="Protein" reverse-reference="genes"/>
   <collection name="goAnnotation" referenced-type="GOAnnotation"/>
 </class>
 <class name="Comment" is-interface="true">

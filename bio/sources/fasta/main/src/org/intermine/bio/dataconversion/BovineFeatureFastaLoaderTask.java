@@ -170,5 +170,20 @@ public class BovineFeatureFastaLoaderTask extends FastaLoaderTask
         }
         return mrna;
     }
+      protected InterMineObject getGene(String identifier, Organism organism, Model model)
+        throws ObjectStoreException {
+        InterMineObject gene = null;
+        if (model.hasClassDescriptor(model.getPackageName() + ".Gene")) {
+            @SuppressWarnings("unchecked") Class<? extends InterMineObject> geneCls =
+                (Class<? extends InterMineObject>) model.getClassDescriptorByName("Gene").getType();
+            gene = getDirectDataLoader().createObject(geneCls);
+            gene.setFieldValue("primaryIdentifier", identifier);
+            gene.setFieldValue("organism", organism);
+            getDirectDataLoader().store(gene);
+        }
+        return gene;
+    }   
+
+
 
 }
