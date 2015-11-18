@@ -14,6 +14,11 @@
     <source name="go" type="go">
       <property name="src.data.file" location="@DATA_DIR@/UMD3.1/go/gene_ontology.obo"/>
     </source>
+
+     <source name="Biocyc-human" type="biocyc">
+       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/Biocyc"/>
+       <property name="kegg.organisms" value="9606"/>  <!--NEED TO ADD MORE ORGANSIMS -->
+    </source>
     <source name="bovine-chromosome-fasta" type="fasta" dump="true"> 
       <property name="fasta.className" value="org.intermine.model.bio.Chromosome"/>
       <property name="fasta.dataSourceName" value="Bovine Genome"/>
@@ -42,7 +47,7 @@
       <property name="fasta.sequenceType" value="dna"/>
       <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineFastaLoaderTask"/>
       <property name="fasta.includes" value="Oar.fa"/>
-      <property name="src.data.dir" location="@DATA_DIR@/"/>
+      <property name="src.data.dir" location="/db/intermine/aditi_bovinemine/bovinemine_source/fasta/"/>
     </source>
     <source name="bovine-coding-gff" type="refseq-proteincoding-gff" dump="true"> 
       <property name="gff3.taxonId" value="9913"/>
@@ -91,7 +96,7 @@
       <property name="gff3.dataSourceName" value="Gene annotations from Ensembl (Release 79)"/>
       <property name="gff3.seqClsName" value="Chromosome"/>
       <property name="gff3.dataSetTitle" value="Gene annotations from Ensembl79"/>
-      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/GFF3/Ensembl/bovine"/>
+      <property name="src.data.dir" location="/db/intermine/bovinemine_release_09042015/UMD3.1/GFF3/Ensembl/bovine/"/>
     </source>
 
 
@@ -423,7 +428,7 @@
     <post-process name="transfer-sequences"/>
     <post-process name="create-references"/>
     <post-process name="create-overlap-view"/>
-    <post-process name="create-location-overlap-index"/>
+  <!--  <post-process name="create-location-overlap-index"/>-->
     <post-process name="create-gene-flanking-features"/> 
     <post-process name="do-sources"/>
     <post-process name="create-attribute-indexes"/>
