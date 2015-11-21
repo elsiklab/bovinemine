@@ -68,7 +68,6 @@ public class EnsemblGffGFF3RecordHandler extends GFF3RecordHandler
         feature.removeAttribute("secondaryIdentifier");
         feature.removeAttribute("symbol");
         feature.setAttribute("source", record.getSource());
-
         if( clsName.equals("Gene") ) {
             if(record.getAttributes().get("ID") != null){
                 String id = record.getAttributes().get("ID").iterator().next();
@@ -136,15 +135,15 @@ public class EnsemblGffGFF3RecordHandler extends GFF3RecordHandler
         if (aliasToRefId.containsKey(aliasPrimaryIdentifier)) {
             feature.addToCollection("alias", aliasToRefId.get(aliasPrimaryIdentifier));
         } else {
-            Item aliasItem = converter.createItem("AliasName");  // create an AliasName object
-            aliasItem.setAttribute("identifier", aliasPrimaryIdentifier);  // set identifier of AliasName object
+            Item aliasItem = converter.createItem("AliasName");
+            aliasItem.setAttribute("identifier", aliasPrimaryIdentifier);
             aliasItem.setAttribute("source", aliasSource);
             aliasItem.setReference("organism", getOrganism());
-            String aliasRefId = aliasItem.getIdentifier();  // get the reference ID of the AliasName object (needed for linking AliasName object to Gene object)
-            feature.addToCollection("alias", aliasRefId);  // addToCollection creates the link between feature (Gene) and the AliasName object
-            aliasItem.addToCollection("gene", feature.getIdentifier());  // and vice-versa
+            String aliasRefId = aliasItem.getIdentifier();
+            feature.addToCollection("alias", aliasRefId);
+            aliasItem.addToCollection("gene", feature.getIdentifier());
             aliasToRefId.put(aliasPrimaryIdentifier, aliasRefId);
-            addItem(aliasItem);  // add AliasName object to be loaded into the database
+            addItem(aliasItem);
         }
     }
 
@@ -172,13 +171,13 @@ public class EnsemblGffGFF3RecordHandler extends GFF3RecordHandler
                 System.exit(1);
             }
         } else {
-            Item xRefItem = converter.createItem("xRef");  // creating an xRef object
-            xRefItem.setAttribute("identifier", identifier);  // setting primaryIdentifier of xRef object
+            Item xRefItem = converter.createItem("xRef");
+            xRefItem.setAttribute("identifier", identifier);
             xRefItem.setAttribute("source", xRefSource);
             xRefItem.setReference("organism", getOrganism());
-            String xRefRefId = xRefItem.getIdentifier();  // getting the reference ID of the xRef object (needed for linking AliasName object to Gene object)
-            feature.setReference("crossReference", xRefRefId);  // setReference creates the link between feature (Gene) and the AliasName object
-            // xRefItem.addToCollection("geneCrossReference", feature.getIdentifier());  // and vice-versa
+            String xRefRefId = xRefItem.getIdentifier();
+            feature.setReference("crossReference", xRefRefId);
+            // xRefItem.addToCollection("geneCrossReference", feature.getIdentifier());
             xRefToRefId.put(identifier, xRefRefId);
             if (!geneToRefId.containsKey(identifier)) {
                 // storing the Gene instance of xRef
