@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!-- This file details any extensions needed to the data model to store data from this source, everything else is automatically generated from the model description so this is all we need to do to add to the model. -->
+
+<classes>
+<!-- add any <class> elements here -->
+    <class name="SequenceAlteration" extends="SequenceFeature" is-interface="true">
+        <collection name="variantAnnotations" referenced-type="VariantAnnotation" reverse-reference="variant"/>
+    </class>
+    <class name="VariantAnnotation" is-interface="true">
+        <attribute name="rsId" type="java.lang.String"/>
+        <attribute name="geneIdentifier" type="java.lang.String"/>
+        <attribute name="transcriptIdentifier" type="java.lang.String"/>
+        <attribute name="type" type="java.lang.String"/>
+        <attribute name="variantAllele" type="java.lang.String"/>
+        <attribute name="referenceAminoAcid" type="java.lang.String"/>
+        <attribute name="variantAminoAcid" type="java.lang.String"/>
+        <attribute name="aminoAcidPosition" type="java.lang.String"/>
+        <attribute name="cdnaPosition" type="java.lang.String"/>
+        <attribute name="cdsPosition" type="java.lang.String"/>
+        <attribute name="cdnaPosition" type="java.lang.String"/>
+        <attribute name="referenceCodon" type="java.lang.String"/>
+        <attribute name="variantCodon" type="java.lang.String"/>
+        <reference name="organism" referenced-type="Organism"/>
+        <reference name="transcript" referenced-type="Transcript" reverse-reference="variantAnnotations"/>
+        <reference name="variant" referenced-type="SequenceAlteration" reverse-reference="variantAnnotations"/>
+    </class>
+    <class name="Transcript" extends="SequenceFeature" is-interface="true">
+        <collection name="variantAnnotations" referenced-type="VariantAnnotation" reverse-reference="transcript"/>
+    </class>
+</classes>
