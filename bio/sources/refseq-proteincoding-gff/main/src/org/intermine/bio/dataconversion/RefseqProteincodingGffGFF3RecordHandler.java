@@ -56,35 +56,34 @@ public class RefseqProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
      */
     @Override
     public void process(GFF3Record record) {
-
         Item feature = getFeature();
         String clsName = feature.getClassName();
         feature.setAttribute("source", record.getSource());
-
         if (clsName.equals("Gene"))  {
             if (record.getAttributes().get("symbol_ncbi") != null) {
                 String symbol = record.getAttributes().get("symbol_ncbi").iterator().next();
-                feature.setAttribute("symbol", symbol); // setting 'symbol' attribute of class 'Gene'
+                feature.setAttribute("symbol", symbol);
             }
             else {
-                feature.removeAttribute("symbol"); // removing the 'symbol' set by intermine by default
+                // removing the default assignment of symbol
+                feature.removeAttribute("symbol");
             }
 
             if (record.getAttributes().get("feature_type") != null) {
                 String ft = record.getAttributes().get("feature_type").iterator().next();
-                feature.setAttribute("status", ft); // setting 'status' attribute of class 'Gene'
+                feature.setAttribute("status", ft);
             }
 
             if (record.getAttributes().get("duplicate_entity") != null) {
                 String duplicates = record.getAttributes().get("duplicate_entity").iterator().next();
-                List<String> entities = new ArrayList<String>( Arrays.asList(StringUtil.split(duplicates, "|")));
+                List<String> entities = new ArrayList<String>(Arrays.asList(StringUtil.split(duplicates, "|")));
                 for (String entity : entities) {
                     Item duplicateEntityItem = converter.createItem("DuplicateEntity");
                     String duplicateEntityItemRefId = duplicateEntityItem.getIdentifier();
-                    List<String> entityAttributes = new ArrayList<String>( Arrays.asList(StringUtil.split(entity, ",")));
-                    List<String> locationInformation = new ArrayList<String>( Arrays.asList(StringUtil.split(entityAttributes.get(0), ":")));
+                    List<String> entityAttributes = new ArrayList<String>(Arrays.asList(StringUtil.split(entity, ",")));
+                    List<String> locationInformation = new ArrayList<String>(Arrays.asList(StringUtil.split(entityAttributes.get(0), ":")));
                     String chromosome = locationInformation.get(0);
-                    List<String> positionInfo = new ArrayList<String>( Arrays.asList(StringUtil.split(locationInformation.get(1), "..")));
+                    List<String> positionInfo = new ArrayList<String>(Arrays.asList(StringUtil.split(locationInformation.get(1), "..")));
                     String start = positionInfo.get(0);
                     String end = positionInfo.get(1);
                     int strand = locationInformation.get(2).equals("+") ? 1 : -1;
@@ -99,7 +98,6 @@ public class RefseqProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
                     }
                     if (entityAttributes.size() > 2) {
                         ArrayList<String> product = new ArrayList<String>(Arrays.asList(StringUtil.split(entityAttributes.get(2), ":")));
-
                         if (product.size() > 1) {
                             String transcriptId = product.get(1);
                             duplicateEntityItem.setAttribute("transcriptIdentifier", transcriptId);
@@ -133,7 +131,7 @@ public class RefseqProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
                             throw new RuntimeException("Error in Dbxref attribute " + ref );
                         }
                         if (ref.startsWith("NCBI_Gene")) {
-                            feature.setAttribute( "primaryIdentifier", ref.replace("NCBI_Gene:", "") ); // setting 'primaryIdentifier' attribute of class 'Gene'
+                            feature.setAttribute( "primaryIdentifier", ref.replace("NCBI_Gene:", "") );
                         }
                         if (ref.startsWith("BGD:")) {
                             // treating as xRef
@@ -165,22 +163,18 @@ public class RefseqProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
 
             if( record.getAttributes().get("symbol_ncbi") != null) {
                 String symbol = record.getAttributes().get("symbol_ncbi").iterator().next();
-                feature.setAttribute("symbol", symbol); // setting 'symbol' attribute of class 'MRNA'
+                feature.setAttribute("symbol", symbol);
             }
             else {
-                feature.removeAttribute("symbol"); // removing the 'symbol' set by intermine by default
+                feature.removeAttribute("symbol");
             }
             if( record.getAttributes().get("ncbi_desc") != null) {
                 String description = record.getAttributes().get("ncbi_desc").iterator().next();
-                feature.setAttribute("description", description); // setting 'description' attribute of class 'MRNA'
-            }
-            if( record.getAttributes().get("source") != null ) {
-                String source = record.getAttributes().get("source").iterator().next();
-                //feature.setAttribute("source", source); // setting 'status' attribute of class 'Gene'
+                feature.setAttribute("description", description);
             }
             if( record.getAttributes().get("feature_type") != null ) {
                 String ft = record.getAttributes().get("feature_type").iterator().next();
-                feature.setAttribute("status", ft); // setting 'status' attribute of class 'MRNA'
+                feature.setAttribute("status", ft);
             }
 
             // Accessing Dbxrefs
@@ -198,10 +192,10 @@ public class RefseqProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
                             throw new RuntimeException("Error in Dbxref attribute " + ref );
                         }
                         if( ref.startsWith("RefSeq_NA") ) {
-                            feature.setAttribute( "primaryIdentifier", ref.replace("RefSeq_NA:", "") ); // setting 'primaryIdentifier' attribute of class 'MRNA'
+                            feature.setAttribute( "primaryIdentifier", ref.replace("RefSeq_NA:", "") );
                         }
                         if( ref.startsWith("RefSeq_Prot") ) {
-                            feature.setAttribute("proteinIdentifier", ref.replace("RefSeq_Prot:", "")); // setting 'proteinIdentifier' attribute of class 'MRNA'
+                            feature.setAttribute("proteinIdentifier", ref.replace("RefSeq_Prot:", ""));
                         }
                     }
                 }
@@ -229,15 +223,15 @@ public class RefseqProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
         if (aliasToRefId.containsKey(aliasPrimaryIdentifier)) {
             feature.addToCollection("alias", aliasToRefId.get(aliasPrimaryIdentifier));
         } else {
-            Item aliasItem = converter.createItem("AliasName");  // create an AliasName object
-            aliasItem.setAttribute("identifier", aliasPrimaryIdentifier);  // set identifier of AliasName object
+            Item aliasItem = converter.createItem("AliasName");
+            aliasItem.setAttribute("identifier", aliasPrimaryIdentifier);
             aliasItem.setAttribute("source", aliasSource);
             aliasItem.setReference("organism", getOrganism());
-            String aliasRefId = aliasItem.getIdentifier();  // get the reference ID of the AliasName object (needed for linking AliasName object to Gene object)
-            feature.addToCollection("alias", aliasRefId);  // addToCollection creates the link between feature (Gene) and the AliasName object
-            aliasItem.addToCollection("gene", feature.getIdentifier());  // and vice-versa
+            String aliasRefId = aliasItem.getIdentifier();
+            feature.addToCollection("alias", aliasRefId);
+            aliasItem.addToCollection("gene", feature.getIdentifier());
             aliasToRefId.put(aliasPrimaryIdentifier, aliasRefId);
-            addItem(aliasItem);  // add AliasName object to be loaded into the database
+            addItem(aliasItem);
         }
     }
 
@@ -265,13 +259,13 @@ public class RefseqProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
                 System.exit(1);
             }
         } else {
-            Item xRefItem = converter.createItem("xRef");  // creating an xRef object
-            xRefItem.setAttribute("identifier", identifier);  // setting primaryIdentifier of xRef object
+            Item xRefItem = converter.createItem("xRef");
+            xRefItem.setAttribute("identifier", identifier);
             xRefItem.setAttribute("source", xRefSource);
             xRefItem.setReference("organism", getOrganism());
-            String xRefRefId = xRefItem.getIdentifier();  // getting the reference ID of the xRef object (needed for linking AliasName object to Gene object)
-            feature.setReference("crossReference", xRefRefId);  // setReference creates the link between feature (Gene) and the AliasName object
-            // xRefItem.addToCollection("geneCrossReference", feature.getIdentifier());  // and vice-versa
+            String xRefRefId = xRefItem.getIdentifier();
+            feature.setReference("crossReference", xRefRefId);
+            // xRefItem.addToCollection("geneCrossReference", feature.getIdentifier());
             xRefToRefId.put(identifier, xRefRefId);
             if (!geneToRefId.containsKey(identifier)) {
                 // storing the Gene instance of xRef
