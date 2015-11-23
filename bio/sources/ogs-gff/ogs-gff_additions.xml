@@ -11,7 +11,7 @@
   </class>
   <class name="MRNA" extends="Transcript" is-interface="true">
   </class>
-    <class name="Polypeptide" extends="Transcript" is-interface="true">
+    <class name="Polypeptide" extends="SequenceFeature" is-interface="true">
   </class>
   <class name="Exon" extends="SequenceFeature" is-interface="true">
   </class>
