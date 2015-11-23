@@ -93,6 +93,9 @@ public class FastaLoaderTask extends FileDirectDataLoaderTask
         }
     }
 
+    public String getSequenceType() {
+        return this.sequenceType;
+    }
     /**
      * Set the suffix to add to identifiers from the FASTA file when creating
      * BioEnitys.
@@ -260,7 +263,7 @@ public class FastaLoaderTask extends FileDirectDataLoaderTask
      * @param bioJavaSequence the Sequence object
      * @throws ObjectStoreException if store() fails
      */
-    private void processSequence(Organism organism, Sequence bioJavaSequence)
+    protected void processSequence(Organism organism, Sequence bioJavaSequence)
         throws ObjectStoreException {
         // some fasta files are not filtered - they contain sequences from organisms not
         // specified in project.xml
