@@ -353,7 +353,7 @@
 
      <source name="bovine-protein-refseq" type="fasta" dump="true">
       <property name="fasta.taxonId" value="9913"/>
-      <property name="fasta.className" value="org.intermine.model.bio.Protein"/>
+      <property name="fasta.className" value="org.intermine.model.bio.Polypeptide"/>
       <property name="fasta.classAttribute" value="primaryIdentifier"/>
       <property name="fasta.dataSetTitle" value="Protein sequence from NCBI RefSeq Annotation"/>
       <property name="fasta.dataSourceName" value="Protein sequence from NCBI RefSeq"/>
