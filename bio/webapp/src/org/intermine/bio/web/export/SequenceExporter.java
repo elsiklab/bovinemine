@@ -10,6 +10,7 @@ package org.intermine.bio.web.export;
  *
  */
 
+import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -198,7 +199,8 @@ public class SequenceExporter implements Exporter
                                 "sequence_" + exportedIDs.size());
                     }
                 }
-                SeqIOTools.writeFasta(out, bioSequence);
+                //SeqIOTools.writeFasta(out, bioSequence);
+                writeFastaSequence(bioSequence, out);
                 writtenResultsCount++;
                 exportedIDs.add(objectId);
             }
@@ -210,6 +212,28 @@ public class SequenceExporter implements Exporter
             out.flush();
         } catch (Exception e) {
             throw new ExportException("Export failed.", e);
+        }
+    }
+
+    /**
+     * Gets the header and sequence as string from the BioSequence object and writes it to OutputStream
+     * @param Sequence
+     * @param OutputStream
+     */
+    private void writeFastaSequence(Sequence sequence, OutputStream outputStream) throws IOException {
+        String sequenceHeader = ">" + sequence.getAnnotation().getProperty(FastaFormat.PROPERTY_DESCRIPTIONLINE) + "\n";
+        String sequenceString = sequence.seqString().toUpperCase();
+        outputStream.write(sequenceHeader.getBytes());
+        long length = 0;
+        for (int i = 0; i < sequenceString.length(); i += 60) {
+            length += 60;
+            if (i + 60 >= sequenceString.length()) {
+                outputStream.write((sequenceString.substring(i, sequenceString.length()) + "\n").getBytes());
+                break;
+            }
+            else {
+                outputStream.write((sequenceString.substring(i, i + 60) + "\n").getBytes());
+            }
         }
     }
 
