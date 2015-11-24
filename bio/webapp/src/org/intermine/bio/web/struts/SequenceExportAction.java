@@ -10,6 +10,7 @@ package org.intermine.bio.web.struts;
  *
  */
 
+import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -89,7 +90,8 @@ public class SequenceExportAction extends InterMineAction
             response.setContentType("text/plain");
             if (bioSequence != null) {
                 OutputStream out = response.getOutputStream();
-                SeqIOTools.writeFasta(out, bioSequence);
+                //SeqIOTools.writeFasta(out, bioSequence);
+                writeFastaSequence(bioSequence, out);
             } else {
                 PrintWriter out = response.getWriter();
                 out.write("Sequence information not availble for this sequence feature...");
@@ -98,6 +100,28 @@ public class SequenceExportAction extends InterMineAction
         }
 
         return null;
+    }
+
+    /**
+     * Gets the header and sequence as string from the BioSequence object and writes it to OutputStream
+     * @param BioSequence
+     * @param OutputStream
+     */
+    private void writeFastaSequence(BioSequence bioSequence, OutputStream outputStream) throws IOException {
+        String sequenceHeader = ">" + bioSequence.getAnnotation().getProperty(FastaFormat.PROPERTY_DESCRIPTIONLINE) + "\n";
+        String sequenceString = bioSequence.seqString().toUpperCase();
+        outputStream.write(sequenceHeader.getBytes());
+        long length = 0;
+        for (int i = 0; i < sequenceString.length(); i += 60) {
+            length += 60;
+            if (i + 60 >= sequenceString.length()) {
+                outputStream.write((sequenceString.substring(i, sequenceString.length()) + "\n").getBytes());
+                break;
+            }
+            else {
+                outputStream.write((sequenceString.substring(i, i + 60) + "\n").getBytes());
+            }
+        }
     }
 
     private BioSequence createBioSequence(InterMineObject obj)
