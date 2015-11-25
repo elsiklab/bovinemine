@@ -16,7 +16,7 @@
     </source>
 
      <source name="Biocyc-human" type="biocyc">
-       <property name="src.data.dir" location="/db/intermine/bovinemine_release_09042015/UMD3.1/Biocyc"/>
+       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/Biocyc"/>
        <property name="biocyc.organisms" value="9606 10090"/>  <!--NEED TO ADD MORE ORGANSIMS -->
     </source>
     
@@ -335,7 +335,7 @@
       <property name="homologene.organisms" value="9913 9606 9796 9615 10090 10116 9823 9940"/>
     </source>    
     <source name="bovine" type="orthodb" dump="true"> 
-      <property name="src.data.dir" location="/db/intermine/bovinemine_release_09042015/UMD3.1/OrthoDB"/>
+      <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/OrthoDB"/>
       <property name="orthodb.organisms" value="9913"/>
      <property name="orthodb.homologues" value="9606 9796 9615 10090 10116 9823 9925 9940"/>
      </source>
