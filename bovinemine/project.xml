@@ -16,9 +16,10 @@
     </source>
 
      <source name="Biocyc-human" type="biocyc">
-       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/Biocyc"/>
-       <property name="kegg.organisms" value="9606"/>  <!--NEED TO ADD MORE ORGANSIMS -->
+       <property name="src.data.dir" location="/db/intermine/bovinemine_release_09042015/UMD3.1/Biocyc"/>
+       <property name="biocyc.organisms" value="9606 10090"/>  <!--NEED TO ADD MORE ORGANSIMS -->
     </source>
+    
     <source name="bovine-chromosome-fasta" type="fasta" dump="true"> 
       <property name="fasta.className" value="org.intermine.model.bio.Chromosome"/>
       <property name="fasta.dataSourceName" value="Bovine Genome"/>
@@ -334,7 +335,7 @@
       <property name="homologene.organisms" value="9913 9606 9796 9615 10090 10116 9823 9940"/>
     </source>    
     <source name="bovine" type="orthodb" dump="true"> 
-      <property name="src.data.dir" location="/@DATA_DIR@/bovinemine_source/orthodb"/>
+      <property name="src.data.dir" location="/db/intermine/bovinemine_release_09042015/UMD3.1/OrthoDB"/>
       <property name="orthodb.organisms" value="9913"/>
      <property name="orthodb.homologues" value="9606 9796 9615 10090 10116 9823 9925 9940"/>
      </source>
@@ -351,7 +352,7 @@
     </source>
  -->  
 
-     <source name="bovine-protein-refseq" type="fasta" dump="true">
+     <source name="bovine-protein-ncbi" type="fasta" dump="true">
       <property name="fasta.taxonId" value="9913"/>
       <property name="fasta.className" value="org.intermine.model.bio.Polypeptide"/>
       <property name="fasta.classAttribute" value="primaryIdentifier"/>
@@ -365,7 +366,7 @@
 
     <source name="bovine-protein-ensembl" type="fasta" dump="true">
       <property name="fasta.taxonId" value="9913"/>
-      <property name="fasta.className" value="org.intermine.model.bio.Protein"/>
+      <property name="fasta.className" value="org.intermine.model.bio.Polypeptide"/>
       <property name="fasta.classAttribute" value="primaryIdentifier"/>
       <property name="fasta.dataSetTitle" value="Protein sequence from Ensembl82  Annotation"/>
       <property name="fasta.dataSourceName" value="Protein sequence from Ensembl82"/>
@@ -377,7 +378,7 @@
 
     <source name="chir-protein-ncbi" type="fasta" dump="true">
       <property name="fasta.taxonId" value="9925"/>
-      <property name="fasta.className" value="org.intermine.model.bio.Protein"/>
+      <property name="fasta.className" value="org.intermine.model.bio.Polypeptide"/>
       <property name="fasta.classAttribute" value="primaryIdentifier"/>
       <property name="fasta.dataSetTitle" value="Protein sequence from NCBI RefSeq Annotation"/>
       <property name="fasta.dataSourceName" value="Protein sequence from NCBI RefSeq"/>
@@ -389,7 +390,7 @@
 
     <source name="oari-protein-ncbi" type="fasta" dump="true">
       <property name="fasta.taxonId" value="9940"/>
-      <property name="fasta.className" value="org.intermine.model.bio.Protein"/>
+      <property name="fasta.className" value="org.intermine.model.bio.Polypeptide"/>
       <property name="fasta.classAttribute" value="primaryIdentifier"/>
       <property name="fasta.dataSetTitle" value="Protein sequence from NCBI RefSeq Annotation"/>
       <property name="fasta.dataSourceName" value="Protein sequence from NCBI RefSeq"/>
@@ -401,10 +402,10 @@
 
      <source name="oari-protein-ensembl" type="fasta" dump="true">
       <property name="fasta.taxonId" value="9940"/>
-      <property name="fasta.className" value="org.intermine.model.bio.Protein"/>
+      <property name="fasta.className" value="org.intermine.model.bio.Polypeptide"/>
       <property name="fasta.classAttribute" value="primaryIdentifier"/>
-      <property name="fasta.dataSetTitle" value="Protein sequence from NCBI RefSeq Annotation"/>
-      <property name="fasta.dataSourceName" value="Protein sequence from NCBI RefSeq"/>
+      <property name="fasta.dataSetTitle" value="Protein sequence from Ensembl82 Annotation"/>
+      <property name="fasta.dataSourceName" value="Protein sequence from Ensembl82"/>
       <property name="src.data.dir" location="@DATA_DIR@/UMD3.1/Protein"/>
       <property name="fasta.includes" value="test.fa"/>
       <property name="fasta.sequenceType" value="protein"/>
