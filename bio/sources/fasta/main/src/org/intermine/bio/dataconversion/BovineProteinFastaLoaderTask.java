@@ -1,4 +1,4 @@
-package org.intermine.bio.dataconversion;
+ package org.intermine.bio.dataconversion;
 
 /*
  * Copyright (C) 2002-2013 FlyMine
@@ -68,10 +68,10 @@ public class BovineProteinFastaLoaderTask extends BovineFeatureFastaLoaderTask {
         String header = (String) annotation.getProperty("description");
 
         // getting the remaining identifiers from the header
-        String mrnaIdentifier = header.trim().split(" ")[0].trim();
-        System.out.println("MRNA IDENT: " + mrnaIdentifier);
-        String geneIdentifier = header.trim().split(" ")[1].trim();
+        String geneIdentifier = header.trim().split(" ")[0].trim();
         System.out.println("GENE IDENT: " + geneIdentifier);
+        String mrnaIdentifier = header.trim().split(" ")[1].trim();
+        System.out.println("MRNA IDENT: " + mrnaIdentifier);
 
         ObjectStore os = getIntegrationWriter().getObjectStore();
         Model model = os.getModel();
@@ -246,3 +246,4 @@ public class BovineProteinFastaLoaderTask extends BovineFeatureFastaLoaderTask {
         }
     }
 }
+
