@@ -231,14 +231,26 @@ public class PubMedGeneConverter extends BioFileConverter
          int len = pid.length();
           if (len > 11) {
                 String total2 = String.valueOf(pid);
-            total2=total2.substring(1);              
-               String primaryIdentifier = "ENSBTAG" + total2; 
-               gene.setAttribute("primaryIdentifier", primaryIdentifier);
+                total2=total2.substring(1);              
+                String primaryIdentifier = "ENSBTAG" + total2; 
+                gene.setAttribute("primaryIdentifier", primaryIdentifier);
           } else {
               String total2 = String.valueOf(pid);
-               gene.setAttribute("primaryIdentifier", total2);
+              gene.setAttribute("primaryIdentifier", total2);
           }
-        } else {
+        } else if ("9940".equals(taxonId)){  
+          int len = pid.length();
+             if (len > 11) {
+                String total2 = String.valueOf(pid); 
+                total2=total2.substring(1);
+                String primaryIdentifier = "ENSOARG" + total2;
+                gene.setAttribute("primaryIdentifier", primaryIdentifier);
+          } else {
+              String total2 = String.valueOf(pid);
+              gene.setAttribute("primaryIdentifier", total2);
+          }   
+        
+        }  else {
             gene.setAttribute("primaryIdentifier", pid);
         }
 
