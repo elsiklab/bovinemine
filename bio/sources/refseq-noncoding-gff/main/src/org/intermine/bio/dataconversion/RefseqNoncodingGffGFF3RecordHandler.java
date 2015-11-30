@@ -67,14 +67,14 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
 
             if (record.getAttributes().get("symbol_ncbi") != null) {
                 String symbol = record.getAttributes().get("symbol_ncbi").iterator().next();
-                feature.setAttribute("symbol", symbol); // setting 'symbol' attribute of class 'Gene'
+                feature.setAttribute("symbol", symbol);
             }
             else {
-                feature.removeAttribute("symbol"); // removing the 'symbol' set by intermine by default
+                feature.removeAttribute("symbol");
             }
             if (record.getAttributes().get("feature_type") != null) {
                 String ft = record.getAttributes().get("feature_type").iterator().next();
-                feature.setAttribute("status", ft); // setting 'status' attribute of class 'Gene'
+                feature.setAttribute("status", ft);
             }
 
             if (record.getAttributes().get("duplicate_entity") != null) {
@@ -135,7 +135,7 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                             throw new RuntimeException("Error in Dbxref attribute " + ref );
                         }
                         if( ref.startsWith("NCBI_Gene") ) {
-                            feature.setAttribute( "primaryIdentifier", ref.replace("NCBI_Gene:", "") ); // setting 'primaryIdentifier' attribute of class 'Gene'
+                            feature.setAttribute( "primaryIdentifier", ref.replace("NCBI_Gene:", "") );
                         }
                         if( ref.startsWith("BGD:") ) {
                             // treating as xRef
@@ -167,18 +167,18 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
 
             if (record.getAttributes().get("symbol_ncbi") != null) {
                 String symbol = record.getAttributes().get("symbol_ncbi").iterator().next();
-                feature.setAttribute("symbol", symbol); // setting 'symbol' attribute of class 'Transcript'
+                feature.setAttribute("symbol", symbol);
             }
             else {
-                feature.removeAttribute("symbol"); // removing the 'symbol' set by intermine by default
+                feature.removeAttribute("symbol");
             }
             if (record.getAttributes().get("ncbi_desc") != null) {
                 String description = record.getAttributes().get("ncbi_desc").iterator().next();
-                feature.setAttribute("description", description); // setting 'description' attribute of class 'Transcript'
+                feature.setAttribute("description", description);
             }
             if (record.getAttributes().get("feature_type") != null) {
                 String ft = record.getAttributes().get("feature_type").iterator().next();
-                feature.setAttribute("status", ft); // setting 'status' attribute of class 'Gene'
+                feature.setAttribute("status", ft);
             }
 
             // Accessing Dbxrefs
@@ -196,7 +196,7 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                         }
 
                         if (ref.startsWith("RefSeq_NA:")) {
-                            feature.setAttribute("primaryIdentifier", ref.replace("RefSeq_NA:", "")); // setting 'primaryIdentifier' attribute of class 'Transcript'
+                            feature.setAttribute("primaryIdentifier", ref.replace("RefSeq_NA:", ""));
                         }
                     }
                 }
@@ -206,18 +206,18 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
 
             if (record.getAttributes().get("symbol_ncbi") != null) {
                 String symbol = record.getAttributes().get("symbol_ncbi").iterator().next();
-                feature.setAttribute("symbol", symbol); // setting 'symbol' attribute of class 'PrimaryTranscript'
+                feature.setAttribute("symbol", symbol);
             }
             else {
-                feature.removeAttribute("symbol"); // removing the 'symbol' set by intermine by default
+                feature.removeAttribute("symbol");
             }
             if (record.getAttributes().get("ncbi_desc") != null) {
                 String description = record.getAttributes().get("ncbi_desc").iterator().next();
-                feature.setAttribute("description", description); // setting 'description' attribute of class 'PrimaryTranscript'
+                feature.setAttribute("description", description);
             }
             if (record.getAttributes().get("feature_type") != null) {
                 String ft = record.getAttributes().get("feature_type").iterator().next();
-                feature.setAttribute("status", ft); // setting 'status' attribute of class 'Gene'
+                feature.setAttribute("status", ft);
             }
 
             // Accessing Dbxrefs
@@ -234,11 +234,11 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                             throw new RuntimeException("Error in Dbxref attribute " + ref );
                         }
                         if (ref.startsWith("miRBase:")) {
-                            feature.setAttribute("mirbaseIdentifier", ref.replace("miRBase:", "")); // setting 'secondaryIdentifier' attribute of class 'PrimaryTranscript'; replacing BGD with miRBase ID for miRNAs
+                            feature.setAttribute("mirbaseIdentifier", ref.replace("miRBase:", ""));
                         }
                         if (ref.startsWith("RefSeq_NA:")) {
-                            feature.setAttribute("primaryIdentifier", ref.replace("RefSeq_NA:", "")); // setting 'primaryIdentifier' attribute of class 'PrimaryTranscript'
-                        } // if transcript ID is not present then the feature defaults to 'ID' as primaryIdentifier
+                            feature.setAttribute("primaryIdentifier", ref.replace("RefSeq_NA:", ""));
+                        }
                     }
                 }
             }
@@ -247,18 +247,18 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
 
             if (record.getAttributes().get("symbol_ncbi") != null) {
                 String symbol = record.getAttributes().get("symbol_ncbi").iterator().next();
-                feature.setAttribute("symbol", symbol); // setting 'symbol' attribute of class 'MiRNA'
+                feature.setAttribute("symbol", symbol);
             }
             else {
-                feature.removeAttribute("symbol"); // removing the 'symbol' set by intermine by default
+                feature.removeAttribute("symbol");
             }
             if (record.getAttributes().get("ncbi_desc") != null) {
                 String description = record.getAttributes().get("ncbi_desc").iterator().next();
-                feature.setAttribute("description", description); // setting 'description' attribute of class 'MiRNA'
+                feature.setAttribute("description", description);
             }
             if (record.getAttributes().get("feature_type") != null) {
                 String ft = record.getAttributes().get("feature_type").iterator().next();
-                feature.setAttribute("status", ft); // setting 'status' attribute of class 'Gene'
+                feature.setAttribute("status", ft);
             }
 
             // Accessing Dbxrefs
@@ -275,7 +275,7 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                             throw new RuntimeException("Error in Dbxref attribute " + ref );
                         }
                         if (ref.startsWith("miRBase")) {
-                            feature.setAttribute("primaryIdentifier", ref.replace("miRBase:", "")); // setting 'secondaryIdentifier' attribute of class 'MiRNA'
+                            feature.setAttribute("primaryIdentifier", ref.replace("miRBase:", ""));
                         }
                     }
                 }
@@ -285,18 +285,18 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
 
             if (record.getAttributes().get("symbol_ncbi") != null) {
                 String symbol = record.getAttributes().get("symbol_ncbi").iterator().next();
-                feature.setAttribute("symbol", symbol); // setting 'symbol' attribute of class 'TRNA'
+                feature.setAttribute("symbol", symbol);
             }
             else {
-                feature.removeAttribute("symbol"); // removing the 'symbol' set by intermine by default
+                feature.removeAttribute("symbol");
             }
             if (record.getAttributes().get("ncbi_desc") != null) {
                 String description = record.getAttributes().get("ncbi_desc").iterator().next();
-                feature.setAttribute("description", description); // setting 'description' attribute of class 'TRNA'
+                feature.setAttribute("description", description);
             }
             if (record.getAttributes().get("feature_type") != null) {
                 String ft = record.getAttributes().get("feature_type").iterator().next();
-                feature.setAttribute("status", ft); // setting 'status' attribute of class 'Gene'
+                feature.setAttribute("status", ft);
             }
 
             // Accessing Dbxrefs
@@ -313,8 +313,8 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                             throw new RuntimeException("Error in Dbxref attribute " + ref );
                         }
                         if (ref.startsWith("RefSeq_NA")) {
-                            feature.setAttribute("primaryIdentifier", ref.replace("RefSeq_NA:", "")); // setting 'primaryIdentifier' attribute of class 'TRNA'
-                        } // if no Transcript ID then the primaryIdentifier defaults to 'ID' attribute
+                            feature.setAttribute("primaryIdentifier", ref.replace("RefSeq_NA:", ""));
+                        }
                     }
                 }
             }
@@ -323,18 +323,18 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
 
             if( record.getAttributes().get("symbol_ncbi") != null) {
                 String symbol = record.getAttributes().get("symbol_ncbi").iterator().next();
-                feature.setAttribute("symbol", symbol); // setting 'symbol' attribute of class 'RRNA'
+                feature.setAttribute("symbol", symbol);
             }
             else {
-                feature.removeAttribute("symbol"); // removing the 'symbol' set by intermine by default
+                feature.removeAttribute("symbol");
             }
             if (record.getAttributes().get("ncbi_desc") != null) {
                 String description = record.getAttributes().get("ncbi_desc").iterator().next();
-                feature.setAttribute("description", description); // setting 'description' attribute of class 'RRNA'
+                feature.setAttribute("description", description);
             }
             if (record.getAttributes().get("feature_type") != null) {
                 String ft = record.getAttributes().get("feature_type").iterator().next();
-                feature.setAttribute("status", ft); // setting 'status' attribute of class 'Gene'
+                feature.setAttribute("status", ft);
             }
 
             // Accessing Dbxrefs
@@ -351,8 +351,8 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                             throw new RuntimeException("Error in Dbxref attribute " + ref );
                         }
                         if (ref.startsWith("RefSeq_NA")) {
-                            feature.setAttribute("primaryIdentifier", ref.replace("RefSeq_NA:", "")); // setting 'primaryIdentifier' attribute of class 'RRNA'
-                        } // if no Transcript ID then the primaryIdentifier defaults to 'ID' attribute
+                            feature.setAttribute("primaryIdentifier", ref.replace("RefSeq_NA:", ""));
+                        }
                     }
                 }
             }
@@ -371,7 +371,6 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
      * @param alias
      */
     public void setAliasName(String alias) {
-        // TODO: Should the relationship between Gene and AliasName be a Collection or a Reference?
         Item feature = getFeature();
         List<String> splitVal = new ArrayList<String>(Arrays.asList(StringUtil.split(alias, ":")));
         if (splitVal.size() != 2) {
@@ -386,15 +385,15 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
         if (aliasToRefId.containsKey(aliasPrimaryIdentifier)) {
             feature.addToCollection("alias", aliasToRefId.get(aliasPrimaryIdentifier));
         } else {
-            Item aliasItem = converter.createItem("AliasName");  // create an AliasName object
-            aliasItem.setAttribute("identifier", aliasPrimaryIdentifier);  // set identifier of AliasName object
+            Item aliasItem = converter.createItem("AliasName");
+            aliasItem.setAttribute("identifier", aliasPrimaryIdentifier);
             aliasItem.setAttribute("source", aliasSource);
             aliasItem.setReference("organism", getOrganism());
-            String aliasRefId = aliasItem.getIdentifier();  // get the reference ID of the AliasName object (needed for linking AliasName object to Gene object)
-            feature.addToCollection("alias", aliasRefId);  // addToCollection creates the link between feature (Gene) and the AliasName object
-            aliasItem.addToCollection("gene", feature.getIdentifier());  // and vice-versa
+            String aliasRefId = aliasItem.getIdentifier();
+            feature.addToCollection("alias", aliasRefId);
+            aliasItem.addToCollection("gene", feature.getIdentifier());
             aliasToRefId.put(aliasPrimaryIdentifier, aliasRefId);
-            addItem(aliasItem);  // add AliasName object to be loaded into the database
+            addItem(aliasItem);
         }
     }
 
@@ -422,13 +421,13 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                 System.exit(1);
             }
         } else {
-            Item xRefItem = converter.createItem("xRef");  // creating an xRef object
-            xRefItem.setAttribute("identifier", identifier);  // setting primaryIdentifier of xRef object
+            Item xRefItem = converter.createItem("xRef");
+            xRefItem.setAttribute("identifier", identifier);
             xRefItem.setAttribute("source", xRefSource);
             xRefItem.setReference("organism", getOrganism());
-            String xRefRefId = xRefItem.getIdentifier();  // getting the reference ID of the xRef object (needed for linking AliasName object to Gene object)
-            feature.setReference("crossReference", xRefRefId);  // setReference creates the link between feature (Gene) and the AliasName object
-            // xRefItem.addToCollection("geneCrossReference", feature.getIdentifier());  // and vice-versa
+            String xRefRefId = xRefItem.getIdentifier();
+            feature.setReference("crossReference", xRefRefId);
+            // xRefItem.addToCollection("geneCrossReference", feature.getIdentifier());
             xRefToRefId.put(identifier, xRefRefId);
             if (!geneToRefId.containsKey(identifier)) {
                 // storing the Gene instance of xRef
@@ -436,6 +435,7 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                 geneItem.setAttribute("primaryIdentifier", identifier);
                 geneItem.setAttribute("source", xRefSource);
                 geneItem.setReference("organism", getOrganism());
+
                 geneToRefId.put(identifier, geneItem.getIdentifier());
                 xRefItem.setReference("gene", geneItem.getIdentifier());
                 addItem(geneItem);
