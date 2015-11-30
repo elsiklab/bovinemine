@@ -185,12 +185,14 @@ public class EnsemblComparaConverter extends BioFileConverter
             return null;
         }
         String newIdentifier = identifier;
-        if ("7227".equals(taxonId) || "9606".equals(taxonId)) {
-            newIdentifier = resolveGene(taxonId, identifier);
-            if (newIdentifier == null) {
-                return null;
-            }
-        }
+        // commenting out specifically for BovineMine
+//        if ("7227".equals(taxonId) || "9606".equals(taxonId) || "10090".equals(taxonId) || "10116".equals(taxonId)) {
+//            newIdentifier = resolveGene(taxonId, identifier);
+//            if (newIdentifier == null) {
+//                System.out.println(identifier + " for " + taxonId + " resolved to null");
+//                return null;
+//            }
+//        }
         String refId = genes.get(newIdentifier);
         if (refId == null) {
             String fieldName = getConfig(taxonId);
