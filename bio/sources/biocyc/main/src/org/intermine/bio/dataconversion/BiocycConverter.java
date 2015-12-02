@@ -213,9 +213,9 @@ public class BiocycConverter extends BioFileConverter
         if (gene == null) {
             gene = createItem("Gene");
                String[] parts = identifier.split("\\|");
-            gene.setAttribute(config.get(organism)[1], parts[1]);
+          //  gene.setAttribute(config.get(organism)[1], parts[1]);
              if (parts[0].length() != 0) {    
-            gene.setAttribute("primaryIdentifier", parts[0]);
+            gene.setAttribute(config.get(organism)[1], parts[0]);
           } else {
                 
               }
