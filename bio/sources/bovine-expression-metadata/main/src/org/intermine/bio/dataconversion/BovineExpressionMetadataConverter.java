@@ -176,15 +176,16 @@ public class BovineExpressionMetadataConverter extends BioFileConverter
             }
         }
 
-        /**
-         *
-         * {@inheritDoc}
-         */
-        @Override
-        public void close() throws Exception {
-            for (String key : btoItems.keySet()) {
-                store(btoItems.get(key));
-            }
+    }
+
+    /**
+     *
+     * {@inheritDoc}
+     */
+    @Override
+    public void close() throws Exception {
+        for (String key : btoItems.keySet()) {
+            store(btoItems.get(key));
         }
     }
 }
