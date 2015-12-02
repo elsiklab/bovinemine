@@ -65,13 +65,25 @@ public class BovineProteinFastaLoaderTask extends BovineFeatureFastaLoaderTask {
 
         Annotation annotation = bioJavaSequence.getAnnotation();
         String proteinIdentifier = getIdentifier(bioJavaSequence);
-        String header = (String) annotation.getProperty("description");
 
-        // getting the remaining identifiers from the header
-        String geneIdentifier = header.trim().split(" ")[0].trim();
-        System.out.println("GENE IDENT: " + geneIdentifier);
-        String mrnaIdentifier = header.trim().split(" ")[1].trim();
-        System.out.println("MRNA IDENT: " + mrnaIdentifier);
+        String geneIdentifier = null;
+        String mrnaIdentifier = null;
+
+        // getting the remaining identifiers from the header, if present
+        try {
+            String header = (String) annotation.getProperty("description");
+            String[] headerSplitStringList = header.trim().split(" ");
+            if (headerSplitStringList.length != 2) {
+                geneIdentifier = headerSplitStringList[0];
+            }
+            else {
+                geneIdentifier = header.trim().split(" ")[0].trim();
+                mrnaIdentifier = header.trim().split(" ")[1].trim();
+            }
+
+        } catch (NoSuchElementException ns) {
+            System.out.println(ns);
+        }
 
         ObjectStore os = getIntegrationWriter().getObjectStore();
         Model model = os.getModel();
@@ -84,44 +96,46 @@ public class BovineProteinFastaLoaderTask extends BovineFeatureFastaLoaderTask {
                         + "Polypeptide: " + bioEntity);
             }
 
-            InterMineObject gene = getGene(geneIdentifier, organism, model);
-            // setting the 'geneIdentifier' attribute for class 'Polypeptide'
-            bioEntity.setFieldValue("geneIdentifier", geneIdentifier);
-            // setting the 'gene' reference for class 'Polypeptide'
-            // the reason why gene object is being passed is because setFieldValue() expects
-            // an object as an argument for setting a reference
-            bioEntity.setFieldValue("gene", gene);
+            if (geneIdentifier != null) {
+                InterMineObject gene = getGene(geneIdentifier, organism, model);
+                // setting the 'geneIdentifier' attribute for class 'Polypeptide'
+                bioEntity.setFieldValue("geneIdentifier", geneIdentifier);
+                // setting the 'gene' reference for class 'Polypeptide'
+                // the reason why gene object is being passed is because setFieldValue() expects
+                // an object as an argument for setting a reference
+                bioEntity.setFieldValue("gene", gene);
+                try {
+                    // adding Polypeptide object to collection 'polypeptides' in class 'Gene'
+                    HashSet polypeptidesCollection = (HashSet) gene.getFieldValue("polypeptides");
+                    System.out.println("gene POLYCOLs: " + polypeptidesCollection);
+                    polypeptidesCollection.add(bioEntity);
+                    gene.setFieldValue("polypeptides", polypeptidesCollection);
+                    // updating the geneIdMap
+                    geneIdMap.put(geneIdentifier, gene);
+                } catch(IllegalAccessException e) {
+                    e.printStackTrace();
+                }
 
-            InterMineObject mrna = getMRNA(mrnaIdentifier, organism, model);
-            // setting the 'mrnaIdentifier' attribute for class 'Polypeptide'
-            bioEntity.setFieldValue("mrnaIdentifier", mrnaIdentifier);
-            // setting the 'mrna' reference for class 'Polypeptide'
-            // the reason why mrna object is being passed is because setFieldValue() expects
-            // an object as an argument for setting a reference
-            bioEntity.setFieldValue("mrna", mrna);
-
-            try {
-                // adding Polypeptide object to collection 'polypeptides' in class 'Gene'
-                HashSet polypeptidesCollection = (HashSet) gene.getFieldValue("polypeptides");
-                System.out.println("gene POLYCOLs: " + polypeptidesCollection);
-                polypeptidesCollection.add(bioEntity);
-                gene.setFieldValue("polypeptides", polypeptidesCollection);
-                // updating the geneIdMap
-                geneIdMap.put(geneIdentifier, gene);
-            } catch(IllegalAccessException e) {
-                e.printStackTrace();
             }
-
-            try {
-                // adding Polypeptide object to collection 'polypeptide' in class 'MRNA'
-                HashSet polypeptideCollection = (HashSet) mrna.getFieldValue("polypeptide");
-                System.out.println("mrna POLYCOLs: " + polypeptideCollection);
-                polypeptideCollection.add(bioEntity);
-                mrna.setFieldValue("polypeptide", polypeptideCollection);
-                // updating the mrnaIdMap
-                mrnaIdMap.put(mrnaIdentifier, mrna);
-            } catch(IllegalAccessException e) {
-                e.printStackTrace();
+            if (mrnaIdentifier != null) {
+                InterMineObject mrna = getMRNA(mrnaIdentifier, organism, model);
+                // setting the 'mrnaIdentifier' attribute for class 'Polypeptide'
+                bioEntity.setFieldValue("mrnaIdentifier", mrnaIdentifier);
+                // setting the 'mrna' reference for class 'Polypeptide'
+                // the reason why mrna object is being passed is because setFieldValue() expects
+                // an object as an argument for setting a reference
+                bioEntity.setFieldValue("mrna", mrna);
+                try {
+                    // adding Polypeptide object to collection 'polypeptide' in class 'MRNA'
+                    HashSet polypeptideCollection = (HashSet) mrna.getFieldValue("polypeptide");
+                    System.out.println("mrna POLYCOLs: " + polypeptideCollection);
+                    polypeptideCollection.add(bioEntity);
+                    mrna.setFieldValue("polypeptide", polypeptideCollection);
+                    // updating the mrnaIdMap
+                    mrnaIdMap.put(mrnaIdentifier, mrna);
+                } catch(IllegalAccessException e) {
+                    e.printStackTrace();
+                }
             }
         } else {
             throw new RuntimeException("Trying to load Protein sequence but Protein does not exist in the"
