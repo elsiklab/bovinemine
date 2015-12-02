@@ -13,6 +13,11 @@ package org.intermine.bio.dataconversion;
 import org.intermine.bio.io.gff3.GFF3Record;
 import org.intermine.metadata.Model;
 import org.intermine.xml.full.Item;
+import org.intermine.metadata.StringUtil;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * A converter/retriever for the HapmapGff dataset via GFF files.
@@ -41,7 +46,7 @@ public class HapmapGffGFF3RecordHandler extends GFF3RecordHandler
         if (clsName.equals("SNP")) {
             if (record.getAttributes().get("ID") != null) {
                 String secondaryIdentifier = record.getAttributes().get("ID").iterator().next();
-                feature.setAttribute("secondaryIdentifier", secondaryIdentifier);
+                feature.setAttribute("primaryIdentifier", secondaryIdentifier);
             }
             if (record.getAttributes().get("Reference_seq") != null) {
                 String refAllele = record.getAttributes().get("Reference_seq").iterator().next();
@@ -65,7 +70,7 @@ public class HapmapGffGFF3RecordHandler extends GFF3RecordHandler
                             throw new RuntimeException("Error in Dbxref attribute " + ref);
                         }
                         if (ref.startsWith("dbSNP")) {
-                            feature.setAttribute("primaryIdentifier", ref.replace("dbSNP:", ""));
+                            feature.setAttribute("secondaryIdentifier", ref.replace("dbSNP:", ""));
                         }
                     }
                 }
