@@ -34,6 +34,8 @@
     </class>
     <class name="SnoRNA" extends="NcRNA" is-interface="true">
     </class>
+    <class name="LincRNA" extends="NcRNA" is-interface="true">
+    </class>
     <class name="Exon" extends="SequenceFeature" is-interface="true">
     </class>
     <class name="CDS" extends="SequenceFeature" is-interface="true">
