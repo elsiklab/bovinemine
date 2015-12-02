@@ -219,6 +219,20 @@ public class BovineExpressionConverter extends BioFileConverter
         return className;
     }
 
+
+    /**
+     * Storing all Expression Items
+     */
+    public void storeAllItems() {
+        for (String key : items.keySet()) {
+            try {
+                store(items.get(key));
+            } catch (Exception e) {
+                System.out.println("Error while storing item:\n" + items.get(key) + "\nStackTrace:\n" + e);
+            }
+        }
+    }
+
     /**
      * Storing all Transcript Items
      */
