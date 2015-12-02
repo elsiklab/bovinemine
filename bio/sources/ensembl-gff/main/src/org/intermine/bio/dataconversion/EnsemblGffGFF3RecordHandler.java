@@ -52,6 +52,7 @@ public class EnsemblGffGFF3RecordHandler extends GFF3RecordHandler
         refsAndCollections.put("RRNA", "gene");
         refsAndCollections.put("SnRNA", "gene");
         refsAndCollections.put("SnoRNA", "gene");
+        refsAndCollections.put("LincRNA", "gene");
         refsAndCollections.put("Exon", "transcripts");
         refsAndCollections.put("CDS", "transcript");
         refsAndCollections.put("UTR", "transcripts");
@@ -94,7 +95,7 @@ public class EnsemblGffGFF3RecordHandler extends GFF3RecordHandler
                 }
             }
         }
-        else if( clsName.equals("MRNA") || clsName.equals("Transcript") || clsName.equals("TRNA") || clsName.equals("MiRNA") || clsName.equals("RRNA") || clsName.equals("SnRNA") || clsName.equals("SnoRNA")) {
+        else if( clsName.equals("MRNA") || clsName.equals("Transcript") || clsName.equals("TRNA") || clsName.equals("MiRNA") || clsName.equals("RRNA") || clsName.equals("SnRNA") || clsName.equals("SnoRNA") || clsName.equals("LincRNA")) {
             if(record.getAttributes().get("ID") != null){
                 String id = record.getAttributes().get("ID").iterator().next();
                 feature.setAttribute("primaryIdentifier", id);
