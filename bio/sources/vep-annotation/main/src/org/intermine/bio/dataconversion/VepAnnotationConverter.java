@@ -113,8 +113,10 @@ public class VepAnnotationConverter extends BioFileConverter
                         variantAnnotationItem.setAttribute("variantAminoAcid", aminoAcidSplit[0]);
                     }
                     else {
-                        System.out.println("Error: AminoAcid Split has only 1 residue even though type is not 'synonymous_variant'");
-                        System.exit(1);
+                        System.out.println("Warning: AminoAcid Split has only 1 residue even though type is not 'synonymous_variant'");
+                        printLineEntry(line);
+                        //System.exit(1);
+                        variantAnnotationItem.setAttribute("referenceAminoAcid", aminoAcidSplit[0]);
                     }
                 }
                 else {
@@ -140,6 +142,13 @@ public class VepAnnotationConverter extends BioFileConverter
             sequenceAlterationItemMap.put(rsId, sequenceAlterationItem);
             storeItem(variantAnnotationItem);
         }
+    }
+
+    private void printLineEntry(String[] entry) {
+        for (String eachEntry : entry) {
+            System.out.print(eachEntry + "\t");
+        }
+        System.out.println("\n");
     }
 
     /**
