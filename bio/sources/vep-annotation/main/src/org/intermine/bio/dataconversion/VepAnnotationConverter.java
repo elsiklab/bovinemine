@@ -98,8 +98,12 @@ public class VepAnnotationConverter extends BioFileConverter
             Item variantAnnotationItem = createItem("VariantAnnotation");
             variantAnnotationItem.setAttribute("rsId", rsId);
             variantAnnotationItem.setAttribute("variantAllele", variantAllele);
-            variantAnnotationItem.setAttribute("geneIdentifier", geneId);
-            variantAnnotationItem.setAttribute("transcriptIdentifier", transcriptId);
+            if (! "-".equals(geneId)) {
+                variantAnnotationItem.setAttribute("geneIdentifier", geneId);
+            }
+            if (! "-".equals(transcriptId)) {
+                variantAnnotationItem.setAttribute("transcriptIdentifier", transcriptId);
+            }
             variantAnnotationItem.setAttribute("type", annotationType.replace("/", " | "));
 
             if (! "-".equals(cdnaPosition)) { variantAnnotationItem.setAttribute("cdnaPosition", cdnaPosition); }
@@ -130,15 +134,16 @@ public class VepAnnotationConverter extends BioFileConverter
             }
 
             Item sequenceAlterationItem = getSequenceAlteration(rsId);
-            Item transcriptItem = getTranscript(transcriptId);
+            Item transcriptItem;
+            if (! "-".equals(transcriptId)) {
+                transcriptItem = getTranscript(transcriptId);
+                transcriptItem.addToCollection("variantAnnotations", variantAnnotationItem.getIdentifier());
+                transcriptItemMap.put(transcriptId, transcriptItem);
+                variantAnnotationItem.setReference("transcript", transcriptItem.getIdentifier());
+            }
 
             sequenceAlterationItem.addToCollection("variantAnnotations", variantAnnotationItem.getIdentifier());
             variantAnnotationItem.setReference("variant", sequenceAlterationItem.getIdentifier());
-
-            variantAnnotationItem.setReference("transcript", transcriptItem.getIdentifier());
-            transcriptItem.addToCollection("variantAnnotations", variantAnnotationItem.getIdentifier());
-
-            transcriptItemMap.put(transcriptId, transcriptItem);
             sequenceAlterationItemMap.put(rsId, sequenceAlterationItem);
             storeItem(variantAnnotationItem);
         }
