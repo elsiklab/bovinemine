@@ -273,6 +273,9 @@
             <property name="gff3.seqClsName" value="Chromosome"/>
             <property name="src.data.dir" location="@DATA_DIR@/dbSNP/chr10"/>
         </source>
+        <source name="vep-variant-annotation" type="vep-annotation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/variant-annotation"/>
+        </source>
         <source name="bovine-dbvar" type="dbvar-gff" dump="true">
             <property name="gff3.taxonId" value="9913"/>
             <property name="gff3.dataSourceName" value="Structural Variations from NCBI dbVar"/>
@@ -300,10 +303,6 @@
             <property name="gff3.dataSetTitle" value="Repeat regions on UMD3.1 predicted by RepeatMasker"/>
             <property name="gff3.seqClsName" value="Chromosome"/>
             <property name="src.data.dir" location="@DATA_DIR@/repeat-region-gff"/>
-        </source>
-        <source name="go-annotation" type="go-annotation">
-            <property name="ontologyfile" location="@DATA_DIR@/GO/go.obo"/>
-            <property name="src.data.dir" location="@DATA_DIR@/GO-annotation/"/>
         </source>
         <source name="bovine-uniprot" type="uniprot" >
             <property name="uniprot.organisms" value="9913 9606 10090 10116 9940 9925"/>
@@ -338,8 +337,16 @@
             <property name="fasta.sequenceType" value="protein" />
             <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.UniProtFastaLoaderTask"/>
         </source>
+        <source name="go-annotation" type="go-annotation">
+            <property name="ontologyfile" location="@DATA_DIR@/GO/go.obo"/>
+            <property name="src.data.dir" location="@DATA_DIR@/GO-annotation/"/>
+        </source>
         <source name="interpro" type="interpro">
             <property name="src.data.dir" location="@DATA_DIR@/InterPro"/>
+        </source>
+        <source name="reactome" type="reactome">
+            <property name="src.data.dir" location="@DATA_DIR@/Reactome"/>
+            <property name="reactome.organisms" value="9913 9606 10090 10116 9925 9940"/>
         </source>
         <source name="ncbi-pubmed-gene" type="pubmed-gene" dump="true">
             <property name="src.data.dir" location="@DATA_DIR@/pubmed/"/>
@@ -383,13 +390,6 @@
             <property name="src.data.dir" location="@DATA_DIR@/IntAct"/>
             <property name="intact.organisms" value="9606 9606 10090 10116 9924 9940"/>
         </source>
-        <source name="vep-variant-annotation" type="vep-annotation" dump="true">
-            <property name="src.data.dir" location="@DATA_DIR@/variant-annotation"/>
-        </source>
-        <source name="reactome" type="reactome">
-            <property name="src.data.dir" location="@DATA_DIR@/Reactome"/>
-            <property name="reactome.organisms" value="9913 9606 10090 10116 9925 9940"/>
-        </source>
         <source name="biocyc-human" type="biocyc">
             <property name="src.data.dir" location="@DATA_DIR@/Biocyc"/>
             <property name="biocyc.organisms" value="9606 10090"/> <!--NEED TO ADD MORE ORGANSIMS -->
@@ -405,10 +405,10 @@
     <post-processing>
         <post-process name="create-chromosome-locations-and-lengths"/>
         <post-process name="create-references"/>
-        <!--<post-process name="transfer-sequences"/>-->
+        <post-process name="transfer-sequences"/>
         <post-process name="create-overlap-view"/>
         <post-process name="create-location-overlap-index"/>
-        <!--<post-process name="create-gene-flanking-features"/>-->
+        <post-process name="create-gene-flanking-features"/>
         <post-process name="do-sources"/>
         <post-process name="create-attribute-indexes"/>
         <post-process name="create-search-index"/>
