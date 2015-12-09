@@ -237,7 +237,9 @@ public class HomologeneConverter extends BioFileConverter
         if (identifierType == null) {
             identifierType = DEFAULT_IDENTIFIER_TYPE;
         }
-        String resolvedIdentifier = resolveGene(taxonId, ncbiId, symbol);
+        // Disabling idResolver
+        //String resolvedIdentifier = resolveGene(taxonId, ncbiId, symbol);
+        String resolvedIdentifier = ncbiId;
         if (resolvedIdentifier == null) {
             return null;
         }
@@ -281,7 +283,7 @@ public class HomologeneConverter extends BioFileConverter
     }
 
     private String resolveGene(String taxonId, String ncbi, String identifier) {
-        if ("0000".equals(taxonId)) {
+        if ("9606".equals(taxonId)) {
             // use entrez-gene identifier for human
             return ncbi;
         }
