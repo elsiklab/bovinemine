@@ -39,6 +39,7 @@ import org.intermine.bio.web.export.ResidueFieldExporter;
 import org.intermine.model.InterMineObject;
 import org.intermine.model.bio.BioEntity;
 import org.intermine.model.bio.Protein;
+import org.intermine.model.bio.Polypeptide;
 import org.intermine.model.bio.Sequence;
 import org.intermine.model.bio.SequenceFeature;
 import org.intermine.objectstore.ObjectStore;
@@ -128,7 +129,12 @@ public class SequenceExportAction extends InterMineAction
         throws IllegalSymbolException, IllegalAccessException, ChangeVetoException {
         BioSequence bioSequence;
         BioEntity bioEntity = (BioEntity) obj;
-        bioSequence = BioSequenceFactory.make(bioEntity, SequenceType.DNA);
+        if (bioEntity instanceof Polypeptide || bioEntity instanceof Protein) {
+            bioSequence = BioSequenceFactory.make(bioEntity, SequenceType.PROTEIN);
+        }
+        else {
+            bioSequence = BioSequenceFactory.make(bioEntity, SequenceType.DNA);
+        }
         if (bioSequence == null) {
             return null;
         }
