@@ -16,6 +16,7 @@ import org.biojava.bio.symbol.IllegalSymbolException;
 import org.intermine.model.bio.BioEntity;
 import org.intermine.model.bio.SequenceFeature;
 import org.intermine.model.bio.Protein;
+import org.intermine.model.bio.Polypeptide;
 
 /**
  * A factory for creating BioSequence objects.
@@ -101,6 +102,14 @@ public abstract class BioSequenceFactory
             } else {
                 String residues = protein.getSequence().getResidues().toString();
                 return new BioSequence(ProteinTools.createProtein(residues), protein);
+            }
+        } else if (bioEnt instanceof Polypeptide) {
+            Polypeptide polypeptide = (Polypeptide) bioEnt;
+            if (polypeptide.getSequence() == null || polypeptide.getSequence().getResidues() == null) {
+                return null;
+            } else {
+                String residues = polypeptide.getSequence().getResidues().toString();
+                return new BioSequence(ProteinTools.createProtein(residues), polypeptide);
             }
         } else if (bioEnt instanceof SequenceFeature) {
             SequenceFeature feature = (SequenceFeature) bioEnt;
