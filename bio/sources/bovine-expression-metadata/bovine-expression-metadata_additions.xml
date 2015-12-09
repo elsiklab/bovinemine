@@ -2,13 +2,15 @@
 <!-- This file details any extensions needed to the data model to store data from this source, everything else is automatically generated from the model description so this is all we need to do to add to the model. -->
 
 <classes>
-    <class name="BRENDATerm" extends="OntologyTerm" is-interface="true"></class>
+    <class name="BRENDATerm" extends="OntologyTerm" is-interface="true">
+        <collection name="samples" referenced-type="ExpressionMetadata" reverse-reference="brendaTissueOntology"/>
+    </class>
     <!-- add any <class> elements here -->
     <class name="ExpressionMetadata" is-interface="true">
         <attribute name="label" type="java.lang.String"/>
         <attribute name="sampleType" type="java.lang.String"/>
         <attribute name="libraryName" type="java.lang.String"/>
-        <collection name="brendaTissueOntology" referenced-type="BRENDATerm"/>
+        <collection name="brendaTissueOntology" referenced-type="BRENDATerm" reverse-reference="samples"/>
         <attribute name="btoName" type="java.lang.String"/>
         <attribute name="sraExperimentAccession" type="java.lang.String"/>
         <attribute name="experimentName" type="java.lang.String"/>
