@@ -165,6 +165,7 @@ public class BovineExpressionMetadataConverter extends BioFileConverter
                     btoItem.setAttribute("identifier", brendaTissueOntologyId);
                     btoItem.setAttribute("name", btoName);
                     item.addToCollection("brendaTissueOntology", btoItem.getIdentifier());
+                    btoItem.addToCollection("samples", item.getIdentifier());
                     btoItems.put(brendaTissueOntologyId, btoItem);
                 }
             }
