@@ -54,7 +54,8 @@ public class BovineFastaLoaderTask extends FileDirectDataLoaderTask
 
     private String sequenceType = "dna";
     private String classAttribute = "primaryIdentifier";
-    private String classAttributeAlias = "name";
+    private String classAttributeAlias = "secondaryIdentifier";
+    private String classAttributeName = "name";
     private Organism org;
     private String className;
     private int storeCount = 0;
@@ -138,6 +139,15 @@ public class BovineFastaLoaderTask extends FileDirectDataLoaderTask
      */
     public void setClassAttributeAlias(String classAttributeAlias) {
         this.classAttributeAlias = classAttributeAlias;
+    }
+
+    /**
+     * The attribute of the class created to set with the identifying field.  If not set will
+     * be 'primaryIdentifier'.
+     * @param classAttributeName the class name
+     */
+    public void setClassAttributeName(String classAttributeName) {
+        this.classAttributeName = classAttributeName;
     }
 
     /**
@@ -306,12 +316,14 @@ public class BovineFastaLoaderTask extends FileDirectDataLoaderTask
         //List<String> refList = new ArrayList<String>( Arrays.asList(StringUtil.split(dbxref, ",")));
         String attributeValue;
         String attributeValueAlias;
+        String attributeValueName;
         String[] headerAttributes = sequenceHeader.split("\\|");
 
         if (headerAttributes.length > 1) {
             attributeValue = headerAttributes[0];
             attributeValueAlias = headerAttributes[1];
-            System.out.println(attributeValue + " " + attributeValueAlias);
+            attributeValueName = headerAttributes[2];
+            System.out.println(attributeValue + " " + attributeValueAlias + " " + attributeValueName);
             try {
                 imo.setFieldValue(classAttribute, attributeValue);
             } catch (Exception e) {
@@ -326,6 +338,14 @@ public class BovineFastaLoaderTask extends FileDirectDataLoaderTask
                 throw new IllegalArgumentException("Error setting: " + className + "."
                                                    + classAttributeAlias + " to: " + attributeValueAlias
                                                    + ". Does the attribute exist?");
+            }
+
+            try {
+                imo.setFieldValue(classAttributeName, attributeValueName);
+            } catch (Exception e) {
+                throw new IllegalArgumentException("Error setting: " + className + "."
+                        + classAttributeName + " to: " + attributeValueName
+                        + ". Does the attribute exist?");
             }
         }
         else {
