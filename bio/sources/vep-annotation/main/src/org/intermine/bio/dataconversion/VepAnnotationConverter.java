@@ -88,6 +88,11 @@ public class VepAnnotationConverter extends BioFileConverter
             String strand;
             String distanceFromClosestTranscript;
 
+            if ("intergenic_variant".equals(annotationType) || "intron_variant".equals(annotationType)) {
+                // ignoring annotations for variants that fall in intergenic and intronic regions
+                continue;
+            }
+
             for (String info : extraInformation) {
                 if (info.contains("IMPACT")) { impact = getValue(info); }
                 else if (info.contains("STRAND")) { strand = getValue(info); }
