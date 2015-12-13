@@ -152,6 +152,10 @@ public class VepAnnotationConverter extends BioFileConverter
             sequenceAlterationItemMap.put(rsId, sequenceAlterationItem);
             storeItem(variantAnnotationItem);
         }
+        storeItemForFile();
+        sequenceAlterationItemMap.clear();
+        transcriptItemMap.clear();
+
     }
 
     private void printLineEntry(String[] entry) {
@@ -225,11 +229,10 @@ public class VepAnnotationConverter extends BioFileConverter
     }
 
     /**
-     *
-     * {@inheritDoc}
+     * For the current file, stores all entries in sequenceAlterationItemMap and transcriptItemMap
+     * @throws Exception
      */
-    @Override
-    public void close() throws Exception {
+    public void storeItemForFile() throws Exception {
         for (String rsId : sequenceAlterationItemMap.keySet()) {
              storeItem(sequenceAlterationItemMap.get(rsId));
         }
