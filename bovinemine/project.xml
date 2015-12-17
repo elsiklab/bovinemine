@@ -483,8 +483,11 @@
             <property name="gff3.seqClsName" value="Chromosome"/>
             <property name="src.data.dir" location="@DATA_DIR@/dbSNP/chrMT"/>
         </source>
-        <source name="vep-variant-annotation" type="vep-annotation" dump="true">
-            <property name="src.data.dir" location="@DATA_DIR@/variant-annotation"/>
+        <source name="ensembl-variant-annotation" type="vep-annotation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/variant-annotation/ensembl-vep-annotation"/>
+        </source>
+        <source name="refseq-variant-annotation" type="vep-annotation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/variant-annotation/refseq-vep-annotation"/>
         </source>
         <source name="bovine-dbvar" type="dbvar-gff" dump="true">
             <property name="gff3.taxonId" value="9913"/>
