@@ -166,7 +166,7 @@
             <property name="fasta.dataSourceName" value="CDS sequence for transcripts from NCBI RefSeq"/>
             <property name="fasta.dataSetTitle" value="CDS sequence for transcripts from NCBI RefSeq for Ovis aries"/>
             <property name="src.data.dir" location="@DATA_DIR@/RefSeq/cds-fasta/ovis_aries"/>
-            <property name="fasta.includes" value="NCBI_Oari_CDS_computed.fa"/>
+            <property name="fasta.includes" value="*.fa"/>
             <property name="fasta.sequenceType" value="dna"/>
             <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineCDSFastaLoaderTask"/>
         </source>
@@ -483,11 +483,41 @@
             <property name="gff3.seqClsName" value="Chromosome"/>
             <property name="src.data.dir" location="@DATA_DIR@/dbSNP/chrMT"/>
         </source>
-        <source name="ensembl-variant-annotation" type="vep-annotation" dump="true">
-            <property name="src.data.dir" location="@DATA_DIR@/variant-annotation/ensembl-vep-annotation"/>
+        <source name="ensembl-variant-annotation-I" type="vep-annotation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/variant-annotation/ensembl-vep-annotation/part_I"/>
         </source>
-        <source name="refseq-variant-annotation" type="vep-annotation" dump="true">
-            <property name="src.data.dir" location="@DATA_DIR@/variant-annotation/refseq-vep-annotation"/>
+        <source name="ensembl-variant-annotation-II" type="vep-annotation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/variant-annotation/ensembl-vep-annotation/part_II"/>
+        </source>
+        <source name="ensembl-variant-annotation-III" type="vep-annotation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/variant-annotation/ensembl-vep-annotation/part_III"/>
+        </source>
+        <source name="ensembl-variant-annotation-IV" type="vep-annotation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/variant-annotation/ensembl-vep-annotation/part_IV"/>
+        </source>
+        <source name="ensembl-variant-annotation-V" type="vep-annotation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/variant-annotation/ensembl-vep-annotation/part_V"/>
+        </source>
+        <source name="ensembl-variant-annotation-VI" type="vep-annotation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/variant-annotation/ensembl-vep-annotation/part_VI"/>
+        </source>
+        <source name="refseq-variant-annotation-I" type="vep-annotation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/variant-annotation/refseq-vep-annotation/part_I"/>
+        </source>
+        <source name="refseq-variant-annotation-II" type="vep-annotation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/variant-annotation/refseq-vep-annotation/part_II"/>
+        </source>
+        <source name="refseq-variant-annotation-III" type="vep-annotation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/variant-annotation/refseq-vep-annotation/part_III"/>
+        </source>
+        <source name="refseq-variant-annotation-IV" type="vep-annotation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/variant-annotation/refseq-vep-annotation/part_IV"/>
+        </source>
+        <source name="refseq-variant-annotation-V" type="vep-annotation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/variant-annotation/refseq-vep-annotation/part_V"/>
+        </source>
+        <source name="refseq-variant-annotation-VI" type="vep-annotation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/variant-annotation/refseq-vep-annotation/part_VI"/>
         </source>
         <source name="bovine-dbvar" type="dbvar-gff" dump="true">
             <property name="gff3.taxonId" value="9913"/>
