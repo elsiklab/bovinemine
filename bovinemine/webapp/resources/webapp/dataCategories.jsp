@@ -26,25 +26,32 @@
   </tr>
   <tr><td rowspan="3" class="leftcol">
     <h2><p>Genes</p></h2></td>
-    <td> <i>Bos taurus</i> </td>
+    <td>
+        <p><i>B. taurus</i></p>
+        <p><i>C. hircus</i></p>
+        <p><i>O. aries</i></p>
+    </td>
     <td>NCBI Annotations</td>
     <td>NCBI Annotation Release 104</td>
     <td><p>Pruitt et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=24259432>24259432</a></p></td>
-    <td> <a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/Bos_taurus/">NCBI FTP</a></td>
+    <td> <a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/">NCBI FTP</a></td>
   </tr>
   <tr>
-    <td> <i>Bos taurus</i> </td>
+    <td> <i>B. taurus</i> </td>
     <td> Official Gene Set v2.0  </td>
     <td> Bovine Genome Database</td>
     <td><p>Bovine Genome Sequencing and Analysis Consortium - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=19390049>19390049</a></p><p>Reese et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=21092105>21092105</a></p></td>
     <td><a href="http://bovinegenome.org/?q=node/61">BGD Download</a></td>
   </tr>
   <tr>
-    <td> <i> Bos taurus</i></td>
+    <td>
+        <p><i>B. taurus</i></p>
+        <p><i>O. aries</i></p>
+    </td>
     <td> Ensembl annotations </td>
-    <td>Ensembl Release 79</td>
+    <td>Ensembl Release 82</td>
     <td>Cunnigham et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25352552>25352552</a></td>
-    <td><a href="ftp://ftp.ensembl.org/pub/release-79/gtf/bos_taurus/">Ensembl Download</a></td>
+    <td><a href="ftp://ftp.ensembl.org/pub/release-82/gtf/bos_taurus/">Ensembl Download</a></td>
   </tr>
 
 
@@ -57,12 +64,15 @@
        <p><i>E. caballus</i></p>
        <p><i>H. sapien</i></p>
        <p><i>M. musculus</i></p>
+       <p><i>R. norvegicus</i></p>
        <p><i>S. scrofa</i></p>
+       <p><i>C. hircus</i></p>
+       <p><i>O. aries</i></p>
     </td>
      <td>Orthologue and paralogue relationships</td>
-    <td>OrthoDB - Version 7</td>
+    <td>OrthoDB - Version 8</td>
     <td>Kriventseva et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428351>25428351</a></td>
-    <td><a href="ftp://cegg.unige.ch/OrthoDB7/">OrthoDB Download</a></td>
+    <td><a href="ftp://cegg.unige.ch/OrthoDB8/">OrthoDB Download</a></td>
   </tr>
 
   <tr>
@@ -72,7 +82,10 @@
       <p><i>E. caballus</i></p>
       <p><i>H. sapien</i></p>
       <p><i>M. musculus</i></p>
+      <p><i>R. norvegicus</i></p>
       <p><i>S. scrofa</i></p>
+      <p><i>C. hircus</i></p>
+      <p><i>O. aries</i></p>
     </td>
     <td>Orthologue and paralogue relationships</td>
     <td>Treefam - release 8.0</td>
@@ -86,7 +99,10 @@
       <p><i>E. caballus</i></p>
       <p><i>H. sapien</i></p>
       <p><i>M. musculus</i></p>
+      <p><i>R. norvegicus</i></p>
       <p><i>S. scrofa</i></p>
+      <p><i>C. hircus</i></p>
+      <p><i>O. aries</i></p>
     </td>
     <td>Orthologue and paralogue relationships</td>
     <td>Ensembl Compara</td>
@@ -99,7 +115,10 @@
       <p><i>C. canis familiaris</i></p>
       <p><i>H. sapien</i></p>
       <p><i>M. musculus</i></p>
+      <p><i>R. norvegicus</i></p>
       <p><i>S. scrofa</i></p>
+      <p><i>C. hircus</i></p>
+      <p><i>O. aries</i></p>
     </td>
     <td>Orthologue and paralogue relationships</td>
     <td>HomoloGene build 68</td>
@@ -112,22 +131,30 @@
     <td>
         <p><i>H. sapien</i></p>
         <p><i>M. musculus</i></p>
+        <p><i>R. norvegicus</i></p>
         <p><i>B. taurus</i></p>
+        <p><i>C. hircus</i></p>
+        <p><i>O. aries</i></p>
     </td>
     <td> Protein annotation</td>
-    <td> UniProt - Release 2015_08</td>
+    <td> UniProt - Release 2015_12</td>
     <td> UniProt Consortium - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25348405>25348405</a></td>
     <td> <a href=ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/">UniProt FTP</a></td>
   </tr>
 
   <tr>
     <td>
+        <p><i>H. sapien</i></p>
+        <p><i>M. musculus</i></p>
+        <p><i>R. norvegicus</i></p>
         <p><i>B. taurus</i></p>
+        <p><i>C. hircus</i></p>
+        <p><i>O. aries</i></p>
     </td>
     <td> Protein family and domain assignments to proteins</td>
-    <td> InterPro Version 53.0  </td>
+    <td> InterPro Version 55.0  </td>
     <td> Mitchell et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428371>25428371</a></td>
-    <td> <a href="ftp://ftp.ebi.ac.uk/pub/databases/interpro/53.0/">InterPro FTP</a></td>
+    <td> <a href="ftp://ftp.ebi.ac.uk/pub/databases/interpro/55.0/">InterPro FTP</a></td>
   </tr>
   <tr>
     <td class="leftcol"><p><h2>Interactions</h2></p></td>
@@ -135,18 +162,28 @@
         <p><i>B. taurus</i></p>
         <p><i>H. sapien</i></p>
         <p><i>M. musculus</i></p>
+        <p><i>R. norvegicus</i></p>
+        <p><i>C. hircus</i></p>
+        <p><i>O. aries</i></p>
     </td>
     <td> Interactions from BioGRID </td>
-    <td> BioGRID - Version 3.4.128 </td>
+    <td> BioGRID - Version 3.4.132 </td>
     <td> Chatr-Aryamontri et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428363>25428363</a></td>
     <td> <a href="http://thebiogrid.org/download.php">BioGRID Download</a></td>
   </tr>
 
   <tr>
     <td class="leftcol"><p> <h2>Gene Ontology</h2></p></td>
-    <td> <i>B. taurus</i> </td>
+    <td>
+        <p><i>B. taurus</i></p>
+        <p><i>H. sapien</i></p>
+        <p><i>M. musculus</i></p>
+        <p><i>R. norvegicus</i></p>
+        <p><i>C. hircus</i></p>
+        <p><i>O. aries</i></p>
+    </td>
     <td> GO annotations </td>
-    <td> GOA at UniProt (GOC Validation Date: 07/22/2015)</td>
+    <td> GOA at UniProt (GOC Validation Date: 11/11/2015)</td>
     <td> <p>Huntley et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25378336>25378336</a></p><p>Gene Ontology Consortium - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428369>25428369</a></p></td>
     <td> <a href="http://geneontology.org/page/download-annotation">GO Consortium Annotation Download</a></td>
   </tr>
@@ -157,6 +194,9 @@
       <p><i>H. sapien</i></p>
       <p><i>M. musculus</i></p>
       <p><i>B. taurus</i></p>
+      <p><i>R. norvegicus</i></p>
+      <p><i>C. hircus</i></p>
+      <p><i>O. aries</i></p>
     </td>
     <td> Pathway information and the genes involved in them, inferred through orthologues from curated human pathways</td>
     <td> Reactome - version 53, July 2015</td>
