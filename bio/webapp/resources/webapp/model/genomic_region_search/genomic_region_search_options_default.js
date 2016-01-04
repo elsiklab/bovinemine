@@ -71,6 +71,9 @@
                             var current_loc = j + k*rows;
                             if (!(current_loc >= feature_size)) {
                                 var current = webDataJSON.featureTypes[i].features[current_loc].featureType;
+                                if (! $MODEL_TRANSLATION_TABLE[current]) {
+                                    continue;
+                                }
                                 var displayName = $MODEL_TRANSLATION_TABLE[current].displayName ? $MODEL_TRANSLATION_TABLE[current].displayName : current;
                                 var description = webDataJSON.featureTypes[i].features[current_loc].description;
                                 var desBox = "<a onclick=\"document.getElementById('ctxHelpTxt').innerHTML='" + displayName + ": " + description.replace(/&apos;/g, "\\'")
