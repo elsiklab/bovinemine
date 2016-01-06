@@ -189,7 +189,7 @@
   </tr>
 
   <tr>
-    <td class="leftcol"><p><h2>Pathways</h2></p></td>
+    <td class="leftcol" rowspan="2"><p><h2>Pathways</h2></p></td>
     <td>
       <p><i>H. sapien</i></p>
       <p><i>M. musculus</i></p>
@@ -198,10 +198,20 @@
       <p><i>C. hircus</i></p>
       <p><i>O. aries</i></p>
     </td>
-    <td> Pathway information and the genes involved in them, inferred through orthologues from curated human pathways</td>
+    <td> Pathway information and the genes involved in them, inferred through orthologues from curated human pathways from Reactome</td>
     <td> Reactome - version 53, July 2015</td>
     <td> Croft et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=24243840>24243840</a></td>
     <td> <a href="http://www.reactome.org/download/current/">Reactome Download</a></td>
+  </tr>
+  <tr>
+    <td>
+      <p><i>H. sapien</i></p>
+      <p><i>M. musculus</i></p>
+    </td>
+    <td>Pathway information and the genes involved in them from BioCyc</td>
+    <td>BioCyc</td>
+    <td>Caspi et al - PubMed <a href="http://www.ncbi.nlm.nih.gov/pubmed/26527732">26527732</a></td>
+    <td><a href="http://biocyc.org/">BioCyc</a>
   </tr>
   <tr>
     <td class="leftcol"><p><h2>Publications</h2></p></td>
@@ -213,7 +223,7 @@
   </tr>
 
   <tr>
-    <td class="leftcol" rowspan="2"><p><h2>Variation</h2></p></td>
+    <td class="leftcol" rowspan="3"><p><h2>Variation</h2></p></td>
     <td>
       <i>B. taurus</i>
     </td>
@@ -229,7 +239,21 @@
     <td> Sherry et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=11125122>11125122</a></td>
     <td><a href="ftp://ftp.ncbi.nih.gov/snp/organisms/cow_9913/VCF/">NCBI FTP</a></td>
   </tr>
-
+  <tr>
+      <td><i>B. taurus</i></td>
+      <td>dbVar data for Bos taurus</td>
+      <td> dbVar (Revision January 30, 2015)</td>
+      <td> Church et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3531204/>23193291</a></td>
+      <td><a href="ftp://ftp.ncbi.nlm.nih.gov/pub/dbVar/data/Bos_taurus/">NCBI FTP</a></td>
+  </tr>
+  <tr>
+    <td class="leftcol" rowspan="1"><p><h2>Variant Annotations</h2></p></td>
+    <td><i>B. taurus</i></td>
+    <td>Effected of variants predicted on RefSeq and Ensembl gene annotations using Ensembl Variant Effect Predictor</td>
+    <td>Ensembl VEP (Release 82)</td>
+    <td>McLaren et al - PubMed <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=20562413">20562413</a></td>
+    <td><a href="http://useast.ensembl.org/info/docs/tools/vep/index.html">Ensembl VEP</a></td>
+  </tr>
   <tr>
     <td class="leftcol"><p><h2>Gene expression</h2></p></td>
     <td><p>B. taurus</p></td>
