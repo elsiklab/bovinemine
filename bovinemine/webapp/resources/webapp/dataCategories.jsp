@@ -31,7 +31,7 @@
         <p><i>C. hircus</i></p>
         <p><i>O. aries</i></p>
     </td>
-    <td>NCBI Annotations</td>
+    <td>NCBI Genes (RefSeq)</td>
     <td>NCBI Annotation Release 104</td>
     <td><p>Pruitt et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=24259432>24259432</a></p></td>
     <td> <a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/">NCBI FTP</a></td>
@@ -48,7 +48,7 @@
         <p><i>B. taurus</i></p>
         <p><i>O. aries</i></p>
     </td>
-    <td> Ensembl annotations </td>
+    <td> Ensembl Genes </td>
     <td>Ensembl Release 82</td>
     <td>Cunnigham et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25352552>25352552</a></td>
     <td><a href="ftp://ftp.ensembl.org/pub/release-82/gtf/bos_taurus/">Ensembl Download</a></td>
@@ -151,7 +151,7 @@
         <p><i>C. hircus</i></p>
         <p><i>O. aries</i></p>
     </td>
-    <td> Protein family and domain assignments to proteins</td>
+    <td> Protein domains</td>
     <td> InterPro Version 55.0  </td>
     <td> Mitchell et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428371>25428371</a></td>
     <td> <a href="ftp://ftp.ebi.ac.uk/pub/databases/interpro/55.0/">InterPro FTP</a></td>
@@ -166,7 +166,7 @@
         <p><i>C. hircus</i></p>
         <p><i>O. aries</i></p>
     </td>
-    <td> Interactions from BioGRID </td>
+    <td> Interactions</td>
     <td> BioGRID - Version 3.4.132 </td>
     <td> Chatr-Aryamontri et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428363>25428363</a></td>
     <td> <a href="http://thebiogrid.org/download.php">BioGRID Download</a></td>
@@ -198,7 +198,7 @@
       <p><i>C. hircus</i></p>
       <p><i>O. aries</i></p>
     </td>
-    <td> Pathway information and the genes involved in them, inferred through orthologues from curated human pathways from Reactome</td>
+    <td> Pathway information inferred through orthologues from curated human pathways</td>
     <td> Reactome - version 53, July 2015</td>
     <td> Croft et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=24243840>24243840</a></td>
     <td> <a href="http://www.reactome.org/download/current/">Reactome Download</a></td>
@@ -208,7 +208,7 @@
       <p><i>H. sapien</i></p>
       <p><i>M. musculus</i></p>
     </td>
-    <td>Pathway information and the genes involved in them from BioCyc</td>
+    <td>Pathway information</td>
     <td>BioCyc</td>
     <td>Caspi et al - PubMed <a href="http://www.ncbi.nlm.nih.gov/pubmed/26527732">26527732</a></td>
     <td><a href="http://biocyc.org/">BioCyc</a>
@@ -216,7 +216,7 @@
   <tr>
     <td class="leftcol"><p><h2>Publications</h2></p></td>
     <td> <i>B. taurus</i> </td>
-    <td> A mapping from genes to publications using NCBI resources</td>
+    <td> A mapping from genes to publications</td>
     <td> NCBI PubMed</td>
     <td>NCBI Resource Coordinators - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25398906>25398906</a></td>
     <td> <a href="ftp://ftp.ncbi.nlm.nih.gov/gene/DATA/">NCBI FTP</a></td>
@@ -249,7 +249,7 @@
   <tr>
     <td class="leftcol" rowspan="1"><p><h2>Variant Annotations</h2></p></td>
     <td><i>B. taurus</i></td>
-    <td>Effected of variants predicted on RefSeq and Ensembl gene annotations using Ensembl Variant Effect Predictor</td>
+    <td>Variant effects predicted on RefSeq and Ensembl using Ensembl Variant Effect Predictor</td>
     <td>Ensembl VEP (Release 82)</td>
     <td>McLaren et al - PubMed <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=20562413">20562413</a></td>
     <td><a href="http://useast.ensembl.org/info/docs/tools/vep/index.html">Ensembl VEP</a></td>
