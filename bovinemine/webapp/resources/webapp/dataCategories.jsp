@@ -50,7 +50,7 @@
     </td>
     <td> Ensembl Genes </td>
     <td>Ensembl Release 82</td>
-    <td>Cunnigham et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25352552>25352552</a></td>
+    <td>Cunningham et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25352552>25352552</a></td>
     <td><a href="ftp://ftp.ensembl.org/pub/release-82/gtf/bos_taurus/">Ensembl Download</a></td>
   </tr>
 
