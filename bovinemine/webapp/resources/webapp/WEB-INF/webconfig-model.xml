@@ -12,6 +12,13 @@
     </fields>
   </class>
 
+  <class className="org.intermine.model.bio.xRef">
+    <fields>
+      <fieldconfig fieldExpr="name"/>
+      <fieldconfig fieldExpr="source"/>
+    </fields>
+  </class>
+
  <class className="org.intermine.model.bio.BioEntity">
     <headerconfig>
       <titles>
@@ -67,7 +74,7 @@
     </inlinelist>
     <fields>
       <fieldconfig fieldExpr="primaryIdentifier" label="Gene ID"/>
-      <fieldconfig fieldExpr="secondaryIdentifier" label="BGD Identifier"/>
+      <fieldconfig fieldExpr="secondaryIdentifier"/>
       <fieldconfig fieldExpr="symbol"/>
       <fieldconfig fieldExpr="name"/>
       <fieldconfig fieldExpr="source"/>
