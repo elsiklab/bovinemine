@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+ <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="/WEB-INF/struts-tiles.tld" prefix="tiles" %>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -87,11 +87,18 @@
        <a href="http://bovinemine.readthedocs.org/en/latest/">
     <fmt:message key="menu.help"/>
   </a>
+  </li>
       <li id="api"  <c:if test="${tab == 'api'}">class="activelink"</c:if>>
         <a href="/${WEB_PROPERTIES['webapp.path']}/api.do">
           <fmt:message key="menu.api"/>
         </a>
       </li>
+     <li id="network"  <c:if test="${tab == 'network'}">class="activelink"</c:if>>
+    <a href="/${WEB_PROPERTIES['webapp.path']}/network.do">
+    <fmt:message key="menu.network"/>
+      </a>
+   </li>
+
       <li id="mymine"  <c:if test="${tab == 'mymine'}">class="activelink"</c:if>>
         <a href="/${WEB_PROPERTIES['webapp.path']}/mymine.do">
           <span><fmt:message key="menu.mymine"/></span>
@@ -233,3 +240,4 @@
 
 </div>
 <!-- /headMenu.jsp -->
+
