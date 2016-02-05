@@ -10,7 +10,7 @@
 
 <div class="body">
     <td>
-        <img src="picPM.png">
+        <img src="Pic.png">
    </td>
 </div>
 
