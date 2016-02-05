@@ -61,7 +61,7 @@
             <property name="gff3.dataSourceName" value="NCBI RefSeq Annotation"/>
             <property name="gff3.dataSetTitle" value="Protein coding gene annotations for Bos taurus from NCBI RefSeq"/>
             <property name="gff3.seqClsName" value="Chromosome"/>
-            <property name="src.data.dir" location="@DATA_DIR@/RefSeq/annotations/bos_taurus/proteincoding"/>
+            <property name="src.data.dir" location="@DATA_DIR@/RefSeq/annotations/bos_taurus/proteincoding/"/>
         </source>
         <source name="bovine-noncoding-gff" type="refseq-noncoding-gff" dump="true">
             <property name="gff3.taxonId" value="9913"/>
@@ -639,7 +639,7 @@
             <property name="biocyc.organisms" value="9606 10090"/> <!--NEED TO ADD MORE ORGANSIMS -->
         </source>
        <source name="kegg-pathway" type="kegg-pathway">
-	    <property name="src.data.dir" location="/data/kegg"/>
+	    <property name="src.data.dir" location="@DATA_DIR@/KEGG/"/>
             <property name="kegg.organisms" value="9913 9606 9796 9615 10090 10116 9823 9940 9925"/>
        </source>
       
