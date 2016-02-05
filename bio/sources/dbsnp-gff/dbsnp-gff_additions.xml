@@ -10,6 +10,7 @@
         <attribute name="dbsnpBuild" type="java.lang.String"/>
         <attribute name="snpAlleleOrigin" type="java.lang.String"/>
         <attribute name="variationType" type="java.lang.String"/>
+        <collection name="alias" referenced-type="AliasName" reverse-reference="snp"/>
     </class>
     <class name="Indel" extends="SequenceAlteration" is-interface="true">
         <attribute name="rsPosition" type="java.lang.String"/>
@@ -18,5 +19,13 @@
         <attribute name="dbsnpBuild" type="java.lang.String"/>
         <attribute name="snpAlleleOrigin" type="java.lang.String"/>
         <attribute name="variationType" type="java.lang.String"/>
+        <collection name="alias" referenced-type="AliasName" reverse-reference="indel"/>
+    </class>
+   <class name="AliasName" is-interface="true">
+        <attribute name="identifier" type="java.lang.String"/>
+        <attribute name="source" type="java.lang.String"/>
+        <reference name="organism" referenced-type="Organism"/>
+        <collection name="snp" referenced-type="SNP" reverse-reference="alias"/>
+        <collection name="indel" referenced-type="Indel" reverse-reference="alias"/>
     </class>
 </classes>
