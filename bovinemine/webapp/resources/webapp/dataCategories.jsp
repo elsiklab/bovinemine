@@ -157,7 +157,7 @@
     <td> <a href="ftp://ftp.ebi.ac.uk/pub/databases/interpro/55.0/">InterPro FTP</a></td>
   </tr>
   <tr>
-    <td class="leftcol"><p><h2>Interactions</h2></p></td>
+     <td rowspan="2"  class="leftcol"><p><h2>Interactions</h2></p></td>
     <td>
         <p><i>B. taurus</i></p>
         <p><i>H. sapien</i></p>
@@ -172,6 +172,21 @@
     <td> <a href="http://thebiogrid.org/download.php">BioGRID Download</a></td>
   </tr>
 
+     <tr>
+    <td>
+        <p><i>H. sapien</i></p>
+        <p><i>M. musculus</i></p>
+        <p><i>R. norvegicus</i></p>
+        <p><i>B. taurus</i></p>
+        <p><i>C. hircus</i></p>
+        <p><i>O. aries</i></p>
+    </td>
+    <td> Interactions</td>
+    <td> IntAct Version 4.2.3.2 </td>
+    <td> Hermjakob H et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/14681455>14681455</a></td>
+    <td> <a href="ftp://ftp.ebi.ac.uk/pub/databases/IntAct/current/">IntAct FTP</a></td>
+  </tr> 
+   
   <tr>
     <td class="leftcol"><p> <h2>Gene Ontology</h2></p></td>
     <td>
@@ -189,7 +204,7 @@
   </tr>
 
   <tr>
-    <td class="leftcol" rowspan="2"><p><h2>Pathways</h2></p></td>
+    <td class="leftcol" rowspan="3"><p><h2>Pathways</h2></p></td>
     <td>
       <p><i>H. sapien</i></p>
       <p><i>M. musculus</i></p>
@@ -209,10 +224,29 @@
       <p><i>M. musculus</i></p>
     </td>
     <td>Pathway information</td>
-    <td>BioCyc</td>
+    <td>BioCyc - Version 19.5</td>
     <td>Caspi et al - PubMed <a href="http://www.ncbi.nlm.nih.gov/pubmed/26527732">26527732</a></td>
     <td><a href="http://biocyc.org/">BioCyc</a>
   </tr>
+    <tr>
+    <td>
+      <p><i>S. scrofa</i></p>
+      <p><i>H. sapien</i></p>
+      <p><i>M. musculus</i></p>
+      <p><i>B. taurus</i></p>
+      <p><i>R. norvegicus</i></p>
+      <p><i>C. canis familiaris</i></p>
+      <p><i>E. caballus</i></p>
+    </td>
+    <td>Pathway information</td>
+    <td>Kegg</td>
+    <td>Kanehisa M et al - PubMed <a href="http://www.ncbi.nlm.nih.gov/pubmed/10592173">10592173</a></td>
+    <td><a href="http://www.genome.jp/kegg/">Kegg</a>
+  </tr>
+
+
+
+
   <tr>
     <td class="leftcol"><p><h2>Publications</h2></p></td>
     <td> <i>B. taurus</i> </td>
