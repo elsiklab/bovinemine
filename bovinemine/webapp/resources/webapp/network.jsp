@@ -10,7 +10,7 @@
 
 <div class="body">
     <td>
-        <img src="Pic.png">
+        <img src="bovinemine_map.png">
    </td>
 </div>
 
