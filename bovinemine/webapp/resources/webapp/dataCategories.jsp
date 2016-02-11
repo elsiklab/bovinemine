@@ -257,7 +257,7 @@
   </tr>
 
   <tr>
-    <td class="leftcol" rowspan="3"><p><h2>Variation</h2></p></td>
+    <td class="leftcol" rowspan="4"><p><h2>Variation</h2></p></td>
     <td>
       <i>B. taurus</i>
     </td>
@@ -271,7 +271,7 @@
     <td>dbSNP data for Bos taurus</td>
     <td> dbSNP v143</td>
     <td> Sherry et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=11125122>11125122</a></td>
-    <td><a href="ftp://ftp.ncbi.nih.gov/snp/organisms/cow_9913/VCF/">NCBI FTP</a></td>
+    <td><p><a href="ftp://ftp.ncbi.nih.gov/snp/organisms/cow_9913/VCF/">NCBI FTP</a></p><p><i> *SNP arrays and SNP NCBI IDs*</i></p></td>
   </tr>
   <tr>
       <td><i>B. taurus</i></td>
@@ -280,6 +280,15 @@
       <td> Church et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3531204/>23193291</a></td>
       <td><a href="ftp://ftp.ncbi.nlm.nih.gov/pub/dbVar/data/Bos_taurus/">NCBI FTP</a></td>
   </tr>
+    <tr>
+      <td><i>B. taurus</i></td>
+      <td>Hapmap data for Bos taurus</td>
+      <td> Hapmap</td>
+      <td> The International HapMap Consortium - Nature <a href=http://www.nature.com/nature/journal/v426/n6968/abs/nature02168.html></a></td>
+      <td><a href="http://hapmap.ncbi.nlm.nih.gov/">Hapmap website</a></td>
+  </tr>
+
+
   <tr>
     <td class="leftcol" rowspan="1"><p><h2>Variant Annotations</h2></p></td>
     <td><i>B. taurus</i></td>
