@@ -10,7 +10,6 @@ package org.intermine.bio.web.export;
  *
  */
 
-import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -147,5 +146,6 @@ public class GenomicRegionSequenceExporter
                 outputStream.write((sequenceString.substring(i, i + 60) + "\n").getBytes());
             }
         }
+        out.flush();
     }
 }

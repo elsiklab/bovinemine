@@ -111,6 +111,7 @@ public class TemplateToListService extends QueryToListService
         }
 
         PathQuery pq = populatedTemplate.getQueryToExecute();
+<<<<<<< HEAD
 
         List<String> oldView = pq.getView();
         oldView.remove(newViewString);
@@ -119,6 +120,10 @@ public class TemplateToListService extends QueryToListService
         // Make sure these are added back to keep the query structure the same
         pq.addViews(oldView);
 
+=======
+        pq.clearView();
+        pq.addView(newViewString);
+>>>>>>> intermine-1.6.5
         return pq;
     }
 }

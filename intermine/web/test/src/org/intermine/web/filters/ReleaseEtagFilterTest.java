@@ -54,7 +54,11 @@ public class ReleaseEtagFilterTest {
 
         replay(req);
         replay(resp);
+<<<<<<< HEAD
         filter.doFilter(req, resp, chain);
+=======
+//        filter.doFilter(req, resp, chain);
+>>>>>>> intermine-1.6.5
     }
 
     @Test
@@ -66,7 +70,11 @@ public class ReleaseEtagFilterTest {
 
         replay(req);
         replay(resp);
+<<<<<<< HEAD
         filter.doFilter(req, resp, chain);
+=======
+//        filter.doFilter(req, resp, chain);
+>>>>>>> intermine-1.6.5
     }
 
     @Test
@@ -78,6 +86,10 @@ public class ReleaseEtagFilterTest {
 
         replay(req);
         replay(resp);
+<<<<<<< HEAD
         filter.doFilter(req, resp, chain);
+=======
+//        filter.doFilter(req, resp, chain);
+>>>>>>> intermine-1.6.5
     }
 }
