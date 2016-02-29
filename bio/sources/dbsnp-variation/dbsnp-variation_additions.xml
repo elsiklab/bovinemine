@@ -3,11 +3,11 @@
 <classes>
     <!-- add any <class> elements here -->
     <class name="SequenceAlteration" extends="SequenceFeature" is-interface="true">
-        <collection name="variantAnnotations" referenced-type="VariantAnnotation" reverse-reference="variant"/>
-        <collection name="transcripts" referenced-type="Transcript" reverse-reference="variations"/>
+        <collection name="consequences" referenced-type="Consequence" reverse-reference="variant"/>
+        <collection name="transcripts" referenced-type="Transcript" reverse-reference="sequenceAlterations"/>
     </class>
     <class name="Transcript" extends="SequenceFeature" is-interface="true">
-        <collection name="variations" referenced-type="SequenceAlteration" reverse-reference="transcripts"/>
+        <collection name="sequenceAlterations" referenced-type="SequenceAlteration" reverse-reference="transcripts"/>
     </class>
     <class name="SNP" extends="SequenceAlteration" is-interface="true">
         <attribute name="referenceAllele" type="java.lang.String"/>
@@ -25,18 +25,23 @@
         <attribute name="validationStatus" type="java.lang.String"/>
         <attribute name="orientation" type="java.lang.String"/>
     </class>
-    <class name="VariantAnnotation" is-interface="true">
+    <class name="Consequence" is-interface="true">
         <attribute name="rsId" type="java.lang.String"/>
         <attribute name="transcriptIdentifier" type="java.lang.String"/>
         <attribute name="proteinIdentifier" type="java.lang.String"/>
         <attribute name="functionClass" type="java.lang.String"/>
-        <attribute name="referenceAlleleInContext" type="java.lang.String"/>
-        <attribute name="alternateAlleleInContext" type="java.lang.String"/>
+        <attribute name="cdnaPosition" type="java.lang.String"/>
+        <attribute name="cdsPosition" type="java.lang.String"/>
+        <attribute name="referenceCodon" type="java.lang.String"/>
+        <attribute name="alternateCodon" type="java.lang.String"/>
         <attribute name="referenceResidue" type="java.lang.String"/>
         <attribute name="alternateResidue" type="java.lang.String"/>
         <attribute name="aminoAcidPosition" type="java.lang.String"/>
         <reference name="transcript" referenced-type="Transcript"/>
-        <reference name="organism" referenced-type="Organism"/>
-        <reference name="variant" referenced-type="SequenceAlteration" reverse-reference="variantAnnotations"/>
+        <reference name="variant" referenced-type="SequenceAlteration" reverse-reference="consequences"/>
+        <collection name="consequenceTypes" referenced-type="ConsequenceType"/>
+    </class>
+    <class name="ConsequenceType" is-interface="true">
+        <attribute name="name" type="java.lang.String"/>
     </class>
 </classes>
