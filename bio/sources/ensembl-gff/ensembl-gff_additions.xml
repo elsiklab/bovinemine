@@ -40,5 +40,7 @@
     </class>
     <class name="CDS" extends="SequenceFeature" is-interface="true">
     </class>
-
+    <class name="Location" is-interface="true">
+        <attribute name="doNotComputeOverlaps" type="java.lang.String"/>
+    </class>
 </classes>

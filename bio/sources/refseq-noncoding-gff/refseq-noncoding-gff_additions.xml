@@ -14,4 +14,7 @@
     <class name="NcRNA" extends="Transcript" is-interface="true">
         <attribute name="mirbaseIdentifier" type="java.lang.String"/>
     </class>
+    <class name="Location" is-interface="true">
+        <attribute name="doNotComputeOverlaps" type="java.lang.String"/>
+    </class>
 </classes>

@@ -60,6 +60,7 @@ public class OverlapViewTask
                             + "           l2.featureid AS sequencefeature "
                             + "      FROM location l1, location l2 "
                             + "     WHERE l1.locatedonid = l2.locatedonid "
+                            + "       AND l1.donotcomputeoverlaps IS NULL "
                             + "       AND l1.featureid != l2.featureid"
                             + "       AND int4range(l1.intermine_start, l1.intermine_end) "
                             + "              && int4range(l2.intermine_start, l2.intermine_end)";
@@ -78,7 +79,6 @@ public class OverlapViewTask
                     + " database doesn't support Postgres built in ranges (has to be > 9.2"
                     + " and doesn't have bioseg installed. Aborting.");
         }
-
         // initially this is a table, need to try dropping table first, if the postprocess has been
         // run before then it will be a view. We need to try dropping table first then view.
         String dropSql = "DROP TABLE overlappingfeaturessequencefeature";

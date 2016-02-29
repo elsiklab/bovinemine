@@ -42,4 +42,7 @@
         <reference name="organism" referenced-type="Organism"/>
         <reference name="gene" referenced-type="Gene"/>
     </class>
+    <class name="Location" is-interface="true">
+        <attribute name="doNotComputeOverlaps" type="java.lang.String"/>
+    </class>
 </classes>
