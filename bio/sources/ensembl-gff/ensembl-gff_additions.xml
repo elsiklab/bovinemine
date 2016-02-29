@@ -2,8 +2,10 @@
 <!-- This file details any extensions needed to the data model to store data from this source, everything else is automatically generated from the model description so this is all we need to do to add to the model. -->
 
 <classes>
+    <class name="SequenceFeature" extends="BioEntity" is-interface="true">
+        <collection name="alias" referenced-type="AliasName" reverse-reference="feature"/>
+    </class>
     <class name="Gene" extends="SequenceFeature" is-interface="true">
-        <collection name="alias" referenced-type="AliasName" reverse-reference="gene"/>
         <reference name="crossReference" referenced-type="xRef"/>
     </class>
     <class name="xRef" is-interface="true">
@@ -16,7 +18,7 @@
         <attribute name="identifier" type="java.lang.String"/>
         <attribute name="source" type="java.lang.String"/>
         <reference name="organism" referenced-type="Organism"/>
-        <collection name="gene" referenced-type="Gene" reverse-reference="alias"/>
+        <collection name="feature" referenced-type="SequenceFeature" reverse-reference="alias"/>
     </class>
     <class name="Transcript" extends="SequenceFeature" is-interface="true">
     </class>
