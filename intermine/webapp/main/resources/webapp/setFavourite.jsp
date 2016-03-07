@@ -8,6 +8,7 @@
   <tiles:importAttribute name="name" ignore="false"/>
   <tiles:importAttribute name="type" ignore="false"/>
   <c:set var="name" value="${fn:replace(name,'\\\'','#039;')}"/>
+
   <c:choose>
     <c:when test="${isFavourite == 'true'}">
   <img id="favourite_<c:out value="${name}" escapeXml="true"/>" src="images/star_active.gif" style="cursor:pointer;" onclick="setFavourite('<c:out value="${name}" escapeXml="true"/>','<c:out value="${type}" escapeXml="true"/>',this)" title="Click here to remove this item from your Favourites"/>
