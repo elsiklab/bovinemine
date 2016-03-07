@@ -96,8 +96,6 @@
 </c:if>
 
 
-
-
 <c:if test="${!empty gene.transcripts}">
 <div class="collection-table" style="display:none;">
   <table class="tiny-font">
