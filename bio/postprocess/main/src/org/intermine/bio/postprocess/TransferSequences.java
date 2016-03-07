@@ -185,7 +185,6 @@ public class TransferSequences
 
             SequenceFeature feature = (SequenceFeature) rr.get(0);
             Location locationOnChr = (Location) rr.get(1);
-
             try {
 
                 if (PostProcessUtil.isInstance(model, feature, "ChromosomeBand")) {
