@@ -281,7 +281,7 @@ ul#submenulist li div { border-left-color:#DDDDDD; }
 /* homepage (begin.css) */
 #search-bochs div.inner h3 { background:#62564F; }
 #lists-bochs div.inner h3 { background:#9E9E9E; color:#FFF; }
-  #lists-bochs div.inner a { color:#FFF; }
+  #lists-bochs div.inner a { color:#000; }
 #low h4, #lists h4 { color:#62564F; }
 
 #boxes input.dark[type="submit"] { background:url("homepage/dark-brown.png") no-repeat scroll center bottom transparent;
@@ -415,4 +415,6 @@ div.bagDetails-page div.widget table.table-striped tbody td { border-top-color:#
 div.bagDetails-page div.widget table.table-striped tbody tr:nth-child(odd) td { background-color:#FAFAFA; } /* div.collection-table table tbody tr.odd td */
 div.bagDetails-page div.widget table.table-striped tbody tr:hover td { background-color:#FFF3D3; }
 
-.intermine .im-column-th .dropdown-menu:after { border-bottom-color: #004499; }
+.intermine .im-column-th .dropdown-menu:after {
+  border-bottom-color: #004499;
+}
