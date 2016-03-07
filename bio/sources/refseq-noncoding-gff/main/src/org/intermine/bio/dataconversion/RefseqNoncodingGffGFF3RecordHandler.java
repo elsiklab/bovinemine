@@ -18,15 +18,16 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.net.URLDecoder;
-
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.HashMap;
 import java.util.HashSet;
+
 import org.intermine.bio.io.gff3.GFF3Record;
 import org.intermine.metadata.Model;
 import org.intermine.metadata.StringUtil;
 import org.intermine.xml.full.Item;
-import java.util.Map;
-import java.util.Map.Entry;
+import org.intermine.objectstore.ObjectStoreException;
 
 /**
  * A converter/retriever for the RefseqNoncodingGff dataset via GFF files.
@@ -42,6 +43,7 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
     Map<String,String> aliasToRefId = new HashMap<String,String>();
     Map<String,String> xRefToRefId = new HashMap<String,String>();
     Map<String,String> geneToRefId = new HashMap<String,String>();
+    Map<String, String> dataSourcesToRefId = new HashMap<String, String>();
 
     public RefseqNoncodingGffGFF3RecordHandler (Model model) {
         super(model);
@@ -415,19 +417,17 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
         String identifier = xRefPair.get(0);
         String xRefSource = xRefPair.get(1);
         if (xRefToRefId.containsKey(identifier)) {
-            feature.setReference("crossReference", xRefToRefId.get(identifier));
+            feature.addToCollection("dbCrossReferences", xRefToRefId.get(identifier));
             if (! geneToRefId.containsKey(identifier)) {
                 System.out.println("xRef exists but its corresponding gene instance does not exist");
                 System.exit(1);
             }
         } else {
             Item xRefItem = converter.createItem("xRef");
-            xRefItem.setAttribute("identifier", identifier);
-            xRefItem.setAttribute("source", xRefSource);
+            xRefItem.setAttribute("refereeSource", xRefSource);
             xRefItem.setReference("organism", getOrganism());
             String xRefRefId = xRefItem.getIdentifier();
-            feature.setReference("crossReference", xRefRefId);
-            // xRefItem.addToCollection("geneCrossReference", feature.getIdentifier());
+            feature.addToCollection("dbCrossReferences", xRefRefId);
             xRefToRefId.put(identifier, xRefRefId);
             if (!geneToRefId.containsKey(identifier)) {
                 // storing the Gene instance of xRef
@@ -435,13 +435,12 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                 geneItem.setAttribute("primaryIdentifier", identifier);
                 geneItem.setAttribute("source", xRefSource);
                 geneItem.setReference("organism", getOrganism());
-
                 geneToRefId.put(identifier, geneItem.getIdentifier());
-                xRefItem.setReference("gene", geneItem.getIdentifier());
+                xRefItem.setReference("referrer", feature.getIdentifier());
+                xRefItem.setReference("referee", geneItem.getIdentifier());
                 addItem(geneItem);
             }
             addItem(xRefItem);
         }
     }
-
 }
