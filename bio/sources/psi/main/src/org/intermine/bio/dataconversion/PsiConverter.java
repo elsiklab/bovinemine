@@ -344,12 +344,9 @@ public class PsiConverter extends BioFileConverter
             } else if ("end".equals(qName) && "featureRange".equals(stack.peek())
                             && interactorHolder != null && interactorHolder.isRegionFeature) {
                 interactorHolder.setEnd(attrs.getValue("position"));
-            //<interactorType><xref><primaryRef db="psi-mi" dbAc="MI:0488" id="MI:0326"
-            } else if ("primaryRef".equals(qName) && stack.search("interactionType") == 2) {
-                String term = attrs.getValue("id");
-                if (term != null) {
-                    holder.setType(getTerm(term));
-                }
+                //<interaction><interactionType><names><shortLabel>physical association
+            } else if ("shortLabel".equals(qName) && stack.search("interactionType") == 2) {
+                attName = "relationshipType";
             }
             super.startElement(uri, localName, qName, attrs);
             stack.push(qName);
@@ -477,7 +474,12 @@ public class PsiConverter extends BioFileConverter
             } else if ("shortLabel".equals(qName) && stack.search("feature") == 2
                             && attName != null && "regionName".equals(attName)) {
                 regionName  = attValue.toString();
-                //<interactionList><interaction>
+
+            //<interaction><interactionType><names><shortLabel>physical association
+            } else if (attName != null && "relationshipType".equals(attName)
+                    && "shortLabel".equals(qName) && stack.search("interactionType") == 2) {
+                holder.setRelationshipType(attValue.toString());
+            // <interactionList><interaction>
             } else if ("interaction".equals(qName) && holder != null) {
                 if (holder.isValid) {
                     try {
@@ -496,8 +498,8 @@ public class PsiConverter extends BioFileConverter
             Item interaction = interactions.get(key);
             if (interaction == null) {
                 interaction = createItem("Interaction");
-                interaction.setReference("gene1", refId);
-                interaction.setReference("gene2", gene2RefId);
+                interaction.setReference("participant1", refId);
+                interaction.setReference("participant2", gene2RefId);
                 interactions.put(key, interaction);
                 store(interaction);
             }
@@ -574,7 +576,9 @@ public class PsiConverter extends BioFileConverter
                     if (h.confidenceText != null) {
                         interactionDetail.setAttribute("confidenceText", h.confidenceText);
                     }
-                    interactionDetail.setReference("relationshipType", h.termRefId);
+                    if (StringUtils.isNotEmpty(h.relationshipType)) {
+                        interactionDetail.setAttribute("relationshipType", h.relationshipType);
+                    }
                     interactionDetail.setReference("experiment", h.eh.experiment.getIdentifier());
                     interactionDetail.setReference("interaction", interaction);
                     processRegions(h, interactionDetail, gene1Interactor, shortName, gene1RefId);
@@ -658,8 +662,7 @@ public class PsiConverter extends BioFileConverter
 
             for (String identifier : identifiers) {
                 // validate ensembl, look up dmel
-                //String newIdentifier = resolveGeneIdentifier(taxonId, datasource, identifier);
-                String newIdentifier = identifier;
+                String newIdentifier = resolveGeneIdentifier(taxonId, datasource, identifier);
                 if (StringUtils.isNotEmpty(newIdentifier)) {
                     String refId = storeGene(field, newIdentifier, taxonId);
                     refIds.add(refId);
@@ -768,7 +771,6 @@ public class PsiConverter extends BioFileConverter
                     location.setAttribute("end", ih.end);
                     location.setReference("locatedOn", geneRefId);
                     location.setReference("feature", refId);
-                    region.setReference("location", location);
                     store(location);
                 }
                 store(region);
@@ -840,7 +842,7 @@ public class PsiConverter extends BioFileConverter
             private Set<InteractorHolder> interactors = new LinkedHashSet<InteractorHolder>();
             boolean isValid = true;
             private Set<String> regionIds = new HashSet<String>();
-            private String termRefId;
+            private String relationshipType;
 
             /**
              * Constructor
@@ -886,10 +888,10 @@ public class PsiConverter extends BioFileConverter
             }
 
             /**
-             * @param refId id representing a term object
+             * @param interactionType type of interaction, e.g. physical association
              */
-            protected void setType(String refId) {
-                termRefId = refId;
+            protected void setRelationshipType(String interactionType) {
+                this.relationshipType = interactionType;
             }
         }
 
@@ -1136,10 +1138,6 @@ public class PsiConverter extends BioFileConverter
         if (identifier.startsWith("cg")) {
             identifier = "CG" + identifier.substring(2);
         }
-     //    if (identifier.startsWith("ENSP")) {
-    //        identifier = "";
-    //    } 
-
         return identifier;
     }
 }

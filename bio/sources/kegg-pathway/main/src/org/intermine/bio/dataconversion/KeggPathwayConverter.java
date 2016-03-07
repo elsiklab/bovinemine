@@ -200,7 +200,7 @@ public class KeggPathwayConverter extends BioFileConverter
             int resCount = rslv.countResolutions(taxonId, geneCG);
             if (resCount != 1) {
                 LOG.info("RESOLVER: failed to resolve gene to one identifier, ignoring gene: "
-                         + geneCG + " count: " + resCount + " FBgn: "
+                         + geneCG + " count: " + resCount + " Results: "
                          + rslv.resolveId(taxonId, geneCG));
                 return null;
             }
