@@ -550,7 +550,7 @@
         <source name="bovine-uniprot" type="uniprot" >
             <property name="uniprot.organisms" value="9913 9606 10090 10116 9940 9925"/>
             <property name="src.data.dir" location="@DATA_DIR@/UniProt"/>
-            <property name="createinterpro" value="true"/>
+            <!--<property name="createinterpro" value="true"/>-->
             <property name="creatego" value="true"/>
             <property name="allowduplicates" value="false"/>
             <property name="loadfragments" value="false"/>
@@ -559,7 +559,7 @@
         <source name="bovine-uniprot-sec" type="uniprot" dump="true"> <!-- check uniprot_config.properties -->
             <property name="uniprot.organisms" value="9913"/>
             <property name="src.data.dir" location="@DATA_DIR@/UniProt/"/>
-            <property name="createinterpro" value="true"/>
+            <!--<property name="createinterpro" value="true"/>-->
             <property name="creatego" value="true"/>
             <property name="allowduplicates" value="false"/>
             <property name="loadfragments" value="false"/>
@@ -579,6 +579,11 @@
             <property name="fasta.includes" value="uniprot_sprot.fasta"/>
             <property name="fasta.sequenceType" value="protein" />
             <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.UniProtFastaLoaderTask"/>
+        </source>
+        <source name="protein2ipr" type="protein2ipr">
+            <property name="src.data.dir" location="@DATA_DIR@/protein2ipr"/>
+            <property name="src.data.dir.includes" value="protein2ipr.dat"/>
+            <property name="protein2ipr.organisms" value="9913 9606 10090 10116 9925 9940"/>
         </source>
         <source name="go-annotation" type="go-annotation">
             <property name="ontologyfile" location="@DATA_DIR@/GO/go.obo"/>
@@ -604,7 +609,7 @@
             <property name="src.data.dir.includes" value="ensembl2pubmed"/>
             <property name="infoFile" location="@DATA_DIR@/pubmed-ensembl/gene_info"/>
         </source>
-        <source name="ensembl-compara" type="ensembl-compara">
+        <source name="ensembl-compara"   type="ensembl-compara">
             <property name="src.data.dir" location="@DATA_DIR@/EnsemblCompara"/>
             <property name="ensemblcompara.organisms" value="9913"/>
             <property name="ensemblcompara.homologues" value="9606 10090 10116 9615 9796 9823 9940"/>
