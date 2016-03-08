@@ -37,7 +37,7 @@
         <attribute name="identifier" type="java.lang.String"/>
         <attribute name="source" type="java.lang.String"/>
         <reference name="organism" referenced-type="Organism"/>
-        <collection name="gene" referenced-type="Gene" reverse-reference="alias"/>
+        <collection name="feature" referenced-type="SequenceFeature" reverse-reference="alias"/>
     </class>
     <class name="xRef" is-interface="true">
         <attribute name="name" type="java.lang.String"/>
