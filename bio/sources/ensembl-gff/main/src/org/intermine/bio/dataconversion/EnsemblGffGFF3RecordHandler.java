@@ -158,27 +158,24 @@ public class EnsemblGffGFF3RecordHandler extends GFF3RecordHandler
         if (xRefPair.size() == 0) { return; }
         if (xRefPair.size() != 2) {
             System.out.println("Ambiguous xRef: " + xRefPair);
-            System.out.println("Expected xRef format is '<XREF_ID> <XREF_SOURCE>'");
+            System.out.println("Expected xRef format is '<XREF_ID>:<XREF_SOURCE>'");
             System.out.println("Note: XREF_SOURCE should match column 2 of the alternate GFF3 (if any)");
             System.exit(1);
         }
-
         String identifier = xRefPair.get(0);
         String xRefSource = xRefPair.get(1);
         if (xRefToRefId.containsKey(identifier)) {
-            feature.setReference("crossReference", xRefToRefId.get(identifier));
+            feature.addToCollection("dbCrossReferences", xRefToRefId.get(identifier));
             if (! geneToRefId.containsKey(identifier)) {
                 System.out.println("xRef exists but its corresponding gene instance does not exist");
                 System.exit(1);
             }
         } else {
             Item xRefItem = converter.createItem("xRef");
-            xRefItem.setAttribute("identifier", identifier);
-            xRefItem.setAttribute("source", xRefSource);
+            xRefItem.setAttribute("refereeSource", xRefSource);
             xRefItem.setReference("organism", getOrganism());
             String xRefRefId = xRefItem.getIdentifier();
-            feature.setReference("crossReference", xRefRefId);
-            // xRefItem.addToCollection("geneCrossReference", feature.getIdentifier());
+            feature.addToCollection("dbCrossReferences", xRefRefId);
             xRefToRefId.put(identifier, xRefRefId);
             if (!geneToRefId.containsKey(identifier)) {
                 // storing the Gene instance of xRef
@@ -187,7 +184,8 @@ public class EnsemblGffGFF3RecordHandler extends GFF3RecordHandler
                 geneItem.setAttribute("source", xRefSource);
                 geneItem.setReference("organism", getOrganism());
                 geneToRefId.put(identifier, geneItem.getIdentifier());
-                xRefItem.setReference("gene", geneItem.getIdentifier());
+                xRefItem.setReference("referrer", feature.getIdentifier());
+                xRefItem.setReference("referee", geneItem.getIdentifier());
                 addItem(geneItem);
             }
             addItem(xRefItem);
