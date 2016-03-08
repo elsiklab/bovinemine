@@ -2,45 +2,17 @@
 <!-- This file details any extensions needed to the data model to store data from this source, everything else is automatically generated from the model description so this is all we need to do to add to the model. -->
 
 <classes>
-    <class name="SequenceFeature" extends="BioEntity" is-interface="true">
-        <collection name="alias" referenced-type="AliasName" reverse-reference="feature"/>
-    </class>
-    <class name="Gene" extends="SequenceFeature" is-interface="true">
-        <reference name="crossReference" referenced-type="xRef"/>
-    </class>
-    <class name="xRef" is-interface="true">
-        <attribute name="identifier" type="java.lang.String"/>
-        <attribute name="source" type="java.lang.String"/>
-        <reference name="organism" referenced-type="Organism"/>
-        <reference name="gene" referenced-type="Gene"/>
-    </class>
-    <class name="AliasName" is-interface="true">
-        <attribute name="identifier" type="java.lang.String"/>
-        <attribute name="source" type="java.lang.String"/>
-        <reference name="organism" referenced-type="Organism"/>
-        <collection name="feature" referenced-type="SequenceFeature" reverse-reference="alias"/>
-    </class>
-    <class name="Transcript" extends="SequenceFeature" is-interface="true">
-    </class>
-    <class name="MRNA" extends="Transcript" is-interface="true">
-    </class>
-    <class name="NcRNA" extends="Transcript" is-interface="true">
-    </class>
-    <class name="TRNA" extends="NcRNA" is-interface="true">
-    </class>
-    <class name="MiRNA" extends="NcRNA" is-interface="true">
-    </class>
-    <class name="RRNA" extends="NcRNA" is-interface="true">
-    </class>
-    <class name="SnRNA" extends="NcRNA" is-interface="true">
-    </class>
-    <class name="SnoRNA" extends="NcRNA" is-interface="true">
-    </class>
-    <class name="LincRNA" extends="NcRNA" is-interface="true">
-    </class>
-    <class name="Exon" extends="SequenceFeature" is-interface="true">
-    </class>
-    <class name="CDS" extends="SequenceFeature" is-interface="true">
-    </class>
-
+    <class name="SequenceFeature" extends="BioEntity" is-interface="true"/>
+    <class name="Gene" extends="SequenceFeature" is-interface="true"/>
+    <class name="Transcript" extends="SequenceFeature" is-interface="true"/>
+    <class name="MRNA" extends="Transcript" is-interface="true"/>
+    <class name="NcRNA" extends="Transcript" is-interface="true"/>
+    <class name="TRNA" extends="NcRNA" is-interface="true"/>
+    <class name="MiRNA" extends="NcRNA" is-interface="true"/>
+    <class name="RRNA" extends="NcRNA" is-interface="true"/>
+    <class name="SnRNA" extends="NcRNA" is-interface="true"/>
+    <class name="SnoRNA" extends="NcRNA" is-interface="true"/>
+    <class name="LincRNA" extends="NcRNA" is-interface="true"/>
+    <class name="Exon" extends="SequenceFeature" is-interface="true"/>
+    <class name="CDS" extends="SequenceFeature" is-interface="true"/>
 </classes>
