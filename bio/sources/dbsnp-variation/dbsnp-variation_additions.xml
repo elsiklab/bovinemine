@@ -32,7 +32,6 @@
         <attribute name="rsId" type="java.lang.String"/>
         <attribute name="transcriptIdentifier" type="java.lang.String"/>
         <attribute name="proteinIdentifier" type="java.lang.String"/>
-        <attribute name="functionClass" type="java.lang.String"/>
         <attribute name="cdnaPosition" type="java.lang.String"/>
         <attribute name="cdsPosition" type="java.lang.String"/>
         <attribute name="referenceCodon" type="java.lang.String"/>

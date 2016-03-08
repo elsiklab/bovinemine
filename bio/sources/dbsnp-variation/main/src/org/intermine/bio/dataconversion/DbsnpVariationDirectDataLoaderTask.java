@@ -228,7 +228,7 @@ public class DbsnpVariationDirectDataLoaderTask extends FileDirectDataLoaderTask
             }
             // set SNP -> alias collection
             if (setOfAlias.size() > 0) {
-                snp.setAlias(setOfAlias);
+                snp.setAliases(setOfAlias);
             }
 
             // All variants in the dbSNP VCF are w.r.t. the + strand
@@ -307,7 +307,7 @@ public class DbsnpVariationDirectDataLoaderTask extends FileDirectDataLoaderTask
             }
             if (setOfAlias.size() > 0) {
                 // set INDEL -> alias collection
-                indel.setAlias(setOfAlias);
+                indel.setAliases(setOfAlias);
             }
 
             // All variants in the dbSNP VCF are w.r.t. the + strand
@@ -412,7 +412,7 @@ public class DbsnpVariationDirectDataLoaderTask extends FileDirectDataLoaderTask
             alias.setSource(ssIdSource);
             alias.setOrganism(getOrganism());
             // set AliasName -> feature reference
-            alias.setFeature(new HashSet<SequenceFeature>(Arrays.asList((SequenceFeature) saFeature)));
+            alias.setFeatures(new HashSet<SequenceFeature>(Arrays.asList((SequenceFeature) saFeature)));
             getDirectDataLoader().store(alias);
             imoTracker.remove(alias.getId());
             setOfSsIdObjects.add(alias);
@@ -440,7 +440,7 @@ public class DbsnpVariationDirectDataLoaderTask extends FileDirectDataLoaderTask
             alias.setSource(probeSource);
             alias.setOrganism(getOrganism());
             // AliasName -> feature reference
-            alias.setFeature(new HashSet<SequenceFeature>(Arrays.asList((SequenceFeature) saFeature)));
+            alias.setFeatures(new HashSet<SequenceFeature>(Arrays.asList((SequenceFeature) saFeature)));
             getDirectDataLoader().store(alias);
             imoTracker.remove(alias.getId());
             setOfProbeIdObjects.add(alias);
@@ -480,7 +480,6 @@ public class DbsnpVariationDirectDataLoaderTask extends FileDirectDataLoaderTask
             imoTracker.put(consequence.getId(), consequence);
             consequence.setRsId(saFeature.getPrimaryIdentifier());
             consequence.setTranscriptIdentifier(annotationInfo[1]);
-            consequence.setFunctionClass(annotationInfo[2]); // TODO: Remove this attribute
             consequence.setCdnaPosition(annotationInfo[4]);
             consequence.setCdsPosition(annotationInfo[5]);
             consequence.setAminoAcidPosition(annotationInfo[6]);

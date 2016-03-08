@@ -127,22 +127,22 @@ public class EnsemblGffGFF3RecordHandler extends GFF3RecordHandler
         List<String> splitVal = new ArrayList<String>(Arrays.asList(StringUtil.split(alias, ":")));
         if (splitVal.size() != 2) {
             System.out.println("Ambiguous aliasName: " + splitVal);
-            System.out.println("Expected aliasName format is '<ALIAS_ID> <ALIAS_SOURCE>'");
+            System.out.println("Expected aliasName format is '<ALIAS_ID>:<ALIAS_SOURCE>'");
             System.out.println("Note: ALIAS_ID must be associated with its source");
             System.exit(1);
         }
         String aliasPrimaryIdentifier = splitVal.get(0);
         String aliasSource = splitVal.get(1);
         if (aliasToRefId.containsKey(aliasPrimaryIdentifier)) {
-            feature.addToCollection("alias", aliasToRefId.get(aliasPrimaryIdentifier));
+            feature.addToCollection("aliases", aliasToRefId.get(aliasPrimaryIdentifier));
         } else {
             Item aliasItem = converter.createItem("AliasName");
             aliasItem.setAttribute("identifier", aliasPrimaryIdentifier);
             aliasItem.setAttribute("source", aliasSource);
             aliasItem.setReference("organism", getOrganism());
             String aliasRefId = aliasItem.getIdentifier();
-            feature.addToCollection("alias", aliasRefId);
-            aliasItem.addToCollection("gene", feature.getIdentifier());
+            feature.addToCollection("aliases", aliasRefId);
+            aliasItem.addToCollection("features", feature.getIdentifier());
             aliasToRefId.put(aliasPrimaryIdentifier, aliasRefId);
             addItem(aliasItem);
         }

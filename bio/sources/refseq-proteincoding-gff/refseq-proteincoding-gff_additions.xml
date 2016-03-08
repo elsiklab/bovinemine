@@ -8,11 +8,11 @@
     <class name="SequenceFeature" extends="BioEntity" is-interface="true">
         <attribute name="status" type="java.lang.String"/>
         <attribute name="source" type="java.lang.String"/>
+        <collection name="aliases" referenced-type="AliasName" reverse-reference="features"/>
         <collection name="dbCrossReferences" referenced-type="xRef"/>
     </class>
     <class name="Gene" extends="SequenceFeature" is-interface="true">
         <collection name="duplicateEntities" referenced-type="DuplicateEntity"/>
-        <collection name="alias" referenced-type="AliasName" reverse-reference="gene"/>
     </class>
     <class name="Transcript" extends="SequenceFeature" is-interface="true">
         <attribute name="description" type="java.lang.String"/>
@@ -34,10 +34,11 @@
         <attribute name="hasEarlyStopCodon" type="java.lang.String"/>
     </class>
     <class name="AliasName" is-interface="true">
+        <attribute name="name" type="java.lang.String"/>
         <attribute name="identifier" type="java.lang.String"/>
         <attribute name="source" type="java.lang.String"/>
         <reference name="organism" referenced-type="Organism"/>
-        <collection name="feature" referenced-type="SequenceFeature" reverse-reference="alias"/>
+        <collection name="features" referenced-type="SequenceFeature" reverse-reference="aliases"/>
     </class>
     <class name="xRef" is-interface="true">
         <attribute name="name" type="java.lang.String"/>

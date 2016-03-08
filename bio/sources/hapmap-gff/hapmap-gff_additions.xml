@@ -3,19 +3,6 @@
 
 <classes>
 <!-- add any <class> elements here -->
-
-  <class name="SNP" extends="SequenceFeature" is-interface="true">
-    <attribute name="referenceAllele" type="java.lang.String"/>
-    <attribute name="alternateAllele" type="java.lang.String"/>
-     <collection name="alias" referenced-type="AliasName" reverse-reference="snp"/>
- </class>
- 
-       <class name="AliasName" is-interface="true">
-        <attribute name="identifier" type="java.lang.String"/>
-        <attribute name="source" type="java.lang.String"/>
-        <reference name="organism" referenced-type="Organism"/>
-        <collection name="snp" referenced-type="SNP" reverse-reference="alias"/>
-    </class>
-
-
+    <class name="SequenceAlteration" extends="SequenceFeature" is-interface="true"/>
+    <class name="SNP" extends="SequenceAlteration" is-interface="true"/>
 </classes>

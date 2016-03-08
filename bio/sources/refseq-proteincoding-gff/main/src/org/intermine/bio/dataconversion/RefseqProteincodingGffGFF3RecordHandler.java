@@ -221,15 +221,15 @@ public class RefseqProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
         String aliasPrimaryIdentifier = splitVal.get(0);
         String aliasSource = splitVal.get(1);
         if (aliasToRefId.containsKey(aliasPrimaryIdentifier)) {
-            feature.addToCollection("alias", aliasToRefId.get(aliasPrimaryIdentifier));
+            feature.addToCollection("aliases", aliasToRefId.get(aliasPrimaryIdentifier));
         } else {
             Item aliasItem = converter.createItem("AliasName");
             aliasItem.setAttribute("identifier", aliasPrimaryIdentifier);
             aliasItem.setAttribute("source", aliasSource);
             aliasItem.setReference("organism", getOrganism());
             String aliasRefId = aliasItem.getIdentifier();
-            feature.addToCollection("alias", aliasRefId);
-            aliasItem.addToCollection("gene", feature.getIdentifier());
+            feature.addToCollection("aliases", aliasRefId);
+            aliasItem.addToCollection("features", feature.getIdentifier());
             aliasToRefId.put(aliasPrimaryIdentifier, aliasRefId);
             addItem(aliasItem);
         }
