@@ -367,7 +367,6 @@ public class DbsnpVariationDirectDataLoaderTask extends FileDirectDataLoaderTask
     private void bulkStore() throws ObjectStoreException {
         for (Map.Entry<Transcript, HashSet<SequenceAlteration>> entry : transcriptToSequenceAlterationMap.entrySet()) {
             Transcript transcript = entry.getKey();
-            System.out.println("TRANSCRIPT: " + transcript);
             // set Transcript -> sequenceAlterations collection
             transcript.setSequenceAlterations(entry.getValue());
 
@@ -789,7 +788,6 @@ public class DbsnpVariationDirectDataLoaderTask extends FileDirectDataLoaderTask
         q.setConstraint(cs);
 
         LOG.info("Prefilling ProxyReferences with query: " + q);
-        System.out.println("Prefilling ProxyReferences with query: " + q);
 
         try {
             Results res = getIntegrationWriter().getObjectStore().execute(q, 5000, false, false, false);
