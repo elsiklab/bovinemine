@@ -287,7 +287,6 @@
     </inlinelist>
     <fields>
       <fieldconfig fieldExpr="primaryIdentifier" label="Transcript Identifier"/>
-      <fieldconfig fieldExpr="proteinIdentifier" label="Protein Identifier"/>
       <fieldconfig fieldExpr="source"/>
       <fieldconfig fieldExpr="length" displayer="/model/sequenceShortDisplayerWithField.jsp" />
       <fieldconfig fieldExpr="chromosomeLocation" displayer="/model/chromosomeLocDisplayer.jsp" showInResults="false"/>
@@ -413,31 +412,31 @@
                                  views="primaryIdentifier, primaryAccession, organism.name,
                                        keywords.name, keywords.description"/>
 
-      <enrichmentwidgetdisplayer id="prot_dom_enrichment_for_gene"
-                                 title="Protein Domain Enrichment"
-                                 description="Protein Domains enriched for items in this list."
-                                 label="Protein Domain"
-                                 startClass="Gene"
-                                 startClassDisplay="primaryIdentifier"
-                                 enrich="proteins.proteinDomains.name"
-                                 enrichIdentifier="proteins.proteinDomains.primaryIdentifier"
-                                 constraints="organism.name=[list]"
-                                 typeClass="Gene"
-                                 views="secondaryIdentifier,symbol,primaryIdentifier,organism.name,proteins.proteinDomains.primaryIdentifier,proteins.proteinDomains.name"
-                                 externalLink="http://www.ebi.ac.uk/interpro/IEntry?ac="/>
+      <!--<enrichmentwidgetdisplayer id="prot_dom_enrichment_for_gene"-->
+                                 <!--title="Protein Domain Enrichment"-->
+                                 <!--description="Protein Domains enriched for items in this list."-->
+                                 <!--label="Protein Domain"-->
+                                 <!--startClass="Gene"-->
+                                 <!--startClassDisplay="primaryIdentifier"-->
+                                 <!--enrich="proteins.proteinDomains.name"-->
+                                 <!--enrichIdentifier="proteins.proteinDomains.primaryIdentifier"-->
+                                 <!--constraints="organism.name=[list]"-->
+                                 <!--typeClass="Gene"-->
+                                 <!--views="secondaryIdentifier,symbol,primaryIdentifier,organism.name,proteins.proteinDomains.primaryIdentifier,proteins.proteinDomains.name"-->
+                                 <!--externalLink="http://www.ebi.ac.uk/interpro/IEntry?ac="/>-->
 
-      <enrichmentwidgetdisplayer id="prot_dom_enrichment_for_protein"
-                                 title="Protein Domain Enrichment"
-                                 description="Protein Domains enriched for items in this list."
-                                 label="Protein Domain"
-                                 startClass="Protein"
-                                 startClassDisplay="primaryIdentifier"
-                                 enrich="proteinDomains.name"
-                                 enrichIdentifier="proteinDomains.primaryIdentifier"
-                                 constraints="organism.name=[list]"
-                                 typeClass="Protein"
-                                 views="primaryIdentifier,organism.name,proteinDomains.primaryIdentifier,proteinDomains.name"
-                                 externalLink="http://www.ebi.ac.uk/interpro/entry/"/>
+      <!--<enrichmentwidgetdisplayer id="prot_dom_enrichment_for_protein"-->
+                                 <!--title="Protein Domain Enrichment"-->
+                                 <!--description="Protein Domains enriched for items in this list."-->
+                                 <!--label="Protein Domain"-->
+                                 <!--startClass="Protein"-->
+                                 <!--startClassDisplay="primaryIdentifier"-->
+                                 <!--enrich="proteinDomains.name"-->
+                                 <!--enrichIdentifier="proteinDomains.primaryIdentifier"-->
+                                 <!--constraints="organism.name=[list]"-->
+                                 <!--typeClass="Protein"-->
+                                 <!--views="primaryIdentifier,organism.name,proteinDomains.primaryIdentifier,proteinDomains.name"-->
+                                 <!--externalLink="http://www.ebi.ac.uk/interpro/entry/"/>-->
 
       <enrichmentwidgetdisplayer id="publication_enrichment"
                                  title="Publication Enrichment"

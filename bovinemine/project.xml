@@ -266,8 +266,9 @@
             <property name="gff3.seqClsName" value="Chromosome"/>
             <property name="src.data.dir" location="@DATA_DIR@/HapMap"/>
         </source>
-        <source name="bovine-dbsnp-variation" type="vep-annotation" dump="true">
-            <property name="src.data.dir" location="@DATA_DIR@/dbSNP_vcf"/>
+        <source name="bovine-dbsnp-variation" type="dbsnp-variation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/dbSNP_vcf/chr1"/>
+            <property name="src.data.dir.includes" value="*.vcf"/>
         </source>
         <source name="bovine-dbvar" type="dbvar-gff" dump="true">
             <property name="gff3.taxonId" value="9913"/>
