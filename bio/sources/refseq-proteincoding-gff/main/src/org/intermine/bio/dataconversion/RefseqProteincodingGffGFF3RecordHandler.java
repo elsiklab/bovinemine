@@ -39,9 +39,9 @@ public class RefseqProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
      * Create a new RefseqProteincodingGffGFF3RecordHandler for the given data model.
      * @param model the model for which items will be created
      */
-    Map<String,String> aliasToRefId = new HashMap<String,String>();
-    Map<String,String> geneToRefId = new HashMap<String,String>();
-    Map<String,String> xRefToRefId = new HashMap<String,String>();
+    Map<String,String> aliasPrimaryIdentifierToDatabaseIdentifierMap = new HashMap<String,String>();
+    Map<String,String> geneIdentifierToDatabaseIdentifierMap = new HashMap<String,String>();
+    Map<String,String> crossReferenceIdentifierToDatabaseIdentifierMap = new HashMap<String,String>();
 
     public RefseqProteincodingGffGFF3RecordHandler (Model model) {
         super(model);
@@ -208,7 +208,6 @@ public class RefseqProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
      * @param alias
      */
     public void setAliasName(String alias) {
-        // TODO: Should the relationship between Gene and AliasName be a Collection or a Reference?
         Item feature = getFeature();
         List<String> splitVal = new ArrayList<String>(Arrays.asList(StringUtil.split(alias, ":")));
         if (splitVal.size() != 2) {
@@ -220,17 +219,25 @@ public class RefseqProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
         }
         String aliasPrimaryIdentifier = splitVal.get(0);
         String aliasSource = splitVal.get(1);
-        if (aliasToRefId.containsKey(aliasPrimaryIdentifier)) {
-            feature.addToCollection("aliases", aliasToRefId.get(aliasPrimaryIdentifier));
+        if (aliasPrimaryIdentifierToDatabaseIdentifierMap.containsKey(aliasPrimaryIdentifier)) {
+            // if aliasPrimaryIdentifier has been seen before, simply set 'Gene -> aliases' collection
+            feature.addToCollection("aliases", aliasPrimaryIdentifierToDatabaseIdentifierMap.get(aliasPrimaryIdentifier));
         } else {
+            // else create an 'AliasName' item
             Item aliasItem = converter.createItem("AliasName");
             aliasItem.setAttribute("identifier", aliasPrimaryIdentifier);
             aliasItem.setAttribute("source", aliasSource);
             aliasItem.setReference("organism", getOrganism());
-            String aliasRefId = aliasItem.getIdentifier();
-            feature.addToCollection("aliases", aliasRefId);
+            // getting the database ID for the newly created 'AliasName' item
+            // We keep track of the database ID because that is the only value needed for setting references and collections
+            String aliasDatabaseIdentifier = aliasItem.getIdentifier();
+            // set 'Gene -> aliases' collection
+            feature.addToCollection("aliases", aliasDatabaseIdentifier);
+            // set 'AliasName -> features' collection
             aliasItem.addToCollection("features", feature.getIdentifier());
-            aliasToRefId.put(aliasPrimaryIdentifier, aliasRefId);
+            // keep track of this newly created 'AliasName' item
+            aliasPrimaryIdentifierToDatabaseIdentifierMap.put(aliasPrimaryIdentifier, aliasDatabaseIdentifier);
+            // store the 'AliasName' item
             addItem(aliasItem);
         }
     }
@@ -249,32 +256,40 @@ public class RefseqProteincodingGffGFF3RecordHandler extends GFF3RecordHandler
             System.out.println("Note: XREF_SOURCE should match column 2 of the alternate GFF3 (if any)");
             System.exit(1);
         }
-        String identifier = xRefPair.get(0);
-        String xRefSource = xRefPair.get(1);
-        if (xRefToRefId.containsKey(identifier)) {
-            feature.addToCollection("dbCrossReferences", xRefToRefId.get(identifier));
-            if (! geneToRefId.containsKey(identifier)) {
-                System.out.println("xRef exists but its corresponding gene instance does not exist");
-                System.exit(1);
-            }
+        String crossReferenceIdentifier = xRefPair.get(0);
+        String crossReferenceSource = xRefPair.get(1);
+        if (crossReferenceIdentifierToDatabaseIdentifierMap.containsKey(crossReferenceIdentifier)) {
+            // if xRefIdentifier has been seen before, simply set 'Gene -> dbCrossReferences' collection
+            feature.addToCollection("dbCrossReferences", crossReferenceIdentifierToDatabaseIdentifierMap.get(crossReferenceIdentifier));
         } else {
+            // else create a 'xRef' item
             Item xRefItem = converter.createItem("xRef");
-            xRefItem.setAttribute("refereeSource", xRefSource);
+            xRefItem.setAttribute("refereeSource", crossReferenceSource);
+            // set 'xRef -> organism' reference
             xRefItem.setReference("organism", getOrganism());
-            String xRefRefId = xRefItem.getIdentifier();
-            feature.addToCollection("dbCrossReferences", xRefRefId);
-            xRefToRefId.put(identifier, xRefRefId);
-            if (!geneToRefId.containsKey(identifier)) {
-                // storing the Gene instance of xRef
-                Item geneItem = converter.createItem("Gene");
-                geneItem.setAttribute("primaryIdentifier", identifier);
-                geneItem.setAttribute("source", xRefSource);
-                geneItem.setReference("organism", getOrganism());
-                geneToRefId.put(identifier, geneItem.getIdentifier());
-                xRefItem.setReference("referrer", feature.getIdentifier());
-                xRefItem.setReference("referee", geneItem.getIdentifier());
-                addItem(geneItem);
-            }
+            // getting the database ID for the newly created 'xRef' item
+            // We keep track of the database ID because that is the only value needed for setting references and collections
+            String xRefDbIdentifier = xRefItem.getIdentifier();
+            // set 'Gene -> dbCrossReferences' collection
+            feature.addToCollection("dbCrossReferences", xRefDbIdentifier);
+            // keep track of this newly created 'xRef' item
+            crossReferenceIdentifierToDatabaseIdentifierMap.put(crossReferenceIdentifier, xRefDbIdentifier);
+            // Since this crossReferenceIdentifier was never seen before,
+            // create a 'Gene' item with crossReferenceIdentifier as its primaryIdentifier
+            Item geneItem = converter.createItem("Gene");
+            geneItem.setAttribute("primaryIdentifier", crossReferenceIdentifier);
+            geneItem.setAttribute("source", crossReferenceSource);
+            // set 'Gene -> organism' reference
+            geneItem.setReference("organism", getOrganism());
+            // keep track of this newly created 'Gene' item
+            geneIdentifierToDatabaseIdentifierMap.put(crossReferenceIdentifier, geneItem.getIdentifier());
+            // set 'xRef -> referrer' reference
+            xRefItem.setReference("referrer", feature.getIdentifier());
+            // set 'xRef -> referee' reference
+            xRefItem.setReference("referee", geneItem.getIdentifier());
+            // store the 'Gene' item
+            addItem(geneItem);
+            // store the 'xRef' item
             addItem(xRefItem);
         }
     }
