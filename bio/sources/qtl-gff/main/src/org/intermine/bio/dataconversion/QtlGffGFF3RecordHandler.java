@@ -70,6 +70,10 @@ public class QtlGffGFF3RecordHandler extends GFF3RecordHandler
                 String primaryIdentifier = record.getAttributes().get("ID").iterator().next();
                 feature.setAttribute("primaryIdentifier", primaryIdentifier);
             }
+            if( record.getAttributes().get("QTL_ID") != null ) {
+                String qtlId = record.getAttributes().get("QTL_ID").iterator().next();
+                feature.setAttribute("qtlId", qtlId);
+            }
             if( record.getAttributes().get("qtl_type") != null ) {
                 String qtl_type = record.getAttributes().get("qtl_type").iterator().next().replace("_"," ");
                 feature.setAttribute("type", qtl_type);
