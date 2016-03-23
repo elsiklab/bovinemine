@@ -4,6 +4,7 @@
 <classes>
 <!-- add any <class> elements here -->
         <class name="QTL" extends="SequenceFeature" is-interface="true">
+                <attribute name="qtlId" type="java.lang.String"/>
                 <attribute name="type" type="java.lang.String"/>
                 <attribute name="trait" type="java.lang.String"/>
                 <attribute name="abbreviation" type="java.lang.String"/>
