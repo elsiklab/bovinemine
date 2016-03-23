@@ -219,6 +219,40 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                 String ft = record.getAttributes().get("feature_type").iterator().next();
                 feature.setAttribute("status", ft);
             }
+            if (record.getAttributes().get("mature_form") != null) {
+                // mature_form for miRNA
+                String matureFormString = record.getAttributes().get("mature_form").iterator().next();
+                List<String> entities = new ArrayList<String>(Arrays.asList(StringUtil.split(matureFormString, "|")));
+                for (String entity : entities) {
+                    Item matureTranscriptItem = converter.createItem("MatureTranscript");
+                    String matureTranscriptItemRefId = matureTranscriptItem.getIdentifier();
+                    List<String> entityAttributes = new ArrayList<String>(Arrays.asList(StringUtil.split(entity, ",")));
+                    List<String> locationInformation = new ArrayList<String>(Arrays.asList(StringUtil.split(entityAttributes.get(0), ":")));
+                    String chromosome = locationInformation.get(0);
+                    List<String> positionInfo = new ArrayList<String>(Arrays.asList(StringUtil.split(locationInformation.get(1), "..")));
+                    String start = positionInfo.get(0);
+                    String end = positionInfo.get(1);
+                    int strand = locationInformation.get(2).equals("+") ? 1 : -1;
+                    matureTranscriptItem.setAttribute("chromosome", chromosome);
+                    matureTranscriptItem.setAttribute("start", start);
+                    matureTranscriptItem.setAttribute("end", end);
+                    matureTranscriptItem.setAttribute("strand", Integer.toString(strand));
+                    String transcriptId = entityAttributes.get(1).split(":")[1];
+                    String mirbaseId = entityAttributes.get(2).split(":")[1];
+                    String description = entityAttributes.get(3).split(":")[1];
+                    matureTranscriptItem.setAttribute("transcriptIdentifier", transcriptId);
+                    matureTranscriptItem.setAttribute("mirbaseIdentifier", mirbaseId);
+                    matureTranscriptItem.setAttribute("description", description);
+
+                    try {
+                        converter.store(matureTranscriptItem);
+                    }
+                    catch (Exception e) {
+                        System.out.println("Exception while storing duplicateEntityItem:" + matureTranscriptItem + "\n" + e);
+                    }
+                    feature.addToCollection("matureTranscripts", matureTranscriptItemRefId);
+                }
+            }
 
             // Accessing Dbxrefs
             List<String> dbxrefs = record.getDbxrefs();
