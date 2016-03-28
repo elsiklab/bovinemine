@@ -283,6 +283,7 @@ public class DbsnpVariationDirectDataLoaderTask extends FileDirectDataLoaderTask
             indel.setReferenceAllele(ref);
             indel.setAlternateAllele(alt);
             indel.setPrimaryIdentifier(id);
+            indel.setChromosome(chromosome);
             // set INDEL -> dataSet collection
             indel.setDataSets(new HashSet<DataSet>(Arrays.asList(getDataSet())));
 
