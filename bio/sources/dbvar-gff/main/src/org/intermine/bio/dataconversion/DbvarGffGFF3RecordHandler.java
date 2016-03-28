@@ -41,9 +41,11 @@ public class DbvarGffGFF3RecordHandler extends GFF3RecordHandler
      */
     public DbvarGffGFF3RecordHandler (Model model) {
         super(model);
-        refsAndCollections.put("CopyNumberVariation", "children");
         refsAndCollections.put("CopyNumberGain", "parent");
         refsAndCollections.put("CopyNumberLoss", "parent");
+        refsAndCollections.put("Deletion", "parent");
+        refsAndCollections.put("Inversion", "parent");
+        refsAndCollections.put("TandemDuplicationVariant", "parent");
     }
 
     public HashMap<String, Item> topLevelItems =  new HashMap<String, Item>();
@@ -86,13 +88,32 @@ public class DbvarGffGFF3RecordHandler extends GFF3RecordHandler
             if (record.getAttributes().get("phenotype") != null) {
                 feature.setAttribute("phenotype", record.getAttributes().get("phenotype").iterator().next());
             }
-
-        }
-        else if (clsName.equals("CopyNumberGain")) {
-            feature.setAttribute("name", record.getAttributes().get("Name").iterator().next());
-            if (record.getAttributes().get("parent") != null) {
-                feature.setAttribute("parent", record.getAttributes().get("parent").iterator().next());
+            if (record.getAttributes().get("isComplexSubstitution") != null) {
+                feature.setAttribute("isComplexSubstitution", record.getAttributes().get("isComplexSubstitution").iterator().next());
             }
+            if (record.getAttributes().get("Start_range") != null) {
+                String innerStart = record.getAttributes().get("Start_range").get(0);
+                String outerStart = record.getAttributes().get("Start_range").get(1);
+                if (!innerStart.equals(".")) {
+                    feature.setAttribute("innerStartCoordinate", innerStart);
+                }
+                if (!outerStart.equals(".")) {
+                    feature.setAttribute("outerStartCoordinate", outerStart);
+                }
+            }
+            if (record.getAttributes().get("End_range") != null) {
+                String innerEnd = record.getAttributes().get("End_range").get(0);
+                String outerEnd = record.getAttributes().get("End_range").get(1);
+                if (!innerEnd.equals(".")) {
+                    feature.setAttribute("innerStartCoordinate", innerEnd);
+                }
+                if (!outerEnd.equals(".")) {
+                    feature.setAttribute("outerStartCoordinate", outerEnd);
+                }
+            }
+        }
+        else if (clsName.equals("CopyNumberGain") || clsName.equals("CopyNumberLoss")) {
+            feature.setAttribute("name", record.getAttributes().get("Name").iterator().next());
             if (record.getAttributes().get("validated") != null) {
                 ArrayList<String> validated = new ArrayList<String> (record.getAttributes().get("validated"));
                 if (validated.size() > 1) {
@@ -114,35 +135,31 @@ public class DbvarGffGFF3RecordHandler extends GFF3RecordHandler
             if (record.getAttributes().get("phenotype") != null) {
                 feature.setAttribute("phenotype", record.getAttributes().get("phenotype").iterator().next());
             }
-        }
-        else if (clsName.equals("CopyNumberLoss")) {
-            feature.setAttribute("name", record.getAttributes().get("Name").iterator().next());
-            if (record.getAttributes().get("parent") != null) {
-                feature.setAttribute("parent", record.getAttributes().get("parent").iterator().next());
+            if (record.getAttributes().get("copy_number") != null) {
+                feature.setAttribute("copyNumber", record.getAttributes().get("copy_number").iterator().next());
             }
-            if (record.getAttributes().get("validated") != null) {
-                ArrayList<String> validated = new ArrayList<String> (record.getAttributes().get("validated"));
-                if (validated.size() > 1) {
-                    feature.setAttribute("validationStatus", StringUtil.join(validated, ","));
+            if (record.getAttributes().get("Start_range") != null) {
+                String innerStart = record.getAttributes().get("Start_range").get(0);
+                String outerStart = record.getAttributes().get("Start_range").get(1);
+                if (!innerStart.equals(".")) {
+                    feature.setAttribute("innerStartCoordinate", innerStart);
                 }
-                else {
-                    feature.setAttribute("validationStatus", record.getAttributes().get("validated").iterator().next());
+                if (!outerStart.equals(".")) {
+                    feature.setAttribute("outerStartCoordinate", outerStart);
                 }
             }
-            if (record.getAttributes().get("sample_name") != null) {
-                feature.setAttribute("sampleName", record.getAttributes().get("sample_name").get(0));
-            }
-            if (record.getAttributes().get("gender") != null) {
-                feature.setAttribute("gender", record.getAttributes().get("gender").get(0));
-            }
-            if (record.getAttributes().get("remapScore") != null) {
-                feature.setAttribute("remapScore", record.getAttributes().get("remapScore").iterator().next());
-            }
-            if (record.getAttributes().get("phenotype") != null) {
-                feature.setAttribute("phenotype", record.getAttributes().get("phenotype").iterator().next());
+            if (record.getAttributes().get("End_range") != null) {
+                String innerEnd = record.getAttributes().get("End_range").get(0);
+                String outerEnd = record.getAttributes().get("End_range").get(1);
+                if (!innerEnd.equals(".")) {
+                    feature.setAttribute("innerStopCoordinate", innerEnd);
+                }
+                if (!outerEnd.equals(".")) {
+                    feature.setAttribute("outerStopCoordinate", outerEnd);
+                }
             }
         }
-        else if (clsName.equals("ComplexSubstitution")) {
+        else if (clsName.equals("Deletion")) {
             feature.setAttribute("name", record.getAttributes().get("Name").iterator().next());
             if (record.getAttributes().get("validated") != null) {
                 ArrayList<String> validated = new ArrayList<String> (record.getAttributes().get("validated"));
@@ -157,13 +174,175 @@ public class DbvarGffGFF3RecordHandler extends GFF3RecordHandler
                 feature.setAttribute("sampleName", record.getAttributes().get("sample_name").get(0));
             }
             if (record.getAttributes().get("gender") != null) {
-                feature.setAttribute("gender", record.getAttributes().get("gender").get(0));
+                feature.setAttribute("gender", record.getAttributes().get("gender").iterator().next());
             }
             if (record.getAttributes().get("remapScore") != null) {
                 feature.setAttribute("remapScore", record.getAttributes().get("remapScore").iterator().next());
             }
             if (record.getAttributes().get("phenotype") != null) {
                 feature.setAttribute("phenotype", record.getAttributes().get("phenotype").iterator().next());
+            }
+            if (record.getAttributes().get("Start_range") != null) {
+                String innerStart = record.getAttributes().get("Start_range").get(0);
+                String outerStart = record.getAttributes().get("Start_range").get(1);
+                if (!innerStart.equals(".")) {
+                    feature.setAttribute("innerStartCoordinate", innerStart);
+                }
+                if (!outerStart.equals(".")) {
+                    feature.setAttribute("outerStartCoordinate", outerStart);
+                }
+            }
+            if (record.getAttributes().get("End_range") != null) {
+                String innerEnd = record.getAttributes().get("End_range").get(0);
+                String outerEnd = record.getAttributes().get("End_range").get(1);
+                if (!innerEnd.equals(".")) {
+                    feature.setAttribute("innerStopCoordinate", innerEnd);
+                }
+                if (!outerEnd.equals(".")) {
+                    feature.setAttribute("outerStopCoordinate", outerEnd);
+                }
+            }
+        }
+        else if (clsName.equals("Inversion")) {
+            feature.setAttribute("name", record.getAttributes().get("Name").iterator().next());
+            if (record.getAttributes().get("validated") != null) {
+                ArrayList<String> validated = new ArrayList<String> (record.getAttributes().get("validated"));
+                if (validated.size() > 1) {
+                    feature.setAttribute("validationStatus", StringUtil.join(validated, ","));
+                }
+                else {
+                    feature.setAttribute("validationStatus", record.getAttributes().get("validated").iterator().next());
+                }
+            }
+            if (record.getAttributes().get("sample_name") != null) {
+                feature.setAttribute("sampleName", record.getAttributes().get("sample_name").get(0));
+            }
+            if (record.getAttributes().get("gender") != null) {
+                feature.setAttribute("gender", record.getAttributes().get("gender").iterator().next());
+            }
+            if (record.getAttributes().get("remapScore") != null) {
+                feature.setAttribute("remapScore", record.getAttributes().get("remapScore").iterator().next());
+            }
+            if (record.getAttributes().get("phenotype") != null) {
+                feature.setAttribute("phenotype", record.getAttributes().get("phenotype").iterator().next());
+            }
+            if (record.getAttributes().get("copy_number") != null) {
+                feature.setAttribute("copyNumber", record.getAttributes().get("copy_number").iterator().next());
+            }
+            if (record.getAttributes().get("Start_range") != null) {
+                String innerStart = record.getAttributes().get("Start_range").get(0);
+                String outerStart = record.getAttributes().get("Start_range").get(1);
+                if (!innerStart.equals(".")) {
+                    feature.setAttribute("innerStartCoordinate", innerStart);
+                }
+                if (!outerStart.equals(".")) {
+                    feature.setAttribute("outerStartCoordinate", outerStart);
+                }
+            }
+            if (record.getAttributes().get("End_range") != null) {
+                String innerEnd = record.getAttributes().get("End_range").get(0);
+                String outerEnd = record.getAttributes().get("End_range").get(1);
+                if (!innerEnd.equals(".")) {
+                    feature.setAttribute("innerStopCoordinate", innerEnd);
+                }
+                if (!outerEnd.equals(".")) {
+                    feature.setAttribute("outerStopCoordinate", outerEnd);
+                }
+            }
+        }
+        else if (clsName.equals("TandemDuplication")) {
+            feature.setAttribute("name", record.getAttributes().get("Name").iterator().next());
+            if (record.getAttributes().get("validated") != null) {
+                ArrayList<String> validated = new ArrayList<String> (record.getAttributes().get("validated"));
+                if (validated.size() > 1) {
+                    feature.setAttribute("validationStatus", StringUtil.join(validated, ","));
+                }
+                else {
+                    feature.setAttribute("validationStatus", record.getAttributes().get("validated").iterator().next());
+                }
+            }
+            if (record.getAttributes().get("sample_name") != null) {
+                feature.setAttribute("sampleName", record.getAttributes().get("sample_name").get(0));
+            }
+            if (record.getAttributes().get("gender") != null) {
+                feature.setAttribute("gender", record.getAttributes().get("gender").iterator().next());
+            }
+            if (record.getAttributes().get("remapScore") != null) {
+                feature.setAttribute("remapScore", record.getAttributes().get("remapScore").iterator().next());
+            }
+            if (record.getAttributes().get("phenotype") != null) {
+                feature.setAttribute("phenotype", record.getAttributes().get("phenotype").iterator().next());
+            }
+            if (record.getAttributes().get("copy_number") != null) {
+                feature.setAttribute("copyNumber", record.getAttributes().get("copy_number").iterator().next());
+            }
+            if (record.getAttributes().get("Start_range") != null) {
+                String innerStart = record.getAttributes().get("Start_range").get(0);
+                String outerStart = record.getAttributes().get("Start_range").get(1);
+                if (!innerStart.equals(".")) {
+                    feature.setAttribute("innerStartCoordinate", innerStart);
+                }
+                if (!outerStart.equals(".")) {
+                    feature.setAttribute("outerStartCoordinate", outerStart);
+                }
+            }
+            if (record.getAttributes().get("End_range") != null) {
+                String innerEnd = record.getAttributes().get("End_range").get(0);
+                String outerEnd = record.getAttributes().get("End_range").get(1);
+                if (!innerEnd.equals(".")) {
+                    feature.setAttribute("innerStopCoordinate", innerEnd);
+                }
+                if (!outerEnd.equals(".")) {
+                    feature.setAttribute("outerStopCoordinate", outerEnd);
+                }
+            }
+        }
+        else if (clsName.equals("TandemDuplicationVariant")) {
+            feature.setAttribute("name", record.getAttributes().get("Name").iterator().next());
+            feature.setAttribute("source", record.getSource());
+            if (record.getAttributes().get("validated") != null) {
+                ArrayList<String> validated = new ArrayList<String> (record.getAttributes().get("validated"));
+                if (validated.size() > 1) {
+                    feature.setAttribute("validationStatus", StringUtil.join(validated, ","));
+                }
+                else {
+                    feature.setAttribute("validationStatus", record.getAttributes().get("validated").iterator().next());
+                }
+            }
+            if (record.getAttributes().get("sample_name") != null) {
+                feature.setAttribute("sampleName", record.getAttributes().get("sample_name").get(0));
+            }
+            if (record.getAttributes().get("gender") != null) {
+                feature.setAttribute("gender", record.getAttributes().get("gender").iterator().next());
+            }
+            if (record.getAttributes().get("remapScore") != null) {
+                feature.setAttribute("remapScore", record.getAttributes().get("remapScore").iterator().next());
+            }
+            if (record.getAttributes().get("phenotype") != null) {
+                feature.setAttribute("phenotype", record.getAttributes().get("phenotype").iterator().next());
+            }
+            if (record.getAttributes().get("copy_number") != null) {
+                feature.setAttribute("copyNumber", record.getAttributes().get("copy_number").iterator().next());
+            }
+            if (record.getAttributes().get("Start_range") != null) {
+                String innerStart = record.getAttributes().get("Start_range").get(0);
+                String outerStart = record.getAttributes().get("Start_range").get(1);
+                if (!innerStart.equals(".")) {
+                    feature.setAttribute("innerStartCoordinate", innerStart);
+                }
+                if (!outerStart.equals(".")) {
+                    feature.setAttribute("outerStartCoordinate", outerStart);
+                }
+            }
+            if (record.getAttributes().get("End_range") != null) {
+                String innerEnd = record.getAttributes().get("End_range").get(0);
+                String outerEnd = record.getAttributes().get("End_range").get(1);
+                if (!innerEnd.equals(".")) {
+                    feature.setAttribute("innerStopCoordinate", innerEnd);
+                }
+                if (!outerEnd.equals(".")) {
+                    feature.setAttribute("outerStopCoordinate", outerEnd);
+                }
             }
         }
         else {
