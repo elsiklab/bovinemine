@@ -535,9 +535,10 @@ public class DbsnpVariationDirectDataLoaderTask extends FileDirectDataLoaderTask
         location.setLocatedOn(locatedOn);
         location.setFeature((BioEntity) feature);
         length = refAllele.length();
-        int end = start + length;
 
-        if (start < end) {
+        int end = (start + length) - 1;
+
+        if (start <= end) {
             location.setStart(start);
             location.setEnd(end);
         }
