@@ -15,7 +15,7 @@
             <property name="src.data.file" location="@DATA_DIR@/psi-mi-ontology/psi-mi.obo"/>
         </source>
         <source name="go" type="go">
-            <property name="src.data.file" location="@DATA_DIR@/go/gene_ontology.obo"/>
+            <property name="src.data.file" location="@DATA_DIR@/GO/gene-ontology.obo"/>
         </source>
         <source name="human-gene-info" type="custom-gene-info" dump="true">
             <property name="src.data.dir" location="@DATA_DIR@/custom-gene-info/human"/>
@@ -25,6 +25,10 @@
         </source>
         <source name="rat-gene-info" type="custom-gene-info" dump="true">
             <property name="src.data.dir" location="@DATA_DIR@/custom-gene-info/rat"/>
+        </source>
+        <source name="bovine-dbsnp-variation" type="dbsnp-variation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/dbSNP"/>
+            <property name="src.data.dir.includes" value="*.vcf"/>
         </source>
         <source name="bovine-chromosome-fasta" type="fasta" dump="true">
             <property name="fasta.className" value="org.intermine.model.bio.Chromosome"/>
@@ -100,14 +104,14 @@
         </source>
         <source name="bovine-ensembl-gff" type="ensembl-gff" dump="true">
             <property name="gff3.taxonId" value="9913"/>
-            <property name="gff3.dataSourceName" value="Gene annotations from Ensembl (Release 82)"/>
+            <property name="gff3.dataSourceName" value="Gene annotations from Ensembl (Release 84)"/>
             <property name="gff3.dataSetTitle" value="Gene annotations from Ensembl for Bos taurus"/>
             <property name="gff3.seqClsName" value="Chromosome"/>
             <property name="src.data.dir" location="@DATA_DIR@/Ensembl/annotations/bos_taurus"/>
         </source>
         <source name="oari-ensembl-gff" type="ensembl-gff" dump="true">
             <property name="gff3.taxonId" value="9940"/>
-            <property name="gff3.dataSourceName" value="Gene annotations from Ensembl (Release 82)"/>
+            <property name="gff3.dataSourceName" value="Gene annotations from Ensembl (Release 84)"/>
             <property name="gff3.dataSetTitle" value="Gene annotations from Ensembl for Ovis aries"/>
             <property name="gff3.seqClsName" value="Chromosome"/>
             <property name="src.data.dir" location="@DATA_DIR@/Ensembl/annotations/ovis_aries"/>
@@ -141,7 +145,7 @@
             <property name="fasta.taxonId" value="9913"/>
             <property name="fasta.className" value="org.intermine.model.bio.CDS"/>
             <property name="fasta.classAttribute" value="primaryIdentifier"/>
-            <property name="fasta.dataSourceName" value="CDS sequence for transcripts from Ensembl (Release 82)"/>
+            <property name="fasta.dataSourceName" value="CDS sequence for transcripts from Ensembl (Release 84)"/>
             <property name="fasta.dataSetTitle" value="CDS sequence for transcripts from Ensembl for Bos taurus"/>
             <property name="src.data.dir" location="@DATA_DIR@/Ensembl/cds-fasta/bos_taurus"/>
             <property name="fasta.includes" value="*.fa"/>
@@ -174,7 +178,7 @@
             <property name="fasta.taxonId" value="9940"/>
             <property name="fasta.className" value="org.intermine.model.bio.CDS"/>
             <property name="fasta.classAttribute" value="primaryIdentifier"/>
-            <property name="fasta.dataSourceName" value="CDS sequence for transcripts from Ensembl (Release 82)"/>
+            <property name="fasta.dataSourceName" value="CDS sequence for transcripts from Ensembl (Release 84)"/>
             <property name="fasta.dataSetTitle" value="CDS sequence for transcripts from Ensembl for Ovis aries"/>
             <property name="src.data.dir" location="@DATA_DIR@/Ensembl/cds-fasta/ovis_aries"/>
             <property name="fasta.includes" value="*.fa"/>
@@ -207,7 +211,7 @@
             <property name="fasta.taxonId" value="9913"/>
             <property name="fasta.className" value="org.intermine.model.bio.Polypeptide"/>
             <property name="fasta.classAttribute" value="primaryIdentifier"/>
-            <property name="fasta.dataSourceName" value="Protein sequence for transcripts from Ensembl (Release 82)"/>
+            <property name="fasta.dataSourceName" value="Protein sequence for transcripts from Ensembl (Release 84)"/>
             <property name="fasta.dataSetTitle" value="Protein sequence for transcripts from Ensembl for bos taurus"/>
             <property name="src.data.dir" location="@DATA_DIR@/Ensembl/protein-fasta/bos_taurus"/>
             <property name="fasta.includes" value="*.fa"/>
@@ -240,7 +244,7 @@
             <property name="fasta.taxonId" value="9940"/>
             <property name="fasta.className" value="org.intermine.model.bio.Polypeptide"/>
             <property name="fasta.classAttribute" value="primaryIdentifier"/>
-            <property name="fasta.dataSourceName" value="Protein sequence for transcripts from Ensembl (Release 82)"/>
+            <property name="fasta.dataSourceName" value="Protein sequence for transcripts from Ensembl (Release 84)"/>
             <property name="fasta.dataSetTitle" value="Protein sequence for transcripts from Ensembl for Ovis aries"/>
             <property name="src.data.dir" location="@DATA_DIR@/Ensembl/protein-fasta/ovis_aries"/>
             <property name="fasta.includes" value="*.fa"/>
@@ -265,10 +269,6 @@
             <property name="gff3.dataSetTitle" value="SNPs from The Bovine HapMap Consortium"/>
             <property name="gff3.seqClsName" value="Chromosome"/>
             <property name="src.data.dir" location="@DATA_DIR@/HapMap"/>
-        </source>
-        <source name="bovine-dbsnp-variation" type="dbsnp-variation" dump="true">
-            <property name="src.data.dir" location="@DATA_DIR@/dbSNP_vcf/chr1"/>
-            <property name="src.data.dir.includes" value="*.vcf"/>
         </source>
         <source name="bovine-dbvar" type="dbvar-gff" dump="true">
             <property name="gff3.taxonId" value="9913"/>
@@ -325,11 +325,14 @@
             <property name="fasta.dataSourceName" value="UniProt Fasta"/>
             <property name="fasta.dataSetTitle" value="Fasta sequence for proteins from UniProt"/>
             <property name="src.data.dir" location="@DATA_DIR@/UniProt/"/>
-            <property name="fasta.includes" value="uniprot_sprot.fasta"/>
+            <property name="fasta.includes" value="uniprot_sprot_varsplic.fasta"/>
             <property name="fasta.sequenceType" value="protein" />
             <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.UniProtFastaLoaderTask"/>
         </source>
-            <source name="protein2ipr" type="protein2ipr">
+        <source name="interpro" type="interpro">
+            <property name="src.data.dir" location="@DATA_DIR@/InterPro"/>
+        </source>
+        <source name="protein2ipr" type="protein2ipr">
             <property name="src.data.dir" location="@DATA_DIR@/protein2ipr"/>
             <property name="src.data.dir.includes" value="protein2ipr.dat"/>
             <property name="protein2ipr.organisms" value="9913 9606 10090 10116 9925 9940"/>
@@ -338,10 +341,6 @@
             <property name="ontologyfile" location="@DATA_DIR@/GO/go.obo"/>
             <property name="src.data.dir" location="@DATA_DIR@/GO-annotation/"/>
         </source>
-        <source name="interpro" type="interpro">
-            <property name="src.data.dir" location="@DATA_DIR@/InterPro"/>
-        </source>
-
         <source name="reactome" type="reactome">
             <property name="src.data.dir" location="@DATA_DIR@/Reactome"/>
             <property name="reactome.organisms" value="9913 9606 10090 10116 9925 9940"/>
@@ -406,12 +405,12 @@
         </source>
     </sources>
     <post-processing>
-        <post-process name="create-chromosome-locations-and-lengths"/>
+        <!--<post-process name="create-chromosome-locations-and-lengths"/>-->
         <post-process name="create-references"/>
         <post-process name="transfer-sequences"/>
-        <post-process name="create-overlap-view"/>
-        <post-process name="create-location-overlap-index"/>
-        <post-process name="create-gene-flanking-features"/>
+        <!--<post-process name="create-overlap-view"/>-->
+        <!--<post-process name="create-location-overlap-index"/>-->
+        <!--<post-process name="create-gene-flanking-features"/>-->
         <post-process name="do-sources"/>
         <post-process name="create-attribute-indexes"/>
         <post-process name="create-search-index"/>
