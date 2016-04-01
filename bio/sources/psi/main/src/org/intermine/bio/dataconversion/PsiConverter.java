@@ -657,7 +657,8 @@ public class PsiConverter extends BioFileConverter
 
             for (String identifier : identifiers) {
                 // validate ensembl, look up dmel
-                String newIdentifier = resolveGeneIdentifier(taxonId, datasource, identifier);
+                //String newIdentifier = resolveGeneIdentifier(taxonId, datasource, identifier);
+                String newIdentifier = identifier;
                 if (StringUtils.isNotEmpty(newIdentifier)) {
                     String refId = storeGene(field, newIdentifier, taxonId);
                     refIds.add(refId);
