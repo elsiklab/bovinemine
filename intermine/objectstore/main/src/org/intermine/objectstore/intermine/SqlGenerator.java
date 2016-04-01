@@ -2067,6 +2067,7 @@ public final class SqlGenerator
             queryEvaluableToString(buffer, c.getRight().getStart(), q, state);
             buffer.append(", ");
             queryEvaluableToString(buffer, c.getRight().getEnd(), q, state);
+            buffer.append(", '[]'"); // upper-bound and lower-bound inclusive for right-range
             buffer.append(")");
         } else {
             if ((ConstraintOp.CONTAINS == c.getOp())
