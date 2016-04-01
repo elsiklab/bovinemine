@@ -12,7 +12,7 @@
         <attribute name="rawCounts" type="java.lang.Integer"/>
         <attribute name="normalizedCounts" type="java.lang.Float"/>
         <attribute name="FPKM" type="java.lang.Float"/>
-        <attribute name="RPKM" type="java.lang.Float"/>
+        <!--<attribute name="RPKM" type="java.lang.Float"/>-->
         <reference name="organism" referenced-type="Organism"/>
         <reference name="sampleMetadata" referenced-type="ExpressionMetadata" reverse-reference="isoforms"/>
     </class>
