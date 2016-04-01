@@ -192,17 +192,14 @@ public class TransferSequences
                 }
 
                 if (PostProcessUtil.isInstance(model, feature, "SNP")) {
-                    System.out.println("Type: SNP encountered @ TransferSequences");
                     continue;
                 }
 
                 if (PostProcessUtil.isInstance(model, feature, "Indel")) {
-                    System.out.println("Type: Indel encountered @ TransferSequences");
                     continue;
                 }
 
                 if (PostProcessUtil.isInstance(model, feature, "RepeatRegion")) {
-                    System.out.println("Type: RepeatRegion encountered @ TransferSequences");
                     continue;
                 }
 
