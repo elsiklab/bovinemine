@@ -26,8 +26,28 @@
         <source name="rat-gene-info" type="custom-gene-info" dump="true">
             <property name="src.data.dir" location="@DATA_DIR@/custom-gene-info/rat"/>
         </source>
-        <source name="bovine-dbsnp-variation" type="dbsnp-variation" dump="true">
-            <property name="src.data.dir" location="@DATA_DIR@/dbSNP"/>
+        <source name="bovine-dbsnp-variation-I" type="dbsnp-variation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/dbSNP/part_I"/>
+            <property name="src.data.dir.includes" value="*.vcf"/>
+        </source>
+        <source name="bovine-dbsnp-variation-II" type="dbsnp-variation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/dbSNP/part_II"/>
+            <property name="src.data.dir.includes" value="*.vcf"/>
+        </source>
+        <source name="bovine-dbsnp-variation-III" type="dbsnp-variation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/dbSNP/part_III"/>
+            <property name="src.data.dir.includes" value="*.vcf"/>
+        </source>
+        <source name="bovine-dbsnp-variation-IV" type="dbsnp-variation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/dbSNP/part_IV"/>
+            <property name="src.data.dir.includes" value="*.vcf"/>
+        </source>
+        <source name="bovine-dbsnp-variation-V" type="dbsnp-variation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/dbSNP/part_V"/>
+            <property name="src.data.dir.includes" value="*.vcf"/>
+        </source>
+        <source name="bovine-dbsnp-variation-VI" type="dbsnp-variation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/dbSNP/part_VI"/>
             <property name="src.data.dir.includes" value="*.vcf"/>
         </source>
         <source name="bovine-chromosome-fasta" type="fasta" dump="true">
