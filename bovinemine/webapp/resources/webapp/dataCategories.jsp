@@ -14,7 +14,6 @@
 <div class="body">
 <im:boxarea title="Data" stylename="plainbox"><p><fmt:message key="dataCategories.intro"/></p></im:boxarea>
 
-
 <table cellpadding="0" cellspacing="0" border="0" class="dbsources">
   <tr>
     <th>Data Category</th>
@@ -32,7 +31,7 @@
         <p><i>O. aries</i></p>
     </td>
     <td>NCBI Genes (RefSeq)</td>
-    <td>NCBI Annotation Release 104</td>
+    <td>NCBI Annotation Release 105</td>
     <td><p>Pruitt et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=24259432>24259432</a></p></td>
     <td> <a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/">NCBI FTP</a></td>
   </tr>
@@ -49,7 +48,7 @@
         <p><i>O. aries</i></p>
     </td>
     <td> Ensembl Genes </td>
-    <td>Ensembl Release 82</td>
+    <td>Ensembl Release 84</td>
     <td>Cunningham et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25352552>25352552</a></td>
     <td><a href="ftp://ftp.ensembl.org/pub/release-82/gtf/bos_taurus/">Ensembl Download</a></td>
   </tr>
@@ -137,7 +136,7 @@
         <p><i>O. aries</i></p>
     </td>
     <td> Protein annotation</td>
-    <td> UniProt - Release 2015_12</td>
+    <td> UniProt - Release 2016_04</td>
     <td> UniProt Consortium - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25348405>25348405</a></td>
     <td> <a href=ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/">UniProt FTP</a></td>
   </tr>
@@ -152,7 +151,7 @@
         <p><i>O. aries</i></p>
     </td>
     <td> Protein domains</td>
-    <td> InterPro Version 55.0  </td>
+    <td> InterPro Version 56.0  </td>
     <td> Mitchell et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428371>25428371</a></td>
     <td> <a href="ftp://ftp.ebi.ac.uk/pub/databases/interpro/55.0/">InterPro FTP</a></td>
   </tr>
@@ -167,7 +166,7 @@
         <p><i>O. aries</i></p>
     </td>
     <td> Interactions</td>
-    <td> BioGRID - Version 3.4.132 </td>
+    <td> BioGRID - Version 3.4.135 </td>
     <td> Chatr-Aryamontri et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428363>25428363</a></td>
     <td> <a href="http://thebiogrid.org/download.php">BioGRID Download</a></td>
   </tr>
@@ -198,7 +197,7 @@
         <p><i>O. aries</i></p>
     </td>
     <td> GO annotations </td>
-    <td> GOA at UniProt (GOC Validation Date: 11/11/2015)</td>
+    <td> GOA at UniProt (GOC Validation Date: 03/16/2016)</td>
     <td> <p>Huntley et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25378336>25378336</a></p><p>Gene Ontology Consortium - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428369>25428369</a></p></td>
     <td> <a href="http://geneontology.org/page/download-annotation">GO Consortium Annotation Download</a></td>
   </tr>
@@ -214,7 +213,7 @@
       <p><i>O. aries</i></p>
     </td>
     <td> Pathway information inferred through orthologues from curated human pathways</td>
-    <td> Reactome - version 53, July 2015</td>
+    <td> Reactome - version 55, March 2016</td>
     <td> Croft et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=24243840>24243840</a></td>
     <td> <a href="http://www.reactome.org/download/current/">Reactome Download</a></td>
   </tr>
@@ -239,14 +238,10 @@
       <p><i>E. caballus</i></p>
     </td>
     <td>Pathway information</td>
-    <td>Kegg</td>
+    <td>KEGG</td>
     <td>Kanehisa M et al - PubMed <a href="http://www.ncbi.nlm.nih.gov/pubmed/10592173">10592173</a></td>
     <td><a href="http://www.genome.jp/kegg/">Kegg</a>
   </tr>
-
-
-
-
   <tr>
     <td class="leftcol"><p><h2>Publications</h2></p></td>
     <td> <i>B. taurus</i> </td>
@@ -262,21 +257,21 @@
       <i>B. taurus</i>
     </td>
     <td>QTL data for Bos taurus</td>
-    <td> AnimalQTLdb release 25 (Feb 2015)</td>
+    <td> AnimalQTLdb release 28 (Dec 2015)</td>
     <td>Hu et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=17135205>17135205</a></td>
     <td><a href=http://www.animalgenome.org/cgi-bin/QTLdb/BT/index>CattleQTLdb Download</a></td>
   </tr>
   <tr>
     <td><i>B. taurus</i></td>
     <td>dbSNP data for Bos taurus</td>
-    <td> dbSNP v143</td>
+    <td> dbSNP v146</td>
     <td> Sherry et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=11125122>11125122</a></td>
     <td><p><a href="ftp://ftp.ncbi.nih.gov/snp/organisms/cow_9913/VCF/">NCBI FTP</a></p><p><i> *SNP arrays and SNP NCBI IDs*</i></p></td>
   </tr>
   <tr>
       <td><i>B. taurus</i></td>
       <td>dbVar data for Bos taurus</td>
-      <td> dbVar (Revision January 30, 2015)</td>
+      <td> dbVar (Revision January, 2016)</td>
       <td> Church et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3531204/>23193291</a></td>
       <td><a href="ftp://ftp.ncbi.nlm.nih.gov/pub/dbVar/data/Bos_taurus/">NCBI FTP</a></td>
   </tr>
@@ -287,13 +282,11 @@
       <td> The International HapMap Consortium - Nature <a href=http://www.nature.com/nature/journal/v426/n6968/abs/nature02168.html></a></td>
       <td><a href="http://hapmap.ncbi.nlm.nih.gov/">Hapmap website</a></td>
   </tr>
-
-
   <tr>
     <td class="leftcol" rowspan="1"><p><h2>Variant Annotations</h2></p></td>
     <td><i>B. taurus</i></td>
     <td>Variant effects predicted on RefSeq and Ensembl using Ensembl Variant Effect Predictor</td>
-    <td>Ensembl VEP (Release 82)</td>
+    <td>Ensembl VEP (Release 84)</td>
     <td>McLaren et al - PubMed <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=20562413">20562413</a></td>
     <td><a href="http://useast.ensembl.org/info/docs/tools/vep/index.html">Ensembl VEP</a></td>
   </tr>
@@ -314,9 +307,6 @@
     <td>Zimin et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=19393038>19393038</a></td>
     <td><a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/Bos_taurus/">NCBI FTP</a></td>
   </tr>
-
-
-
 </table>
 
 <div class="body">
