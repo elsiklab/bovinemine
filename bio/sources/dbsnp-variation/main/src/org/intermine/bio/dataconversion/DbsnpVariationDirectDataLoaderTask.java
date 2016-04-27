@@ -178,6 +178,7 @@ public class DbsnpVariationDirectDataLoaderTask extends FileDirectDataLoaderTask
         String chromosomeIdentifier = fields[0];
         Integer position = new Integer(fields[1]);
         String id = fields[2];
+        System.out.println("RSID: " + id);
         String ref = fields[3];
         String alt = fields[4];
         String info = fields[7];
@@ -186,8 +187,7 @@ public class DbsnpVariationDirectDataLoaderTask extends FileDirectDataLoaderTask
         Chromosome chromosome = getChromosome(chromosomeIdentifier);
         String type = getKeyValuePair(infoElements, "VC=").get(1);
         String dbSnpBuild = getKeyValuePair(infoElements, "dbSNPBuildID=").get(1);
-        ArrayList<String> ssIds = getKeyValuePair(infoElements, "ss_id=");
-        ArrayList<String> probeIds = getKeyValuePair(infoElements, "snp_array_probe_id=");
+        ArrayList<String> aliases = getKeyValuePair(infoElements, "alias=");
         ArrayList<String> variantAnnotation = getKeyValuePair(infoElements, "variant_annotation=");
         ArrayList<HashSet> returnObject = new ArrayList<HashSet>();
         HashSet<Consequence> consequenceSet = new HashSet<Consequence>();
@@ -209,23 +209,16 @@ public class DbsnpVariationDirectDataLoaderTask extends FileDirectDataLoaderTask
 
             // Processing ssIds and probeIds corresponding to each rsId
             Set<AliasName> ssIdSet = null;
-            Set<AliasName> probeIdSet = null;
 
-            if (ssIds != null) {
-                ssIdSet = processDbsnpSsIdentifiers((SequenceAlteration) snp, ssIds.get(1));
-            }
-
-            if (probeIds != null) {
-                probeIdSet = processSnpArrayProbeIdentifiers((SequenceAlteration) snp, probeIds.get(1));
+            if (aliases != null) {
+                ssIdSet = processDbsnpSsIdentifiers((SequenceAlteration) snp, aliases.get(1));
             }
 
             Set<AliasName> setOfAlias = new HashSet<AliasName>();
             if (ssIdSet != null) {
                 setOfAlias.addAll(ssIdSet);
             }
-            if (probeIdSet != null) {
-                setOfAlias.addAll(probeIdSet);
-            }
+
             // set SNP -> alias collection
             if (setOfAlias.size() > 0) {
                 snp.setAliases(setOfAlias);
@@ -289,23 +282,16 @@ public class DbsnpVariationDirectDataLoaderTask extends FileDirectDataLoaderTask
 
             // Processing ssId and probeId corresponding to each rsId
             Set<AliasName> ssIdSet = null;
-            Set<AliasName> probeIdSet = null;
 
-            if (ssIds != null) {
-                ssIdSet = processDbsnpSsIdentifiers((SequenceAlteration) indel, ssIds.get(1));
-            }
-
-            if (probeIds != null) {
-                probeIdSet = processSnpArrayProbeIdentifiers((SequenceAlteration) indel, probeIds.get(1));
+            if (aliases != null) {
+                ssIdSet = processDbsnpSsIdentifiers((SequenceAlteration) indel, aliases.get(1));
             }
 
             Set<AliasName> setOfAlias = new HashSet<AliasName>();
             if (ssIdSet != null) {
                 setOfAlias.addAll(ssIdSet);
             }
-            if (probeIdSet != null) {
-                setOfAlias.addAll(probeIdSet);
-            }
+
             if (setOfAlias.size() > 0) {
                 // set INDEL -> alias collection
                 indel.setAliases(setOfAlias);
