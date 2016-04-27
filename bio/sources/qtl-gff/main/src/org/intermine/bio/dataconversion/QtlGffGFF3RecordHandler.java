@@ -94,47 +94,10 @@ public class QtlGffGFF3RecordHandler extends GFF3RecordHandler
                 String bayesValue = record.getAttributes().get("Bayes-value").iterator().next();
                 feature.setAttribute("bayesValue", bayesValue);
             }
-                        if( record.getAttributes().get("gene_ID") != null ) {
+            if( record.getAttributes().get("gene_ID") != null ) {
                 String gene_identifier = record.getAttributes().get("gene_ID").iterator().next();
                 feature.setAttribute("geneIdentifier", gene_identifier);
-                Item gene = converter.createItem("Gene");
-                gene.setAttribute("primaryIdentifier", gene_identifier);
-                feature.setReference("gene", gene.getIdentifier());
-
-                try {
-                    converter.store(gene);
-                } catch (ObjectStoreException e) {
-                    System.out.println(e.toString());
-                }
-
-                // Item gene = converter.createItem("Gene");
-                // gene.setReference("primaryIdentifier", gene_identifier);
-                // addItem(gene); 
-                // String geneRefId = gene.getIdentifier();
-                // System.out.println("geneRefId: " + geneRefId);
-                //feature.setReference("gene", gene_identifier); // adding a reference to table 'gene'
             }
         }
-
-        // This method is called for every line of GFF3 file(s) being read.  Features and their
-        // locations are already created but not stored so you can make changes here.  Attributes
-        // are from the last column of the file are available in a map with the attribute name as
-        // the key.   For example:
-        //
-        //     Item feature = getFeature();
-        //     String symbol = record.getAttributes().get("symbol");
-        //     feature.setAttribute("symbol", symbol);
-        //
-        // Any new Items created can be stored by calling addItem().  For example:
-        // 
-        //     String geneIdentifier = record.getAttributes().get("gene");
-        //     gene = createItem("Gene");
-        //     gene.setAttribute("primaryIdentifier", geneIdentifier);
-        //     addItem(gene);
-        //
-        // You should make sure that new Items you create are unique, i.e. by storing in a map by
-        // some identifier. 
-
     }
-
 }
