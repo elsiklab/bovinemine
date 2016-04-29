@@ -153,7 +153,10 @@ public class BuildBagAction extends InterMineAction
         List<String> list = new ArrayList<String>();
         int elementCount = 0;
         while ((thisLine = reader.readLine()) != null) {
-            // append whitespace to valid delimiters
+            if (thisLine.indexOf("\t") != -1) {
+                // replacing TAB with spaces
+                thisLine = thisLine.replaceAll("\t", " ");
+            }
             String bagUploadDelims = (String) webProperties.get("list.upload.delimiters") + " ";
             StrMatcher matcher = StrMatcher.charSetMatcher(bagUploadDelims);
             StrTokenizer st = new StrTokenizer(thisLine, matcher, StrMatcher.doubleQuoteMatcher());
