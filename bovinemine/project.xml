@@ -50,6 +50,10 @@
             <property name="src.data.dir" location="@DATA_DIR@/dbSNP/part_VI"/>
             <property name="src.data.dir.includes" value="*.vcf"/>
         </source>
+        <source name="bovine-dbsnp-variation-VII" type="dbsnp-variation" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/dbSNP/part_VII"/>
+            <property name="src.data.dir.includes" value="*.vcf"/>
+        </source>
         <source name="bovine-chromosome-fasta" type="fasta" dump="true">
             <property name="fasta.className" value="org.intermine.model.bio.Chromosome"/>
             <property name="fasta.dataSourceName" value="Bos taurus Genome"/>
@@ -295,7 +299,7 @@
             <property name="gff3.dataSourceName" value="Structural Variations from NCBI dbVar"/>
             <property name="gff3.dataSetTitle" value="Structural Variations for Bos taurus from NCBI dbVar"/>
             <property name="gff3.seqClsName" value="Chromosome"/>
-            <property name="src.data.dir" location="@DATA_DIR@/dbvar"/>
+            <property name="src.data.dir" location="@DATA_DIR@/dbVar"/>
         </source>
         <source name="bovine-affy-probe" type="microarray-probe-gff" dump="true">
             <property name="gff3.taxonId" value="9913"/>
@@ -407,15 +411,14 @@
             <property name="src.data.dir" location="@DATA_DIR@/IntAct"/>
             <property name="intact.organisms" value="9913 9606 9796 9615 10090 10116 9823 9940 9925"/>
         </source>
-        <source name="biocyc-human" type="biocyc">
-            <property name="src.data.dir" location="@DATA_DIR@/Biocyc"/>
-            <property name="biocyc.organisms" value="9606 10090"/> <!--NEED TO ADD MORE ORGANSIMS -->
+        <source name="biocyc" type="biocyc">
+            <property name="src.data.dir" location="@DATA_DIR@/BioCyc"/>
+            <property name="biocyc.organisms" value="9913 9606 10090"/>
         </source>
-       <source name="kegg-pathway" type="kegg-pathway">
-	    <property name="src.data.dir" location="@DATA_DIR@/KEGG/"/>
+        <source name="kegg-pathway" type="kegg-pathway">
+            <property name="src.data.dir" location="@DATA_DIR@/KEGG/"/>
             <property name="kegg.organisms" value="9913 9606 9796 9615 10090 10116 9823 9940 9925"/>
-       </source>
-      
+        </source>
         <source name="entrez-organism" type="entrez-organism" dump="true">
             <property name="src.data.file" location="build/organisms.xml"/>
         </source>
@@ -428,8 +431,8 @@
         <!--<post-process name="create-chromosome-locations-and-lengths"/>-->
         <post-process name="create-references"/>
         <post-process name="transfer-sequences"/>
-        <!--<post-process name="create-overlap-view"/>-->
-        <!--<post-process name="create-location-overlap-index"/>-->
+        <post-process name="create-overlap-view"/>
+        <post-process name="create-location-overlap-index"/>
         <!--<post-process name="create-gene-flanking-features"/>-->
         <post-process name="do-sources"/>
         <post-process name="create-attribute-indexes"/>
