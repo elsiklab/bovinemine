@@ -225,7 +225,8 @@ public class DbsnpVariationDirectDataLoaderTask extends FileDirectDataLoaderTask
             }
 
             // All variants in the dbSNP VCF are w.r.t. the + strand
-            createLocation(chromosome, snp, position, ref, alt, "1");
+            Location location = createLocation(chromosome, snp, position, ref, alt, "1");
+            snp.setChromosomeLocation(location);
 
             // Processing variant annotation for each rsId
             if (variantAnnotation != null) {
@@ -298,7 +299,8 @@ public class DbsnpVariationDirectDataLoaderTask extends FileDirectDataLoaderTask
             }
 
             // All variants in the dbSNP VCF are w.r.t. the + strand
-            createLocation(chromosome, indel, position, ref, alt, "1");
+            Location location = createLocation(chromosome, indel, position, ref, alt, "1");
+            indel.setChromosomeLocation(location);
 
             // Processing variant annotation for each rsId
             if (variantAnnotation != null) {
@@ -514,7 +516,7 @@ public class DbsnpVariationDirectDataLoaderTask extends FileDirectDataLoaderTask
      * @param strand
      * @throws ObjectStoreException
      */
-    private void createLocation(Chromosome locatedOn, SequenceAlteration feature, int start, String refAllele, String altAllele, String strand) throws ObjectStoreException {
+    private Location createLocation(Chromosome locatedOn, SequenceAlteration feature, int start, String refAllele, String altAllele, String strand) throws ObjectStoreException {
         int length = 0;
         Location location = getDirectDataLoader().createObject(Location.class);
         imoTracker.put(location.getId(), location);
@@ -538,6 +540,7 @@ public class DbsnpVariationDirectDataLoaderTask extends FileDirectDataLoaderTask
         location.setDoNotComputeOverlaps("Y");
         getDirectDataLoader().store(location);
         imoTracker.remove(location.getId());
+        return location;
     }
 
     /**
