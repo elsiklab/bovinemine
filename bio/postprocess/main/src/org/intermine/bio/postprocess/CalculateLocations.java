@@ -25,6 +25,8 @@ import org.intermine.bio.util.Constants;
 import org.intermine.metadata.MetaDataException;
 import org.intermine.metadata.Model;
 import org.intermine.model.bio.BioEntity;
+import org.intermine.model.bio.SNP;
+import org.intermine.model.bio.Indel;
 import org.intermine.model.bio.Chromosome;
 import org.intermine.model.bio.Location;
 import org.intermine.model.bio.SequenceFeature;
@@ -367,6 +369,7 @@ public class CalculateLocations
     public void setChromosomeLocationsAndLengths() throws Exception {
         Results results = BioQueries.findLocationAndObjects(os, Chromosome.class,
                 SequenceFeature.class, true, false, false, 10000);
+
         Iterator<?> resIter = results.iterator();
 
         osw.beginTransaction();
@@ -381,7 +384,10 @@ public class CalculateLocations
 
         while (resIter.hasNext()) {
             ResultsRow<?> rr = (ResultsRow<?>) resIter.next();
-
+            if (rr.get(1) instanceof SNP || rr.get(1) instanceof Indel) {
+                // ignoring result entries of type SNP and Indel;
+                continue;
+            }
             Integer chrId = (Integer) rr.get(0);
             SequenceFeature lsf = (SequenceFeature) rr.get(1);
             Location locOnChr = (Location) rr.get(2);
