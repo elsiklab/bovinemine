@@ -1,0 +1,7 @@
+<bag-queries>
+  <bag-type type="SequenceAlteration" matchOnFirst="true">
+      <query message="searching alias names for SequenceAlteration" matchesAreIssues="true" runBeforeDefault="false">
+          SELECT DISTINCT a1_.id as a3_, a2_.identifier as a4_ FROM SequenceAlteration AS a1_, AliasName AS a2_ WHERE (a1_.aliases CONTAINS a2_ AND lower(a2_.identifier) in ?)
+      </query>
+  </bag-type>
+</bag-queries>
