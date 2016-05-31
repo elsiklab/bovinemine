@@ -1,4 +1,4 @@
-package org.intermine.bio.dataconversion;
+ package org.intermine.bio.dataconversion;
 
 /*
  * Copyright (C) 2002-2015 FlyMine
@@ -333,7 +333,7 @@ public class PsiComplexesConverter extends BioFileConverter
         // Chop off the PRO ontology, we aren't using it yet
         // P00424-PRO0000006097, P00425-PRO0000006098, P00427-PRO_0000006108
         if (originalAccession.contains("-")) {
-            accession = originalAccession.substring(0, originalAccession.indexOf("-"));
+            accession = originalAccession;
             createSynonym = true;
         } else {
             accession = originalAccession;
@@ -352,7 +352,7 @@ public class PsiComplexesConverter extends BioFileConverter
                 interactorType = DEFAULT_INTERACTOR_TYPE;
             }
             Item protein = createItem(interactorType);
-            protein.setAttribute("primaryIdentifier", primaryIdentifier);
+      //      protein.setAttribute("primaryIdentifier", primaryIdentifier);
             if (PROTEIN.equals(typeTermIdentifier)) {
                 protein.setAttribute("primaryAccession", accession);
             } else if (SMALL_MOLECULE.equals(typeTermIdentifier)) {
