@@ -355,7 +355,11 @@
     replacesFields="overlappingFeatures"
     placement="Other"
     types="SequenceFeature"/>
-
+    <reportdisplayer javaClass="org.intermine.bio.web.displayer.ComplexDisplayer"
+                 jspName="model/complexDisplayer.jsp"
+                 replacesFields=""
+                 placement="summary"
+                 types="Complex"/>
 
 </reportdisplayers>
 
