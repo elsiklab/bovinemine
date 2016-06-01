@@ -1,4 +1,4 @@
- <project type="bio">
+  <project type="bio">
     <property name="target.model" value="genomic"/>
     <property name="source.location" location="../bio/sources/"/>
     <property name="common.os.prefix" value="common"/>
@@ -411,6 +411,10 @@
             <property name="src.data.dir" location="@DATA_DIR@/IntAct"/>
             <property name="intact.organisms" value="9913 9606 9796 9615 10090 10116 9823 9940 9925"/>
         </source>
+        <source name="psi-complexes" type="psi-complexes">
+            <property name="src.data.dir" location="/DATA/psi/datasets/psi-complexes"/>
+            <property name="complexes.source" value="ensembl"/>
+        </source>
         <source name="biocyc" type="biocyc">
             <property name="src.data.dir" location="@DATA_DIR@/BioCyc"/>
             <property name="biocyc.organisms" value="9913 9606 10090"/>
@@ -441,3 +445,4 @@
         <post-process name="create-autocomplete-index"/>
     </post-processing>
 </project>
+
