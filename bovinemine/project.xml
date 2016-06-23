@@ -441,6 +441,12 @@
        </source>
 
 -->
+         <source name="bio" type="pedigree">
+            <property name="src.data.dir" location="/home.george/aditi/amel"/>
+            <property name="ensemblcompara.organisms" value="4760"/>
+            <property name="ensemblcompara.homologues" value="4760"/>
+       </source>
+
 
         <source name="entrez-organism" type="entrez-organism" dump="true">
             <property name="src.data.file" location="build/organisms.xml"/>

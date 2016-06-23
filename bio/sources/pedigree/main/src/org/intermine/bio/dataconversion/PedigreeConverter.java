@@ -45,7 +45,8 @@ public class PedigreeConverter extends BioFileConverter
     private static final String DATASET_TITLE = "Pedigree data set";
     private static final String DATA_SOURCE_NAME = "UNKNOWN";
     private Map<String, String> genes = new HashMap<String, String>();
-    protected IdResolver rslv = null;
+    private Set<String> relates = new HashSet<String>();
+     protected IdResolver rslv = null;
     private Map<String, String> configs = new HashMap<String, String>();
   private static String evidenceRefId = null;
    
@@ -61,7 +62,7 @@ public class PedigreeConverter extends BioFileConverter
     }
 
 //
-     public void setPedigreeOrganisms(String taxonIds) {
+     public void setEnsemblcomparaOrganisms(String taxonIds) {
         this.taxonIds = new HashSet<String>(Arrays.asList(StringUtils.split(taxonIds, " ")));
     }
 
@@ -70,7 +71,7 @@ public class PedigreeConverter extends BioFileConverter
      * interest.  Otherwise ignore.
      * @param taxonIds list of taxon IDs to process
      */
-    public void setPedigreeRelates(String taxonIds) {
+    public void setEnsemblcomparaHomologues(String taxonIds) {
         this.relates = new HashSet<String>(Arrays.asList(StringUtils.split(taxonIds, " ")));
     }
 
@@ -169,12 +170,12 @@ public class PedigreeConverter extends BioFileConverter
         rel.setAttribute("type", family);
         store(rel);
     }
-    private void processRelates(String gene1, String gene2, String family, String relate1)
+    private void processRelates2(String gene1, String gene2, String family, String relate1)
         throws ObjectStoreException {
         Item rel = createItem("Relationships");
         rel.setReference("relationships", gene1);
         rel.setReference("individual", gene2);
-        rel.setReference("relationshiplookup", getRelate(relate));
+        rel.setReference("relationshiplookup", getRelate(relate1));
         String refId = rel.getIdentifier();
         System.out.println(">>>>>>>>>>>>>>"+ refId);
         rel.setAttribute("type", family);
