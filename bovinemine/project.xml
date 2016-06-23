@@ -433,6 +433,15 @@
             <property name="src.data.dir" location="@DATA_DIR@/KEGG/"/>
             <property name="kegg.organisms" value="9913 9606 9796 9615 10090 10116 9823 9940 9925"/>
         </source>
+<!-- Pedigree prototype. Needs editing based on the data obtained. But can use the same logic
+        <source name="bio" type="pedigree">
+            <property name="src.data.dir" location="/home.george/aditi/amel"/>
+            <property name="ensemblcompara.organisms" value="4760"/>
+            <property name="ensemblcompara.homologues" value="4760"/>
+       </source>
+
+-->
+
         <source name="entrez-organism" type="entrez-organism" dump="true">
             <property name="src.data.file" location="build/organisms.xml"/>
         </source>
