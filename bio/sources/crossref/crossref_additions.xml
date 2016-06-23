@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!-- This file details any extensions needed to the data model to store data from this source, everything else is automatically generated from the model description so this is all we need to do to add to the model. -->
+
+<classes>
+<!-- add any <class> elements here -->
+   <class name="Gene" is-interface="true">
+     <reference name="organism" referenced-type="Organism"/>
+    <attribute name="primaryIdentifier" type="java.lang.String"/>
+   <collection name="xreference" referenced-type="Xreference" reverse-reference="gene"/>
+</class>
+ <class name="Xreference" is-interface="true">
+  <reference name="gene" referenced-type="Gene" reverse-reference="xreference"/>
+  <reference name="reference" referenced-type="Gene"/>
+</class>
+
+
+
+
+</classes>
