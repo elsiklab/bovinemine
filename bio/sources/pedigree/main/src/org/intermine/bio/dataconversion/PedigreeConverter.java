@@ -62,7 +62,7 @@ public class PedigreeConverter extends BioFileConverter
     }
 
 //
-     public void setEnsemblcomparaOrganisms(String taxonIds) {
+     public void setPedigreeOrganisms(String taxonIds) {
         this.taxonIds = new HashSet<String>(Arrays.asList(StringUtils.split(taxonIds, " ")));
     }
 
@@ -71,7 +71,7 @@ public class PedigreeConverter extends BioFileConverter
      * interest.  Otherwise ignore.
      * @param taxonIds list of taxon IDs to process
      */
-    public void setEnsemblcomparaHomologues(String taxonIds) {
+    public void setPedigreeRelates(String taxonIds) {
         this.relates = new HashSet<String>(Arrays.asList(StringUtils.split(taxonIds, " ")));
     }
 

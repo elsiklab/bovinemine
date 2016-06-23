@@ -443,8 +443,8 @@
 -->
          <source name="bio" type="pedigree">
             <property name="src.data.dir" location="/home.george/aditi/amel"/>
-            <property name="ensemblcompara.organisms" value="4760"/>
-            <property name="ensemblcompara.homologues" value="4760"/>
+            <property name="pedigree.organisms" value="4760"/>
+            <property name="pedigree.relates" value="4760"/>
        </source>
 
 
