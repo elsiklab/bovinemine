@@ -1,0 +1,4 @@
+<project name="crossref-tasks" default="default" basedir=".">
+  <description>build crossref tasks</description>
+  <import file="../../../../imbuild/library.xml"/> 
+</project>
