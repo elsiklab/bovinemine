@@ -6,7 +6,7 @@
     <property name="default.intermine.properties.file" location="../default.intermine.integrate.properties"/>
     <sources>
         <source name="brenda-tissue-ontology" type="brenda-ontology">
-            <property name="src.data.file" location="/home.george/aditi/brenda/BrendaTissueOntology.obo"/>
+            <property name="src.data.file" location="@DATA_DIR/BRENDA/BrendaTissueOntology.obo"/>
         </source>
         <source name="evidence-code-ontology" type="evidence-ontology">
             <property name="src.data.file" location="@DATA_DIR@/ECO/eco.obo"/>
