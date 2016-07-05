@@ -12,6 +12,7 @@
         <collection name="dbCrossReferences" referenced-type="xRef"/>
     </class>
     <class name="Gene" extends="SequenceFeature" is-interface="true">
+        <attribute name="biotype" type="java.lang.String"/>
         <collection name="duplicateEntities" referenced-type="DuplicateEntity"/>
     </class>
     <class name="Transcript" extends="SequenceFeature" is-interface="true">
