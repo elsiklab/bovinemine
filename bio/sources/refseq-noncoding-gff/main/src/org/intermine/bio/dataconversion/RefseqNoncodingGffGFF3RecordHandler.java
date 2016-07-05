@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.net.URLDecoder;
+import org.apache.commons.lang.StringUtils;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -72,10 +73,16 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
             else {
                 feature.removeAttribute("symbol");
             }
-            if (record.getAttributes().get("feature_type") != null) {
-                String ft = record.getAttributes().get("feature_type").iterator().next();
-                feature.setAttribute("status", ft);
+
+            if (record.getAttributes().get("gene_biotype") != null) {
+                String biotype = parseGeneBiotype(record.getAttributes().get("gene_biotype").iterator().next());
+                feature.setAttribute("biotype", biotype);
             }
+
+//            if (record.getAttributes().get("feature_type") != null) {
+//                String ft = record.getAttributes().get("feature_type").iterator().next();
+//                feature.setAttribute("status", ft);
+//            }
 
             if (record.getAttributes().get("duplicate_entity") != null) {
                 String duplicates = record.getAttributes().get("duplicate_entity").iterator().next();
@@ -176,10 +183,11 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                 String description = record.getAttributes().get("ncbi_desc").iterator().next();
                 feature.setAttribute("description", description);
             }
-            if (record.getAttributes().get("feature_type") != null) {
-                String ft = record.getAttributes().get("feature_type").iterator().next();
-                feature.setAttribute("status", ft);
-            }
+
+//            if (record.getAttributes().get("feature_type") != null) {
+//                String ft = record.getAttributes().get("feature_type").iterator().next();
+//                feature.setAttribute("status", ft);
+//            }
 
             // Accessing Dbxrefs
             List<String> dbxrefs = record.getDbxrefs();
@@ -215,10 +223,12 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                 String description = record.getAttributes().get("ncbi_desc").iterator().next();
                 feature.setAttribute("description", description);
             }
-            if (record.getAttributes().get("feature_type") != null) {
-                String ft = record.getAttributes().get("feature_type").iterator().next();
-                feature.setAttribute("status", ft);
-            }
+
+//            if (record.getAttributes().get("feature_type") != null) {
+//                String ft = record.getAttributes().get("feature_type").iterator().next();
+//                feature.setAttribute("status", ft);
+//            }
+
             if (record.getAttributes().get("mature_form") != null) {
                 // mature_form for miRNA
                 String matureFormString = record.getAttributes().get("mature_form").iterator().next();
@@ -290,10 +300,11 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                 String description = record.getAttributes().get("ncbi_desc").iterator().next();
                 feature.setAttribute("description", description);
             }
-            if (record.getAttributes().get("feature_type") != null) {
-                String ft = record.getAttributes().get("feature_type").iterator().next();
-                feature.setAttribute("status", ft);
-            }
+
+//            if (record.getAttributes().get("feature_type") != null) {
+//                String ft = record.getAttributes().get("feature_type").iterator().next();
+//                feature.setAttribute("status", ft);
+//            }
 
             // Accessing Dbxrefs
             List<String> dbxrefs = record.getDbxrefs();
@@ -328,10 +339,11 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                 String description = record.getAttributes().get("ncbi_desc").iterator().next();
                 feature.setAttribute("description", description);
             }
-            if (record.getAttributes().get("feature_type") != null) {
-                String ft = record.getAttributes().get("feature_type").iterator().next();
-                feature.setAttribute("status", ft);
-            }
+
+//            if (record.getAttributes().get("feature_type") != null) {
+//                String ft = record.getAttributes().get("feature_type").iterator().next();
+//                feature.setAttribute("status", ft);
+//            }
 
             // Accessing Dbxrefs
             List<String> dbxrefs = record.getDbxrefs();
@@ -366,10 +378,11 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                 String description = record.getAttributes().get("ncbi_desc").iterator().next();
                 feature.setAttribute("description", description);
             }
-            if (record.getAttributes().get("feature_type") != null) {
-                String ft = record.getAttributes().get("feature_type").iterator().next();
-                feature.setAttribute("status", ft);
-            }
+
+//            if (record.getAttributes().get("feature_type") != null) {
+//                String ft = record.getAttributes().get("feature_type").iterator().next();
+//                feature.setAttribute("status", ft);
+//            }
 
             // Accessing Dbxrefs
             List<String> dbxrefs = record.getDbxrefs();
@@ -473,5 +486,32 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
             }
             addItem(xRefItem);
         }
+    }
+
+    /**
+     * Parse biotype from gene_biotype attribute for aesthetics
+     * @param biotype
+     * @return
+     */
+    public String parseGeneBiotype(String biotype) {
+        String returnType = "";
+        if (biotype.equals("Mt_tRNA") || biotype.equals("Mt_rRNA") || biotype.equals("RNase_MRP_RNA") || biotype.equals("SRP_RNA") || biotype.equals("misc_RNA") || biotype.equals("C_region") || biotype.equals("V_segment") || biotype.equals("telomerase_RNA")) {
+            returnType = biotype.replace("_", " ");
+        }
+        else if (biotype.equals("miRNA") || biotype.equals("tRNA") || biotype.equals("rRNA") || biotype.equals("snRNA") || biotype.equals("snoRNA") || biotype.equals("lncRNA")) {
+            returnType = biotype;
+        }
+        else if (biotype.equals("protein_coding") || biotype.equals("processed_pseudogene")) {
+            String[] splitList = biotype.split("_");
+            returnType = StringUtils.capitalize(splitList[0]) + " " + StringUtils.capitalize(splitList[1]);
+        }
+        else if (biotype.equals("pseudogene") || biotype.equals("other")) {
+            returnType = StringUtils.capitalize(biotype);
+        }
+        else {
+            System.out.println("Unexpected gene_biotype: " + biotype);
+            System.exit(1);
+        }
+        return returnType;
     }
 }
