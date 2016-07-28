@@ -75,9 +75,13 @@ public class CreateLocationOverlapIndex
                 String indexType = db.isVersionAtLeast("9.3") ? "SPGIST" : "GIST";
 
                 long startTime = System.currentTimeMillis();
+//                String indexSql = "CREATE INDEX location__int4range "
+//                        + "ON location USING " + indexType + " (" + RANGE_TYPE
+//                        + "(intermine_start, intermine_end + 1))";
                 String indexSql = "CREATE INDEX location__int4range "
                         + "ON location USING " + indexType + " (" + RANGE_TYPE
-                        + "(intermine_start, intermine_end + 1))";
+                        + "(intermine_start, intermine_end + 1)) WHERE location.donotcomputeoverlaps IS NULL";
+                System.out.println("Index SQL: " + indexSql);
                 LOG.info(indexSql);
                 Statement statement = con.createStatement();
                 statement.executeUpdate(indexSql);
