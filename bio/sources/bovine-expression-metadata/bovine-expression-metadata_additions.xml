@@ -49,34 +49,31 @@
         <attribute name="milkFat" type="java.lang.String"/>
         <attribute name="milkProtein" type="java.lang.String"/>
         <attribute name="milkSolid" type="java.lang.String"/>
-       <attribute name="milkYield" type="java.lang.String"/>
+        <attribute name="milkYield" type="java.lang.String"/>
         <attribute name="milkYieldG" type="java.lang.String"/>
         <attribute name="sampleTaxon" type="java.lang.String"/>
         <attribute name="scientificName" type="java.lang.String"/>
         <attribute name="projectId" type="java.lang.String"/>
         <attribute name="centerName" type="java.lang.String"/>
-        
-            <attribute name="sraRunId" type="java.lang.String"/>
-           <attribute name="sraExperimentId" type="java.lang.String"/>
-           <attribute name="ftpLocation" type="java.lang.String"/>
-           <attribute name="insertSize" type="java.lang.String"/>
-           <attribute name="insertStdDev" type="java.lang.String"/>
-           <attribute name="tumor" type="java.lang.String"/> 
-           <attribute name="sraStudyId" type="java.lang.String"/>
-           <attribute name="sraSampleId" type="java.lang.String"/>
-            <attribute name="submissionId" type="java.lang.String"/>
-             <attribute name="treatment" type="java.lang.String"/>
-             <attribute name="stage" type="java.lang.String"/>
- 
-             <attribute name="tissueType" type="java.lang.String"/>
-            <attribute name="objective" type="java.lang.String"/>
-            <attribute name="design" type="java.lang.String"/>
-            <attribute name="experimentAbstract" type="java.lang.String"/>
 
+        <attribute name="sraRunId" type="java.lang.String"/>
+        <attribute name="sraExperimentId" type="java.lang.String"/>
+        <attribute name="ftpLocation" type="java.lang.String"/>
+        <attribute name="insertSize" type="java.lang.String"/>
+        <attribute name="insertStdDev" type="java.lang.String"/>
+        <attribute name="tumor" type="java.lang.String"/>
+        <attribute name="sraStudyId" type="java.lang.String"/>
+        <attribute name="sraSampleId" type="java.lang.String"/>
+        <attribute name="submissionId" type="java.lang.String"/>
+        <attribute name="treatment" type="java.lang.String"/>
+        <attribute name="stage" type="java.lang.String"/>
 
+        <attribute name="tissueType" type="java.lang.String"/>
+        <attribute name="objective" type="java.lang.String"/>
+        <attribute name="design" type="java.lang.String"/>
+        <attribute name="experimentAbstract" type="java.lang.String"/>
 
-
-         <collection name="publications" referenced-type="Publication"/>
+        <collection name="publications" referenced-type="Publication"/>
         <reference name="organism" referenced-type="Organism"/>
     </class>
 </classes>
