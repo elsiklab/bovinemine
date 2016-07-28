@@ -1,4 +1,4 @@
- package org.intermine.bio.dataconversion;
+package org.intermine.bio.dataconversion;
 
 /*
  * Copyright (C) 2002-2015 FlyMine
@@ -95,34 +95,27 @@ public class BovineExpressionMetadataConverter extends BioFileConverter
             String bioSampleId = line[24];
             String sampleTaxon = line[26];
             String scientificName = line[27];
-                           String sampleName = line[28];
+            String sampleName = line[28];
             String centerName = line[32];
-             String submissionId = line[33];
-           
-           String sampleType = line[25];
-          String treatment = line[50];
-          String stage = line[51];
+            String submissionId = line[33];
+            String sampleType = line[25];
+            String treatment = line[50];
+            String stage = line[51];
             String tissueType = line[53];
-       
-       
             String objective = line[55];
             String sequencedStructure = line[56];
-       
             String experimentAbstract = line[74];
-             
-             String breed = line[39];
-             String strain = line[40];
-
-             String lactationPeriod = line[41];
-             String milkFat = line[42];
-             String milkProtein = line[43]; 
-             String milkSolid = line[44];
-             String milkYield = line[45];
+            String breed = line[39];
+            String strain = line[40];
+            String lactationPeriod = line[41];
+            String milkFat = line[42];
+            String milkProtein = line[43];
+            String milkSolid = line[44];
+            String milkYield = line[45];
             String milkYieldG = line[45];
-             String age = line[48];
-              String brendaTissueOntologyId = line[75];
+            String age = line[48];
+            String brendaTissueOntologyId = line[75];
             String btoName = line[76];
-            
             
             Item item = createItem("ExpressionMetadata");
             if (!sampleName.isEmpty()) {
@@ -166,9 +159,9 @@ public class BovineExpressionMetadataConverter extends BioFileConverter
             if (!sequencedStructure.isEmpty()) { item.setAttribute("design", sequencedStructure); }
             if (!experimentAbstract.isEmpty()) { item.setAttribute("experimentAbstract", experimentAbstract); }
             
-             if (!breed.isEmpty()) { item.setAttribute("breed", breed); }
-              if (!strain.isEmpty()) { item.setAttribute("strain", strain); }
-               if (!lactationPeriod .isEmpty()) { item.setAttribute("lactationPeriod", lactationPeriod ); }
+            if (!breed.isEmpty()) { item.setAttribute("breed", breed); }
+            if (!strain.isEmpty()) { item.setAttribute("strain", strain); }
+            if (!lactationPeriod .isEmpty()) { item.setAttribute("lactationPeriod", lactationPeriod ); }
             if (!milkFat.isEmpty()) { item.setAttribute("milkFat", milkFat); }
             if (!milkProtein.isEmpty()) { item.setAttribute("milkProtein", milkProtein); }
             if (! milkSolid.isEmpty()) { item.setAttribute("milkSolid",  milkSolid); }
@@ -176,10 +169,7 @@ public class BovineExpressionMetadataConverter extends BioFileConverter
             if (!milkYield.isEmpty()) { item.setAttribute("milkYield", milkYield); }
             if (!milkYieldG.isEmpty()) { item.setAttribute("milkYieldG", milkYieldG); }
             if (!age.isEmpty()) { item.setAttribute("age", age); }
-            
-            
-            
-            
+
             String TAXON_ID = sampleTaxon;
             orgRefId = getOrganism(TAXON_ID);
             item.setReference("organism", getOrganism(TAXON_ID));
@@ -191,7 +181,7 @@ public class BovineExpressionMetadataConverter extends BioFileConverter
                 else {
                     Item pubItem = createItem("Publication");
                     pubItem.setAttribute("pubMedId", pubmedId);
-                   item.addToCollection("publications", pubItem.getIdentifier());
+                    item.addToCollection("publications", pubItem.getIdentifier());
                     publicationItems.put(pubmedId, pubItem);
                 }
             }
@@ -231,6 +221,3 @@ public class BovineExpressionMetadataConverter extends BioFileConverter
         }
     }
 }
-
-
-  
