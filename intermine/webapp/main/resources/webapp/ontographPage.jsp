@@ -6,4 +6,4 @@
 <!-- queryBuilderPage.jsp -->
 <im:viewablejs idPrefixes="nav,browser,query,showing"/>
 
-<tiles:insert page="ontograph/dist/displayer.jsp"/>
+<tiles:insert page="ontograph/dist/single.html"/>
