@@ -49,4 +49,4 @@
 <action path="/initFriendlyMineLinkDisplayer" type="org.intermine.bio.web.FriendlyMineLinkController"/>
 <action path="/help" forward="help.page"/>
 <action path="/network" forward="network.page"/>
-
+<action path="/blast" forward="blast.page"/>
