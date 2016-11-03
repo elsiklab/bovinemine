@@ -66,9 +66,9 @@
         </a>
       </li>
       <li id="blast" <c:if test="${tab == 'blast'}">class="activelink"</c:if>>
-      	  <a href="http://bovinegenome.org/bgd_blast/">
-	     <fmt:message key="menu.blast"/>
-	  </a>
+	<a href="/${WEB_PROPERTIES['webapp.path']}/blast.do">
+		<fmt:message key="menu.blast"/>
+	</a>
       </li>
 </li>
       <c:if test="${WEB_PROPERTIES['genomicRegionSearch.display'] == 'true'}">
