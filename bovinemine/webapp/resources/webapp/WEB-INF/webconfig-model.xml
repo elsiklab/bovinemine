@@ -40,7 +40,7 @@
   <class className="org.intermine.model.bio.Chromosome">
     <fields>
       <fieldconfig fieldExpr="primaryIdentifier" label="Chromosome ID"/>
-        <fieldconfig fieldExpr="secondaryIdentifier" label="Chromosome Name"/>
+        <fieldconfig fieldExpr="secondaryIdentifier"/>
       <fieldconfig fieldExpr="organism.name"/>
       <fieldconfig fieldExpr="length" displayer="/model/sequenceShortDisplayerWithField.jsp" />
     </fields>
