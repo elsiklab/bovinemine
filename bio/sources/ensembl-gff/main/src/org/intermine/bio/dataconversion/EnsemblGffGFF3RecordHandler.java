@@ -208,7 +208,7 @@ public class EnsemblGffGFF3RecordHandler extends GFF3RecordHandler
         if (biotype.equals("Mt_tRNA") || biotype.equals("Mt_rRNA") || biotype.equals("RNase_MRP_RNA") || biotype.equals("SRP_RNA") || biotype.equals("misc_RNA") || biotype.equals("C_region") || biotype.equals("V_segment") || biotype.equals("telomerase_RNA")) {
             returnType = biotype.replace("_", " ");
         }
-        else if (biotype.equals("miRNA") || biotype.equals("tRNA") || biotype.equals("rRNA") || biotype.equals("snRNA") || biotype.equals("snoRNA") || biotype.equals("lncRNA")) {
+        else if (biotype.equals("miRNA") || biotype.equals("tRNA") || biotype.equals("rRNA") || biotype.equals("snRNA") || biotype.equals("snoRNA") || biotype.equals("lncRNA") || biotype.equals("lincRNA")) {
             returnType = biotype;
         }
         else if (biotype.equals("protein_coding") || biotype.equals("processed_pseudogene")) {
