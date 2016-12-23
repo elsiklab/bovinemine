@@ -65,9 +65,13 @@ public class CustomGeneInfoConverter extends BioFileConverter
             String[] line = lineIter.next();
             String primaryIdentifier = line[0].trim();
             String secondaryIdentifier = line[1].trim();
+            String symbol = line[2].trim();
+            String name = line[3].trim();
             Item geneItem = createItem("Gene");
             geneItem.setAttribute("primaryIdentifier", primaryIdentifier);
-            geneItem.setAttribute("secondaryIdentifier", secondaryIdentifier);
+            if (!secondaryIdentifier.equals("-")) geneItem.setAttribute("secondaryIdentifier", secondaryIdentifier);
+            if (!symbol.equals("-")) geneItem.setAttribute("symbol", symbol);
+            if (!name.equals("-")) geneItem.setAttribute("name", name);
             geneItem.setReference("organism", orgRefId);
             try {
                 store(geneItem);
