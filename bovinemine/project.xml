@@ -5,9 +5,9 @@
     <property name="intermine.properties.file" value="bovinemine.properties"/>
     <property name="default.intermine.properties.file" location="../default.intermine.integrate.properties"/>
     <sources>
-        <source name="brenda-tissue-ontology" type="brenda-ontology">
-            <property name="src.data.file" location="@DATA_DIR@/BRENDA/BrendaTissueOntology.obo"/>
-        </source>
+        <!--<source name="brenda-tissue-ontology" type="brenda-ontology">-->
+            <!--<property name="src.data.file" location="@DATA_DIR@/BRENDA/BrendaTissueOntology.obo"/>-->
+        <!--</source>-->
         <source name="evidence-code-ontology" type="evidence-ontology">
             <property name="src.data.file" location="@DATA_DIR@/ECO/eco.obo"/>
         </source>
@@ -25,6 +25,9 @@
         </source>
         <source name="rat-gene-info" type="custom-gene-info" dump="true">
             <property name="src.data.dir" location="@DATA_DIR@/custom-gene-info/rat"/>
+        </source>
+        <source name="bovine-broken-ogs" type="broken-ogs" dump="true">
+            <property name="src.data.dir" location="@DATA_DIR@/OGS/annotations/bos_taurus/fail_liftover"/>
         </source>
         <source name="bovine-dbsnp-variation-I" type="dbsnp-variation" dump="true">
             <property name="src.data.dir" location="@DATA_DIR@/dbSNP/part_I"/>
@@ -153,7 +156,7 @@
             <property name="gff3.dataSourceName" value="Bos taurus Official Gene Set OGSv2 (on UMD3.1)"/>
             <property name="gff3.dataSetTitle" value="btau_OGSv2"/>
             <property name="gff3.seqClsName" value="Chromosome"/>
-            <property name="src.data.dir" location="@DATA_DIR@/OGS/annotations/bos_taurus"/>
+            <property name="src.data.dir" location="@DATA_DIR@/OGS/annotations/bos_taurus/pass_liftover"/>
         </source>
         <source name="bovine-qtl-gff" type="qtl-gff" dump="true">
             <property name="gff3.taxonId" value="9913"/>
@@ -162,6 +165,7 @@
             <property name="gff3.seqClsName" value="Chromosome"/>
             <property name="src.data.dir" location="@DATA_DIR@/QTL"/>
         </source>
+
         <source name="bovine-refseq-cds-fasta" type="fasta" dump="true">
             <property name="fasta.taxonId" value="9913"/>
             <property name="fasta.className" value="org.intermine.model.bio.CDS"/>
@@ -284,11 +288,11 @@
             <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineProteinFastaLoaderTask"/>
         </source>
         <source name="bovine-expression-metadata" type="bovine-expression-metadata" dump="true">
-            <property name="src.data.dir" location="@DATA_DIR/gene-expression-metadata"/>
-            <property name="src.data.dir.includes" value="*.txt"/>
+            <property name="src.data.dir" location="@DATA_DIR@/gene-expression-metadata"/>
+            <property name="src.data.dir.includes" value="*.tab"/>
         </source>
         <source name="bovine-rnaseq-expression-for-refseq" type="bovine-expression" dump="true">
-            <property name="src.data.dir" location="@DATA_DIR/gene-expression/refseq-expression"/>
+            <property name="src.data.dir" location="@DATA_DIR@/gene-expression/refseq-expression"/>
             <property name="src.data.dir.includes" value="*.tab"/>
         </source>
         <source name="bovine-rnaseq-expression-for-ensembl" type="bovine-expression" dump="true">
@@ -339,7 +343,7 @@
             <property name="loadtrembl" value="true"/>
         </source>
         <source name="bovine-uniprot-sec" type="uniprot" dump="true"> <!-- check uniprot_config.properties -->
-            <property name="uniprot.organisms" value="9913"/>
+            <property name="uniprot.organisms" value="9913 9940"/>
             <property name="src.data.dir" location="@DATA_DIR@/UniProt/"/>
             <property name="creatego" value="true"/>
             <property name="allowduplicates" value="false"/>
@@ -406,7 +410,7 @@
             <property name="homologene.organisms" value="9913 9606 9796 9615 10090 10116 9823 9940 9925"/>
         </source>
         <source name="bovine-orthodb" type="orthodb" dump="true">
-            <property name="src.data.dir" location="@DATA_DIR@/OrthoDB8"/>
+            <property name="src.data.dir" location="@DATA_DIR@/OrthoDB9"/>
             <property name="orthodb.organisms" value="9913"/>
             <property name="orthodb.homologues" value="9606 9796 9615 10090 10116 9823 9925 9940"/>
         </source>
