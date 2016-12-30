@@ -57,14 +57,14 @@
             <property name="src.data.dir" location="@DATA_DIR@/dbSNP/part_VII"/>
             <property name="src.data.dir.includes" value="*.vcf"/>
         </source>
-        <source name="ovis-dbsnp-variation" type="dbsnp-variation" dump="true">
-            <property name="src.data.dir" location="@DATA_DIR@/dbSNP/ovis_aries"/>
-            <property name="src.data.dir.includes" value="*.vcf"/>
-        </source>
-        <source name="capra-dbsnp-variation" type="dbsnp-variation" dump="true">
-            <property name="src.data.dir" location="@DATA_DIR@/dbSNP/capra_hircus"/>
-            <property name="src.data.dir.includes" value="*.vcf"/>
-        </source>
+        <!--<source name="ovis-dbsnp-variation" type="dbsnp-variation" dump="true">-->
+            <!--<property name="src.data.dir" location="@DATA_DIR@/dbSNP/ovis_aries"/>-->
+            <!--<property name="src.data.dir.includes" value="*.vcf"/>-->
+        <!--</source>-->
+        <!--<source name="capra-dbsnp-variation" type="dbsnp-variation" dump="true">-->
+            <!--<property name="src.data.dir" location="@DATA_DIR@/dbSNP/capra_hircus"/>-->
+            <!--<property name="src.data.dir.includes" value="*.vcf"/>-->
+        <!--</source>-->
         <source name="bovine-chromosome-fasta" type="fasta" dump="true">
             <property name="fasta.className" value="org.intermine.model.bio.Chromosome"/>
             <property name="fasta.dataSourceName" value="Bos taurus Genome"/>
@@ -78,7 +78,7 @@
         <source name="chir-chromosome-fasta" type="fasta" dump="true">
             <property name="fasta.className" value="org.intermine.model.bio.Chromosome"/>
             <property name="fasta.dataSourceName" value="Capra hircus Genome"/>
-            <property name="fasta.dataSetTitle" value="Capra hircus 1.0 chromosome assembly"/>
+            <property name="fasta.dataSetTitle" value="Capra hircus ASM170441v1 chromosome assembly"/>
             <property name="fasta.taxonId" value="9925"/>
             <property name="fasta.sequenceType" value="dna"/>
             <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.BovineFastaLoaderTask"/>
@@ -335,7 +335,7 @@
             <property name="src.data.dir" location="@DATA_DIR@/repeat-region-gff"/>
         </source>
         <source name="bovine-uniprot" type="uniprot" >
-            <property name="uniprot.organisms" value="9913 9606 10090 10116 9940 9925"/>
+            <property name="uniprot.organisms" value="9913 9606 10090 10116 9925 9940"/>
             <property name="src.data.dir" location="@DATA_DIR@/UniProt"/>
             <property name="creatego" value="true"/>
             <property name="allowduplicates" value="false"/>
@@ -355,7 +355,7 @@
             <property name="src.data.dir.includes" value="keywlist.xml"/>
         </source>
         <source name="bovine-uniprot-fasta" type="fasta" dump="true">
-            <property name="fasta.taxonId" value="9913"/>
+            <property name="fasta.taxonId" value="9913 9606 10090 10116 9925 9940"/>
             <property name="fasta.className" value="org.intermine.model.bio.Protein"/>
             <property name="fasta.classAttribute" value="primaryAccession"/>
             <property name="fasta.dataSourceName" value="UniProt Fasta"/>
@@ -417,16 +417,17 @@
         <source name="bovine-biogrid" type="biogrid">
             <property name="src.data.dir" location="@DATA_DIR@/BIOGRID"/>
             <property name="src.data.dir.includes" value="*psi25.xml"/>
-            <property name="biogrid.organisms" value="9913 9606 10090 10116 9924 9940"/>
+            <!--<property name="biogrid.organisms" value="9913 9606 10090 10116 9924 9940"/>-->
+            <property name="biogrid.organisms" value="9913"/>
         </source>
         <source name="psi-intact" type="psi" dump="true">
             <property name="src.data.dir" location="@DATA_DIR@/IntAct"/>
             <property name="intact.organisms" value="9913 9606 9796 9615 10090 10116 9823 9940 9925"/>
         </source>
-        <source name="psi-complexes" type="psi-complexes">
-            <property name="src.data.dir" location="@DATA_DIR/psi-complexes/bos_taurus"/>
-            <property name="complexes.source" value="ensembl"/>
-        </source>
+        <!--<source name="psi-complexes" type="psi-complexes">-->
+            <!--<property name="src.data.dir" location="@DATA_DIR/psi-complexes/bos_taurus"/>-->
+            <!--<property name="complexes.source" value="ensembl"/>-->
+        <!--</source>-->
         <source name="biocyc" type="biocyc">
             <property name="src.data.dir" location="@DATA_DIR@/BioCyc"/>
             <property name="biocyc.organisms" value="9913 9606 10090"/>
