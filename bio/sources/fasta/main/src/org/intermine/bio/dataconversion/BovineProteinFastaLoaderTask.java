@@ -107,7 +107,6 @@ public class BovineProteinFastaLoaderTask extends BovineFeatureFastaLoaderTask {
                 try {
                     // adding Polypeptide object to collection 'polypeptides' in class 'Gene'
                     HashSet polypeptidesCollection = (HashSet) gene.getFieldValue("polypeptides");
-                    System.out.println("gene POLYCOLs: " + polypeptidesCollection);
                     polypeptidesCollection.add(bioEntity);
                     gene.setFieldValue("polypeptides", polypeptidesCollection);
                     // updating the geneIdMap
@@ -128,7 +127,6 @@ public class BovineProteinFastaLoaderTask extends BovineFeatureFastaLoaderTask {
                 try {
                     // adding Polypeptide object to collection 'polypeptide' in class 'MRNA'
                     HashSet polypeptideCollection = (HashSet) mrna.getFieldValue("polypeptide");
-                    System.out.println("mrna POLYCOLs: " + polypeptideCollection);
                     polypeptideCollection.add(bioEntity);
                     mrna.setFieldValue("polypeptide", polypeptideCollection);
                     // updating the mrnaIdMap
