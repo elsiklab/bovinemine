@@ -137,6 +137,7 @@ public class ObjectStoreSummary
 
                 String clsFieldName = cld.getName() + "." + fieldName;
                 if (doneFields.contains(clsFieldName) || ignoreFields.contains(clsFieldName)) {
+                    System.out.println("clsFieldName: " + clsFieldName + " is to be ignored");
                     continue;
                 }
 
