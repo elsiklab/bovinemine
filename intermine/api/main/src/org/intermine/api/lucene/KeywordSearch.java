@@ -170,6 +170,7 @@ public final class KeywordSearch
                             if (cld == null) {
                                 LOG.error("Unknown class in config file: " + className);
                             } else {
+                                System.out.println("Ignoring class " + className);
                                 addCldToIgnored(ignoredClasses, cld);
                             }
                         }
@@ -189,6 +190,7 @@ public final class KeywordSearch
                                 if (cld != null) {
                                     FieldDescriptor fld = cld.getFieldDescriptorByName(fieldName);
                                     if (fld != null) {
+                                        System.out.println("Ignoring fieldName " + fieldName + " for class " + clsName);
                                         addToIgnoredFields(ignoredFields, cld, fieldName);
                                     } else {
                                         LOG.error("Field name '" + fieldName + "' not found for"
