@@ -113,7 +113,7 @@ function (cookie,dom,domConstruct,domStyle,domClass,Browser,HTMLFeatures,NCList,
           "showLabels":false,
           "onClick"  : {
               "label": "Feature name {name}\nFeature start {start}\nFeature end {end}",
-              "url": "http://bovinegenome.org/Apollo2/jbrowse/index.html?organism=22875&loc={name}",
+              "url": "http://bovinegenome.org/Apollo2/22875/jbrowse/index.html?loc={seq}:{start}-{end}",
               "action": "newWindow"
           },
           "menuTemplate":null
@@ -179,6 +179,7 @@ function (cookie,dom,domConstruct,domStyle,domClass,Browser,HTMLFeatures,NCList,
            if(!(transcript in features)) {
                features[transcript]={
                        "type":"mRNA",
+                       "seq": row[0],
                        "start": row[1],
                        "end": row[2],
                        "strand": parseInt(row[3]),
