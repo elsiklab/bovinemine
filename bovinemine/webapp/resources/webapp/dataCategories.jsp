@@ -5,10 +5,6 @@
 
 
 <!-- dataCategories -->
-<c:set var="note1" value="Only genes that have been mapped to the genome have been loaded"/>
-<c:set var="note2" value="Also orthologues from these organisms to <i>C. familiaris</i>, <i>D. discoideum</i>, <i>D. rerio</i>, <i>G. gallus</i>, <i>H. sapiens</i>, <i>M. musculus</i>, <i>P. troglodytes</i>, <i>R. norvegicus</i>, <i>S. pombe</i>." />
-<c:set var="note3" value="These data have been re-mapped to genome sequence release 5.0 as of FlyMine release 7.0."/>
-
 <html:xhtml/>
 
 <div class="body">
@@ -69,7 +65,7 @@
        <p><i>O. aries</i></p>
     </td>
      <td>Orthologue and paralogue relationships</td>
-    <td>OrthoDB - Version 8</td>
+    <td>OrthoDB - Version 9</td>
     <td>Kriventseva et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428351>25428351</a></td>
     <td><a href="ftp://cegg.unige.ch/OrthoDB8/">OrthoDB Download</a></td>
   </tr>
@@ -136,7 +132,7 @@
         <p><i>O. aries</i></p>
     </td>
     <td> Protein annotation</td>
-    <td> UniProt - Release 2016_04</td>
+    <td> UniProt - Release 2016_12</td>
     <td> UniProt Consortium - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25348405>25348405</a></td>
     <td> <a href=ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/">UniProt FTP</a></td>
   </tr>
@@ -151,7 +147,7 @@
         <p><i>O. aries</i></p>
     </td>
     <td> Protein domains</td>
-    <td> InterPro Version 56.0  </td>
+    <td> InterPro Version 60  </td>
     <td> Mitchell et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428371>25428371</a></td>
     <td> <a href="ftp://ftp.ebi.ac.uk/pub/databases/interpro/55.0/">InterPro FTP</a></td>
   </tr>
@@ -166,7 +162,7 @@
         <p><i>O. aries</i></p>
     </td>
     <td> Interactions</td>
-    <td> BioGRID - Version 3.4.135 </td>
+    <td> BioGRID - Version 3.4.144 </td>
     <td> Chatr-Aryamontri et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428363>25428363</a></td>
     <td> <a href="http://thebiogrid.org/download.php">BioGRID Download</a></td>
   </tr>
@@ -181,7 +177,7 @@
         <p><i>O. aries</i></p>
     </td>
     <td> Interactions</td>
-    <td> IntAct Version 4.2.3.2 </td>
+    <td> IntAct Release 203 </td>
     <td> Hermjakob H et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/14681455>14681455</a></td>
     <td> <a href="ftp://ftp.ebi.ac.uk/pub/databases/IntAct/current/">IntAct FTP</a></td>
   </tr> 
@@ -197,7 +193,7 @@
         <p><i>O. aries</i></p>
     </td>
     <td> GO annotations </td>
-    <td> GOA at UniProt (GOC Validation Date: 03/16/2016)</td>
+    <td> GOA at UniProt (GOC Validation Date: 12/16/2016)</td>
     <td> <p>Huntley et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25378336>25378336</a></p><p>Gene Ontology Consortium - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428369>25428369</a></p></td>
     <td> <a href="http://geneontology.org/page/download-annotation">GO Consortium Annotation Download</a></td>
   </tr>
@@ -213,7 +209,7 @@
       <p><i>O. aries</i></p>
     </td>
     <td> Pathway information inferred through orthologues from curated human pathways</td>
-    <td> Reactome - version 55, March 2016</td>
+    <td> Reactome - version 59, Dec 2016</td>
     <td> Croft et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=24243840>24243840</a></td>
     <td> <a href="http://www.reactome.org/download/current/">Reactome Download</a></td>
   </tr>
@@ -257,7 +253,7 @@
       <i>B. taurus</i>
     </td>
     <td>QTL data for Bos taurus</td>
-    <td> AnimalQTLdb release 28 (Dec 2015)</td>
+    <td> AnimalQTLdb release 30 (Dec 2016)</td>
     <td>Hu et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=17135205>17135205</a></td>
     <td><a href=http://www.animalgenome.org/cgi-bin/QTLdb/BT/index>CattleQTLdb Download</a></td>
   </tr>
@@ -298,15 +294,29 @@
     <td> Kodama et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=22009675>22009675</a></td>
     <td> <a href=http://www.ncbi.nlm.nih.gov/sra?term=SRP049415>NCBI SRA Project Page</a></td>
   </tr>
-
-  <tr>
-    <td class="leftcol"><p><h2>Assembly</h2></p></td>
-    <td><p>B. taurus</p></td>
-    <td>Chromosome Assembly</td>
-    <td>UMD3.1.1</td>
-    <td>Zimin et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=19393038>19393038</a></td>
-    <td><a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/Bos_taurus/">NCBI FTP</a></td>
-  </tr>
+    <tr>
+      <td class="leftcol" rowspan="4"><p><h2>Assembly</h2></p></td>
+      <td><i>B. taurus</i></td>
+      <td>UMD3.1.1</td>
+      <td>Chromosome Assembly</td>
+      <td>Zimin et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=19393038>19393038</a></td>
+      <td><a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/Bos_taurus/">NCBI FTP</a></td>
+    </tr>
+    <tr>
+      <td><i>C. hircus</i></td>
+      <td>Chromosome Assembly</td>
+      <td>ASM170441v1</td>
+      <td></td>
+      <td><a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/Capra_hircus/">NCBI FTP</a></td>
+    </tr>
+    <tr>
+      <td><i>O. aries</i></td>
+      <td>Chromosome Assembly</td>
+      <td>Oar_v3.1</td>
+      <td></td>
+      <td><a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/Ovis_aries/">NCBI FTP</a></td>
+    </tr>
+    <tr>
 </table>
 
 <div class="body">
