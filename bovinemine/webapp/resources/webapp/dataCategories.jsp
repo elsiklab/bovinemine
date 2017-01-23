@@ -297,8 +297,8 @@
     <tr>
       <td class="leftcol" rowspan="4"><p><h2>Assembly</h2></p></td>
       <td><i>B. taurus</i></td>
-      <td>UMD3.1.1</td>
       <td>Chromosome Assembly</td>
+      <td>UMD3.1.1</td>
       <td>Zimin et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=19393038>19393038</a></td>
       <td><a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/Bos_taurus/">NCBI FTP</a></td>
     </tr>
