@@ -1,7 +1,7 @@
 package org.intermine.api.query;
 
 /*
- * Copyright (C) 2002-2015 FlyMine
+ * Copyright (C) 2002-2016 FlyMine
  *
  * This code may be freely distributed and modified under the
  * terms of the GNU Lesser General Public Licence.  This should
@@ -26,7 +26,6 @@ import org.intermine.api.profile.InterMineBag;
 import org.intermine.api.profile.Profile;
 import org.intermine.api.results.ExportResultsIterator;
 import org.intermine.api.results.ResultElement;
-import org.intermine.metadata.FieldDescriptor;
 import org.intermine.objectstore.ObjectStore;
 import org.intermine.objectstore.ObjectStoreException;
 import org.intermine.objectstore.intermine.ObjectStoreInterMineImpl;
@@ -65,14 +64,12 @@ public class PathQueryExecutor extends QueryExecutor
      * Constructor with necessary objects.
      *
      * @param os the ObjectStore to run the query in
-     * @param classKeys key fields for classes in the data model
      * @param profile the user executing the query - for access to saved lists
      * @param bagQueryRunner for executing bag searches in queries
      * @param bagManager access to global and user bags
      */
     public PathQueryExecutor(
             ObjectStore os,
-            Map<String, List<FieldDescriptor>> classKeys,
             Profile profile,
             BagQueryRunner bagQueryRunner,
             BagManager bagManager) {
@@ -98,6 +95,12 @@ public class PathQueryExecutor extends QueryExecutor
 
         Query q = makeQuery(pathQuery, returnBagQueryResults, pathToQueryNode);
         Results results = os.execute(q, batchSize, true, true, false);
+
+        Query realQ = results.getQuery();
+        if (realQ == q) {
+            queryToPathToQueryNode.put(q, pathToQueryNode);
+        }
+
         return new ExportResultsIterator(pathQuery, q, results, pathToQueryNode);
     }
 
@@ -121,6 +124,18 @@ public class PathQueryExecutor extends QueryExecutor
 
         Query q = makeQuery(pathQuery, returnBagQueryResults, pathToQueryNode);
         Results results = os.execute(q, batchSize, true, true, false);
+
+        // If realQ = q this means that the query has never executed before.
+        // We store pathToQueryNode for next time we call the same query
+        // for instance by UI when the query will no been re-executed.
+        // Differently from WebResultExecutor, we don't have to update pathToQueryNode
+        // using that one stored on the cache (queryToPathToQueryNode) because the
+        // ResultIterator uses pathQuery, to build the columns,from which pathToQueryNode comes from
+        Query realQ = results.getQuery();
+        if (realQ == q) {
+            queryToPathToQueryNode.put(q, pathToQueryNode);
+        }
+
         // Prime the results -- although lazy, ExportResults are always fetched to be
         // evaluated, and we want errors thrown here, not later when they are swallowed
         // by the list interface.

@@ -35,17 +35,6 @@
       return false;
     }
 
-    function loadExample2() {
-      switchInputs('paste','file');
-      jQuery('#pasteInput').focus();
-
-      <%-- based on the selected type, load an example list identifiers --%>
-      var example = "ABCG2, ACLY, ACTB, ATP2B2, B4GALT1, BoLA-DRB3, BTN1A1, CCL2, CSN1S2, CSN2, DGAT1, EGF, ETS2, FEZF2, ID2, KCNK1, MFGE8, NME1, LGB, PRL, PTGS1, PTHLH, RORA, STAT5A, TLR4, XDH, LALBA, LEP, TP53, CSN3, CSN1S1, LTF";
-       jQuery('#pasteInput').val(example);
-
-      return false;
-    }
-
    var typeToEnable = new Array();
    <c:forEach items="${typesWithConnectingField}" var="type">
    typeToEnable['${type}'] = 1;

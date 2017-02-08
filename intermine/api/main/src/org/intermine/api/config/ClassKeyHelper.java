@@ -1,7 +1,7 @@
 package org.intermine.api.config;
 
 /*
- * Copyright (C) 2002-2015 FlyMine
+ * Copyright (C) 2002-2016 FlyMine
  *
  * This code may be freely distributed and modified under the
  * terms of the GNU Lesser General Public Licence.  This should
@@ -83,9 +83,11 @@ public final class ClassKeyHelper
                 } else {
                     LOG.warn("No key defined for " + clsName);
                 }
+
                 CLASS_KEYS.put(model, theseKeys);
             }
         }
+
         return CLASS_KEYS.get(model);
     }
 
