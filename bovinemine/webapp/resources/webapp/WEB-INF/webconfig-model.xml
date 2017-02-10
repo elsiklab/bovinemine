@@ -344,11 +344,11 @@
                      parameters="{'dataSets': []}"
                      types="Gene"/>
 <!-- parameters="{'dataSets': ['Panther data set', 'HomoloGene data set', 'OrthoDB data set', 'Ensembl Compara data set', 'TreeFam data set'] }"-->
-  <reportdisplayer javaClass="org.intermine.bio.web.displayer.CytoscapeNetworkDisplayer"
-		   jspName="model/cytoscapeNetworkDisplayer.jsp"
-		   replacesFields="interactions"
-		   placement="Interactions"
-		   types="Gene"/>
+  <!--<reportdisplayer javaClass="org.intermine.bio.web.displayer.CytoscapeNetworkDisplayer"-->
+		   <!--jspName="model/cytoscapeNetworkDisplayer.jsp"-->
+		   <!--replacesFields="interactions"-->
+		   <!--placement="Interactions"-->
+		   <!--types="Gene"/>-->
 
   <reportdisplayer javaClass="org.intermine.bio.web.displayer.OverlappingFeaturesDisplayer"
     jspName="model/overlappingFeaturesDisplayer.jsp"
