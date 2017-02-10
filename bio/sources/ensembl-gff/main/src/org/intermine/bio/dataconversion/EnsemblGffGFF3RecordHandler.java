@@ -85,6 +85,11 @@ public class EnsemblGffGFF3RecordHandler extends GFF3RecordHandler
                 feature.setAttribute("biotype", biotype);
             }
 
+            if (record.getAttributes().get("description") != null) {
+                String description = record.getAttributes().get("description").iterator().next();
+                feature.setAttribute("description", description);
+            }
+
             if (record.getAliases() != null) {
                 List<String> aliases = record.getAliases();
                 Iterator<String> aliasesIterator = aliases.iterator();
