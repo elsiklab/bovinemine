@@ -79,10 +79,10 @@ public class RefseqNoncodingGffGFF3RecordHandler extends GFF3RecordHandler
                 feature.setAttribute("biotype", biotype);
             }
 
-//            if (record.getAttributes().get("feature_type") != null) {
-//                String ft = record.getAttributes().get("feature_type").iterator().next();
-//                feature.setAttribute("status", ft);
-//            }
+            if (record.getAttributes().get("ncbi_desc") != null) {
+                String description = record.getAttributes().get("ncbi_desc").iterator().next();
+                feature.setAttribute("description", description);
+            }
 
             if (record.getAttributes().get("duplicate_entity") != null) {
                 String duplicates = record.getAttributes().get("duplicate_entity").iterator().next();
