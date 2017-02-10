@@ -79,7 +79,6 @@
       <p><i>M. musculus</i></p>
       <p><i>R. norvegicus</i></p>
       <p><i>S. scrofa</i></p>
-      <p><i>C. hircus</i></p>
       <p><i>O. aries</i></p>
     </td>
     <td>Orthologue and paralogue relationships</td>
@@ -96,7 +95,6 @@
       <p><i>M. musculus</i></p>
       <p><i>R. norvegicus</i></p>
       <p><i>S. scrofa</i></p>
-      <p><i>C. hircus</i></p>
       <p><i>O. aries</i></p>
     </td>
     <td>Orthologue and paralogue relationships</td>
@@ -112,7 +110,6 @@
       <p><i>M. musculus</i></p>
       <p><i>R. norvegicus</i></p>
       <p><i>S. scrofa</i></p>
-      <p><i>C. hircus</i></p>
       <p><i>O. aries</i></p>
     </td>
     <td>Orthologue and paralogue relationships</td>
