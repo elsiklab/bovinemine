@@ -32,6 +32,7 @@ public class BrokenOgsConverter extends BioFileConverter
     private static final String DATASET_TITLE = "btau_OGSv2";
     private static final String DATA_SOURCE_NAME = "Bos taurus Official Gene Set OGSv2 (on UMD3.1)";
     private static final String TAXON_ID = "9913";
+    private static final String SOURCE = "btau_OGSv2";
     private String orgRefId;
     private ArrayList<Item> itemsToStore = new ArrayList<Item>();
     /**
@@ -58,6 +59,7 @@ public class BrokenOgsConverter extends BioFileConverter
             String[] transcriptIdentifierList = line[1].split(",");
             Item geneItem = createItem("Gene");
             geneItem.setAttribute("primaryIdentifier", geneIdentifier);
+            geneItem.setAttribute("source", SOURCE);
             geneItem.setAttribute("status", "failed liftOver");
             geneItem.setReference("organism", orgRefId);
             itemsToStore.add(geneItem);
