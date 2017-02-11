@@ -7,7 +7,7 @@
 
   <class className="org.intermine.model.bio.AliasName">
     <fields>
-      <fieldconfig fieldExpr="name"/>
+      <fieldconfig fieldExpr="identifier"/>
 	<fieldconfig fieldExpr="source"/>
     </fields>
   </class>
