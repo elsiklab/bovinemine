@@ -79,7 +79,7 @@
                                                 <center>
                                                         <a class="advanced" href="bag.do?subtab=upload">advanced</a>
                                                         <br />
-                                                        <input class="button light" type="submit" value="analyse"/>
+                                                        <input class="button light" type="submit" value="analyze"/>
                                                 </center>
                                         </div>
                                 </form>
