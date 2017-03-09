@@ -43,99 +43,97 @@
 
     <!-- Tab Menu -->
   <fmt:message key="${pageName}.tab" var="tab" />
-  <div id="menucontainer">
-    <ul id="nav">
-      <li id="home" <c:if test="${tab == 'begin'}">class="activelink"</c:if>>
-        <a href="/${WEB_PROPERTIES['webapp.path']}/begin.do">
-          <fmt:message key="menu.begin"/>
-        </a>
-      </li>
-      <li id="templates"  <c:if test="${tab == 'templates'}">class="activelink"</c:if>>
-         <a href="/${WEB_PROPERTIES['webapp.path']}/templates.do">
-          <fmt:message key="menu.templates"/>
-        </a>
-      </li>
-      <li id="bags" <c:if test="${tab == 'bag'}">class="activelink"</c:if>>
-        <a href="/${WEB_PROPERTIES['webapp.path']}/bag.do">
-          <fmt:message key="menu.bag"/>
-        </a>
-      </li>
-      <li id="query" <c:if test="${tab == 'customQuery'}">class="activelink"</c:if>>
-        <a href="/${WEB_PROPERTIES['webapp.path']}/customQuery.do">
-          <fmt:message key="menu.customQuery"/>&nbsp;
-        </a>
-      </li>
-      <li id="blast" <c:if test="${tab == 'blast'}">class="activelink"</c:if>>
-	<a href="/${WEB_PROPERTIES['webapp.path']}/blast.do">
-		<fmt:message key="menu.blast"/>
-	</a>
-      </li>
-</li>
-      <c:if test="${WEB_PROPERTIES['genomicRegionSearch.display'] == 'true'}">
+    <div id="menucontainer">
+      <ul id="nav">
+        <li id="home" <c:if test="${tab == 'begin'}">class="activelink"</c:if>>
+          <a href="/${WEB_PROPERTIES['webapp.path']}/begin.do">
+            <fmt:message key="menu.begin"/>
+          </a>
+        </li>
+        <li id="mymine"  <c:if test="${tab == 'mymine'}">class="activelink"</c:if>>
+          <a href="/${WEB_PROPERTIES['webapp.path']}/mymine.do">
+            <span><fmt:message key="menu.mymine"/></span>
+          </a>
+        </li>
+        <li id="templates"  <c:if test="${tab == 'templates'}">class="activelink"</c:if>>
+          <a href="/${WEB_PROPERTIES['webapp.path']}/templates.do">
+            <fmt:message key="menu.templates"/>
+          </a>
+        </li>
+        <li id="bags" <c:if test="${tab == 'bag'}">class="activelink"</c:if>>
+          <a href="/${WEB_PROPERTIES['webapp.path']}/bag.do">
+            <fmt:message key="menu.bag"/>
+          </a>
+        </li>
+        <li id="query" <c:if test="${tab == 'customQuery'}">class="activelink"</c:if>>
+          <a href="/${WEB_PROPERTIES['webapp.path']}/customQuery.do">
+            <fmt:message key="menu.customQuery"/>&nbsp;
+          </a>
+        </li>
+        <c:if test="${WEB_PROPERTIES['genomicRegionSearch.display'] == 'true'}">
           <li id="genomicRegionSearch" <c:if test="${tab == 'genomicRegionSearch'}">class="activelink"</c:if>>
             <a href="/${WEB_PROPERTIES['webapp.path']}/genomicRegionSearch.do">
               <fmt:message key="menu.genomicRegionSearch"/>
             </a>
           </li>
-      </c:if>
-      <li id="category" <c:if test="${tab == 'dataCategories'}">class="activelink"</c:if>>
-        <a href="/${WEB_PROPERTIES['webapp.path']}/dataCategories.do">
-          <fmt:message key="menu.dataCategories"/>
-        </a>
-      </li>
-      <li id="help"  <c:if test="${tab == 'Help'}">class="activelink"</c:if>>
-       <a href="http://bovinemine.readthedocs.org/en/latest/">
-    <fmt:message key="menu.help"/>
-  </a>
-  </li>
-      <li id="api"  <c:if test="${tab == 'api'}">class="activelink"</c:if>>
-        <a href="/${WEB_PROPERTIES['webapp.path']}/api.do">
-          <fmt:message key="menu.api"/>
-        </a>
-      </li>
-     <li id="network"  <c:if test="${tab == 'network'}">class="activelink"</c:if>>
-    <a href="/${WEB_PROPERTIES['webapp.path']}/network.do">
-    <fmt:message key="menu.network"/>
-      </a>
-   </li>
-
-      <li id="mymine"  <c:if test="${tab == 'mymine'}">class="activelink"</c:if>>
-        <a href="/${WEB_PROPERTIES['webapp.path']}/mymine.do">
-          <span><fmt:message key="menu.mymine"/></span>
-        </a>
-      </li>
-    </ul>
-  <ul id="loginbar">
-        <li><a href="#" onclick="showContactForm();return false;"><fmt:message key="feedback.link"/></a></li>
-        <c:if test="${PROFILE.loggedIn}">
-            <li>
-              <!-- display (optionally trimmed) username -->
-              <c:choose>
-                <c:when test="${! empty PROVIDER}">
-                  <c:choose>
-                    <c:when test="${empty USERNAME || USERNAME == 'nullnull'}">
-                      <c:set var="displayUserName" value="logged in with OpenID"/>
-                    </c:when>
-            <c:otherwise>
-              <c:set var="displayUserName" value="${USERNAME}"/>
-            </c:otherwise>
-                  </c:choose>
-        </c:when>
-        <c:otherwise>
-          <c:set var="displayUserName" value="${PROFILE.username}"/>
-        </c:otherwise>
-        </c:choose>
-        <c:choose>
-                <c:when test="${fn:length(displayUserName) > 25}">
-                  <c:out value="${fn:substring(displayUserName,0,25)}"/>&hellip;
-                </c:when>
-                <c:otherwise>
-                  <c:out value="${displayUserName}"/>
-                </c:otherwise>
-              </c:choose>
-            </li>
         </c:if>
-        <li class="last"><im:login/></li>
+        <li id="category" <c:if test="${tab == 'dataCategories'}">class="activelink"</c:if>>
+          <a href="/${WEB_PROPERTIES['webapp.path']}/dataCategories.do">
+            <fmt:message key="menu.dataCategories"/>
+          </a>
+        </li>
+        <li id="network"  <c:if test="${tab == 'network'}">class="activelink"</c:if>>
+          <a href="/${WEB_PROPERTIES['webapp.path']}/network.do">
+            <fmt:message key="menu.network"/>
+          </a>
+        </li>
+        <li id="help"  <c:if test="${tab == 'Help'}">class="activelink"</c:if>>
+          <a href="http://bovinemine.readthedocs.org/en/latest/">
+            <fmt:message key="menu.help"/>
+          </a>
+        </li>
+        <li id="api"  <c:if test="${tab == 'api'}">class="activelink"</c:if>>
+          <a href="/${WEB_PROPERTIES['webapp.path']}/api.do">
+            <fmt:message key="menu.api"/>
+          </a>
+        </li>
+        <li id="blast" <c:if test="${tab == 'blast'}">class="activelink"</c:if>>
+          <a href="/${WEB_PROPERTIES['webapp.path']}/blast.do">
+            <fmt:message key="menu.blast"/>
+          </a>
+        </li>
+    </ul>
+    <ul id="loginbar">
+      <li><a href="#" onclick="showContactForm();return false;"><fmt:message key="feedback.link"/></a></li>
+      <c:if test="${PROFILE.loggedIn}">
+          <li>
+            <!-- display (optionally trimmed) username -->
+            <c:choose>
+              <c:when test="${! empty PROVIDER}">
+                <c:choose>
+                  <c:when test="${empty USERNAME || USERNAME == 'nullnull'}">
+                    <c:set var="displayUserName" value="logged in with OpenID"/>
+                  </c:when>
+          <c:otherwise>
+            <c:set var="displayUserName" value="${USERNAME}"/>
+          </c:otherwise>
+                </c:choose>
+      </c:when>
+      <c:otherwise>
+        <c:set var="displayUserName" value="${PROFILE.username}"/>
+      </c:otherwise>
+      </c:choose>
+      <c:choose>
+              <c:when test="${fn:length(displayUserName) > 25}">
+                <c:out value="${fn:substring(displayUserName,0,25)}"/>&hellip;
+              </c:when>
+              <c:otherwise>
+                <c:out value="${displayUserName}"/>
+              </c:otherwise>
+            </c:choose>
+          </li>
+      </c:if>
+          <li class="last"><im:login/></li>
     </ul>
   </div>
 
