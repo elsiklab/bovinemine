@@ -1,7 +1,7 @@
 package org.intermine.bio.dataconversion;
 
 /*
- * Copyright (C) 2002-2015 FlyMine
+ * Copyright (C) 2002-2016 FlyMine
  *
  * This code may be freely distributed and modified under the
  * terms of the GNU Lesser General Public Licence.  This should
@@ -49,7 +49,6 @@ public class KeggPathwayConverter extends BioFileConverter
     protected Map<String, Item> pathwaysNotStored = new HashMap<String, Item>();
 
     protected IdResolver rslv;
-    protected static final String HUMAN = "9606";
 
     /**
      * Constructor
@@ -120,8 +119,7 @@ public class KeggPathwayConverter extends BioFileConverter
 
         // init resolver
         if (rslv == null) {
-            Set<String> taxons = new HashSet<String>(taxonIds);
-            rslv = IdResolverService.getIdResolverByOrganism(taxons);
+            rslv = IdResolverService.getIdResolverByOrganism(taxonIds);
         }
 
         while (lineIter.hasNext()) {

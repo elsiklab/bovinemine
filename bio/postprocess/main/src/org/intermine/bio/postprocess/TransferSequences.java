@@ -1,7 +1,7 @@
 package org.intermine.bio.postprocess;
 
 /*
- * Copyright (C) 2002-2015 FlyMine
+ * Copyright (C) 2002-2016 FlyMine
  *
  * This code may be freely distributed and modified under the
  * terms of the GNU Lesser General Public Licence.  This should
@@ -195,11 +195,9 @@ public class TransferSequences
                     continue;
                 }
 
-                if (PostProcessUtil.isInstance(model, feature, "Indel")) {
-                    continue;
-                }
-
-                if (PostProcessUtil.isInstance(model, feature, "RepeatRegion")) {
+                // if we set here the transcripts, using start and end locations,
+                // we won't be using the transferToTranscripts method (collating the exons)
+                if (PostProcessUtil.isInstance(model, feature, "Transcript")) {
                     continue;
                 }
 
@@ -385,6 +383,7 @@ public class TransferSequences
             new ContainsConstraint(sequenceRef, ConstraintOp.CONTAINS, qcExonSequence);
         cs.addConstraint(cc3);
 
+        // Transcript.sequence IS NULL
         QueryObjectReference transcriptSeqRef = new QueryObjectReference(qcTranscript, "sequence");
 //        ContainsConstraint lsfSeqRefNull =
 //            new ContainsConstraint(transcriptSeqRef, ConstraintOp.IS_NULL);

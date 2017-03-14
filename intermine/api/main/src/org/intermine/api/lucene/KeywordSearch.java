@@ -1,7 +1,7 @@
 package org.intermine.api.lucene;
 
 /*
- * Copyright (C) 2002-2015 FlyMine
+ * Copyright (C) 2002-2016 FlyMine
  *
  * This code may be freely distributed and modified under the
  * terms of the GNU Lesser General Public Licence.  This should
@@ -170,7 +170,6 @@ public final class KeywordSearch
                             if (cld == null) {
                                 LOG.error("Unknown class in config file: " + className);
                             } else {
-                                System.out.println("Ignoring class " + className);
                                 addCldToIgnored(ignoredClasses, cld);
                             }
                         }
@@ -190,7 +189,6 @@ public final class KeywordSearch
                                 if (cld != null) {
                                     FieldDescriptor fld = cld.getFieldDescriptorByName(fieldName);
                                     if (fld != null) {
-                                        System.out.println("Ignoring fieldName " + fieldName + " for class " + clsName);
                                         addToIgnoredFields(ignoredFields, cld, fieldName);
                                     } else {
                                         LOG.error("Field name '" + fieldName + "' not found for"

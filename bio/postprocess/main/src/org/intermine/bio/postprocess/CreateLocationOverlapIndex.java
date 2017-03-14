@@ -1,7 +1,7 @@
 package org.intermine.bio.postprocess;
 
 /*
- * Copyright (C) 2002-2015 FlyMine
+ * Copyright (C) 2002-2016 FlyMine
  *
  * This code may be freely distributed and modified under the
  * terms of the GNU Lesser General Public Licence.  This should
@@ -75,13 +75,9 @@ public class CreateLocationOverlapIndex
                 String indexType = db.isVersionAtLeast("9.3") ? "SPGIST" : "GIST";
 
                 long startTime = System.currentTimeMillis();
-//                String indexSql = "CREATE INDEX location__int4range "
-//                        + "ON location USING " + indexType + " (" + RANGE_TYPE
-//                        + "(intermine_start, intermine_end + 1))";
                 String indexSql = "CREATE INDEX location__int4range "
                         + "ON location USING " + indexType + " (" + RANGE_TYPE
-                        + "(intermine_start, intermine_end + 1)) WHERE location.donotcomputeoverlaps IS NULL";
-                System.out.println("Index SQL: " + indexSql);
+                        + "(intermine_start, intermine_end + 1))";
                 LOG.info(indexSql);
                 Statement statement = con.createStatement();
                 statement.executeUpdate(indexSql);

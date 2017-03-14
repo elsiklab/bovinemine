@@ -1,7 +1,7 @@
 package org.intermine.bio.postprocess;
 
 /*
- * Copyright (C) 2002-2015 FlyMine
+ * Copyright (C) 2002-2016 FlyMine
  *
  * This code may be freely distributed and modified under the
  * terms of the GNU Lesser General Public Licence.  This should
@@ -62,7 +62,6 @@ public class OverlapViewTask
                             + "           l2.featureid AS sequencefeature "
                             + "      FROM location l1, location l2 "
                             + "     WHERE l1.locatedonid = l2.locatedonid "
-                            + "       AND l1.donotcomputeoverlaps IS NULL "
                             + "       AND l1.featureid != l2.featureid"
                             + "       AND int4range(l1.intermine_start, l1.intermine_end + 1) "
                             + "           && int4range(l2.intermine_start, l2.intermine_end + 1)";
@@ -73,7 +72,6 @@ public class OverlapViewTask
                             + "           l2.featureid AS sequencefeature "
                             + "      FROM location l1, location l2 "
                             + "     WHERE l1.locatedonid = l2.locatedonid "
-                            + "       AND l1.donotcomputeoverlaps IS NULL "
                             + "       AND l1.featureid != l2.featureid"
                             + "       AND bioseg_create(l1.intermine_start, l1.intermine_end) "
                             + "            && bioseg_create(l2.intermine_start, l2.intermine_end)";

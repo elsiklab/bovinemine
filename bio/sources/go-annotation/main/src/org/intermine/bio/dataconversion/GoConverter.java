@@ -1,7 +1,7 @@
 package org.intermine.bio.dataconversion;
 
 /*
- * Copyright (C) 2002-2015 FlyMine
+ * Copyright (C) 2002-2016 FlyMine
  *
  * This code may be freely distributed and modified under the
  * terms of the GNU Lesser General Public Licence.  This should
@@ -219,7 +219,7 @@ public class GoConverter extends BioFileConverter
             }
 
             // create unique key for go annotation
-            GoTermToGene key = new GoTermToGene(productId, goId, qualifier);
+            GoTermToGene key = new GoTermToGene(productId, goId, qualifier, withText);
 
             String dataSourceCode = array[14]; // e.g. GDB, where uniprot collect the data from
             String dataSource = array[0]; // e.g. UniProtKB, where the goa file comes from
@@ -633,6 +633,13 @@ public class GoConverter extends BioFileConverter
             for (String xref : xrefs) {
                 refIds.addRefId(createDbReference(xref));
             }
+            item.setAttribute("identifier", value);
+            if (StringUtils.isNotEmpty(dataSource)) {
+                item.setReference("source", getDataSource(dataSource));
+            }
+            dbRefs.add(value);
+            store(item);
+            return item.getIdentifier();
         }
         if (item != null) {
             item.addCollection(refIds);
@@ -721,6 +728,7 @@ public class GoConverter extends BioFileConverter
         }
 
         protected List<String> getPublications() {
+
             return publicationRefIds;
         }
 
@@ -774,6 +782,7 @@ public class GoConverter extends BioFileConverter
         private String productId;
         private String goId;
         private String qualifier;
+        private String withText;
 
         /**
          * Constructor
@@ -782,10 +791,11 @@ public class GoConverter extends BioFileConverter
          * @param goId      GO term id
          * @param qualifier qualifier
          */
-        GoTermToGene(String productId, String goId, String qualifier) {
+        GoTermToGene(String productId, String goId, String qualifier, String withText) {
             this.productId = productId;
             this.goId = goId;
             this.qualifier = qualifier;
+            this.withText = withText;
         }
 
         /**
@@ -797,7 +807,8 @@ public class GoConverter extends BioFileConverter
                 GoTermToGene go = (GoTermToGene) o;
                 return productId.equals(go.productId)
                         && goId.equals(go.goId)
-                        && qualifier.equals(go.qualifier);
+                        && qualifier.equals(go.qualifier)
+                        && withText.equals(go.withText);
             }
             return false;
         }
@@ -809,7 +820,8 @@ public class GoConverter extends BioFileConverter
         public int hashCode() {
             return ((3 * productId.hashCode())
                     + (5 * goId.hashCode())
-                    + (7 * qualifier.hashCode()));
+                    + (7 * qualifier.hashCode())
+                    + (11 * withText.hashCode()));
         }
 
         /**
@@ -825,7 +837,8 @@ public class GoConverter extends BioFileConverter
             toStringBuff.append(goId);
             toStringBuff.append(" qualifier:");
             toStringBuff.append(qualifier);
-
+            toStringBuff.append(" withText:");
+            toStringBuff.append(withText);
             return toStringBuff.toString();
         }
     }

@@ -1,7 +1,7 @@
 package org.intermine.bio.dataconversion;
 
 /*
- * Copyright (C) 2002-2015 FlyMine
+ * Copyright (C) 2002-2016 FlyMine
  *
  * This code may be freely distributed and modified under the
  * terms of the GNU Lesser General Public Licence.  This should
@@ -43,7 +43,7 @@ public class EnsemblComparaConverter extends BioFileConverter
     private static final String EVIDENCE_CODE_NAME = "Amino acid sequence comparison";
     private Set<String> taxonIds;
     private Set<String> homologues = new HashSet<String>();
-    private static final String DATASET_TITLE = "EnsemblCompara data set";
+    private static final String DATASET_TITLE = "Ensembl Compara data set";
     private static final String DATA_SOURCE_NAME = "Ensembl";
     private Map<String, String> genes = new HashMap<String, String>();
     protected IdResolver rslv = null;
@@ -185,14 +185,12 @@ public class EnsemblComparaConverter extends BioFileConverter
             return null;
         }
         String newIdentifier = identifier;
-        // commenting out specifically for BovineMine
-//        if ("7227".equals(taxonId) || "9606".equals(taxonId) || "10090".equals(taxonId) || "10116".equals(taxonId)) {
-//            newIdentifier = resolveGene(taxonId, identifier);
-//            if (newIdentifier == null) {
-//                System.out.println(identifier + " for " + taxonId + " resolved to null");
-//                return null;
-//            }
-//        }
+        if ("7227".equals(taxonId) || "9606".equals(taxonId)) {
+            newIdentifier = resolveGene(taxonId, identifier);
+            if (newIdentifier == null) {
+                return null;
+            }
+        }
         String refId = genes.get(newIdentifier);
         if (refId == null) {
             String fieldName = getConfig(taxonId);
