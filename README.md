@@ -1,8 +1,6 @@
 BovineMine
 ============
 
-[![Join the chat at https://gitter.im/elsiklab/bovinemine](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/elsiklab/bovinemine?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 This is a main repo for BovineMine. See http://bovinegenome.org/bovinemine for the main website
 
 Documentation: http://bovinemine.readthedocs.org/
