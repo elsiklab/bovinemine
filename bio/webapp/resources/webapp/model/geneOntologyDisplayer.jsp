@@ -42,6 +42,12 @@
 			                  <c:out value="${term.name}"/>
 			                  </html:link>&nbsp;<im:helplink text="${term.description}"/>
 			                </td>
+                            <td>
+                              <c:set var="term" value="${entry.key}" />
+                              <html:link href="/${WEB_PROPERTIES['webapp.path']}/ontograph/single.html?term=${term.identifier}" title="${term.description}">
+                              <img src="/${WEB_PROPERTIES['webapp.path']}/images/go-logo-icon.small.png" width="16" height="16"></img>
+                              </html:link>
+                            </td>
 			                <td>
 			                  <c:set var="evidence" value="${entry.value}" />
 				              <c:forEach items="${entry.value}" var="evidence">

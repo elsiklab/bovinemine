@@ -195,6 +195,14 @@ public class TransferSequences
                     continue;
                 }
 
+                if (PostProcessUtil.isInstance(model, feature, "Indel")) {
+                    continue;
+                }
+
+                if (PostProcessUtil.isInstance(model, feature, "RepeatRegion")) {
+                    continue;
+                }
+
                 // if we set here the transcripts, using start and end locations,
                 // we won't be using the transferToTranscripts method (collating the exons)
                 if (PostProcessUtil.isInstance(model, feature, "Transcript")) {

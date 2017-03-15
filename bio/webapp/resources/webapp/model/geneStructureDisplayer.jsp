@@ -74,7 +74,7 @@
             <c:set var="count" value="${fn:length(geneModel.CDSs) + count}" />
           </c:forEach>
           <c:if test="${count > 0}">
-            <a href="#" id="cdss" class="switcher">CDSs</a>: ${count}&nbsp;
+            <a href="#" id="cdss" class="switcher">Coding Sequence</a>: ${count}&nbsp;
           </c:if>
         </c:if>
       </div>
