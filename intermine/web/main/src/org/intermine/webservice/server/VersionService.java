@@ -32,9 +32,6 @@ public class VersionService extends JSONService
 {
     private String versionType;
 
-    private String versionType;
-    private boolean serveReleaseVersion;
-
     /**
      * Constructor
      * @param im The InterMine configuration object.
@@ -100,8 +97,8 @@ public class VersionService extends JSONService
     @Override
     protected boolean canServe(Format format) {
         return format == Format.JSON
-            || format == Format.HTML
-            || format == Format.TEXT;
+                || format == Format.HTML
+                || format == Format.TEXT;
     }
 
 }

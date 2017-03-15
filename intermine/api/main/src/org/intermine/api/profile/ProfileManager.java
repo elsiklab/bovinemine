@@ -93,10 +93,10 @@ public class ProfileManager
     protected int pathQueryFormat;
 
     private final Map<String, LimitedAccessToken> limitedAccessTokens
-        = new HashMap<String, LimitedAccessToken>();
+            = new HashMap<String, LimitedAccessToken>();
 
     private final Map<UUID, PermanentToken> permanentTokens
-        = new HashMap<UUID, PermanentToken>();
+            = new HashMap<UUID, PermanentToken>();
 
     /**
      * Construct a ProfileManager for the webapp
@@ -132,7 +132,7 @@ public class ProfileManager
         int currentVersion = PathQuery.USERPROFILE_VERSION;
         try {
             String versionString = MetadataManager.retrieve(((ObjectStoreInterMineImpl) uosw)
-                .getDatabase(), MetadataManager.PROFILE_FORMAT_VERSION);
+                    .getDatabase(), MetadataManager.PROFILE_FORMAT_VERSION);
             String message = "Could not recognise userprofile format version "
                     + versionString + ", maybe you need to update InterMine";
             LOG.info("Database has userprofile version \"" + versionString + "\"");
@@ -292,7 +292,7 @@ public class ProfileManager
      * @return the Profile, or null if one doesn't exist
      */
     public synchronized Profile getProfile(String username, String password,
-                        Map<String, List<FieldDescriptor>> classKeys) {
+                                           Map<String, List<FieldDescriptor>> classKeys) {
         if (hasProfile(username) && validPassword(username, password)) {
             return getProfile(username, classKeys);
         }
@@ -358,7 +358,7 @@ public class ProfileManager
             LOG.error("Error loading class descriptions", e);
         }
         Map<String, List<FieldDescriptor>>  classKeys =
-            ClassKeyHelper.readKeys(model, classKeyProps);
+                ClassKeyHelper.readKeys(model, classKeyProps);
         return classKeys;
     }
 
@@ -424,7 +424,7 @@ public class ProfileManager
      * @return the Profile, or null if one doesn't exist
      */
     public synchronized Profile getProfile(String username, Map<String,
-                        List<FieldDescriptor>> classKeys) {
+            List<FieldDescriptor>> classKeys) {
         if (username == null) {
             return null;
         }
@@ -458,7 +458,7 @@ public class ProfileManager
     }
 
     private synchronized Profile wrapUserProfile(UserProfile userProfile,
-            Map<String, List<FieldDescriptor>> classKeys) {
+                                                 Map<String, List<FieldDescriptor>> classKeys) {
         if (userProfile == null) {
             return null;
         }
@@ -470,8 +470,8 @@ public class ProfileManager
         q.addToSelect(new QueryField(qc, "id"));
         q.addToSelect(qc); // This loads the objects into the cache
         q.setConstraint(new ContainsConstraint(new QueryObjectReference(qc, "userProfile"),
-                    ConstraintOp.CONTAINS, new ProxyReference(null, userProfile.getId(),
-                        UserProfile.class)));
+                ConstraintOp.CONTAINS, new ProxyReference(null, userProfile.getId(),
+                UserProfile.class)));
         try {
             // Multiple attempts to access the userprofile (create/delete bags, for instance)
             // will cause this to fail. Allow three retries.
@@ -492,13 +492,13 @@ public class ProfileManager
                             try {
                                 InterMineBag bag = new InterMineBag(os, bagId, uosw);
                                 bag.setKeyFieldNames(ClassKeyHelper.getKeyFieldNames(
-                                                     classKeys, bag.getType()));
+                                        classKeys, bag.getType()));
                                 savedBags.put(bagName, bag);
                             } catch (UnknownBagTypeException e) {
                                 LOG.warn("The bag '" + bagName + "' for user '"
-                                        + userProfile.getUsername() + "'"
-                                        + " with type: " + savedBag.getType()
-                                        + " is not in the model. It will be saved into invalidBags"
+                                                + userProfile.getUsername() + "'"
+                                                + " with type: " + savedBag.getType()
+                                                + " is not in the model. It will be saved into invalidBags"
                                         , e);
                                 InvalidBag bag = new InvalidBag(savedBag, userProfile.getId(),
                                         os, uosw);
@@ -519,7 +519,7 @@ public class ProfileManager
         }
 
         Map<String, org.intermine.api.profile.SavedQuery> savedQueries =
-            new HashMap<String, org.intermine.api.profile.SavedQuery>();
+                new HashMap<String, org.intermine.api.profile.SavedQuery>();
         for (SavedQuery query : userProfile.getSavedQuerys()) {
             try {
                 Reader r = new StringReader(query.getQuery());
@@ -534,7 +534,7 @@ public class ProfileManager
                         savedQueries.put(
                                 name,
                                 new org.intermine.api.profile.SavedQuery(name, null,
-                                                                  entry.getValue()));
+                                        entry.getValue()));
                     }
                 }
             } catch (Exception err) {
@@ -558,7 +558,7 @@ public class ProfileManager
                 // Ignore rows that don't unmarshal (they probably reference
                 // another model.
                 LOG.warn("Failed to unmarshal saved template query: "
-                         + template.getTemplateQuery(), err);
+                        + template.getTemplateQuery(), err);
             }
         }
         BagSet bags = new BagSet(savedBags, savedInvalidBags);
@@ -601,7 +601,7 @@ public class ProfileManager
                     uosw.delete((InterMineObject) i.next());
                 }
                 for (Iterator i = userProfile.getSavedTemplateQuerys().iterator();
-                        i.hasNext();) {
+                     i.hasNext();) {
                     uosw.delete((InterMineObject) i.next());
                 }
             } else {
@@ -613,34 +613,10 @@ public class ProfileManager
             syncSavedQueries(profile, userProfile);
             syncTemplates(profile, userProfile);
 
-    private void syncSavedQueries(Profile profile, UserProfile userProfile)
-        throws ObjectStoreException {
-        // Index the currently saved queries by their query XML,
-        // so we know if we need to update them.
-        Map<String, SavedQuery> toDelete = new HashMap<String, SavedQuery>();
-        for (SavedQuery sq: userProfile.getSavedQuerys()) {
-            //uosw.delete(sq);
-            toDelete.put(sq.getQuery(), sq);
-        }
-
-        for (Entry<String, org.intermine.api.profile.SavedQuery> entry
-                : profile.getSavedQueries().entrySet()) {
-            org.intermine.api.profile.SavedQuery query = entry.getValue();
-            try {
-                String xml = SavedQueryBinding.marshal(query, pathQueryFormat);
-                SavedQuery savedQuery = toDelete.remove(xml);
-                if (savedQuery == null) { // Need to write a new one.
-                    savedQuery = new SavedQuery();
-                    savedQuery.setQuery(xml);
-                    savedQuery.setUserProfile(userProfile);
-                    uosw.store(savedQuery);
-                }
-            } catch (Exception e) {
-                LOG.error("Failed to marshal and save query: " + query, e);
-            }
-        }
-        for (SavedQuery delendum: toDelete.values()) {
-            uosw.delete(delendum);
+            uosw.store(userProfile);
+            profile.setUserId(userProfile.getId());
+        } catch (ObjectStoreException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -664,7 +640,7 @@ public class ProfileManager
     }
 
     private void syncSavedQueries(Profile profile, UserProfile userProfile)
-        throws ObjectStoreException {
+            throws ObjectStoreException {
         for (Entry<String, org.intermine.api.profile.SavedQuery> entry
                 : profile.getSavedQueries().entrySet()) {
             org.intermine.api.profile.SavedQuery query = entry.getValue();
@@ -875,7 +851,7 @@ public class ProfileManager
      * @throws ObjectStoreException oops
      */
     public String generateReadOnlyAccessToken(Profile profile, String message)
-        throws ObjectStoreException {
+            throws ObjectStoreException {
         UserProfile up;
         if (profile.getUserId() == null) {
             throw new IllegalArgumentException("This profile does not have an associated "
@@ -1047,7 +1023,7 @@ public class ProfileManager
     }
 
     private final Map<String, PasswordChangeToken> passwordChangeTokens
-        = new HashMap<String, PasswordChangeToken>();
+            = new HashMap<String, PasswordChangeToken>();
 
     /**
      * Creates a password change token assigned to the given username that will expire after a day.
@@ -1346,7 +1322,7 @@ public class ProfileManager
      * @return permission to use this service.
      */
     public ApiPermission grantPermission(String issuer, String identity,
-            Map<String, List<FieldDescriptor>> classKeys) {
+                                         Map<String, List<FieldDescriptor>> classKeys) {
 
         String username = issuer + ":" + identity;
         Profile profile = getProfile(username, classKeys);
@@ -1396,7 +1372,7 @@ public class ProfileManager
             if (p == null) {
                 throw new AuthenticationException(
                         "This token is not a valid access key: "
-                        + token);
+                                + token);
             } else {
                 // Grant RW permission to user data
                 permission = new ApiPermission(p, ApiPermission.Level.RW);
@@ -1457,7 +1433,7 @@ public class ProfileManager
      * @return A representation of this user's permissions.
      */
     public ApiPermission getPermission(String username, String password,
-            Map<String, List<FieldDescriptor>> classKeys) {
+                                       Map<String, List<FieldDescriptor>> classKeys) {
         if (StringUtils.isEmpty(username)) {
             throw new AuthenticationException("Empty user name.");
         }
@@ -1490,7 +1466,7 @@ public class ProfileManager
         }
         if (profile == null) {
             throw new AuthenticationException(
-                "'" + token + "' is not a valid API access key");
+                    "'" + token + "' is not a valid API access key");
         }
         return getProfile(profile.getUsername(), classKeys);
     }
