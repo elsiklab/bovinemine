@@ -65,7 +65,7 @@ public class GoConverter extends BioFileConverter
 
     // maps renewed for each file
     private Map<GoTermToGene, Set<Evidence>> goTermGeneToEvidence
-        = new LinkedHashMap<GoTermToGene, Set<Evidence>>();
+            = new LinkedHashMap<GoTermToGene, Set<Evidence>>();
     private Map<Integer, List<String>> productCollectionsMap;
     private Map<String, Integer> storedProductIds;
 
@@ -134,7 +134,7 @@ public class GoConverter extends BioFileConverter
                     || "primaryIdentifier".equals(identifier)
                     || "secondaryIdentifier".equals(identifier)
                     || "primaryAccession".equals(identifier)
-                    )) {
+            )) {
                 throw new IllegalArgumentException("Invalid identifier value for taxon: "
                         + taxonId + " was: " + identifier);
             }
@@ -326,8 +326,8 @@ public class GoConverter extends BioFileConverter
     }
 
     private Integer createGoAnnotation(String productIdentifier, String productType,
-            String termIdentifier, Item organism, String qualifier, String dataSource,
-            String dataSourceCode, String annotationExtension) throws ObjectStoreException {
+                                       String termIdentifier, Item organism, String qualifier, String dataSource,
+                                       String dataSourceCode, String annotationExtension) throws ObjectStoreException {
         Item goAnnotation = createItem(annotationClassName);
         goAnnotation.setReference("subject", productIdentifier);
         goAnnotation.setReference("ontologyTerm", termIdentifier);
@@ -369,7 +369,7 @@ public class GoConverter extends BioFileConverter
      * @return a list of Items
      */
     protected List<String> createWithObjects(String withText, Item organism,
-            String dataSource, String dataSourceCode) throws ObjectStoreException {
+                                             String dataSource, String dataSourceCode) throws ObjectStoreException {
 
         List<String> withProductList = new ArrayList<String>();
         try {
@@ -418,8 +418,8 @@ public class GoConverter extends BioFileConverter
     }
 
     private String newProduct(String identifier, String type, Item organism,
-            String dataSource, String dataSourceCode, boolean createOrganism,
-            String field) throws ObjectStoreException {
+                              String dataSource, String dataSourceCode, boolean createOrganism,
+                              String field) throws ObjectStoreException {
         String idField = field;
         String accession = identifier;
         String clsName = null;
@@ -503,7 +503,7 @@ public class GoConverter extends BioFileConverter
     }
 
     private String makeProductKey(String identifier, String type, Item organism,
-            boolean createOrganism) {
+                                  boolean createOrganism) {
         if (type == null) {
             throw new IllegalArgumentException("No type provided when creating " + organism
                     + ": " + identifier);
@@ -535,7 +535,7 @@ public class GoConverter extends BioFileConverter
 //    }
 
     private String newGoTerm(String identifier, String dataSource,
-            String dataSourceCode) throws ObjectStoreException {
+                             String dataSourceCode) throws ObjectStoreException {
         if (identifier == null) {
             return null;
         }
@@ -589,7 +589,7 @@ public class GoConverter extends BioFileConverter
     }
 
     private String getDataset(String dataSource, String code)
-        throws ObjectStoreException {
+            throws ObjectStoreException {
         String dataSetIdentifier = dataSets.get(code);
         if (dataSetIdentifier == null) {
             String dataSourceName = getDataSourceCodeName(code);
@@ -633,13 +633,6 @@ public class GoConverter extends BioFileConverter
             for (String xref : xrefs) {
                 refIds.addRefId(createDbReference(xref));
             }
-            item.setAttribute("identifier", value);
-            if (StringUtils.isNotEmpty(dataSource)) {
-                item.setReference("source", getDataSource(dataSource));
-            }
-            dbRefs.add(value);
-            store(item);
-            return item.getIdentifier();
         }
         if (item != null) {
             item.addCollection(refIds);
@@ -649,7 +642,7 @@ public class GoConverter extends BioFileConverter
     }
 
     private String createDbReference(String value)
-        throws ObjectStoreException {
+            throws ObjectStoreException {
         if (StringUtils.isEmpty(value)) {
             return null;
         }
@@ -712,7 +705,7 @@ public class GoConverter extends BioFileConverter
         //dataSource, dataSourceCode
 
         protected Evidence(String evidenceCode, String publicationRefId, String withText,
-                Item organism, String dataset, String datasource) {
+                           Item organism, String dataset, String datasource) {
             this.evidenceCode = evidenceCode;
             this.withText = withText;
             this.organism = organism;
