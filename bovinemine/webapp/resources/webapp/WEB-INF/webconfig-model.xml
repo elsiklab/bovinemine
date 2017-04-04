@@ -22,8 +22,8 @@
     <class className="org.intermine.model.bio.Polypeptide">
         <fields>
             <fieldconfig fieldExpr="primaryIdentifier"/>
-            <fieldconfig fieldExpr="genes.primaryIdentifier" label="Gene Identifier"/>
             <fieldconfig fieldExpr="mrnaIdentifier" label="mRNA Identifier"/>
+            <fieldconfig fieldExpr="dataSets.name" label="Dataset"/>
         </fields>
     </class>
 
