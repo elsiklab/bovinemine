@@ -7,7 +7,7 @@
 
   <class className="org.intermine.model.bio.AliasName">
     <fields>
-      <fieldconfig fieldExpr="identifier"/>
+      <fieldconfig fieldExpr="identifier" label="Alias ID"/>
 	<fieldconfig fieldExpr="source"/>
     </fields>
   </class>
@@ -18,6 +18,14 @@
       <fieldconfig fieldExpr="source"/>
     </fields>
   </class>
+
+    <class className="org.intermine.model.bio.Polypeptide">
+        <fields>
+            <fieldconfig fieldExpr="primaryIdentifier"/>
+            <fieldconfig fieldExpr="genes.primaryIdentifier" label="Gene Identifier"/>
+            <fieldconfig fieldExpr="mrnaIdentifier" label="mRNA Identifier"/>
+        </fields>
+    </class>
 
  <class className="org.intermine.model.bio.BioEntity">
     <headerconfig>
@@ -225,6 +233,7 @@
       <fieldconfig fieldExpr="primaryAccession"/>
       <fieldconfig fieldExpr="organism.name"/>
       <fieldconfig fieldExpr="length" displayer="/model/sequenceShortDisplayerWithField.jsp" />
+      <fieldconfig fieldExpr="dataSets.name"/>
     </fields>
   </class>
 
@@ -349,6 +358,17 @@
 		   <!--replacesFields="interactions"-->
 		   <!--placement="Interactions"-->
 		   <!--types="Gene"/>-->
+      <reportdisplayer javaClass="org.intermine.bio.web.displayer.EsynDisplayer"
+                       jspName="model/esynDisplayer.jsp"
+                       replacesFields=""
+                       placement="Interactions"
+                       types="Gene"/>
+
+      <reportdisplayer javaClass="org.intermine.bio.web.displayer.PublicationCountsDisplayer"
+                       jspName="model/publicationCountsDisplayer.jsp"
+                       replacesFields="publications"
+                       placement="Genes"
+                       types="BioEntity"/>
 
   <reportdisplayer javaClass="org.intermine.bio.web.displayer.OverlappingFeaturesDisplayer"
     jspName="model/overlappingFeaturesDisplayer.jsp"
@@ -365,22 +385,22 @@
 
 <!-- widgets -->
 <widgets>
-      <graphdisplayer id="chromosome_distribution_for_gene"
-                      title="Chromosome Distribution"
-                      description="Actual: number of items in this list found on each chromosome.  Expected: given the total number of items on the chromosome and the number of items in this list, the number of items expected to be found on each chromosome."
-                      graphType="ColumnChart"
-                      rangeLabel="Count"
-                      domainLabel="Chromosome"
-                      filterLabel="Organism"
-                      filters="organism.name=[list]"
-                      startClass="Gene"
-                      typeClass="Gene"
-                      categoryPath="chromosome.primaryIdentifier"
-                      seriesLabels="Actual,Expected"
-                      seriesPath="ActualExpectedCriteria"
-                      constraints="organism.name=[Organism]"
-                      views="primaryIdentifier, symbol, secondaryIdentifier, organism.name, chromosome.primaryIdentifier,
-                             chromosomeLocation.start, chromosomeLocation.end, chromosomeLocation.strand"/>
+      <!--<graphdisplayer id="chromosome_distribution_for_gene"-->
+                      <!--title="Chromosome Distribution"-->
+                      <!--description="Actual: number of items in this list found on each chromosome.  Expected: given the total number of items on the chromosome and the number of items in this list, the number of items expected to be found on each chromosome."-->
+                      <!--graphType="ColumnChart"-->
+                      <!--rangeLabel="Count"-->
+                      <!--domainLabel="Chromosome"-->
+                      <!--filterLabel="Organism"-->
+                      <!--filters="organism.name=[list]"-->
+                      <!--startClass="Gene"-->
+                      <!--typeClass="Gene"-->
+                      <!--categoryPath="chromosome.primaryIdentifier"-->
+                      <!--seriesLabels="Actual,Expected"-->
+                      <!--seriesPath="ActualExpectedCriteria"-->
+                      <!--constraints="organism.name=[Organism]"-->
+                      <!--views="primaryIdentifier, symbol, secondaryIdentifier, organism.name, chromosome.primaryIdentifier,-->
+                             <!--chromosomeLocation.start, chromosomeLocation.end, chromosomeLocation.strand"/>-->
 
       <enrichmentwidgetdisplayer id="go_enrichment_for_gene"
                                  title="Gene Ontology Enrichment"
