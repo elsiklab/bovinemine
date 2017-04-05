@@ -110,7 +110,17 @@
     <aspect-source name="BIOGRID" url="http://thebiogrid.org/"/>
     <aspect-source name="IntAct" url="http://www.ebi.ac.uk/intact/"/>
   </aspect>
-     <aspect name="Publication">
+  <aspect name="Expression">
+    <subtitle>Gene Expression</subtitle>
+    <icon-image>model/images/Heatmap.png</icon-image>
+    <large-image>model/images/Heatmap.png</large-image>
+    <intro-text>
+        Gene Expression
+    </intro-text>
+    <tile-name>model/geneExpression.jsp</tile-name>
+    <aspect-source name="NCBI-SRA" url="http://www.ncbi.nlm.nih.gov/sra/"/>
+  </aspect>
+  <aspect name="Publication">
     <subtitle>Publication</subtitle>
     <icon-image>model/images/PubMed_logo_large.png</icon-image>
     <large-image>model/images/PubMed_logo_large.png</large-image>
@@ -120,14 +130,24 @@
     <tile-name>model/publications.jsp</tile-name>
     <aspect-source name="Pubmed" url="http://www.ncbi.nlm.nih.gov/pubmed"/>
   </aspect>
-  <aspect name="Expression">
-    <subtitle>Gene Expression</subtitle>
+  <aspect name="ENTIRE GENE SET">
+    <subtitle>ENTIRE GENE SET</subtitle>
     <icon-image>model/images/Heatmap.png</icon-image>
     <large-image>model/images/Heatmap.png</large-image>
     <intro-text>
-      Gene Expression
+        Entire Gene Set
     </intro-text>
-    <tile-name>model/geneExpression.jsp</tile-name>
-    <aspect-source name="NCBI-SRA" url="http://www.ncbi.nlm.nih.gov/sra/"/>
+    <tile-name>model/entireGeneSet.jsp</tile-name>
+    <aspect-source name="NCBI" url="http://www.ncbi.nlm.nih.gov/"/>
+  </aspect>
+  <aspect name="ALIAS AND DBXREF">
+    <subtitle>ALIAS AND DBXREF</subtitle>
+    <icon-image>model/images/Heatmap.png</icon-image>
+    <large-image>model/images/Heatmap.png</large-image>
+    <intro-text>
+        Alias and DBXref
+    </intro-text>
+    <tile-name>model/aliasAndDbxref.jsp</tile-name>
+    <aspect-source name="NCBI" url="http://www.ncbi.nlm.nih.gov/"/>
   </aspect>
 </aspects>
