@@ -364,11 +364,11 @@
                        placement="Interactions"
                        types="Gene"/>
 
-      <reportdisplayer javaClass="org.intermine.bio.web.displayer.PublicationCountsDisplayer"
-                       jspName="model/publicationCountsDisplayer.jsp"
-                       replacesFields="publications"
-                       placement="Genes"
-                       types="BioEntity"/>
+      <!--<reportdisplayer javaClass="org.intermine.bio.web.displayer.PublicationCountsDisplayer"-->
+                       <!--jspName="model/publicationCountsDisplayer.jsp"-->
+                       <!--replacesFields="publications"-->
+                       <!--placement="Genes"-->
+                       <!--types="BioEntity"/>-->
 
   <reportdisplayer javaClass="org.intermine.bio.web.displayer.OverlappingFeaturesDisplayer"
     jspName="model/overlappingFeaturesDisplayer.jsp"
