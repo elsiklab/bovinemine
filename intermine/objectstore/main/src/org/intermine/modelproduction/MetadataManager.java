@@ -81,6 +81,10 @@ public final class MetadataManager
      */
     public static final String SEARCH_INDEX_DIRECTORY = "search_directory";
     /**
+     * The name of the key to use to store the search index signature.
+     */
+    public static final String SEARCH_INDEX_SIGNATURE = "search_index_signature";
+    /**
      * Name of the key under which to store the serialized version of the class descriptions
      */
     //public static final String CLASS_DESCRIPTIONS = "classDescs";
