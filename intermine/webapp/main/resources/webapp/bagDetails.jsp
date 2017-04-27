@@ -336,29 +336,9 @@
 
 <!-- templates -->
 
-<c:set var="templateIdPrefix" value="bagDetailsTemplate${bag.type}"/>
-<c:set value="${fn:length(CATEGORIES)}" var="aspectCount"/>
-<div class="heading">
-   <a id="relatedTemplates">Template results for '${bag.name}' &nbsp;</a>
-  </div>
+<!-- Template block removed to prevent templates from showing up on List Analysis Result Page -->
 
-
-  <div class="body">
-  <fmt:message key="bagDetails.templatesHelp"/>
-
-  <%-- Each aspect --%>
-  <c:forEach items="${CATEGORIES}" var="aspect" varStatus="status">
-  <div id="${fn:replace(aspect, " ", "_")}Category" class="aspectBlock">
-    <tiles:insert name="reportAspect.tile">
-      <tiles:put name="placement" value="im:aspect:${aspect}"/>
-      <tiles:put name="trail" value="|bag.${bag.name}"/>
-      <tiles:put name="interMineIdBag" beanName="bag"/>
-      <tiles:put name="aspectId" value="${templateIdPrefix}${status.index}" />
-      <tiles:put name="opened" value="${status.index == 0}" />
-    </tiles:insert>
-  </div>
-  </c:forEach>
-</div>  <!-- templates body -->
+<!-- templates body -->
 
 <!-- /templates -->
 </c:if>
