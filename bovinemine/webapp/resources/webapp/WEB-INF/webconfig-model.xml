@@ -252,7 +252,13 @@
     </fields>
   </class>
   
-
+  <class className="org.intermine.model.bio.QTL">
+    <fields>
+      <fieldconfig fieldExpr="qtlId"/>
+      <fieldconfig fieldExpr="trait"/>
+      <fieldconfig fieldExpr="type"/>
+    </fields>
+  </class>
 
   <class className="org.intermine.model.bio.Publication">
     <headerconfig>
