@@ -17,7 +17,7 @@
     <th>Data</th>
     <th>Source</th>
     <th>PubMed</th>
-    <th>Note</th>
+    <th>Link</th>
   </tr>
   <tr><td rowspan="3" class="leftcol">
     <h2><p>Genes</p></h2></td>
@@ -64,7 +64,7 @@
        <p><i>C. hircus</i></p>
        <p><i>O. aries</i></p>
     </td>
-     <td>Orthologue and paralogue relationships</td>
+     <td>Homologous relationships</td>
     <td>OrthoDB - Version 9</td>
     <td>Kriventseva et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25428351>25428351</a></td>
     <td><a href="ftp://cegg.unige.ch/OrthoDB8/">OrthoDB Download</a></td>
@@ -81,7 +81,7 @@
       <p><i>S. scrofa</i></p>
       <p><i>O. aries</i></p>
     </td>
-    <td>Orthologue and paralogue relationships</td>
+    <td>Homologous relationships</td>
     <td>Treefam - release 8.0</td>
     <td>Schreiber et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=24194607>24194607</a></td>
     <td><a href="ftp://ftp.ebi.ac.uk/pub/databases/ensembl/muffato/treefam/release-8.0/MySQL/">EBI FTP</a></td>
@@ -97,7 +97,7 @@
       <p><i>S. scrofa</i></p>
       <p><i>O. aries</i></p>
     </td>
-    <td>Orthologue and paralogue relationships</td>
+    <td>Homologous relationships</td>
     <td>Ensembl Compara</td>
     <td>Vilella et al - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=19029536>19029536</a> </td>
     <td><a href="http://useast.ensembl.org/biomart/martview/">Ensembl BioMart<a/></td>
@@ -112,7 +112,7 @@
       <p><i>S. scrofa</i></p>
       <p><i>O. aries</i></p>
     </td>
-    <td>Orthologue and paralogue relationships</td>
+    <td>Homologous relationships</td>
     <td>HomoloGene build 68</td>
     <td>NCBI Resource Coordinators - PubMed <a href=http://www.ncbi.nlm.nih.gov/pubmed/?term=25398906>25398906</a></td>
     <td><a href="ftp://ftp.ncbi.nih.gov/pub/HomoloGene/build68/">NCBI FTP</a></td>
@@ -271,10 +271,10 @@
     <tr>
       <td><i>B. taurus</i></td>
       <td>Hapmap data for Bos taurus</td>
-      <td> Hapmap</td>
+      <td>Bovine Hapmap</td>
       <td> The International HapMap Consortium - Nature <a href=http://www.nature.com/nature/journal/v426/n6968/abs/nature02168.html></a></td>
       <td><a href="http://hapmap.ncbi.nlm.nih.gov/">Hapmap website</a></td>
-  </tr>
+    </tr>
   <tr>
     <td class="leftcol" rowspan="1"><p><h2>Variant Annotations</h2></p></td>
     <td><i>B. taurus</i></td>
