@@ -98,7 +98,7 @@
           </a>
         </li>
         <li id="blast" <c:if test="${tab == 'blast'}">class="activelink"</c:if>>
-          <a href="/${WEB_PROPERTIES['webapp.path']}/blast.do">
+          <a href="http://bovinegenome.org/bgd_blast/">
             <fmt:message key="menu.blast"/>
           </a>
         </li>
