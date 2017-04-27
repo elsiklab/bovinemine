@@ -25,8 +25,8 @@
     <aspect-source name="NCBI" url="http://www.ncbi.nlm.nih.gov"/>
     <aspect-source name="Ensembl" url="http://www.ensembl.org/index.html"/>
   </aspect>
- 
-   <aspect name="SNP">
+
+<!--   <aspect name="SNP">
     <subtitle>SNPs and INDELs</subtitle>
     <icon-image>model/images/marray.gif</icon-image>
     <large-image>model/images/marray.gif</large-image>
@@ -39,7 +39,19 @@
     <aspect-source name="dbSNP" url="http://www.ncbi.nlm.nih.gov/SNP/"/>
     <aspect-source name="HapMap" url="hapmap.ncbi.nlm.nih.gov/"/>
   </aspect>
-  
+-->
+   <aspect name="Variation">
+    <subtitle>Genomic and Structural Variation</subtitle>
+    <icon-image>model/images/marray.gif</icon-image>
+    <large-image>model/images/marray.gif</large-image>
+    <intro-text>
+    </intro-text>
+    <tile-name>model/variation.jsp</tile-name>
+    <aspect-source name="dbSNP" url="http://www.ncbi.nlm.nih.gov/SNP/"/>
+    <aspect-source name="dbVar" url="http://www.ncbi.nlm.nih.gov/dbvar/"/>
+    <aspect-source name="HapMap" url="hapmap.ncbi.nlm.nih.gov/"/>
+  </aspect>
+
    <aspect name="QTL">
     <subtitle>QTL</subtitle>
     <icon-image>model/images/Qtl.png</icon-image>
