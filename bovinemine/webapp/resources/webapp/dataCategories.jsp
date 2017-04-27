@@ -302,7 +302,7 @@
     <tr>
       <td><i>C. hircus</i></td>
       <td>Chromosome Assembly</td>
-      <td>ASM170441v1</td>
+      <td>ARS1</td>
       <td></td>
       <td><a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/Capra_hircus/">NCBI FTP</a></td>
     </tr>
