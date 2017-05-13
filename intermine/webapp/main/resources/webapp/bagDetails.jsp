@@ -297,6 +297,10 @@
   <div style="clear:both"></div>
 </div>
 
+<div>
+  <p><strong>Note:</strong>  Please be sure to select the proper list as background to get reliable enrichment statistics. The default list may not always be the best choice.</p>
+  <br/><br/>
+</div>
 <script language="javascript">
   (function() {
     jQuery('#toggle-widgets ol li').each(function(index) {
