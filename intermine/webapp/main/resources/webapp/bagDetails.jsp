@@ -298,7 +298,7 @@
 </div>
 
 <div>
-  <p><strong>Note:</strong>  Please be sure to select the proper list as background to get reliable enrichment statistics. The default list may not always be the best choice.</p>
+  <p><strong>Note:</strong> For the enrichment widgets you should change the background population from the default to one of the available gene sets or your own background gene list.</p>
   <br/><br/>
 </div>
 <script language="javascript">
