@@ -16,7 +16,8 @@ Link to our YouTube Channel:
 https://www.youtube.com/channel/UChGXUcLQyRYCGPGfqNJ-XBQ
 
 Presentations:
-[Generating Customized Integrated Functional Annotation Datasets with BovineMine](http://bovinegenome.org/sites/bovinegenome.org/files/presentation/isag2017_elsik.pptx) - ISAG 2017
+
+Generating Customized Integrated Functional Annotation Datasets with BovineMine - ISAG 2017 - http://bovinegenome.org/sites/bovinegenome.org/files/presentation/isag2017_elsik.pptx
 
 BovineMine integrates datasets from various data sources such as NCBI RefSeq, ENSEMBL, UniProt, GO annotations, EnsemblCompara, Homologene, Reactome.
 Additionally, BovineMine also integrates datasets from http://www.bovinegenome.org.
