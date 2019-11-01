@@ -1,0 +1,47 @@
+#contains only classes that come from more than one source
+#for each class contained every source for that class must be listed
+
+# priority for fields declared in superclass are not overridden by different order in subclass
+# e.g. identfier and organism always have priority as defined in BioEntity
+
+# For example, to give interpro prioritiy over uniprot for the 'shortName' field of ProteinDomain:
+#
+# ProteinDomain.shortName = interpro, uniprot
+
+# To give flybase priority over all other sources for Gene name:
+#
+# Gene.name = flybase, *
+Polypeptide.source=bovine-umd3.1.1-protein-ncbi,bovine-ars-ucd1.2-protein-ncbi,*
+Gene.status = bovine-ARS-UCD1.2-coding-gff, bovine-UMD3.1.1-coding-gff, oari-Oar-v4.0-coding-gff, oari-Oar-v3.1-coding-gff, bovine-ARS-UCD1.2-noncoding-gff,oari-Oar-v4.0-noncoding-gff, *
+Gene.length = bovine-ARS-UCD1.2-coding-gff, bovine-UMD3.1.1-coding-gff, oari-Oar-v4.0-coding-gff, oari-Oar-v3.1-coding-gff, bovine-ARS-UCD1.2-noncoding-gff,oari-Oar-v4.0-noncoding-gff, *
+Gene.chromosomeLocation = bovine-ARS-UCD1.2-coding-gff, bovine-UMD3.1.1-coding-gff, oari-Oar-v4.0-coding-gff, oari-Oar-v3.1-coding-gff, bovine-ARS-UCD1.2-noncoding-gff,oari-Oar-v4.0-noncoding-gff, *
+Gene.chromosome = bovine-ARS-UCD1.2-coding-gff, bovine-UMD3.1.1-coding-gff, oari-Oar-v4.0-coding-gff, oari-Oar-v3.1-coding-gff, bovine-ARS-UCD1.2-noncoding-gff,oari-Oar-v4.0-noncoding-gff, *
+Transcript.chromosomeLocation = bovine-ARS-UCD1.2-coding-gff, bovine-UMD3.1.1-coding-gff, oari-Oar-v4.0-coding-gff, oari-Oar-v3.1-coding-gff, bovine-ARS-UCD1.2-noncoding-gff,oari-Oar-v4.0-noncoding-gff, *
+Transcript.chromosome = bovine-ARS-UCD1.2-coding-gff, bovine-UMD3.1.1-coding-gff, oari-Oar-v4.0-coding-gff, oari-Oar-v3.1-coding-gff, bovine-ARS-UCD1.2-noncoding-gff,oari-Oar-v4.0-noncoding-gff, *
+Gene.description = bovine-ARS-UCD1.2-coding-gff, bovine-UMD3.1.1-coding-gff, oari-Oar-v4.0-coding-gff, oari-Oar-v3.1-coding-gff, bovine-ARS-UCD1.2-noncoding-gff,oari-Oar-v4.0-noncoding-gff, *
+Transcript.description = bovine-ARS-UCD1.2-coding-gff, bovine-UMD3.1.1-coding-gff, oari-Oar-v4.0-coding-gff, oari-Oar-v3.1-coding-gff, bovine-ARS-UCD1.2-noncoding-gff,oari-Oar-v4.0-noncoding-gff, *
+Transcript.length = bovine-ARS-UCD1.2-coding-gff, bovine-UMD3.1.1-coding-gff, oari-Oar-v4.0-coding-gff, oari-Oar-v3.1-coding-gff, bovine-ARS-UCD1.2-noncoding-gff,oari-Oar-v4.0-noncoding-gff, *
+Gene.symbol = bovine-ARS-UCD1.2-coding-gff, bovine-UMD3.1.1-coding-gff, oari-Oar-v4.0-coding-gff, oari-Oar-v3.1-coding-gff, bovine-ARS-UCD1.2-noncoding-gff,oari-Oar-v4.0-noncoding-gff, *
+Transcript.symbol = bovine-ARS-UCD1.2-coding-gff, bovine-UMD3.1.1-coding-gff, oari-Oar-v4.0-coding-gff, oari-Oar-v3.1-coding-gff, bovine-ARS-UCD1.2-noncoding-gff,oari-Oar-v4.0-noncoding-gff, *
+Gene.biotype = bovine-ARS-UCD1.2-coding-gff, bovine-UMD3.1.1-coding-gff, oari-Oar-v4.0-coding-gff, oari-Oar-v3.1-coding-gff, bovine-ARS-UCD1.2-noncoding-gff,oari-Oar-v4.0-noncoding-gff, *
+Transcript.gene = bovine-ARS-UCD1.2-coding-gff, bovine-UMD3.1.1-coding-gff, oari-Oar-v4.0-coding-gff, oari-Oar-v3.1-coding-gff, bovine-ARS-UCD1.2-noncoding-gff,oari-Oar-v4.0-noncoding-gff, *
+MRNA.proteinIdentifier = bovine-ARS-UCD1.2-coding-gff, bovine-UMD3.1.1-coding-gff, oari-Oar-v4.0-coding-gff, oari-Oar-v3.1-coding-gff, bovine-ARS-UCD1.2-noncoding-gff,oari-Oar-v4.0-noncoding-gff, *
+Transcript.source = bovine-ARS-UCD1.2-coding-gff, bovine-UMD3.1.1-coding-gff, oari-Oar-v4.0-coding-gff, oari-Oar-v3.1-coding-gff,chir-coding-gff, bovine-ARS-UCD1.2-noncoding-gff,oari-Oar-v4.0-noncoding-gff,bovine-umd3.1.1-protein-ensembl,bovine-ars-ucd1.2-protein-ncbi, bovine-umd3.1.1-ensembl-cds-fasta,bovine-umd3.1.1-refseq-cds-fasta,chir-ensembl-gff,chir-ars1-protein-ncbi,oar-ensembl-gff,oari-Oar-v3.1-protein-ensembl,*
+Polypeptide.sequence = bovine-ars-ucd1.2-protein-ncbi, bovine-umd3.1.1-protein-ncbi, oari-Oar-v3.1-protein-ncbi, oari-Oar-v4.0-protein-ncbi, *
+Polypeptide.mrnaIdentifier = bovine-ars-ucd1.2-protein-ncbi, bovine-umd3.1.1-protein-ncbi, oari-Oar-v3.1-protein-ncbi, oari-Oar-v4.0-protein-ncbi, *
+Polypeptide.mrna = bovine-ars-ucd1.2-protein-ncbi, bovine-umd3.1.1-protein-ncbi, oari-Oar-v3.1-protein-ncbi, oari-Oar-v4.0-protein-ncbi, *
+Polypeptide.geneIdentifier = bovine-ars-ucd1.2-protein-ncbi, bovine-umd3.1.1-protein-ncbi, oari-Oar-v3.1-protein-ncbi, oari-Oar-v4.0-protein-ncbi, *
+Polypeptide.gene = bovine-ars-ucd1.2-protein-ncbi, bovine-umd3.1.1-protein-ncbi, oari-Oar-v3.1-protein-ncbi, oari-Oar-v4.0-protein-ncbi, *
+Protein.sequence = bovine-uniprot, *
+ProteinDomain.shortName = interpro, *
+Protein.organism = bovine-uniprot, go-annotation, *
+MRNA.sequenceOntologyTerm = bovine-ARS-UCD1.2-coding-gff, bovine-UMD3.1.1-coding-gff, oari-Oar-v4.0-coding-gff, oari-Oar-v3.1-coding-gff, bovine-ARS-UCD1.2-noncoding-gff,bovine-UMD3.1.1-noncoding-gff,oari-Oar-v4.0-noncoding-gff,chir-ars1-ensembl-cds-fasta,bovine-umd3.1.1-rnaseq-expression-for-refseq, bovine-ars-ucd1.2-rnaseq-expression-for-refseq, bovine-ensembl-gff,bovine-umd3.1.1-rnaseq-expression-for-ensembl,bovine-dbsnp-variation-I, bovine-dbsnp-variation-VII, bovine-umd3.1.1-transcript-alias, sheep-oar_v3.1-transcript-alias
+SNP.sequenceOntologyTerm = *,bovine-umd3.1.1-qtl-gff, bovine-ars-ucd1.2-qtl-gff
+Indel.sequenceOntologyTerm = *,bovine-umd3.1.1-qtl-gff, bovine-ars-ucd1.2-qtl-gff
+RRNA.sequenceOntologyTerm = *,bovine-ensembl-gff,bovine-dbsnp-variation-I, bovine-umd3.1.1-transcript-alias, sheep-oar_v3.1-transcript-alias
+TRNA.sequenceOntologyTerm = *,bovine-ensembl-gff,bovine-dbsnp-variation-VII
+MiRNA.sequenceOntologyTerm = *,bovine-ensembl-gff,bovine-dbsnp-variation-I
+SnoRNA.sequenceOntologyTerm = *,bovine-ensembl-gff,bovine-dbsnp-variation-I
+SnRNA.sequenceOntologyTerm = *,bovine-ensembl-gff,bovine-dbsnp-variation-I
+PrimaryTranscript.sequenceOntologyTerm = *,bovine-dbsnp-variation-I, bovine-dbsnp-variation-VII,bovine-umd3.1.1-transcript-alias, sheep-oar_v3.1-transcript-alias
+Gene.source = bovine-ARS-UCD1.2-coding-gff,bovine-UMD3.1.1-coding-gff, bovine-ars-ucd1.2-rnaseq-expression-for-refseq,bovine-umd3.1.1-rnaseq-expression-for-refseq,bovine-ensembl-gff,ensembl-compara,oar-ensembl-gff,bovine-UMD3.1.1-noncoding-gff,oari-Oar-v4.0-coding-gff,oari-Oar-v3.1-coding-gff,oari-Oar-v4.0-noncoding-gff,bovine-xref,bovine-ars-ucd1.2-protein-ncbi,bovine-umd3.1.1-protein-ncbi, bovine-umd3.1.1-protein-ensembl,gpluse-orthologs,chir-xref,chir-ars1-protein-ncbi,oari-xref,oari-Oar-v4.0-protein-ncbi,oari-Oar-v3.1-protein-ncbi,oari-Oar-v3.1-protein-ensembl,ncbi-pubmed-gene-umd3.1.1, ncbi-pubmed-gene-oarv3,ncbi-pubmed-gene-ars1, *
